@@ -1,5 +1,5 @@
 import csv
-import time
+import os.path
 from csv import writer
 from csv import reader
 
@@ -13,12 +13,28 @@ from csv import reader
 # determine whether or not to hide a unique basetype, give it a colored tier, or mark it grey.
 # For now, just mark them grey if minval != ""
 
-strCSVin = r'E:\PoE Stuff\Filters\1\01_dups_removed.csv'
-strCSVout = r'E:\PoE Stuff\Filters\1\02_assigned.csv'
+strCSVin = r'E:\PoE Stuff\Filters\1\exp\020_dup_other_removed.csv'
+strCSVout = r'E:\PoE Stuff\Filters\1\exp\030_assigned.csv'
+strCSVbak = r'E:\PoE Stuff\Filters\1\exp\030_assigned.bak.csv'
 
 def func_init():
+
+    # Check for existence of a previous .bak file and delete it if it's found.
+    if os.path.isfile(strCSVbak):
+        os.remove(strCSVbak)
+
+    # If the output file already exists we back it up and create a new one.
+    # The next script will look to see if that .bak file is present. If it is,
+    # it will scan it for lines where the Override field was set, and update
+    # the new file this script will have just created.
+    # The next time we run these scripts the old .bak will be deleted just above.
+    if os.path.isfile(strCSVout):
+        os.rename(strCSVout, strCSVbak)
+    if os.path.isfile(strCSVout):
+        os.remove(strCSVout)
+
     global csv_writer
-    # Initialize the document
+    # Initialize the new document
     with open(strCSVout, 'w', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
@@ -55,43 +71,44 @@ def func_init():
 def assign_tier(str_chaosEquivalent, str_minval):
     str_chaosEquivalent = float(str_chaosEquivalent)
     #print (str_chaosEquivalent)
-    if str_chaosEquivalent < 0.49:
+    if str_chaosEquivalent < 0.1:
         str_strTier = 10
         str_SetFontSize = "32"
         str_PlayAlertSound = "'9-1"
-    if str_chaosEquivalent >= 0.49:
+    if str_chaosEquivalent >= 0.1:
         str_strTier = 9
         str_SetFontSize = "32"
         str_PlayAlertSound = "'9-1"
-    if str_chaosEquivalent >= 0.74:
+    if str_chaosEquivalent >= 0.15:
         str_strTier = 8
         str_SetFontSize = "36"
         str_PlayAlertSound = "'9-1"
-    if str_chaosEquivalent >= 0.99:
+#    if str_chaosEquivalent >= 0.99:
+    if str_chaosEquivalent >= 1:
         str_strTier = 7
         str_SetFontSize = "36"
         str_PlayAlertSound = "'9-1"
-    if str_chaosEquivalent >= 4.99:
+    if str_chaosEquivalent >= 5:
         str_strTier = 6
         str_SetFontSize = "39"
         str_PlayAlertSound = "9-300"
-    if str_chaosEquivalent >= 9.99:
+    if str_chaosEquivalent >= 10:
         str_strTier = 5
         str_SetFontSize = "39"
         str_PlayAlertSound = "8-300"
-    if str_chaosEquivalent >= 19.99:
+    if str_chaosEquivalent >= 20:
         str_strTier = 4
         str_SetFontSize = "42"
         str_PlayAlertSound = "7-300"
-    if str_chaosEquivalent >= 24.99:
+    if str_chaosEquivalent >= 25:
         str_strTier = 3
         str_SetFontSize = "42"
         str_PlayAlertSound = "6-300"
-    if str_chaosEquivalent >= 49.99:
+    if str_chaosEquivalent >= 50:
         str_strTier = 2
         str_SetFontSize = "45"
         str_PlayAlertSound = "16-300"
-    if str_chaosEquivalent >= 99.99:
+    if str_chaosEquivalent >= 100:
         str_strTier = 1
         str_SetFontSize = "45"
         str_PlayAlertSound = "2-300"
@@ -139,8 +156,8 @@ def assign_color(str_itemType, str_strTier):
     return str_SetBackgroundColor, str_PlayEffect
 
 def assign_icon(str_itemType, str_strTier):
-    print (str_itemType)
-    print(str_Tier)
+    #print (str_itemType)
+    #print(str_Tier)
     # Currency
     if str_itemType == "curr" or str_itemType == "frag":
         str_MinimapIcon = "Hexagon"
@@ -287,7 +304,7 @@ with open(strCSVin, 'r') as read_obj, \
             # Fix category names and reassign items that poe.ninja have incorrectly categorized
             # may need to change more later (beasts, umap, etc)
             ####################################### beasts are Class Map Frags? No, only lures are.
-            if str_category == "frag" or "splinter" in str_name:
+            if (((str_category == "frag" in str_name) and ("Goddess" not in str_name)) or ("splinter" in str_name)):
                 str_category = "curr"
             if str_category == "inv":
                 str_category = "frag"

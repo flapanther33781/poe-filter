@@ -13,38 +13,38 @@ from csv import reader
 # 2. Put all of that information into a spreadsheet.
 
 dictURLS = {
-    'base' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=BaseType',
-    'beast' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Beast',
-    'clus' : 'https://poe.ninja/api/data/ItemOverview?league=Standard&type=ClusterJewel&language=en',
-    'curr' : 'https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency',
-    'deli' : 'https://poe.ninja/api/data/ItemOverview?league=Standard&type=DeliriumOrb&language=en',
-    'div' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=DivinationCard',
-    'ench' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=HelmetEnchant',
-    'ess' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Essence',
-    'foss' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Fossil',
-    'frag' : 'https://poe.ninja/api/data/currencyoverview?league=Standard&type=Fragment',
-    'gem' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=SkillGem',
-    'inc' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Incubator',
-    'inv' : 'https://poe.ninja/api/data/ItemOverview?league=Standard&type=Invitation&language=en',
-    'oil' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Oil',
-    'prop' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Prophecy',
-    'res' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Resonator',
-    'scar' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=Scarab',
-    'uacc' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueAccessory',
-    'uarm' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueArmour',
-    'ufla' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueFlask',
-    'ujew' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueJewel',
-    'umap' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueMap',
-    'uweap' : 'https://poe.ninja/api/data/itemoverview?league=Standard&type=UniqueWeapon',
-    'vial' : 'https://poe.ninja/api/data/ItemOverview?league=Standard&type=Vial&language=en',
-    'watch' : 'https://poe.ninja/api/data/ItemOverview?league=Standard&type=Watchstone&language=en',
+    'base' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=BaseType',
+    'beast' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Beast',
+    'clus' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=ClusterJewel&language=en',
+    'curr' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Currency',
+    'deli' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=DeliriumOrb&language=en',
+    'div' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=DivinationCard',
+    'ench' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=HelmetEnchant',
+    'ess' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Essence',
+    'foss' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Fossil',
+    'frag' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Fragment',
+    'gem' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=SkillGem',
+    'inc' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Incubator',
+    'inv' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Invitation&language=en',
+    'oil' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Oil',
+    'prop' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Prophecy',
+    'res' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Resonator',
+    'scar' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Scarab',
+    'uacc' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueAccessory',
+    'uarm' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueArmour',
+    'ufla' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueFlask',
+    'ujew' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueJewel',
+    'umap' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueMap',
+    'uweap' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueWeapon',
+    'vial' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Vial&language=en',
+    'watch' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Watchstone&language=en',
     # Keeping these separate in the list because these must reference the latest league
     # If not then we get results of maps from all past leagues
-    'map' : 'https://poe.ninja/api/data/ItemOverview?league=Ultimatum&type=Map',
-    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=Ultimatum&type=BlightedMap',
+    'map' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Map',
+    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=BlightedMap',
 }
 
-strCSVout = r'E:\PoE Stuff\Filters\1\00_compiled.csv'
+strCSVout = r'E:\PoE Stuff\Filters\1\exp\015_compiled.csv'
 
 def func_init():
     global csv_writer
@@ -92,28 +92,45 @@ def func_currency(category, URL):
 
         # iterate through each item and add name and values as row
         for item in json_data["lines"]:
-            row = [category]
-            row.append(item["currencyTypeName"])
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append(item["chaosEquivalent"])
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            row.append("")
-            print (row)
-            # Add the updated row / list to the output file
+            if item["currencyTypeName"] != "Scroll of Wisdom":
+                row = [category]
+                row.append(item["currencyTypeName"])
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append(item["chaosEquivalent"])
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                row.append("")
+                print (row)
+                # Add the updated row / list to the output file
+                csv_writer.writerow(row)
+
+        # Have to block out Scrolls of Wisdom above and add here
+        # Because otherwise they'll be in the final file twice (under curr & frags)
+        if category == "curr":
+            row = [category,"Scroll of Wisdom","","","","","","","","","","",".1","","","","","","",""]
+            csv_writer.writerow(row)
+
+        # Have to manually add Instilling Orb
+        if category == "curr":
+            row = [category,"Instilling Orb","","","","","","","","","","","1","","","","","","",""]
+            csv_writer.writerow(row)
+
+        # Have to manually add Enkindling Orb
+        if category == "curr":
+            row = [category,"Enkindling Orb","","","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
 
         # Have to manually add Chaos Orbs???
@@ -121,9 +138,9 @@ def func_currency(category, URL):
             row = [category,"Chaos Orb","","","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
 
-        # Have to manually add Scrolls of Wisdom???
+        # Have to manually add Rogue's Marker???
         if category == "curr":
-            row = [category,"Scroll of Wisdom","","","","","","","","","","",".1","","","","","","",""]
+            row = [category,"Rogue's Marker","","","","","","","","","","",".2","","","","","","",""]
             csv_writer.writerow(row)
 
         # Have to manually add Ritual Splinters???
@@ -138,7 +155,7 @@ def func_currency(category, URL):
 
         # Have to manually add Inscribed Ultimatum
         if category == "frag":
-            row = [category,"Scroll of Wisdom","","","","","","","","","","","1","","","","","","",""]
+            row = [category,"Inscribed Ultimatum","","","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
 
 def func_other(category, URL):
