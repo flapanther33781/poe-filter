@@ -14,7 +14,7 @@ from csv import reader
 # My filters are in "C:\Users\<user>\Documents\My Games\Path of Exile"
 
 strUserSettings = r'E:\PoE Stuff\Filters\1\exp\00_user_settings.txt'
-strCSVin = r'E:\PoE Stuff\Filters\1\exp\030_assigned.csv'
+strCSVin = r'E:\PoE Stuff\Filters\1\exp\038_assigned.csv'
 strCSVinOther = r'E:\PoE Stuff\Filters\1\exp\ZZ_other.csv'
 strTXTout = r'E:\PoE Stuff\Filters\1\exp\030_filter.filter'
 arrInfluences = ["Crusader","Elder","Hunter","Redeemer","Shaper","Warlord"]
@@ -29,43 +29,56 @@ def func_init():
     global booShowNM5S
 
     # Set defaults
-    strOverallStrictness = "10"
-    strRareCutoff = "0"
-    strGrayCutoff = "0"
-    booShowT11 = 1
-    booShowNM6S = 1
-    booShowNM5S = 1
+    strOverallStrictness = 10
+    strRareCutoff = 0
+    strGrayCutoff = 0
+    booShowT11 = True
+    booShowNM6S = True
+    booShowNM5S = True
 
     # Overwrite defaults if found in settings file
     with open(r'E:\PoE Stuff\Filters\1\exp\00_user_settings.txt', 'r') as f:
         for line in f:
             if "Overall Strictness: " in line:
                 strOverallStrictness = (line.split("Overall Strictness: ")[1])
-                strOverallStrictness = strOverallStrictness.strip()
+                strOverallStrictness = int(strOverallStrictness.strip())
                 #print ("strOverallStrictness is " + strOverallStrictness)
             if "Non-special Rare cutoff: " in line:
                 strRareCutoff = (line.split("Non-special Rare cutoff: ")[1])
-                strRareCutoff = strRareCutoff.strip()
+                strRareCutoff = int(strRareCutoff.strip())
                 #print ("strRareCutoff is " + strRareCutoff)
             if "Gray item cutoff: " in line:
                 strGrayCutoff = (line.split("Gray item cutoff: ")[1])
-                strGrayCutoff = strGrayCutoff.strip()
+                strGrayCutoff = int(strGrayCutoff.strip())
                 #print ("strGrayCutoff is " + strGrayCutoff)
             if "Show gray items: " in line:
                 booShowT11 = (line.split("Show gray items: ")[1])
-                booShowT11 = booShowT11.strip()
+                booShowT11 = bool(booShowT11.strip())
                 #print ("booShowT11 is " + booShowT11)
             if "Show Normal/Magic 6-socket items: " in line:
                 booShowNM6S = (line.split("Show Normal/Magic 6-socket items: ")[1])
-                booShowNM6S = booShowNM6S.strip()
+                booShowNM6S = bool(booShowNM6S.strip())
                 #print ("booShowNM6S is " + booShowNM6S)
             if "Show Normal/Magic 5-socket items: " in line:
                 booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
-                booShowNM5S = booShowNM5S.strip()
+                booShowNM5S = bool(booShowNM5S.strip())
                 #print ("booShowNM5S is " + booShowNM5S)
 
-    # Hard setting this right now so I can play with the GUI without screwing up my filters
-    strRareCutoff = "76"
+    # Hard setting these right now so I can play with the GUI without screwing up my filters
+    strOverallStrictness = 9
+    strRareCutoff = 76
+    booShowNM6S = False
+    booShowNM5S = False
+
+    print ()
+    print ("User Settings read in.  Values are:")
+    print ("strOverallStrictness :" +str(strOverallStrictness))
+    print ("strRareCutoff :" +str(strRareCutoff))
+    print ("strGrayCutoff :" +str(strGrayCutoff))
+    print ("booShowT11 :" +str(booShowT11))
+    print ("booShowNM6S :" +str(booShowNM6S))
+    print ("booShowNM5S :" +str(booShowNM5S))
+    print ()
 
     # Open the output file in write mode
     with open(strTXTout, 'w', newline='') as write_obj:
@@ -170,38 +183,38 @@ def func_static_intro():
         write_obj.write("\n")
         write_obj.write("Show\n")
         write_obj.write("	Sockets = 6\n")
-        write_obj.write("	Rarity Unique\n")
-        write_obj.write("	SetFontSize 45\n")
+        write_obj.write("	Rarity Unique ######################## NOTE: This section also catches 6S Replicas, not caught elsewhere!\n")
+        write_obj.write("	SetFontSize 40\n")
         write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("	PlayAlertSound 10 300\n")
         write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Diamond\n")
+        write_obj.write("	MinimapIcon 0 Purple Cross\n")
         write_obj.write("Show\n")
         write_obj.write("	Sockets = 6\n")
         write_obj.write("	ItemLevel >= 84\n")
         write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 45\n")
+        write_obj.write("	SetFontSize 40\n")
         write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("	PlayAlertSound 10 300\n")
         write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Diamond\n")
+        write_obj.write("	MinimapIcon 0 Purple Triangle\n")
         write_obj.write("Show\n")
         write_obj.write("	Sockets = 6\n")
-        write_obj.write("	ItemLevel >= "+strRareCutoff+"\n")
+        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 45\n")
+        write_obj.write("	SetFontSize 40\n")
         write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("	PlayAlertSound 10 300\n")
         write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Diamond\n")
+        write_obj.write("	MinimapIcon 0 Purple Triangle\n")
         if booShowNM6S == 1:
-            write_obj.write("Show\n")
+            write_obj.write("Show # All other 6S below the ilvl mentioned above\n")
             write_obj.write("	Sockets = 6\n")
-            write_obj.write("	SetFontSize 45\n")
-            write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-            write_obj.write("	PlayAlertSound 10 300\n")
-            write_obj.write("	PlayEffect Purple\n")
-            write_obj.write("	MinimapIcon 0 Purple Diamond\n")
+            write_obj.write("	SetFontSize 40\n")
+        write_obj.write("	SetFontSize 35\n")
+        write_obj.write("	SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
+        write_obj.write("	PlayAlertSound 8 300\n")
+        write_obj.write("	MinimapIcon 0 Blue Triangle\n")
         write_obj.write("###########################################################################\n")
         write_obj.write("##### 5L\n")
         write_obj.write("##### Grab if Unique. Rare might be worth something.\n")
@@ -210,21 +223,21 @@ def func_static_intro():
         write_obj.write("\n")
         write_obj.write("Show\n")
         write_obj.write("	LinkedSockets = 5\n")
-        write_obj.write("	Rarity Unique\n")
+        write_obj.write("	Rarity Unique ######################## NOTE: This section also catches 5S Replicas, not caught elsewhere!\n")
         write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 0 Blue Cross\n")
+        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("	PlayAlertSound 10 300\n")
+        write_obj.write("	PlayEffect Purple\n")
+        write_obj.write("	MinimapIcon 0 Purple Cross\n")
         write_obj.write("Show\n")
         write_obj.write("	Sockets = 5\n")
-        write_obj.write("	ItemLevel >= "+strRareCutoff+"\n")
+        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("	Rarity Rare\n")
         write_obj.write("	SetFontSize 45\n")
         write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("	PlayAlertSound 10 300\n")
         write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Diamond\n")
+        write_obj.write("	MinimapIcon 0 Blue Triangle\n")
         if booShowNM5S == 1:
             write_obj.write("Show\n")
             write_obj.write("	LinkedSockets = 5\n")
@@ -252,7 +265,7 @@ def func_static_intro():
         write_obj.write("	MinimapIcon 0 Blue Cross\n")
         write_obj.write("Show\n")
         write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+strRareCutoff+"\n")
+        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("	LinkedSockets = 4\n")
         write_obj.write("	Width = 2\n")
         write_obj.write("	Height = 2\n")
@@ -279,7 +292,7 @@ def func_static_intro():
         write_obj.write("	MinimapIcon 0 Blue Cross\n")
         write_obj.write("Show\n")
         write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+strRareCutoff+"\n")
+        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("	LinkedSockets = 3\n")
         write_obj.write("	Width = 1\n")
         write_obj.write("	Height = 3\n")
@@ -301,7 +314,7 @@ def func_static_intro():
         write_obj.write("	MinimapIcon 0 Blue Cross\n")
         write_obj.write("Show\n")
         write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+strRareCutoff+"\n")
+        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("	Class Rings Amulet Belts Jewel\n")
         write_obj.write("	Sockets > 0\n")
         write_obj.write("	SetFontSize 35\n")
@@ -356,6 +369,7 @@ def func_static_intro():
     print ("Static Intro complete.")
 
 def func_curr():
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -367,13 +381,15 @@ def func_curr():
         write_obj.write("##### Currency\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i) + ".")
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -401,13 +417,18 @@ def func_curr():
                             EffectToWrite = str_PlayEffect
                             IconToWrite = str_MinimapIcon
 
-            if LineToWrite != "":
+            if (LineToWrite != ""):
                 str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                 str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -422,6 +443,12 @@ def func_curr():
     print ("Currency section complete.")
 
 def func_frag():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -435,13 +462,15 @@ def func_frag():
         write_obj.write("##### Map Fragments & Scarabs\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -461,7 +490,7 @@ def func_frag():
                         str_PlayEffect = row[18]
                         str_MinimapIcon = row[19]
 
-                        if int(str_Tier) == i and (str_category == "frag" or str_category == "Map Fragments"):
+                        if int(str_Tier) == i and (str_category == "frag" or str_category == "scar"):
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -475,7 +504,12 @@ def func_frag():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Map\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -490,6 +524,12 @@ def func_frag():
     print ("Fragments and Sacarabs section complete.")
 
 def func_oil():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -503,13 +543,15 @@ def func_oil():
         write_obj.write("##### Oil\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -543,7 +585,12 @@ def func_oil():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -558,6 +605,12 @@ def func_oil():
     print ("Oil section complete.")
 
 def func_heist():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -571,14 +624,16 @@ def func_heist():
         write_obj.write("##### Heist - added from ""other"" csv file, not tracked by poe.ninja at this time. \n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         # ilvl81 items
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -615,7 +670,12 @@ def func_heist():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Heist\n")
                 write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -630,13 +690,15 @@ def func_heist():
                     write_obj.write("	MinimapIcon "+IconToWrite+"\n")
 
         # ilvl83 items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -673,7 +735,12 @@ def func_heist():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Heist\n")
                 write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -688,13 +755,15 @@ def func_heist():
                     write_obj.write("	MinimapIcon "+IconToWrite+"\n")
 
         # ilvl84 items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -731,7 +800,12 @@ def func_heist():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Heist\n")
                 write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -746,13 +820,15 @@ def func_heist():
                     write_obj.write("	MinimapIcon "+IconToWrite+"\n")
 
         # All other items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -787,7 +863,12 @@ def func_heist():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Heist\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -815,6 +896,12 @@ def func_heist():
     print ("Heist section complete.")
 
 def func_cluster():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -891,6 +978,12 @@ def func_cluster():
     print ("Cluster Jewel section complete.")
 
 def func_other():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -905,13 +998,15 @@ def func_other():
         write_obj.write("#####\n")
 
         # ilvl81 items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -946,7 +1041,12 @@ def func_other():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class "+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("	SetTextColor 0 0 0 255\n")
@@ -960,18 +1060,129 @@ def func_other():
 
         # Create section
         write_obj.write("\n")
-        write_obj.write("###########################################################################\n")
-        write_obj.write("##### Expedition Currency \n")
-        write_obj.write("#####\n")
+        write_obj.write("################################################################################\n")
+        write_obj.write("##### Expedition items - stacksize 20+ first, then 10+, then singles.\n")
+        write_obj.write("##### Will try to automate stacksizes later.\n")
+        write_obj.write("\n")
+        write_obj.write("#### Tier 1\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 20\n")
+        write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    PlayAlertSound 2 300\n")
+        write_obj.write("    PlayEffect White\n")
+        write_obj.write("    MinimapIcon 0 White Diamond\n")
+
+        write_obj.write("#### Tier 6\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 20\n")
+        write_obj.write("    BaseType \"Grand Sun Artifact\" \"Grand Broken Circle Artifact\" \"Grand Order Artifact\" \"Grand Black Scythe Artifact\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
+        write_obj.write("    PlayAlertSound 9 300\n")
+
+        write_obj.write("#### Tier 7\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 20\n")
+        write_obj.write("    BaseType \"Greater Sun Artifact\"\n")
+        write_obj.write("    SetFontSize 36\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
+
+        write_obj.write("#### Tier 8\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 20\n")
+        write_obj.write("    BaseType \"Greater Broken Circle Artifact\" \"Greater Order Artifact\" \"Common Broken Circle Artifact\" \"Lesser Black Scythe Artifact\" \"Common Sun Artifact\" \"Lesser Sun Artifact\" \"Common Order Artifact\" \"Lesser Order Artifact\" \"Lesser Broken Circle Artifact\" \"Greater Black Scythe Artifact\" \"Common Black Scythe Artifact\"\n")
+        write_obj.write("    SetFontSize 36\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 244 92 36 230 # Orange\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
+
+        write_obj.write("#### Tier 1\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 10\n")
+        write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    PlayAlertSound 2 300\n")
+        write_obj.write("    PlayEffect White\n")
+        write_obj.write("    MinimapIcon 0 White Diamond\n")
+
+        write_obj.write("#### Tier 3\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 10\n")
+        write_obj.write("    BaseType \"Astragali\" \"Scrap Metal\"\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 132 211 250 255 # Cyan\n")
+        write_obj.write("    PlayAlertSound 6 300\n")
+        write_obj.write("    PlayEffect Cyan\n")
+        write_obj.write("    MinimapIcon 1 Cyan Pentagon\n")
+
+        write_obj.write("#### Tier 5\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 10\n")
+        write_obj.write("    BaseType \"Scrap Metal\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Pentagon\n")
+
+        write_obj.write("#### Tier 7\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 10\n")
+        write_obj.write("    BaseType \"Grand Sun Artifact\" \"Grand Broken Circle Artifact\" \"Grand Order Artifact\" \"Grand Black Scythe Artifact\" \"Greater Sun Artifact\"\n")
+        write_obj.write("    SetFontSize 36\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
+
+        write_obj.write("#### Tier 8\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Currency\n")
+        write_obj.write("    StackSize >= 10\n")
+        write_obj.write("    BaseType \"Greater Broken Circle Artifact\" \"Greater Order Artifact\" \"Common Broken Circle Artifact\" \"Lesser Black Scythe Artifact\" \"Common Sun Artifact\" \"Lesser Sun Artifact\" \"Common Order Artifact\" \"Lesser Order Artifact\" \"Lesser Broken Circle Artifact\" \"Greater Black Scythe Artifact\" \"Common Black Scythe Artifact\"\n")
+        write_obj.write("    SetFontSize 36\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 244 92 36 230 # Orange\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
 
         # Expedition Currency items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -1007,7 +1218,12 @@ def func_other():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType "+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1073,6 +1289,12 @@ def func_other():
     print ("Other section complete.")
 
 def func_watch():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1088,13 +1310,15 @@ def func_watch():
         write_obj.write("#####\n")
 
         # ilvl81 items
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -1129,7 +1353,12 @@ def func_watch():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	BaseType "+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("	SetTextColor 0 0 0 255\n")
@@ -1141,7 +1370,7 @@ def func_watch():
                 if IconToWrite != "":
                     write_obj.write("	MinimapIcon "+IconToWrite+"\n")
 
-        # Last few Heist items
+        # Last few Atlas items
         write_obj.write("\n")
         write_obj.write("##### Not sure if this class includes the items above or separate items.\n")
         write_obj.write("##### Adding here just to be sure.\n")
@@ -1157,6 +1386,12 @@ def func_watch():
     print ("Watchstones section complete.")
 
 def func_deli():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1170,13 +1405,15 @@ def func_deli():
         write_obj.write("##### Delirium Orbs\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1210,7 +1447,12 @@ def func_deli():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1225,6 +1467,12 @@ def func_deli():
     print ("Delirium Orb section complete.")
 
 def func_inv():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1238,13 +1486,15 @@ def func_inv():
         write_obj.write("##### Invitations\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1278,7 +1528,12 @@ def func_inv():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1293,6 +1548,12 @@ def func_inv():
     print ("Invitations section complete.")
 
 def func_vial():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1306,13 +1567,15 @@ def func_vial():
         write_obj.write("##### Vials\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1346,7 +1609,12 @@ def func_vial():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1361,6 +1629,12 @@ def func_vial():
     print ("Vial section complete.")
 
 def func_inc():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1374,13 +1648,15 @@ def func_inc():
         write_obj.write("##### Incubators\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1412,9 +1688,14 @@ def func_inc():
                 str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                 str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                write_obj.write("Show\n")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Incubator\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1429,6 +1710,12 @@ def func_inc():
     print ("Incubator section complete.")
 
 def func_scar():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1442,13 +1729,15 @@ def func_scar():
         write_obj.write("##### Scarabs\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1468,7 +1757,7 @@ def func_scar():
                         str_PlayEffect = row[18]
                         str_MinimapIcon = row[19]
 
-                        if int(str_Tier) == i and str_category == "Map Fragments":
+                        if int(str_Tier) == i and str_category == "scar":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1480,9 +1769,14 @@ def func_scar():
                 str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                 str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                write_obj.write("Show\n")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class ""Map Fragments""\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1497,6 +1791,12 @@ def func_scar():
     print ("Scarab section complete.")
 
 def func_foss():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1510,13 +1810,15 @@ def func_foss():
         write_obj.write("##### Fossils & Resonators\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1536,7 +1838,7 @@ def func_foss():
                         str_PlayEffect = row[18]
                         str_MinimapIcon = row[19]
 
-                        if int(str_Tier) == i and (str_category == "foss" or str_category == "Delve Stackable Socketable Currency"):
+                        if int(str_Tier) == i and (str_category == "foss" or str_category == "res"):
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1550,7 +1852,12 @@ def func_foss():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Stackable\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1565,6 +1872,12 @@ def func_foss():
     print ("Fossil & Resonator section complete.")
 
 def func_ess():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1578,13 +1891,15 @@ def func_ess():
         write_obj.write("##### Essences\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1618,7 +1933,12 @@ def func_ess():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Currency\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1633,6 +1953,12 @@ def func_ess():
     print ("Essences section complete.")
 
 def func_div():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1646,13 +1972,15 @@ def func_div():
         write_obj.write("##### Div Cards\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1686,7 +2014,12 @@ def func_div():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Divination\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1701,6 +2034,12 @@ def func_div():
     print ("Div Card section complete.")
 
 def func_prop():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1714,13 +2053,15 @@ def func_prop():
         write_obj.write("##### Prophecies\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1766,7 +2107,12 @@ def func_prop():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	BaseType ""Prophecy""\n")
                 write_obj.write("	Prophecy "+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -1781,6 +2127,12 @@ def func_prop():
     print ("Prophecies section complete.")
 
 def func_beast():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -1794,13 +2146,15 @@ def func_beast():
         write_obj.write("##### Beasts\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1834,7 +2188,12 @@ def func_beast():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("	SetTextColor 0 0 0 255\n")
@@ -1848,7 +2207,14 @@ def func_beast():
     print ("Beasts section complete.")
 
 def func_replica_umap():
-    # Open the input_file in read mode and output_file in write mode
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
+# Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
@@ -1860,13 +2226,15 @@ def func_replica_umap():
         write_obj.write("##### Replica Maps\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1902,7 +2270,12 @@ def func_replica_umap():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Maps\n")
                 write_obj.write("	Replica True\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -1918,6 +2291,13 @@ def func_replica_umap():
     print ("Replica Maps section complete.")
 
 def func_replica_ujew():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -1930,13 +2310,15 @@ def func_replica_ujew():
         write_obj.write("##### Replica Jewels\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1972,7 +2354,12 @@ def func_replica_ujew():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Jewel\n")
                 write_obj.write("	Replica True\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -1988,6 +2375,13 @@ def func_replica_ujew():
     print ("Replica Jewels section complete.")
 
 def func_replica_ufla():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -2000,13 +2394,15 @@ def func_replica_ufla():
         write_obj.write("##### Replica Flasks\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2042,7 +2438,12 @@ def func_replica_ufla():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Flasks\n")
                 write_obj.write("	Replica True\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2058,6 +2459,13 @@ def func_replica_ufla():
     print ("Replica Flasks section complete.")
 
 def func_replica_uacc():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -2070,13 +2478,15 @@ def func_replica_uacc():
         write_obj.write("##### Replica Accessories\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2112,7 +2522,12 @@ def func_replica_uacc():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Belts Rings Amulet\n")
                 write_obj.write("	Replica True\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2128,6 +2543,12 @@ def func_replica_uacc():
     print ("Replica Accessories section complete.")
 
 def func_normal_maps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
 # Right now I don't think there's any way to get info from poe.ninja about influenced maps or blighted maps.
 # Have posted a question to the dev forum, we'll see what they say.
@@ -2147,13 +2568,15 @@ def func_normal_maps():
         write_obj.write("##### Normal Maps\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             for j in range (16):
@@ -2197,7 +2620,12 @@ def func_normal_maps():
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                     write_obj.write("\n")
                     write_obj.write("##### Economy Tier "+str(i)+ " Map Tier "+str(k)+"\n")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Maps\n")
                     write_obj.write("	Rarity Normal Magic Rare\n")
                     write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2215,6 +2643,12 @@ def func_normal_maps():
     print ("Normal Map section complete.")
 
 def func_influenced_maps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
 # Right now I don't think there's any way to get info fro poe.ninja about influenced maps.
 # So we will hard-set these as Tier 4 for now.
@@ -2244,6 +2678,12 @@ def func_influenced_maps():
     print ("Influenced Map section complete.")
 
 def func_blight_maps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
 # Right now I don't think there's any way to get info fro poe.ninja about influenced maps or blighted maps.
 # Have posted a question to the dev forum, we'll see what they say.
@@ -2263,13 +2703,15 @@ def func_blight_maps():
         write_obj.write("##### Blight Maps\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2305,7 +2747,12 @@ def func_blight_maps():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Maps\n")
                 write_obj.write("	BlightedMap True\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2322,6 +2769,12 @@ def func_blight_maps():
     print ("Blight Map section complete.")
 
 def func_umaps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
 # Right now I don't think there's any way to get info fro poe.ninja about influenced maps or blighted maps.
 # Have posted a question to the dev forum, we'll see what they say.
@@ -2341,13 +2794,15 @@ def func_umaps():
         write_obj.write("##### Unique Maps\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2383,7 +2838,12 @@ def func_umaps():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Class Maps\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2400,6 +2860,12 @@ def func_umaps():
     print ("Unique Map section complete.")
 
 def func_ujew():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -2413,13 +2879,15 @@ def func_ujew():
         write_obj.write("##### Unique Jewels\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2454,7 +2922,12 @@ def func_ujew():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Jewel\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2470,6 +2943,12 @@ def func_ujew():
     print ("Unique Jewel section complete.")
 
 def func_ufla():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -2483,13 +2962,15 @@ def func_ufla():
         write_obj.write("##### Unique Flasks\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2524,7 +3005,12 @@ def func_ufla():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Flasks\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2540,6 +3026,12 @@ def func_ufla():
     print ("Unique Flask section complete.")
 
 def func_uacc():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -2553,13 +3045,15 @@ def func_uacc():
         write_obj.write("##### Unique Accessories\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2594,7 +3088,12 @@ def func_uacc():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Belts Rings Amulet\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -2610,6 +3109,12 @@ def func_uacc():
     print ("Unique Accessories section complete.")
 
 def func_ench():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -2623,13 +3128,15 @@ def func_ench():
         write_obj.write("##### Helment Enchants\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2663,7 +3170,12 @@ def func_ench():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 #write_obj.write("	Class Helm\n")
                 write_obj.write("	HasEnchantment =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -2678,6 +3190,12 @@ def func_ench():
     print ("Helmet Enchants section complete.")
 
 def func_normal_gems():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -2691,18 +3209,20 @@ def func_normal_gems():
         write_obj.write("##### Normal Gems (new GemQualityType ""Superior"" means normal)\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             write_obj.write("\n")
             write_obj.write("##### Tier "+str(i)+"\n")
-            print ("Working on Gems - Tier "+str(i))
+            print ("Working on Normal Gems - Tier "+str(i))
 
             # 21/23c
             with open(strCSVin, 'r') as read_obj:
@@ -2738,7 +3258,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -2789,7 +3314,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -2840,7 +3370,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -2891,7 +3426,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -2942,7 +3482,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -2993,7 +3538,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3044,7 +3594,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3095,7 +3650,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3145,7 +3705,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3195,7 +3760,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3245,7 +3815,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3295,7 +3870,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3345,7 +3925,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3395,7 +3980,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3445,7 +4035,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted True\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3495,7 +4090,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3546,7 +4146,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3597,7 +4202,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3647,7 +4257,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3697,7 +4312,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3747,7 +4367,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3797,7 +4422,12 @@ def func_normal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	Corrupted False\n")
                     write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
@@ -3816,6 +4446,12 @@ def func_normal_gems():
     print ("Normal Gems section complete.")
 
 def func_divergent_gems():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -3829,18 +4465,20 @@ def func_divergent_gems():
         write_obj.write("##### Divergent Gems\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             write_obj.write("\n")
             write_obj.write("##### Tier "+str(i)+"\n")
-            print ("Working on Gems - Tier "+str(i))
+            print ("Working on Divergent Gems - Tier "+str(i))
 
             # 21/23c
             with open(strCSVin, 'r') as read_obj:
@@ -3876,7 +4514,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -3927,7 +4570,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -3978,7 +4626,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4029,7 +4682,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4080,7 +4738,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4131,7 +4794,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4182,7 +4850,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4233,7 +4906,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4283,7 +4961,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4333,7 +5016,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4383,7 +5071,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4433,7 +5126,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4483,7 +5181,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4533,7 +5236,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4583,7 +5291,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted True\n")
@@ -4633,7 +5346,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4684,7 +5402,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4735,7 +5458,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4785,7 +5513,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4835,7 +5568,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4885,7 +5623,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4935,7 +5678,12 @@ def func_divergent_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Divergent\n")
                     write_obj.write("	Corrupted False\n")
@@ -4954,6 +5702,12 @@ def func_divergent_gems():
     print ("Divergent Gems section complete.")
 
 def func_anomalous_gems():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -4967,18 +5721,20 @@ def func_anomalous_gems():
         write_obj.write("##### Anomalous Gems\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             write_obj.write("\n")
             write_obj.write("##### Tier "+str(i)+"\n")
-            print ("Working on Gems - Tier "+str(i))
+            print ("Working on Anomalous Gems - Tier "+str(i))
 
             # 21/23c
             with open(strCSVin, 'r') as read_obj:
@@ -5014,7 +5770,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5065,7 +5826,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5116,7 +5882,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5167,7 +5938,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5218,7 +5994,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5269,7 +6050,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5320,7 +6106,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5371,7 +6162,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5421,7 +6217,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5471,7 +6272,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5521,7 +6327,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5571,7 +6382,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5621,7 +6437,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5671,7 +6492,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5721,7 +6547,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted True\n")
@@ -5771,7 +6602,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -5822,7 +6658,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -5873,7 +6714,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -5923,7 +6769,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -5973,7 +6824,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -6023,7 +6879,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -6073,7 +6934,12 @@ def func_anomalous_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Anomalous\n")
                     write_obj.write("	Corrupted False\n")
@@ -6092,6 +6958,12 @@ def func_anomalous_gems():
     print ("Anomalous Gems section complete.")
 
 def func_phantasmal_gems():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -6105,18 +6977,20 @@ def func_phantasmal_gems():
         write_obj.write("##### Phantasmal Gems\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             write_obj.write("\n")
             write_obj.write("##### Tier "+str(i)+"\n")
-            print ("Working on Gems - Tier "+str(i))
+            print ("Working on Phantasmal Gems - Tier "+str(i))
 
             # 21/23c
             with open(strCSVin, 'r') as read_obj:
@@ -6152,7 +7026,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6203,7 +7082,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6254,7 +7138,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6305,7 +7194,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6356,7 +7250,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6407,7 +7306,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6458,7 +7362,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6509,7 +7418,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6559,7 +7473,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6609,7 +7528,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6659,7 +7583,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6709,7 +7638,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6759,7 +7693,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6809,7 +7748,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6859,7 +7803,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted True\n")
@@ -6909,7 +7858,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -6960,7 +7914,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7011,7 +7970,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7061,7 +8025,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7112,7 +8081,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7162,7 +8136,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7213,7 +8192,12 @@ def func_phantasmal_gems():
                     str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
                     str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Class Gems\n")
                     write_obj.write("	GemQualityType Phantasmal\n")
                     write_obj.write("	Corrupted False\n")
@@ -7232,6 +8216,13 @@ def func_phantasmal_gems():
     print ("Phantasmal Gems section complete.")
 
 def func_uweap_6():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7243,13 +8234,15 @@ def func_uweap_6():
         write_obj.write("##### 6L Unique Weapons\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7284,7 +8277,12 @@ def func_uweap_6():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	Sockets = 6\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7300,6 +8298,13 @@ def func_uweap_6():
     print ("6L Unique Weapon section complete.")
 
 def func_uweap_5():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7311,13 +8316,15 @@ def func_uweap_5():
         write_obj.write("##### 5L Unique Weapons\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7352,7 +8359,12 @@ def func_uweap_5():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	Sockets = 5\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7368,6 +8380,13 @@ def func_uweap_5():
     print ("5L Unique Weapon section complete.")
 
 def func_uweap_0():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7376,16 +8395,18 @@ def func_uweap_0():
 
         # Create section
         write_obj.write("###########################################################################\n")
-        write_obj.write("##### All Other Unique Weapons\n")
+        write_obj.write("##### All Other Unique Weapons (5L and 6L caught at the top of the filter)\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7420,7 +8441,12 @@ def func_uweap_0():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -7435,6 +8461,13 @@ def func_uweap_0():
     print ("All Other Unique Weapon section complete.")
 
 def func_uarm_6():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7446,13 +8479,15 @@ def func_uarm_6():
         write_obj.write("##### 6L Unique Armor\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7487,7 +8522,12 @@ def func_uarm_6():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	Sockets = 6\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7503,6 +8543,13 @@ def func_uarm_6():
     print ("6L Unique Armor section complete.")
 
 def func_uarm_5():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7514,13 +8561,15 @@ def func_uarm_5():
         write_obj.write("##### 5L Unique Armor\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7555,7 +8604,12 @@ def func_uarm_5():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	Sockets = 5\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7572,6 +8626,13 @@ def func_uarm_5():
     print ("5L Unique Armor section complete.")
 
 def func_uarm_0():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7580,16 +8641,18 @@ def func_uarm_0():
 
         # Create section
         write_obj.write("###########################################################################\n")
-        write_obj.write("##### All Other Unique Armor\n")
+        write_obj.write("##### All Other Unique Armor (5L and 6L caught at the top of the filter)\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
-            print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+            booHIDE = False
             if (booShowT11 == False) and (i > strOverallStrictness):
-                continue
-            if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                continue
-            print ("Building data for tier " + str(i) + ".")
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
+            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                print ("Hiding tier " + str(i) + ".")
+                booHIDE = True
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -7624,7 +8687,12 @@ def func_uarm_0():
                 str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                 write_obj.write("\n")
                 write_obj.write("##### Tier "+str(i)+"\n")
-                write_obj.write("Show\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
                 write_obj.write("	Rarity Unique\n")
                 write_obj.write("	BaseType =="+LineToWrite+"\n")
                 write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
@@ -7640,6 +8708,13 @@ def func_uarm_0():
     print ("All Other Unique Armor section complete.")
 
 def func_influenced():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7651,17 +8726,19 @@ def func_influenced():
         write_obj.write("##### Influenced items\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for k in range (86, 81, -1):
             print("Item level "+str(k))
             for strInfluence in arrInfluences:
                 print("Influence "+strInfluence)
                 for i in range (1,12):
-                    print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+                    booHIDE = False
                     if (booShowT11 == False) and (i > strOverallStrictness):
-                        continue
-                    if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                        continue
-                    print ("Building data for tier " + str(i) + ".")
+                        print ("Hiding tier " + str(i) + ".")
+                        booHIDE = True
+                    if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                        print ("Hiding tier " + str(i) + ".")
+                        booHIDE = True
 
                     LineToWrite = ""
                     with open(strCSVin, 'r') as read_obj:
@@ -7704,7 +8781,12 @@ def func_influenced():
                         strInfluence = strInfluence.replace("'", "")
                         write_obj.write("\n")
                         write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
-                        write_obj.write("Show\n")
+                        if booHIDE == False:
+                            print("Showing Tier "+str(i))
+                            write_obj.write("Show\n")
+                        if booHIDE == True:
+                            print("Hiding Tier "+str(i))
+                            write_obj.write("Hide\n")
                         write_obj.write("	HasInfluence == "+strInfluence+"\n")
                         write_obj.write("	ItemLevel >= "+str(k)+"\n")
                         write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7730,6 +8812,13 @@ def func_influenced():
     print ("Influenced section complete.")
 
 def func_non_influenced():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
 
@@ -7741,16 +8830,18 @@ def func_non_influenced():
         write_obj.write("##### Non-influenced bases\n")
         write_obj.write("#####\n")
 
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for k in range (86, 81, -1):
             LineToWrite = ""
             print("Item level "+str(k))
             for i in range (1,12):
-                print ("Strictness filter is " + str(strOverallStrictness) + " and i is " + str(i))
+                booHIDE = False
                 if (booShowT11 == False) and (i > strOverallStrictness):
-                    continue
-                if (booShowT11 == True) and (i < 11) and (i > strOverallStrictness):
-                    continue
-                print ("Building data for tier " + str(i) + ".")
+                    print ("Hiding tier " + str(i) + ".")
+                    booHIDE = True
+                if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                    print ("Hiding tier " + str(i) + ".")
+                    booHIDE = True
 
                 LineToWrite = ""
                 with open(strCSVin, 'r') as read_obj:
@@ -7791,7 +8882,12 @@ def func_non_influenced():
                     str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
                     write_obj.write("\n")
                     write_obj.write("##### Item level "+str(k)+", Tier "+str(i)+"\n")
-                    write_obj.write("Show\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
                     write_obj.write("	Rarity Rare\n")
                     write_obj.write("	ItemLevel >= "+str(k)+"\n")
                     write_obj.write("	BaseType =="+LineToWrite+"\n")
@@ -7808,6 +8904,12 @@ def func_non_influenced():
     print ("Non-influenced bases section complete.")
 
 def func_hide_norm():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
     with open(strTXTout, 'a', newline='') as write_obj:
@@ -7886,7 +8988,7 @@ func_ess()
 func_div()
 func_prop()
 func_deli()
-# func_inv() # All invitations are now under frag section
+func_inv()
 func_curr()
 func_vial()
 func_heist()
@@ -7894,21 +8996,29 @@ func_watch() # what about unique watchstones?
 func_cluster()
 func_other()
 
-# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
-# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
-# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
-# Have to do gems based on level, quality, & corruption
-func_divergent_gems()
-func_anomalous_gems()
-func_phantasmal_gems()
-func_normal_gems()
-
 # Replicas have their own section because they have their own prices
 # Replicas have to go above uniques otherwise might match there
 func_replica_ujew() # replicas only, can't recognize relics yet
 func_replica_ufla() # replicas only, can't recognize relics yet
 func_replica_uacc() # replicas only, can't recognize relics yet
+
+# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
+# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
+# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
+# Replica maps are in the replica section, which must stay above this section.
+# Unique maps above normal, blighted/influenced maps next
 func_replica_umap() # replicas only, can't recognize relics yet
+func_umaps()
+func_blight_maps()
+func_influenced_maps()
+func_normal_maps() # there are no normal replicas
+
+# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
+# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
+# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
+func_ujew() # replicas are filtered out, can't recognize relics yet
+func_ufla() # replicas are filtered out, can't recognize relics yet
+func_uacc() # replicas are filtered out, can't recognize relics yet
 
 # UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR
 # UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR UNIQUE GEAR
@@ -7920,27 +9030,20 @@ func_uarm_0()
 #func_uweap_5() # Once I do catch all 6L and 5L intro I can skip this totally
 func_uweap_0()
 
-# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
-# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
-# UNIQUE JEWELS, FLASKS, ACCESSORIES UNIQUE JEWELS, FLASKS, ACCESSORIES
-func_ujew() # replicas are filtered out, can't recognize relics yet
-func_ufla() # replicas are filtered out, can't recognize relics yet
-func_uacc() # replicas are filtered out, can't recognize relics yet
+# Online filter max 500,000 characters, but game can load much larger filter on hard drive.
+func_influenced()
+func_non_influenced() # Technically we don't need the 5L and 6L sections but this will improve highlighting if they're > Purple
 
-# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
-# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
-# MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS MAPS
-# Replica maps are in the replica section, which must stay above this section.
-# Unique maps above normal, blighted/influenced maps next
-func_umaps()
-func_blight_maps()
-func_influenced_maps()
-func_normal_maps() # there are no normal replicas
-
-# Online filter max 500,000 characters, but game can load much larger filter on hard drive. # 273,000 before this point.
-func_influenced() # already at 568,000 here (!!!)
-# The tiers on these seem pretty off.  I'll probably have to adjust these later.
-func_non_influenced() # At 890,000 characters here (!!!)
+# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
+# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
+# GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS GEMS
+# Have to do gems based on level, quality, & corruption
+# Moved near to bottom because there's a lot to scroll through if you're looking for
+# something on the other side of it.
+func_divergent_gems()
+func_anomalous_gems()
+func_phantasmal_gems()
+func_normal_gems()
 
 # HIDE NORMAL AND MAGIC ITEMS HIDE NORMAL AND MAGIC ITEMS HIDE NORMAL AND MAGIC ITEMS
 # HIDE NORMAL AND MAGIC ITEMS HIDE NORMAL AND MAGIC ITEMS HIDE NORMAL AND MAGIC ITEMS
@@ -7955,20 +9058,13 @@ print('Done!')
 # NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK
 # NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK NEEDS WORK
 
-# func_uweap_0() # need to know how to ignore sockets in dupcheck
-# func_uarm_0() # need to know how to ignore sockets in dupcheck
-
 # Not sure if these can be used in a filter at all.
 # func_beast()
 # Might be able to use these for identified items.
 # func_ench() 
 
-# Rare weapons and armor by tier, sockets, variants, influence (and ilvl?)
-# Rare weapons and armor by tier, sockets, variants, influence (and ilvl?)
-# Rare weapons and armor by tier, sockets, variants, influence (and ilvl?)
-# Rare ilvl >= 65 are economy T10 whether identified or not, based on chaos recipe
-
 # Crafting Recipes
+# Rare ilvl >= 65 are economy T10 whether identified or not, based on chaos recipe
 
 # When we get to hiding things, do explicit hide of currency and items first. Less time to process the filter since 99% is trash.
 # Treat everything else as T1 to make sure we notice it and add it to our filters.
@@ -7977,9 +9073,7 @@ print('Done!')
 # Identified items go before unidentified items? could be caught by the less-specific filters, or we could use HasExplicitMod?
 # Stretch goal: include filtering identified items by # of T1 mods, T2 mods, etc.
 
-# Is code for Maelström working properly??
-
-# Create a header section to go at the top of the filters with info, Patreon, github, etc.
+# Create a header section to go at the top of the filters with info, Patreon, github, thank yous, etc.
 
 #Combine into one class = map but using maptier = None?
 #Show
@@ -7989,6 +9083,7 @@ print('Done!')
 
 
 
+# Is code for Maelström working properly??
 # also check:
 # talismans
 
@@ -7998,3 +9093,8 @@ print('Done!')
 # "Poison Support" "Lesser Poison Support" 
 # Don't make any unique maps gray
 # Don't make any blighted maps gray
+
+
+# Still need to hide items where maxvalue < strGrayCutoff
+# Still need to hide items where maxvalue < strGrayCutoff
+# Still need to hide items where maxvalue < strGrayCutoff

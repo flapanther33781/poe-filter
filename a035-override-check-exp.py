@@ -22,30 +22,49 @@ def func_init():
         print (".bak file not found, nothing for this script to do.")
         print ("Should terminate and move on to the next script now.")
 
-def filter_duplicates(reader, important_cols, ignore_cols):
+def filter_duplicates(reader, important_cols, ignore_dict):
     class RowHash(dict):
         def __hash__(self):
             return hash(tuple(self[col] for col in important_cols))
+
         def __eq__(self, other):
-            if any(self[col] in ignore_cols for col in self):
+            if any(self[col] in ignore_dict.get(col, []) for col in self):
+                return False
+            if self["name"].startswith("Replica") or other["name"].startswith("Replica"):
                 return False
             return tuple(self[col] for col in important_cols) == tuple(other[col] for col in important_cols)
 
     result_dict = {}
     for row in map(RowHash, reader):
-        print(row)
-#        if (row["Override"] != ""):
-#            print (row)
-        if (row in result_dict) and (row["Override"] != ""):
-            #print('Overridden item found:')
-            #print (row)
+        print (row)
+
+        #if (row["name"] == "Regal Shard"):
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #print ("Regal Shard found.")
+            #time.sleep(10)
+
+        #print('Item found in result_dict.  Moving Override info.')
+        if (row in result_dict):
             result_dict[row]["Override"] = row["Override"]
-        elif (row not in result_dict) and (row["Override"] != ""):
-            #print('Overridden item not in dict found:')
             #print (row)
+            #if (row["name"] == "Regal Shard"):
+            #    print('Item found in result_dict.  Moving Override info.')
+            #    print (row)
+            #    time.sleep(10)
+
+        #print('Item not found in result_dict at all.  Adding it.')
+        if (row not in result_dict):
             result_dict[row] = row
-        else:
-            result_dict[row] = row
+            #print (row)
+            #if (row["name"] == "Regal Shard"):
+            #    print('Item not found in result_dict at all.  Adding it.')
+            #    print (row)
+            #    time.sleep(10)
 
     return list(result_dict.values())
 
@@ -59,7 +78,7 @@ def filter_csv(in_filename, out_filename, important_cols, ignore_cols):
         writer2.writeheader()
 
         for row in filter_duplicates(reader, important_cols, ignore_cols):
-            #print (row)
+            print (row)
             writer2.writerow(row)
 
 func_init()

@@ -1,5 +1,6 @@
 import csv
 import requests
+import time
 from csv import writer
 from csv import reader
 
@@ -13,13 +14,13 @@ from csv import reader
 # 2. Put all of that information into a spreadsheet.
 
 dictURLS = {
+    'arts' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Artifact&language=en',
     'base' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=BaseType',
     'beast' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Beast',
     'clus' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=ClusterJewel&language=en',
     'curr' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Currency',
     'deli' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=DeliriumOrb&language=en',
     'div' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=DivinationCard',
-    'ench' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=HelmetEnchant',
     'ess' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Essence',
     'foss' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Fossil',
     'frag' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Fragment',
@@ -42,6 +43,9 @@ dictURLS = {
     # If not then we get results of maps from all past leagues
     'map' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Map',
     'blight' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=BlightedMap',
+
+    # Can't do anything with this right now.
+    # 'ench' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=HelmetEnchant'
 }
 
 strCSVout = r'E:\PoE Stuff\Filters\1\exp\015_compiled.csv'
@@ -118,43 +122,63 @@ def func_currency(category, URL):
                 csv_writer.writerow(row)
 
         # Have to block out Scrolls of Wisdom above and add here
-        # Because otherwise they'll be in the final file twice (under curr & frags)
+        # Because otherwise they'll be in the final file twice (under curr & frags), not sure why poe.ninja's doing that.
         if category == "curr":
             row = [category,"Scroll of Wisdom","","","","","","","","","","",".1","","","","","","",""]
             csv_writer.writerow(row)
 
-        # Have to manually add Instilling Orb
-        if category == "curr":
-            row = [category,"Instilling Orb","","","","","","","","","","","1","","","","","","",""]
-            csv_writer.writerow(row)
-
-        # Have to manually add Enkindling Orb
-        if category == "curr":
-            row = [category,"Enkindling Orb","","","","","","","","","","","1","","","","","","",""]
-            csv_writer.writerow(row)
-
-        # Have to manually add Chaos Orbs???
+        # Have to manually add these orbs???
         if category == "curr":
             row = [category,"Chaos Orb","","","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
+            row = [category,"Instilling Orb","","","","","","","","","","","1","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Enkindling Orb","","","","","","","","","","","1","","","","","","",""]
+            csv_writer.writerow(row)
 
-        # Have to manually add Rogue's Marker???
+        # Have to manually add these shards???
         if category == "curr":
+            # More than .10
+            row = [category,"Ancient Shard","","","","","","","","","","",".5","","","","","","",""]
+            csv_writer.writerow(row)
             row = [category,"Rogue's Marker","","","","","","","","","","",".2","","","","","","",""]
             csv_writer.writerow(row)
-
-        # Have to manually add Ritual Splinters???
-        if category == "curr":
             row = [category,"Ritual Splinter","","","","","","","","","","",".5","","","","","","",""]
             csv_writer.writerow(row)
+            row = [category,"Harbinger's Shard","","","","","","","","","","",".15","","","","","","",""]
+            csv_writer.writerow(row)
 
-        # Have to manually add Chronicle of Atzoatl
+            # More than .01
+            row = [category,"Alteration Shard","","","","","","","","","","",".05","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Chaos Shard","","","","","","","","","","",".05","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Engineer's Shard","","","","","","","","","","",".05","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Regal Shard","","","","","","","","","","",".05","","","","","","",""]
+            csv_writer.writerow(row)
+
+            # Others
+            row = [category,"Horizon Shard","","","","","","","","","","",".001","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Alchemy Shard","","","","","","","","","","",".001","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Binding Shard","","","","","","","","","","",".001","","","","","","",""]
+            csv_writer.writerow(row)
+            row = [category,"Transmutation Shard","","","","","","","","","","",".001","","","","","","",""]
+            csv_writer.writerow(row)
+
+        # Have to manually add stuff to frags category too.
         if category == "frag":
             row = [category,"Chronicle of Atzoatl","","","","","","","","","","","10","","","","","","",""]
             csv_writer.writerow(row)
+            row = [category,"Inscribed Ultimatum","","","","","","","","","","","1","","","","","","",""]
+            csv_writer.writerow(row)
 
-        # Have to manually add Inscribed Ultimatum
-        if category == "frag":
+        # Have to manually add stuff to arts category too.
+        if category == "curr":
+            row = [category,"Greater Broken Circle Artifact","","","","","","","","","","",".01","","","","","","",""]
+            csv_writer.writerow(row)
             row = [category,"Inscribed Ultimatum","","","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
 
@@ -172,7 +196,6 @@ def func_other(category, URL):
 
         # iterate through each item and add name and values as row
         for item in json_data["lines"]:
-            row = [category]
             if "Maelström" in item["name"]:
                 item["name"] = item["name"].replace("Maelström", "Maelstrom")
             if "baseType" in item:
@@ -180,6 +203,7 @@ def func_other(category, URL):
                     if "Maelström" in item["baseType"]:
                         item["baseType"] = item["baseType"].replace("Maelström", "Maelstrom")
 
+            row = [category]
             row.append(item["name"])
             if "baseType" in item: row.append(item["baseType"])
             else: row.append("")
@@ -230,3 +254,12 @@ for urlpair in dictURLS.items():
     else:
         func_other(category, URL)
 print('Done!')
+
+
+
+
+
+
+
+
+
