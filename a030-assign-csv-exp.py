@@ -10,9 +10,8 @@ from csv import reader
 # factorize yet. Make sure it all works, then factorize what we can.
 
 # This script:
-# Run dupcheck first to compile minval/maxval. Eventually we'll use a user-input breakpoint to
-# determine whether or not to hide a unique basetype, give it a colored tier, or mark it grey.
-# For now, just mark them grey if minval != ""
+# Look for an output csv from a prior run of this script, which may have Override fields filled in.
+# If there is one, back it up.  Create a new file.
 
 strUserSettings = r'E:\PoE Stuff\Filters\1\exp\00_user_settings.txt'
 strCSVin = r'E:\PoE Stuff\Filters\1\exp\026_fix_shit.csv'

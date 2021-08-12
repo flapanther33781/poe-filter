@@ -3,6 +3,15 @@ import time
 from csv import writer
 from csv import reader
 
+# Python
+# I know these are all a non-factored mess right now, by design. There are so many
+# variations that need to be handled diff ways that it's actually easier to not
+# factorize yet. Make sure it all works, then factorize what we can.
+
+# This script:
+# Fix some catefody names to make later work easier. Can't do this earlier because if we do then the
+# gems will be treated as duplicates in previous scripts, and we don't want that.
+
 in_filename = r'E:\PoE Stuff\Filters\1\exp\024_uarm_dups_removed.csv'
 out_filename = r'E:\PoE Stuff\Filters\1\exp\026_fix_shit.csv'
 

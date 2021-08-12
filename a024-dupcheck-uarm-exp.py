@@ -3,13 +3,22 @@ import time
 from csv import writer
 from csv import reader
 
+# Python
+# I know these are all a non-factored mess right now, by design. There are so many
+# variations that need to be handled diff ways that it's actually easier to not
+# factorize yet. Make sure it all works, then factorize what we can.
+
+# This script:
+# Condense "uarm","uweap" items that share a similar BaseType into 1 record, and track minval and maxval of all of them.
+# We can ignore items where row["links"] != "" because the PoE filter will be able to filter on links later.
+
 in_filename = r'E:\PoE Stuff\Filters\1\exp\022_beast_dups_removed.csv'
 out_filename = r'E:\PoE Stuff\Filters\1\exp\024_uarm_dups_removed.csv'
 
 all_categories = ["anomalous","base","beast","blight","clus","curr","deli","div","divergent","ess","foss","frag","gem","inc","inv","map","oil","phantasmal","prop","res","scar","uacc","uarm","ufla","ujew","umap","uweap","vial","watch"]
 
 #basetype, but ignore levelRequired and ones where links !=""
-search_in = ["uarm","uweap"]
+search_in = ["uarm","uweap"]  # this variable is not actually used, it's just for me to keep track of
 important_cols = ["category","baseType","links"]
 ignore_dict = {"category" : ["anomalous","arts","base","beast","blight","clus","curr","deli","div","divergent","ess","foss","frag","gem","inc","inv","map","oil","phantasmal","prop","res","scar","vial","watch"]}
 
@@ -83,7 +92,7 @@ def filter_duplicates(reader, important_cols, ignore_dict):
 def filter_csv(in_filename, out_filename, important_cols, ignore_dict):
     with open(in_filename, newline='') as in_f, open(out_filename, "w", newline='') as out_f:
         reader = csv.DictReader(in_f)
-        writer = csv.DictWriter(out_f, fieldnames=reader.fieldnames + ["hasdup"] + ["minval"] + ["maxval"])
+        writer = csv.DictWriter(out_f, fieldnames=reader.fieldnames)
         writer.writeheader()
         for row in filter_duplicates(reader, important_cols, ignore_dict):
             print (row)

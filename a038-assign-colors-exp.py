@@ -10,9 +10,7 @@ from csv import reader
 # factorize yet. Make sure it all works, then factorize what we can.
 
 # This script:
-# Run dupcheck first to compile minval/maxval. Eventually we'll use a user-input breakpoint to
-# determine whether or not to hide a unique basetype, give it a colored tier, or mark it grey.
-# For now, just mark them grey if minval != ""
+# Use the Tier (or Override) field to assign the correct values for play sounds, background colors, etc.
 
 strCSVin = r'E:\PoE Stuff\Filters\1\exp\030_assigned.csv'
 strCSVout = r'E:\PoE Stuff\Filters\1\exp\038_assigned.csv'

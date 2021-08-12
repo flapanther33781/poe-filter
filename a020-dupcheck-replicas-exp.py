@@ -3,6 +3,14 @@ import time
 from csv import writer
 from csv import reader
 
+# Python
+# I know these are all a non-factored mess right now, by design. There are so many
+# variations that need to be handled diff ways that it's actually easier to not
+# factorize yet. Make sure it all works, then factorize what we can.
+
+# This script:
+# Condense Replica items that share a similar BaseType into 1 record, and track minval and maxval of all of them.
+
 in_filename = r'E:\PoE Stuff\Filters\1\exp\015_compiled.csv'
 out_filename = r'E:\PoE Stuff\Filters\1\exp\020_replica_dups_removed.csv'
 

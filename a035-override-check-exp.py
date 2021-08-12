@@ -4,16 +4,22 @@ import time
 from csv import writer
 from csv import reader
 
+# Python
+# I know these are all a non-factored mess right now, by design. There are so many
+# variations that need to be handled diff ways that it's actually easier to not
+# factorize yet. Make sure it all works, then factorize what we can.
+
+# This script:
+# Look for 030_assigned.bak. If we find it, compare it to 030_assigned.csv,
+# specifically looking for items whose Override field had been set, and update the csv.
+# If 030_assigned.bak doesn't exist then it doesn't need to do anything and just exits.
+
 in_filename = r'E:\PoE Stuff\Filters\1\exp\030_assigned.bak.csv'
 out_filename = r'E:\PoE Stuff\Filters\1\exp\030_assigned.csv'
 file3name = r'E:\PoE Stuff\Filters\1\exp\035_assigned.csv'
 
 important_cols = ["category","name","baseType","itemType","variant","detailsId","levelRequired","links","corrupted","mapTier","gemLevel","gemQuality"]
 ignore_cols = ["chaosEquivalent","Tier","Override","SetFontSize","PlayAlertSound","SetBackgroundColor","PlayEffect","MinimapIcon","hasdup","minval","maxval"]
-
-# This script looks for 030_assigned.bak. If it finds it, compares it to 030_assigned.csv,
-# specifically looking for items whose Override field had been set, and updates the csv.
-# If 030_assigned.bak doesn't exist then it doesn't need to do anything and just exits.
 
 def func_init():
     if os.path.isfile(in_filename):
