@@ -1,0 +1,29 @@
+league_number: 3.15
+league_name: Expedition
+t1value: 100
+t2value: 50
+t3value: 25
+t4value: 20
+t5value: 10
+t6value: 5
+t7value: 1
+t8value: 0
+t9value: 0
+t1font: 45
+t2font: 45
+t3font: 42
+t4font: 42
+t5font: 39
+t6font: 39
+t7font: 36
+t8font: 36
+t9font: 32
+t10font: 32
+t11font: 39
+Overall Strictness: 10
+Non-special Rare cutoff: 0
+Gray item cutoff: 0
+Show gray items: True
+Show Normal/Magic 6-socket items: True
+Show Normal/Magic 5-socket items: True
+Boost Button (+4 all tiers for league start): True
