@@ -65,7 +65,11 @@ The poe.ninja website tracks market values of many items in a much more granular
 
 NOTE 1: In reality, this Unique Item Breakpoint feature is not 100% foolproof.  Experienced players know that there are 'price-fixers' out there who intentionally list expensive items below their real value to trick newer players into selling that item more cheaply - BUT - experienced players ALSO know that expensive items rarely drop in low-tier areas of the game.  So you can kind of work with it in the low-tier areas.  To be safe we have included an Override feature with this tool.
 
-NOTE 2: Keep in mind that certain basetypes will always be shown. Unique Leather Belts could be a HeadHunter. HeadHunters are so valueable you'd have to set the breakpoint above 50-150 Exalts to hide all Unique Leather Belts, but the slider only goes up to 200c, so that's not possible ... unless you manually edit the filter file, which you shouldn't do.
+NOTE 2: Keep in mind that certain basetypes will always be shown. Unique Leather Belts could be a HeadHunter. HeadHunters are so valueable you'd have to set the breakpoint above 50-150 Exalts to hide all Unique Leather Belts, but the slider only goes up to 200c, so that's not possible ... unless you manually edit the filter file, which you shouldn't do if you're a new player.
+
+#### What if I want to manually edit the filter?
+
+I've included a way to override certain settings by editing a CSV file (see below), and there is a Manual Override section at the top of the filter, but if you're a new player I'd suggest you not try to edit the filter settngs below that section.  Let's put it this way: if you feel like you can't do what you want with my tool, the CSV override method, or the manual override section, then either open a feature request via Github, or maybe you're ready to graduate to using FilterBlade or StupidFatHobbit's filters.  I did say my tool's not meant to replace theirs.
 
 #### How does the Override feature work?
 
