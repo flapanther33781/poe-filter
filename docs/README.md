@@ -34,6 +34,15 @@ I feel like I have the tool doing 98% of what it should. I'm sure there are some
 
 ## FAQ
 
+#### How do we interpret the colors and map icons of the items?
+
+The color order is: Brown > Red > Orange > Yellow > Green > Blue > Purple > Cyan > Pink > White
+
+Basically it goes from darkest to lightest, but the easiest way to remember it is to just follow the the rainbow.  Red through Purple are in the same order as in the rainbow.  Then you just need to know that brown is below red, and above purple are cyan, pink, and white.
+
+Regarding icons, aside from Diamond and Rain, more sides = more important, but color's still more important than the icon.    
+(An item with a Green Circle is worth more than one with a Red Pentagon, etc.)
+
 #### What does the slider for Strictness selector do?
 
 As shown above, we put all items into tiers based on their value. This slider will allow you to modify your filter's strictness.  For example, if you set the slider to 5 then items in tiers 6 through 10 will be hidden.
@@ -69,3 +78,30 @@ These items can be relatively valuable early in the game, but as you get farther
 #### What does the "+4 tiers (league start)" checkbox do?
 
 It's mainly a feel-good thing.  When you start a new character (or a new league) you'll be doing very low-tier areas where all the drops are very low in value.  By default most of them will be T9 or T10 (red or brown) items.  It might be nice to see some yellow or green highlighted drops, so if you want, check this box and it'll boost the tiers of lower-tier items.
+
+#### How do we interpret the filter file names?
+
+Here's the legend:
+
+3.15-A-B-C-D-E-F-GG-HH
+
+A - League: 0 = Standard SC, 1 = league SC    
+B - Filter strictness: 1-9 means 1-9, 0 means 10.    
+C - Show gray items: 1 = True, 0 = False    
+D - Show Normal/Magic 6S items: 1 = True, 0 = False    
+E - Show Normal/Magic 5S items: 1 = True, 0 = False    
+F - Add +4 to all tiers: 1 = True, 0 = False    
+GG - Non-influenced/synthesized/etc Rare ilvl cutoff    
+HH - Unique item breakpoint
+
+So, for example, a filter named: 3.15-1-8-1-0-0-0-76-10
+
+... would be for 3.15, league, shows items down to Tier 8, shows grey items, does not show 5S or 6S normal/magic items, does not add 4+ tiers, the cutoff for non-special rares is ilvl 76, and the Unique item breakpoint is 10c.
+
+#### Why are you naming filter files so strangely?
+
+Two reasons:
+
+1. Naming the file based on its settings means the file name doesn't change when you update the filter with new pricing.  The next time you open the game you don't need to select a new filter in the options menu, it just loads automatically.  If PoE's already running you only need to click the refresh button in the options tab, not find and select a completely new filter.
+
+2. Once you know the naming convention you can swap between filters quickly without trying to remember what the differences are between filters.  You'll know exactly just by looking at the file name.
