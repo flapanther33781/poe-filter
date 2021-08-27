@@ -83,7 +83,7 @@ It's mainly a feel-good thing.  When you start a new character (or a new league)
 
 Here's the legend:
 
-3.15-A-B-C-D-E-F-GG-HH
+3.15-A-B-C-D-E-F-GG-HH.filter
 
 A - League: 0 = Standard SC, 1 = league SC    
 B - Filter strictness: 1-9 means 1-9, 0 means 10.    
