@@ -25,6 +25,13 @@ On the second tab are some additional settings (scroll down for a FAQ with more 
 
 ![ss03](https://user-images.githubusercontent.com/26362032/130992040-8c31b422-bf04-4517-abf1-016377544d39.PNG)
 
+## What is the status of this project?
+
+I feel like I have the tool doing 98% of what it should. I'm sure there are some errors in the output file - there are limitations in the poe.ninja dataset, and also limitations of what the PoE filter can accept - I've found the most obvious issues, but I'm at the point where I've accomplished a lot of the little goals I'd set for achieving different functions.  Now is the time where I want to ask for help with two things:
+
+- Playtesting: The more people willing to use this tool (or the filters it generates) the faster I can find and fix any remaining issues.
+- Refactoring: There are _sooooo maaaany variations to handle!!!_ If you factorize too early you run the risk of running into edge cases that require you to rewrite what you had, and in the process you could break what you'd already written. There are so many variations to handle that I decided not to do ANY factorizing at all until I got closer to a Beta stage. I am getting closer to that, and would love it if I could find some people to assist with the factorization.  To be completely honest, I'd never written more than 50 lines of Python before taking on this project.  It was my exuse to learn Python at the same time as I wanted to tackle this idea I'd been wanting to do for years.
+
 ## FAQ
 
 #### What does the slider for Strictness selector do?
