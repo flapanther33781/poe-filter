@@ -15,7 +15,7 @@ I may add other schemes later, but for now this is what it looks like:
 
 ## The second goal for this filter is to configure tiers universally, across all item types.
 
-If you see a color you know what its value is, regardless of what kind of item it is. No need to memorize multiple tier profiles, nor combinations of background and border colors. By default these are the tiers and map icon assignments:
+#### If you see a color you know what its value is, regardless of what kind of item it is. No need to memorize multiple tier profiles, nor combinations of background and border colors. By default these are the tiers and map icon assignments:
 
 ![ss02](https://user-images.githubusercontent.com/26362032/130992017-5944432a-754c-4639-9ba9-fc7a3c7b344c.PNG)
 
