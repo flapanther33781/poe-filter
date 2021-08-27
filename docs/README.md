@@ -98,8 +98,10 @@ So, for example, let's decipher a filter named: 3.15-1-8-1-0-0-0-76-10.filter ..
 
 #### Why are you naming filter files so strangely?
 
-Two reasons:
+Three reasons:
 
 1. Naming the file based on its settings means the file name doesn't change when you update the filter with new pricing.  The next time you open the game you don't need to select a new filter in the options menu, it just loads automatically.  If PoE's already running you only need to click the refresh button in the options tab, not find and select a completely new filter.
 
 2. Once you know the naming convention you can swap between filters quickly without trying to remember what the differences are between filters.  You'll know exactly just by looking at the file name.
+
+3. Now I don't have to sit there trying to think of what to name the filter in order to differentiate it from the other filters I've made.
