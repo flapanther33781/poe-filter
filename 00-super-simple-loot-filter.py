@@ -326,7 +326,7 @@ def on_tab_selected(event):
         print("TAB-3 tab selected")
 
 def generate_filter():
-    os.system('python a010-main-exp.py')
+    os.system('python 010-main.py')
 
 def reset_settings():
     initialize()
