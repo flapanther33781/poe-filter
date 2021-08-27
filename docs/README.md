@@ -94,9 +94,7 @@ F - Add +4 to all tiers: 1 = True, 0 = False
 GG - Non-influenced/synthesized/etc Rare ilvl cutoff    
 HH - Unique item breakpoint
 
-So, for example, a filter named: 3.15-1-8-1-0-0-0-76-10
-
-... would be for 3.15, league, shows items down to Tier 8, shows grey items, does not show 5S or 6S normal/magic items, does not add 4+ tiers, the cutoff for non-special rares is ilvl 76, and the Unique item breakpoint is 10c.
+So, for example, let's decipher a filter named: 3.15-1-8-1-0-0-0-76-10.filter ... this is a filter for 3.15, league, shows items down to Tier 8, shows grey items, does not show 5S or 6S normal/magic items, does not add 4+ tiers, the cutoff for non-special rares is ilvl 76, and the Unique item breakpoint is 10c.
 
 #### Why are you naming filter files so strangely?
 
