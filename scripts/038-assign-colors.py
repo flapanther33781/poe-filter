@@ -14,8 +14,8 @@ from csv import reader
 # This script:
 # Use the Tier (or Override) field to assign the correct values for play sounds, background colors, etc.
 
-strCSVin = os.path.join(sys.path[0], "z030_assigned.csv")
-strCSVout = os.path.join(sys.path[0], "z038_assigned.csv")
+strCSVin = os.path.join(sys.path[0], "z030_assigned-values.csv")
+strCSVout = os.path.join(sys.path[0], "z038_assigned-colors.csv")
 
 def func_init():
 

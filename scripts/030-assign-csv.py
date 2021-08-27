@@ -17,9 +17,9 @@ from csv import reader
 
 strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
 strCSVin = os.path.join(sys.path[0], "z025_dups_removed.csv")
-strCSVout = os.path.join(sys.path[0], "z030_assigned.temp.csv")
-strCSVbak = os.path.join(sys.path[0], "z030_assigned.bak.csv")
-strCSVexisting = os.path.join(sys.path[0], "z030_assigned.csv")
+strCSVout = os.path.join(sys.path[0], "z030_assigned-values.temp.csv")
+strCSVbak = os.path.join(sys.path[0], "z030_assigned-values.bak.csv")
+strCSVexisting = os.path.join(sys.path[0], "z030_assigned-values.csv")
 
 def func_init():
     global strGrayCutoff, strUserSettings, strBoostButton
@@ -148,10 +148,6 @@ def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
         #print (temp_tier)
         #time.sleep(1)
 
-    if temp_tier > 12:
-        print ("PROBLEM !!!!!!!!!")
-        time.sleep(5)
-
     # Now, only mark the item as gray if str_minval < strGrayCutoff
     # if str_minval >= strGrayCutoff we want it to retain the tier set above.
     if ((str_minval != "") and (str_minval < strGrayCutoff)):
@@ -164,6 +160,10 @@ def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
         #print((str_maxval != "") and (str_maxval < strGrayCutoff))
         #time.sleep(10)
         temp_tier = 12
+
+    if temp_tier > 12:
+        print ("PROBLEM !!!!!!!!!")
+        time.sleep(5)
 
 #    print (temp_tier)
     return temp_tier
@@ -218,6 +218,10 @@ with open(strCSVin, 'r') as read_obj, \
                 #print("Found Regal shard")
                 #print(str_Tier)
                 #time.sleep(10)
+
+            if str_Tier > 6:
+                print("Found one higher than 6.")
+                time.sleep(10)
 
             # Create output row
             output_row = [str_category]

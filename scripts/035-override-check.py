@@ -15,9 +15,9 @@ from csv import reader
 # Create text filter file. Multiple notes below in Main section.
 # My filters are in "C:\Users\<user>\Documents\My Games\Path of Exile"
 
-str30bak = os.path.join(sys.path[0], "z030_assigned.bak.csv")
-str30temp = os.path.join(sys.path[0], "z030_assigned.temp.csv")
-str30new = os.path.join(sys.path[0], "z030_assigned.csv")
+str30bak = os.path.join(sys.path[0], "z030_assigned-values.bak.csv")
+str30temp = os.path.join(sys.path[0], "z030_assigned-values.temp.csv")
+str30new = os.path.join(sys.path[0], "z030_assigned-values.csv")
 
 def func_init():
     if os.path.isfile(str30bak):

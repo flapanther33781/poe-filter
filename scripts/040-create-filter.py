@@ -17,7 +17,7 @@ from datetime import datetime
 # My filters are in "C:\Users\<user>\Documents\My Games\Path of Exile"
 
 strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
-strCSVin = os.path.join(sys.path[0], "z038_assigned.csv")
+strCSVin = os.path.join(sys.path[0], "z038_assigned-colors.csv")
 strCSVinOther = os.path.join(sys.path[0], "00_other.csv")
 #strTXTout = os.path.join(sys.path[0], "z030_filter.filter")
 
@@ -140,7 +140,7 @@ def func_init():
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### CONTACT:\n")
         write_obj.write("##### \n")
-        write_obj.write("##### PLEASE READ THE README BEFORE ASKING QUESTIONS:	https://github.com/flapanther33781/poe-filter\n")
+        write_obj.write("##### PLEASE READ THE FAQ BEFORE ASKING QUESTIONS:	https://github.com/flapanther33781/poe-filter/wiki/FAQ\n")
         write_obj.write("##### GGG FORUMS:									https://www.pathofexile.com/account/view-profile/Fla_Panther\n")
         write_obj.write("##### GITHUB:										https://github.com/flapanther33781\n")
         write_obj.write("#===============================================================================================================\n")
