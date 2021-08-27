@@ -18,7 +18,7 @@ from datetime import datetime
 
 strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
 strCSVin = os.path.join(sys.path[0], "z038_assigned.csv")
-strCSVinOther = os.path.join(sys.path[0], "00z_other.csv")
+strCSVinOther = os.path.join(sys.path[0], "00_other.csv")
 strTXTout = os.path.join(sys.path[0], "z030_filter.filter")
 
 current_time = datetime.now()
@@ -26,7 +26,7 @@ arrInfluences = ["Crusader","Elder","Hunter","Redeemer","Shaper","Warlord"]
 arrDoubleInfluences = ["Crusader/Hunter","Crusader/Redeemer","Crusader/Warlord","Elder/Crusader","Elder/Hunter","Elder/Redeemer","Elder/Warlord","Redeemer/Hunter","Redeemer/Warlord","Shaper/Crusader","Shaper/Elder","Shaper/Elder/Crusader/Redeemer/Warlord/Hunter","Shaper/Hunter","Shaper/Redeemer","Shaper/Warlord","Warlord/Hunter"]
 
 def func_init():
-    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout
+    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -64,6 +64,10 @@ def func_init():
                 booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
                 booShowNM5S = bool(booShowNM5S.strip())
                 #print ("booShowNM5S is " + booShowNM5S)
+            if "Boost Button" in line:
+                strBoostButton = (line.split(": ")[1])
+                strBoostButton = strBoostButton.strip()
+                #print ("strBoostButton is " + strBoostButton)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
@@ -72,15 +76,37 @@ def func_init():
     strGrayCutoff = 5
     booShowNM6S = False
     booShowNM5S = False
+    strBoostButton = False
 
     header00 = str("##### Super Simple Loot Filter for League: "+league_number+" ("+league_name+"), updated: "+str(current_time)+"\n")
-    header01 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
-    header02 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
-    header03 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
-    header04 = str("##### booShowT11 :" + str(booShowT11)+"\n")
-    header05 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
-    header06 = str("##### booShowNM5S :" + str(booShowNM5S)+"\n")
-    header07 = str("##### Current time is :" + str(current_time)+"\n")
+    header01 = str("##### Standard? : False\n")
+    header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
+    header03 = str("##### booShowT11 :" + str(booShowT11)+"\n")
+    header04 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
+    header05 = str("##### booShowNM5S :" + str(booShowNM5S)+"\n")
+    header06 = str("##### strBoostButton :" + str(strBoostButton)+"\n")
+    header07 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
+    header08 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
+
+    # Have ot do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
+    suggested_filter_name = "##### Suggested filter name: "+league_number+"-0-"+str(strOverallStrictness)+"-"
+    if booShowT11 == True:
+        suggested_filter_name = suggested_filter_name + "1-"
+    else:
+        suggested_filter_name = suggested_filter_name + "0-"
+    if booShowNM6S == True:
+        suggested_filter_name = suggested_filter_name + "1-"
+    else:
+        suggested_filter_name = suggested_filter_name + "0-"
+    if booShowNM5S == True:
+        suggested_filter_name = suggested_filter_name + "1-"
+    else:
+        suggested_filter_name = suggested_filter_name + "0-"
+    if strBoostButton == True:
+        suggested_filter_name = suggested_filter_name + "1-"
+    else:
+        suggested_filter_name = suggested_filter_name + "0-"
+    suggested_filter_name = suggested_filter_name + str(strRareCutoff)+"-"+str(strGrayCutoff)+"\n"
 
     # Open the output file in write mode
     with open(strTXTout, 'w', newline='') as write_obj:
@@ -94,6 +120,10 @@ def func_init():
         write_obj.write(header04)
         write_obj.write(header05)
         write_obj.write(header06)
+        write_obj.write(header07)
+        write_obj.write(header08)
+        write_obj.write("#####\n")
+        write_obj.write(suggested_filter_name)
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
