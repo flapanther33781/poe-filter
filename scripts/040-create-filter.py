@@ -140,7 +140,7 @@ def func_init():
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### CONTACT:\n")
         write_obj.write("##### \n")
-        write_obj.write("##### PLEASE READ THE README BEFORE ASKING QUESTIONS:	https://github.com/flapanther33781/poe-filter/wiki/FAQ\n")
+        write_obj.write("##### PLEASE READ THE README BEFORE ASKING QUESTIONS:	https://github.com/flapanther33781/poe-filter\n")
         write_obj.write("##### GGG FORUMS:									https://www.pathofexile.com/account/view-profile/Fla_Panther\n")
         write_obj.write("##### GITHUB:										https://github.com/flapanther33781\n")
         write_obj.write("#===============================================================================================================\n")
