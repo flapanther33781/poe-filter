@@ -2,17 +2,7 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
-#### Here is an introduction video:
-
-<div class="embed-container">
-  <iframe
-      src="https://www.youtube.com/embed/-kXiwg55DLI"
-      width="700"
-      height="480"
-      frameborder="0"
-      allowfullscreen="">
-  </iframe>
-</div>
+#### Here is an introduction video (right-click and open in a new window):
 
 [![Introduction/Demo Video](https://user-images.githubusercontent.com/26362032/131201669-a51e130b-bd84-4dda-9e9c-52ba96e558f2.png)](https://youtu.be/-kXiwg55DLI)
 
@@ -71,7 +61,7 @@ There are many items in Path of Exile that share common base types, when you hav
 
 #### How does the Unique Item Breakpoint feature work?
 
-Here is a short video that explains it.  If you don't want to watch the video I explain it in text below the video.
+Here is a short video that explains it (right-click and open in a new window).  If you don't want to watch the video I explain it in text below the video.
 
 [![Unique Item Breakpoint](https://user-images.githubusercontent.com/26362032/131201767-df9055ef-dcc9-4286-b114-c3bf12a7781d.png)](https://youtu.be/vyq4zIIuO-w)
 
