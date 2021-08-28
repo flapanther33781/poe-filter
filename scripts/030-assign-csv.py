@@ -219,10 +219,6 @@ with open(strCSVin, 'r') as read_obj, \
                 #print(str_Tier)
                 #time.sleep(10)
 
-            if str_Tier > 6:
-                print("Found one higher than 6.")
-                time.sleep(10)
-
             # Create output row
             output_row = [str_category]
             output_row.append(str_name)
