@@ -2,6 +2,10 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
+#### Here is an introduction video:
+
+[![Introduction/Demo Video](https://user-images.githubusercontent.com/26362032/131201669-a51e130b-bd84-4dda-9e9c-52ba96e558f2.png)](https://youtu.be/-kXiwg55DLI)
+
 #### NOTE: THIS TOOL IS IN AN --ALPHA-- STAGE, NOT EVEN BETA. THE CODE & GUI ARE UGLY BUT THEY WILL CHANGE.
 #### GETTING EVERYTHING WORKING RIGHT IS THE FIRST PRIORITY, MAKING THE CODE/GUI LOOK NICE WILL COME LATER.
 
@@ -56,6 +60,10 @@ There are some classes (like flasks) where Magic items will be of interest, but 
 There are many items in Path of Exile that share common base types, when you have one of these you will not know which item you have until you look at it.  Some are more valuable than others, but the loot filter cannot tell these items apart because of the limitations of PoE's filtering system. Since we don't know what value these items have we put them into "Tier 11" and the tool gives these items a gray background. If you see gray, you may want to either look at it, or pick it up and look at it later.
 
 #### How does the Unique Item Breakpoint feature work?
+
+Here is a short video that explains it.  If you don't want to watch the video I explain it in text below the video.
+
+[![Unique Item Breakpoint](https://user-images.githubusercontent.com/26362032/131201767-df9055ef-dcc9-4286-b114-c3bf12a7781d.png)](https://youtu.be/vyq4zIIuO-w)
 
 The poe.ninja website tracks market values of many items in a much more granular fashion than the PoE filter system allows, so we might be able to get more info from poe.ninja than we can from the game. How does this help us?  It gives us three possibilities:
 
