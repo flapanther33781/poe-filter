@@ -117,3 +117,11 @@ Three reasons:
 2. Once you know the naming convention you can swap between filters quickly without trying to remember what the differences are between filters.  You'll know exactly just by looking at the file name.
 
 3. Now I don't have to sit there trying to think of what to name the filter in order to differentiate it from the other filters I've made.
+
+#### What additional features might you be adding to this tool?
+
+I'm open to suggestions, but right now on my list I have:
+
+- All vendor recipies, with checkboxes (handy for challenges)
+- Additional color themes (suggestions welcome)
+- Include filtering identified items by # of T1 mods, T2 mods, etc
