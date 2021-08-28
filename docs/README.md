@@ -81,7 +81,7 @@ I've included a way to override certain settings by editing a CSV file (see belo
 
 #### How does the Override feature work?
 
-I explain how to do manual overrides in the video at the top of this page, please watch that.
+I explain how to do manual overrides in the video at the top of this page, please watch that.  Or, if you want a link to the exact timestamp: https://youtu.be/-kXiwg55DLI?t=479
 
 #### Why does the tool have checkboxes for Normal/Magic 5-socket and 6-socket items?
 
