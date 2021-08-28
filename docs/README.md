@@ -118,7 +118,7 @@ Three reasons:
 
 3. Now I don't have to sit there trying to think of what to name the filter in order to differentiate it from the other filters I've made.
 
-#### What additional features might you be adding to this tool?
+#### What additional features will you be adding to this tool?
 
 I'm open to suggestions, but right now on my list I have:
 
