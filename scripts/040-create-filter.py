@@ -89,7 +89,7 @@ def func_init():
     header08 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
 
     # Have ot do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
-    strTXTout = league_number+"-0-"+str(strOverallStrictness)+"-"
+    strTXTout = league_number+"-1-"+str(strOverallStrictness)+"-"
     if booShowT11 == True:
         strTXTout = strTXTout + "1-"
     else:
