@@ -318,6 +318,10 @@ Show                                    # This ilvl is adjustable in User Settin
 	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN
 	PlayAlertSound 8 300
 	MinimapIcon 0 Green Triangle
+Hide                                    # Have to hide here or else Abyss will get flagged as Purple below.
+	Rarity Normal Magic
+	Class Jewel
+	DisableDropSound True
 ################################################################################################################
 ##### 10900 White and Abyss Sockets
 ##### Can't upgrade Normal/Magic corrupted items, only useful if Rare.
