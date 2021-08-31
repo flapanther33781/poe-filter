@@ -123,6 +123,6 @@ Three reasons:
 I'm open to suggestions, but right now on my list I have:
 
 - All vendor recipies, with checkboxes (handy for challenges)
-- Maybe a slider to hide gems below a certain value (unless overriden by recipe)
+- Separate sliders for gems/cards/prophs/etc?
 - Additional color themes (suggestions welcome)
 - Include filtering identified items by # of T1 mods, T2 mods, etc
