@@ -341,7 +341,7 @@ def func_static_intro():
         write_obj.write("	LinkedSockets = 6\n")
         write_obj.write("	SetFontSize 45\n")
         write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 0 0 0 255     # BACKGROUNDCOLOR WHITE\n")
+        write_obj.write("	SetBackgroundColor 255 255 255 255     # BACKGROUNDCOLOR WHITE\n")
         write_obj.write("	PlayAlertSound 10 300\n")
         write_obj.write("	PlayEffect White\n")
         write_obj.write("	MinimapIcon 0 White Diamond\n")
