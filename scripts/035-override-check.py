@@ -15,6 +15,9 @@ from csv import reader
 # Create text filter file. Multiple notes below in Main section.
 # My filters are in "C:\Users\<user>\Documents\My Games\Path of Exile"
 
+# This script fucks up when we try to override the tier of a map, probably due to the comma in the variant name.
+# Need to figure out a workaround.  For now, just don't override maps.
+
 str30bak = os.path.join(sys.path[0], "z030_assigned-values.bak.csv")
 str30temp = os.path.join(sys.path[0], "z030_assigned-values.temp.csv")
 str30new = os.path.join(sys.path[0], "z030_assigned-values.csv")
