@@ -54,20 +54,42 @@ def func_init():
                 #print ("strGrayCutoff is " + strGrayCutoff)
             if "Show gray items: " in line:
                 booShowT11 = (line.split("Show gray items: ")[1])
-                booShowT11 = bool(booShowT11.strip())
                 #print ("booShowT11 is " + booShowT11)
+                #time.sleep(5)
+                if "True" in booShowT11:
+                    booShowT11 = True
+                else:
+                    booShowT11 = False
+                #print (booShowT11)
+                #time.sleep(5)
             if "Show Normal/Magic 6-socket items: " in line:
                 booShowNM6S = (line.split("Show Normal/Magic 6-socket items: ")[1])
-                booShowNM6S = bool(booShowNM6S.strip())
                 #print ("booShowNM6S is " + booShowNM6S)
+                if "True" in booShowNM6S:
+                    booShowNM6S = True
+                else:
+                    booShowNM6S = False
+                #print (booShowNM6S)
+                #time.sleep(5)
             if "Show Normal/Magic 5-socket items: " in line:
                 booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
-                booShowNM5S = bool(booShowNM5S.strip())
                 #print ("booShowNM5S is " + booShowNM5S)
+                if "True" in booShowNM5S:
+                    booShowNM5S = True
+                else:
+                    booShowNM5S = False
+                #print (booShowNM5S)
+                #time.sleep(5)
             if "Boost Button" in line:
                 strBoostButton = (line.split(": ")[1])
-                strBoostButton = strBoostButton.strip()
                 #print ("strBoostButton is " + strBoostButton)
+                #time.sleep(5)
+                if "True" in strBoostButton:
+                    strBoostButton = True
+                else:
+                    strBoostButton = False
+                #print (strBoostButton)
+                #time.sleep(5)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
