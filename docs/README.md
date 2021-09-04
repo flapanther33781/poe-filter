@@ -125,4 +125,6 @@ I'm open to suggestions, but right now on my list I have:
 - All vendor recipies, with checkboxes (handy for challenges)
 - Separate sliders for gems/cards/prophs/etc?
 - Additional color themes (suggestions welcome)
+- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy)
+- Find a way to include poe.ninja confidence ratings to filter out overpriced items with low-confidence
 - Include filtering identified items by # of T1 mods, T2 mods, etc
