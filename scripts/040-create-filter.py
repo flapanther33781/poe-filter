@@ -151,20 +151,20 @@ def func_init():
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
-        write_obj.write("##### GET THE LATEST VERSION:						https://github.com/flapanther33781/poe-filter\n")
-        write_obj.write("##### POE FORUM THREAD:								(TBD)\n")
+        write_obj.write("##### GET THE LATEST VERSION:                        https://github.com/flapanther33781/poe-filter\n")
+        write_obj.write("##### POE FORUM THREAD:                                (TBD)\n")
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### SUPPORT THE DEVELOPMENT:\n")
         write_obj.write("##### \n")
-        write_obj.write("##### BUY ME A COFFEE:								https://www.buymeacoffee.com/HMUH\n")
-        write_obj.write("##### SUPPORT ME ON PATREON:						https://www.patreon.com/HorrorMakesUsHappy\n")
-        write_obj.write("##### IF YOU LOVE HORROR PLEASE CHECK OUT:			https://www.HorrorMakesUsHappy.com\n")
+        write_obj.write("##### BUY ME A COFFEE:                                https://www.buymeacoffee.com/HMUH\n")
+        write_obj.write("##### SUPPORT ME ON PATREON:                        https://www.patreon.com/HorrorMakesUsHappy\n")
+        write_obj.write("##### IF YOU LOVE HORROR PLEASE CHECK OUT:            https://www.HorrorMakesUsHappy.com\n")
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### CONTACT:\n")
         write_obj.write("##### \n")
-        write_obj.write("##### PLEASE READ THE FAQ BEFORE ASKING QUESTIONS:	https://github.com/flapanther33781/poe-filter/wiki/FAQ\n")
-        write_obj.write("##### GGG FORUMS:									https://www.pathofexile.com/account/view-profile/Fla_Panther\n")
-        write_obj.write("##### GITHUB:										https://github.com/flapanther33781\n")
+        write_obj.write("##### PLEASE READ THE FAQ BEFORE ASKING QUESTIONS:    https://github.com/flapanther33781/poe-filter/wiki/FAQ\n")
+        write_obj.write("##### GGG FORUMS:                                    https://www.pathofexile.com/account/view-profile/Fla_Panther\n")
+        write_obj.write("##### GITHUB:                                        https://github.com/flapanther33781\n")
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### INSTALLATION / UPDATE :\n")
         write_obj.write("##### \n")
@@ -360,13 +360,13 @@ def func_static_intro():
         write_obj.write("##### 10200 6L\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	LinkedSockets = 6\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 255 255 255 255     # BACKGROUNDCOLOR WHITE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect White\n")
-        write_obj.write("	MinimapIcon 0 White Diamond\n")
+        write_obj.write("    LinkedSockets = 6\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 255 255 255 255     # BACKGROUNDCOLOR WHITE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect White\n")
+        write_obj.write("    MinimapIcon 0 White Diamond\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10300 6S\n")
         write_obj.write("##### Unique items might be worth something.\n")
@@ -376,42 +376,42 @@ def func_static_intro():
         write_obj.write("##### Jeweller's. Past that taking up 8 inventory slots for .1c is a waste.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	Sockets = 6\n")
-        write_obj.write("	Rarity Unique ######################## NOTE: This also catches 6S items not caught elsewhere!\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Cross\n")
+        write_obj.write("    Sockets = 6\n")
+        write_obj.write("    Rarity Unique ######################## NOTE: This also catches 6S items not caught elsewhere!\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Purple Cross\n")
         write_obj.write("Show\n")
-        write_obj.write("	Sockets = 6\n")
-        write_obj.write("	ItemLevel >= 84\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Triangle\n")
+        write_obj.write("    Sockets = 6\n")
+        write_obj.write("    ItemLevel >= 84\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Purple Triangle\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("	Sockets = 6\n")
-        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 42\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Triangle\n")
+        write_obj.write("    Sockets = 6\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Purple Triangle\n")
         if booShowNM6S == 1:
             write_obj.write("Show # Normal & Magic 6S, or Rare and below the ilvl mentioned above\n")
-            write_obj.write("	Sockets = 6\n")
-            write_obj.write("	SetFontSize 42\n")
-            write_obj.write("	SetTextColor 0 0 0 255\n")
-            write_obj.write("	SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
-            write_obj.write("	PlayAlertSound 8 300\n")
-            write_obj.write("	MinimapIcon 0 Blue Triangle\n")
+            write_obj.write("    Sockets = 6\n")
+            write_obj.write("    SetFontSize 42\n")
+            write_obj.write("    SetTextColor 0 0 0 255\n")
+            write_obj.write("    SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
+            write_obj.write("    PlayAlertSound 8 300\n")
+            write_obj.write("    MinimapIcon 0 Blue Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10400 5L\n")
         write_obj.write("##### Grab if Unique. Rare might be worth something.\n")
@@ -419,33 +419,33 @@ def func_static_intro():
         write_obj.write("##### and crafting in this game's so bad they're not worth wasting orbs on.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	LinkedSockets = 5\n")
-        write_obj.write("	Rarity Unique ######################## NOTE: This also catches 5S items not caught elsewhere!\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Cross\n")
+        write_obj.write("    LinkedSockets = 5\n")
+        write_obj.write("    Rarity Unique ######################## NOTE: This also catches 5S items not caught elsewhere!\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Purple Cross\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("	LinkedSockets = 5\n")
-        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 42\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Blue Triangle\n")
+        write_obj.write("    LinkedSockets = 5\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Blue Triangle\n")
         if booShowNM5S == 1:
             write_obj.write("Show # Normal & Magic 5L, or Rare and below the ilvl mentioned above\n")
-            write_obj.write("	LinkedSockets = 5\n")
-            write_obj.write("	SetFontSize 42\n")
-            write_obj.write("	SetTextColor 0 0 0 255\n")
-            write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-            write_obj.write("	PlayAlertSound 8 300\n")
-            write_obj.write("	PlayEffect Green\n")
-            write_obj.write("	MinimapIcon 0 Green Triangle\n")
+            write_obj.write("    LinkedSockets = 5\n")
+            write_obj.write("    SetFontSize 42\n")
+            write_obj.write("    SetTextColor 0 0 0 255\n")
+            write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+            write_obj.write("    PlayAlertSound 8 300\n")
+            write_obj.write("    PlayEffect Green\n")
+            write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10500 4L and 2x2\n")
         write_obj.write("##### I only want LinkedSockets = 4 if Unique, or Rare and 2x2.\n")
@@ -455,16 +455,16 @@ def func_static_intro():
         write_obj.write("##### identifying all of them.\n")
         write_obj.write("\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("	LinkedSockets = 4\n")
-        write_obj.write("	Width = 2\n")
-        write_obj.write("	Height = 2\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	MinimapIcon 0 Green Triangle\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+        write_obj.write("    LinkedSockets = 4\n")
+        write_obj.write("    Width = 2\n")
+        write_obj.write("    Height = 2\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10600 3L and 1x3\n")
         write_obj.write("##### I only want Rare 3L items if 1x3.\n")
@@ -475,104 +475,104 @@ def func_static_intro():
         write_obj.write("##### This ilvl is adjustable in User Settings.\n")
         write_obj.write("\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("	LinkedSockets = 3\n")
-        write_obj.write("	Width = 1\n")
-        write_obj.write("	Height = 3\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	MinimapIcon 0 Green Triangle\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+        write_obj.write("    LinkedSockets = 3\n")
+        write_obj.write("    Width = 1\n")
+        write_obj.write("    Height = 3\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10700 Items with fewer than max links\n")
         write_obj.write("##### I'm going to have a higher level requirement for these.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= 81\n")
-        write_obj.write("	LinkedSockets = 3\n")
-        write_obj.write("	Width = 1\n")
-        write_obj.write("	Height = 3\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	MinimapIcon 0 Green Triangle\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= 81\n")
+        write_obj.write("    LinkedSockets = 3\n")
+        write_obj.write("    Width = 1\n")
+        write_obj.write("    Height = 3\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("Show\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= 81\n")
-        write_obj.write("	LinkedSockets = 3\n")
-        write_obj.write("	Width = 2\n")
-        write_obj.write("	Height = 2\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	MinimapIcon 0 Green Triangle\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= 81\n")
+        write_obj.write("    LinkedSockets = 3\n")
+        write_obj.write("    Width = 2\n")
+        write_obj.write("    Height = 2\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10800 Rare Rings/Amulet/Belts/Jewels\n")
         write_obj.write("##### I only want Rare Rings/Amulet/Belts/Jewels if Unique if ilvl is met\n")
         write_obj.write("##### This ilvl is adjustable in User Settings.\n")
         write_obj.write("\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("	Class Rings Amulet Belts Jewel\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	MinimapIcon 0 Green Triangle\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+        write_obj.write("    Class Rings Amulet Belts Jewel\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("Hide                                    # Have to hide here or else Abyss will get flagged as Purple below.\n")
-        write_obj.write("	Rarity Normal Magic\n")
-        write_obj.write("	Class Jewel\n")
-        write_obj.write("	DisableDropSound True\n")
+        write_obj.write("    Rarity Normal Magic\n")
+        write_obj.write("    Class Jewel\n")
+        write_obj.write("    DisableDropSound True\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10900 White and Abyss Sockets\n")
         write_obj.write("##### Can't upgrade Normal/Magic corrupted items, only useful if Rare.\n")
         write_obj.write("##### Maybe make # of White or Abyss sockets adjustable later for strictness.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	SocketGroup W\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 0 Blue Triangle\n")
+        write_obj.write("    SocketGroup W\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 0 Blue Triangle\n")
         write_obj.write("Show\n")
-        write_obj.write("	SocketGroup A\n")
-        write_obj.write("	Rarity Rare\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 0 Blue Triangle\n")
+        write_obj.write("    SocketGroup A\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 26 26 255 255     # BACKGROUNDCOLOR BLUE\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 0 Blue Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 11000 Flasks - Unique and Magic\n")
         write_obj.write("##### Maybe make this adjustable later.\n")
         write_obj.write("Show\n")
-        write_obj.write("	Rarity Magic\n")
-        write_obj.write("	BaseType \"Divine Life\" \"Divine Mana\" \"Eternal Life\" \"Eternal Mana\"\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("	PlayAlertSound 9 300\n")
-        write_obj.write("	PlayEffect None\n")
-        write_obj.write("	MinimapIcon 2 Green Circle\n")
+        write_obj.write("    Rarity Magic\n")
+        write_obj.write("    BaseType \"Divine Life\" \"Divine Mana\" \"Eternal Life\" \"Eternal Mana\"\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
+        write_obj.write("    PlayAlertSound 9 300\n")
+        write_obj.write("    PlayEffect None\n")
+        write_obj.write("    MinimapIcon 2 Green Circle\n")
         write_obj.write("Show\n")
-        write_obj.write("	Rarity Normal Magic\n")
-        write_obj.write("	Class \"Utility\"\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("	PlayAlertSound 9 300\n")
-        write_obj.write("	PlayEffect None\n")
-        write_obj.write("	MinimapIcon 2 Green Circle\n")
+        write_obj.write("    Rarity Normal Magic\n")
+        write_obj.write("    Class \"Utility\"\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
+        write_obj.write("    PlayAlertSound 9 300\n")
+        write_obj.write("    PlayEffect None\n")
+        write_obj.write("    MinimapIcon 2 Green Circle\n")
 
     print ("Static Intro complete.")
 
@@ -614,6 +614,8 @@ def func_frag():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -645,17 +647,17 @@ def func_frag():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Map\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Map\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Fragments and Sacarabs section complete.")
 
 def func_curr():
@@ -689,6 +691,8 @@ def func_curr():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -720,17 +724,17 @@ def func_curr():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Currency section complete.")
 
 def func_oil():
@@ -771,6 +775,8 @@ def func_oil():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -802,17 +808,17 @@ def func_oil():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Oil section complete.")
 
 def func_heist():
@@ -890,18 +896,18 @@ def func_heist():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Heist\n")
-                write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Heist\n")
+                write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # ilvl83 items
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
@@ -956,18 +962,18 @@ def func_heist():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Heist\n")
-                write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Heist\n")
+                write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # ilvl84 items
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
@@ -1022,18 +1028,18 @@ def func_heist():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Heist\n")
-                write_obj.write("	ItemLevel >= "+LevelToWrite+"\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Heist\n")
+                write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # All other items
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
@@ -1086,29 +1092,29 @@ def func_heist():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Heist\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Heist\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # Last few Heist items
         write_obj.write("\n")
         write_obj.write("##### Last few Heist classes not otherwise noted.  Marking these as Tier 4.\n")
         write_obj.write("Show\n")
-        write_obj.write("	Class ""Heist Target"" Trinkets Contract Blueprint\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Pentagon\n")
+        write_obj.write("    Class ""Heist Target"" Trinkets Contract Blueprint\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Pentagon\n")
 
     print ("Heist section complete.")
 
@@ -1210,50 +1216,50 @@ def func_stacks():
         write_obj.write("#### Tier 1\n")
         write_obj.write("\n")
         write_obj.write("Show #5c\n")
-        write_obj.write("	StackSize >= 5000\n")
-        write_obj.write("	BaseType \"Perandus Coin\"\n")
-        write_obj.write("	SetFontSize 42\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("	PlayAlertSound 9 300\n")
-        write_obj.write("	PlayEffect None\n")
-        write_obj.write("	MinimapIcon 2 Green Hexagon\n")
+        write_obj.write("    StackSize >= 5000\n")
+        write_obj.write("    BaseType \"Perandus Coin\"\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
+        write_obj.write("    PlayAlertSound 9 300\n")
+        write_obj.write("    PlayEffect None\n")
+        write_obj.write("    MinimapIcon 2 Green Hexagon\n")
         write_obj.write("\n")
         write_obj.write("Show #1c\n")
-        write_obj.write("	StackSize >= 1000\n")
-        write_obj.write("	BaseType \"Perandus Coin\"\n")
-        write_obj.write("	SetFontSize 42\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 255 255 0 215 # Yellow\n")
-        write_obj.write("	PlayAlertSound 9 1\n")
-        write_obj.write("	PlayEffect None\n")
+        write_obj.write("    StackSize >= 1000\n")
+        write_obj.write("    BaseType \"Perandus Coin\"\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
         write_obj.write("\n")
         write_obj.write("Show #.5c\n")
-        write_obj.write("	StackSize >= 500\n")
-        write_obj.write("	BaseType \"Perandus Coin\"\n")
-        write_obj.write("	SetFontSize 42\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 244 92 36 230 # Orange\n")
-        write_obj.write("	PlayAlertSound 9 1\n")
-        write_obj.write("	PlayEffect None\n")
+        write_obj.write("    StackSize >= 500\n")
+        write_obj.write("    BaseType \"Perandus Coin\"\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 244 92 36 230 # Orange\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
         write_obj.write("\n")
         write_obj.write("Show #.2c\n")
-        write_obj.write("	StackSize >= 200\n")
-        write_obj.write("	BaseType \"Perandus Coin\"\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 187 28 28 210 # Red\n")
-        write_obj.write("	PlayAlertSound 9 1\n")
-        write_obj.write("	PlayEffect None\n")
+        write_obj.write("    StackSize >= 200\n")
+        write_obj.write("    BaseType \"Perandus Coin\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 187 28 28 210 # Red\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
         write_obj.write("\n")
         write_obj.write("Show #.1c\n")
-        write_obj.write("	StackSize >= 100\n")
-        write_obj.write("	BaseType \"Perandus Coin\"\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 82 51 7 220 # Brown\n")
-        write_obj.write("	PlayAlertSound 9 1\n")
-        write_obj.write("	PlayEffect None\n")
+        write_obj.write("    StackSize >= 100\n")
+        write_obj.write("    BaseType \"Perandus Coin\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 82 51 7 220 # Brown\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
 
         # Create section
         write_obj.write("\n")
@@ -1375,13 +1381,13 @@ def func_stacks():
         write_obj.write("##### Fucking GGG put the god damned Expedition Logbook into its own fucking class.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	Class \"Expedition Logbook\"\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 0 Blue Pentagon\n")
+        write_obj.write("    Class \"Expedition Logbook\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 0 Blue Pentagon\n")
 
 def func_other():
     global strOverallStrictness
@@ -1455,83 +1461,83 @@ def func_other():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class "+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class "+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         write_obj.write("#####################################################################################################################\n")
         write_obj.write("##### 12800 Quest/veiled/enchanted/synthesized items\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	Class Quest\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetBackgroundColor 0 0 0 255 # White\n")
-        write_obj.write("	PlayAlertSound 2 300\n")
-        write_obj.write("	PlayEffect White\n")
-        write_obj.write("	MinimapIcon 0 White Diamond\n")
+        write_obj.write("    Class Quest\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    PlayAlertSound 2 300\n")
+        write_obj.write("    PlayEffect White\n")
+        write_obj.write("    MinimapIcon 0 White Diamond\n")
         write_obj.write("Show\n")
-        write_obj.write("	HasExplicitMod "" Veil""\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Kite\n")
+        write_obj.write("    HasExplicitMod "" Veil""\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("Show\n")
-        write_obj.write("	AnyEnchantment True\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Kite\n")
+        write_obj.write("    AnyEnchantment True\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("Show\n")
-        write_obj.write("	SynthesisedItem True\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Kite\n")
+        write_obj.write("    SynthesisedItem True\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("#####################################################################################################################\n")
         write_obj.write("##### 12900 Fractured items\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	FracturedItem True\n")
-        write_obj.write("	Class Helmets\n")
-        write_obj.write("	ItemLevel >= 86\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("	PlayAlertSound 10 300\n")
-        write_obj.write("	PlayEffect Purple\n")
-        write_obj.write("	MinimapIcon 0 Purple Kite\n")
+        write_obj.write("    FracturedItem True\n")
+        write_obj.write("    Class Helmets\n")
+        write_obj.write("    ItemLevel >= 86\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
+        write_obj.write("    PlayAlertSound 10 300\n")
+        write_obj.write("    PlayEffect Purple\n")
+        write_obj.write("    MinimapIcon 0 Purple Kite\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	FracturedItem True\n")
-        write_obj.write("	Class Wands\n")
-        write_obj.write("	ItemLevel >= 55\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Kite\n")
+        write_obj.write("    FracturedItem True\n")
+        write_obj.write("    Class Wands\n")
+        write_obj.write("    ItemLevel >= 55\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("\n")
         write_obj.write("Hide\n")
-        write_obj.write("	FracturedItem True\n")
-        write_obj.write("	Class Gloves Boots Body Amulets Rings Shields Quivers\n")
-        write_obj.write("	DisableDropSound True\n")
+        write_obj.write("    FracturedItem True\n")
+        write_obj.write("    Class Gloves Boots Body Amulets Rings Shields Quivers\n")
+        write_obj.write("    DisableDropSound True\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	FracturedItem True\n")
-        write_obj.write("	SetFontSize 40\n")
-        write_obj.write("	SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Green\n")
-        write_obj.write("	MinimapIcon 0 Green Kite\n")
+        write_obj.write("    FracturedItem True\n")
+        write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Green\n")
+        write_obj.write("    MinimapIcon 0 Green Kite\n")
 
     print ("Other section complete.")
 
@@ -1608,29 +1614,29 @@ def func_watch():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	BaseType "+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    BaseType "+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # Last few Atlas items
         write_obj.write("\n")
         write_obj.write("##### Not sure if this class includes the items above or separate items.\n")
         write_obj.write("##### Adding here just to be sure.\n")
         write_obj.write("Show\n")
-        write_obj.write("	Class \"Atlas Region Upgrade Item\"\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Pentagon\n")
+        write_obj.write("    Class \"Atlas Region Upgrade Item\"\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Pentagon\n")
 
     print ("Watchstones section complete.")
 
@@ -1672,6 +1678,8 @@ def func_deli():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -1703,17 +1711,17 @@ def func_deli():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Delirium Orb section complete.")
 
 def func_inv():
@@ -1754,6 +1762,8 @@ def func_inv():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -1785,17 +1795,17 @@ def func_inv():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Invitations section complete.")
 
 def func_vial():
@@ -1836,6 +1846,8 @@ def func_vial():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -1867,17 +1879,17 @@ def func_vial():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Vial section complete.")
 
 def func_inc():
@@ -1918,6 +1930,8 @@ def func_inc():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -1949,17 +1963,17 @@ def func_inc():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Incubator\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Incubator\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Incubator section complete.")
 
 def func_scar():
@@ -2000,6 +2014,8 @@ def func_scar():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2031,17 +2047,17 @@ def func_scar():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class ""Map Fragments""\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class ""Map Fragments""\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Scarab section complete.")
 
 def func_foss():
@@ -2082,6 +2098,8 @@ def func_foss():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2113,17 +2131,17 @@ def func_foss():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Stackable\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Stackable\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Fossil & Resonator section complete.")
 
 def func_ess():
@@ -2164,6 +2182,8 @@ def func_ess():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2195,17 +2215,17 @@ def func_ess():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Currency\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Currency\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Essences section complete.")
 
 def func_div():
@@ -2246,6 +2266,8 @@ def func_div():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2277,17 +2299,17 @@ def func_div():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Divination\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Divination\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Div Card section complete.")
 
 def func_prop():
@@ -2328,6 +2350,8 @@ def func_prop():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2371,17 +2395,17 @@ def func_prop():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	BaseType ""Prophecy""\n")
-                write_obj.write("	Prophecy "+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    BaseType ""Prophecy""\n")
+                write_obj.write("    Prophecy "+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Prophecies section complete.")
 
 def func_beast():
@@ -2422,6 +2446,8 @@ def func_beast():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -2453,16 +2479,16 @@ def func_beast():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Beasts section complete.")
 
 def func_replica_umap():
@@ -2535,18 +2561,18 @@ def func_replica_umap():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Maps\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Maps\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Maps section complete.")
 
 def func_replica_ujew():
@@ -2619,18 +2645,18 @@ def func_replica_ujew():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Jewel\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Jewel\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Jewels section complete.")
 
 def func_replica_ufla():
@@ -2703,18 +2729,18 @@ def func_replica_ufla():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Flasks\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Flasks\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Flasks section complete.")
 
 def func_replica_uacc():
@@ -2787,18 +2813,18 @@ def func_replica_uacc():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Belts Rings Amulet\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Belts Rings Amulet\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Accessories section complete.")
 
 def func_normal_maps():
@@ -2885,19 +2911,19 @@ def func_normal_maps():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Maps\n")
-                    write_obj.write("	Rarity Normal Magic Rare\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	MapTier >= "+MapTierToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Maps\n")
+                    write_obj.write("    Rarity Normal Magic Rare\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    MapTier >= "+MapTierToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                     write_obj.write("\n")
     print ("Normal Map section complete.")
 
@@ -2985,19 +3011,19 @@ def func_blight_maps_2():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Maps\n")
-                    write_obj.write("	BlightedMap True\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	MapTier >= "+MapTierToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Maps\n")
+                    write_obj.write("    BlightedMap True\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    MapTier >= "+MapTierToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                     write_obj.write("\n")
     print ("Normal Map section complete.")
 
@@ -3025,14 +3051,14 @@ def func_influenced_maps():
         write_obj.write("#####\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	Class Maps\n")
-        write_obj.write("	HasInfluence Shaper Elder\n")
-        write_obj.write("	SetFontSize 39\n")
-        write_obj.write("	SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 25 25 255 235 # Blue\n")
-        write_obj.write("	PlayAlertSound 8 300\n")
-        write_obj.write("	PlayEffect Blue\n")
-        write_obj.write("	MinimapIcon 2 Blue Pentagon\n")
+        write_obj.write("    Class Maps\n")
+        write_obj.write("    HasInfluence Shaper Elder\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Blue\n")
+        write_obj.write("    MinimapIcon 2 Blue Pentagon\n")
 
     print ("Influenced Map section complete.")
 
@@ -3112,18 +3138,18 @@ def func_blight_maps():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Maps\n")
-                write_obj.write("	BlightedMap True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Maps\n")
+                write_obj.write("    BlightedMap True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                 write_obj.write("\n")
     print ("Blight Map section complete.")
 
@@ -3203,18 +3229,18 @@ def func_umaps():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Class Maps\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Class Maps\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                 write_obj.write("\n")
     print ("Unique Map section complete.")
 
@@ -3287,18 +3313,18 @@ def func_ujew():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Jewel\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Jewel\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Jewel section complete.")
 
 def func_ufla():
@@ -3370,18 +3396,18 @@ def func_ufla():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Flasks\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Flasks\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Flask section complete.")
 
 def func_uacc():
@@ -3453,18 +3479,18 @@ def func_uacc():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Belts Rings Amulet\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Belts Rings Amulet\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Accessories section complete.")
 
 def func_ench():
@@ -3505,6 +3531,8 @@ def func_ench():
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_name = row[1]
+                        if "&&" in str_name:
+                            str_name = str_name.replace("&&", ", ")
                         if row[12] != "":
                             str_Tier = row[12]
                         else:
@@ -3536,17 +3564,17 @@ def func_ench():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                #write_obj.write("	Class Helm\n")
-                write_obj.write("	HasEnchantment =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                #write_obj.write("    Class Helm\n")
+                write_obj.write("    HasEnchantment =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Helmet Enchants section complete.")
 
 def func_normal_gems():
@@ -3595,6 +3623,8 @@ def func_normal_gems():
                         if str_variant == "'21/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3625,21 +3655,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
             with open(strCSVin, 'r') as read_obj:
@@ -3652,6 +3682,8 @@ def func_normal_gems():
                         if str_variant == "'20/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3682,21 +3714,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
             with open(strCSVin, 'r') as read_obj:
@@ -3709,6 +3741,8 @@ def func_normal_gems():
                         if str_variant == "'6/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3739,21 +3773,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
             with open(strCSVin, 'r') as read_obj:
@@ -3766,6 +3800,8 @@ def func_normal_gems():
                         if str_variant == "'21/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3796,21 +3832,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
             with open(strCSVin, 'r') as read_obj:
@@ -3823,6 +3859,8 @@ def func_normal_gems():
                         if str_variant == "'20/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3853,21 +3891,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
             with open(strCSVin, 'r') as read_obj:
@@ -3880,6 +3918,8 @@ def func_normal_gems():
                         if str_variant == "'6/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3910,21 +3950,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
             with open(strCSVin, 'r') as read_obj:
@@ -3937,6 +3977,8 @@ def func_normal_gems():
                         if str_variant == "'5/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -3967,21 +4009,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
             with open(strCSVin, 'r') as read_obj:
@@ -3994,6 +4036,8 @@ def func_normal_gems():
                         if str_variant == "'21c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4024,20 +4068,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
             with open(strCSVin, 'r') as read_obj:
@@ -4050,6 +4094,8 @@ def func_normal_gems():
                         if str_variant == "'20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4080,20 +4126,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
             with open(strCSVin, 'r') as read_obj:
@@ -4106,6 +4152,8 @@ def func_normal_gems():
                         if str_variant == "'7c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4136,20 +4184,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 7\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 7\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
             with open(strCSVin, 'r') as read_obj:
@@ -4162,6 +4210,8 @@ def func_normal_gems():
                         if str_variant == "'6c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4192,20 +4242,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
             with open(strCSVin, 'r') as read_obj:
@@ -4218,6 +4268,8 @@ def func_normal_gems():
                         if str_variant == "'4c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4248,20 +4300,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 4\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 4\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
             with open(strCSVin, 'r') as read_obj:
@@ -4274,6 +4326,8 @@ def func_normal_gems():
                         if str_variant == "'3c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4304,20 +4358,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
             with open(strCSVin, 'r') as read_obj:
@@ -4330,6 +4384,8 @@ def func_normal_gems():
                         if str_variant == "'2c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4360,20 +4416,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
             with open(strCSVin, 'r') as read_obj:
@@ -4386,6 +4442,8 @@ def func_normal_gems():
                         if str_variant == "'1c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4416,20 +4474,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
             with open(strCSVin, 'r') as read_obj:
@@ -4442,6 +4500,8 @@ def func_normal_gems():
                         if str_variant == "'5/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4472,21 +4532,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
             with open(strCSVin, 'r') as read_obj:
@@ -4499,6 +4559,8 @@ def func_normal_gems():
                         if str_variant == "'1/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4529,21 +4591,21 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
             with open(strCSVin, 'r') as read_obj:
@@ -4556,6 +4618,8 @@ def func_normal_gems():
                         if str_variant == "'20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4586,20 +4650,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
             with open(strCSVin, 'r') as read_obj:
@@ -4612,7 +4676,10 @@ def func_normal_gems():
                         if str_variant == "'6":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
+
                             if row[12] != "":
                                 str_Tier = row[12]
                             else:
@@ -4642,20 +4709,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
             with open(strCSVin, 'r') as read_obj:
@@ -4668,6 +4735,8 @@ def func_normal_gems():
                         if str_variant == "'3":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4698,20 +4767,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
             with open(strCSVin, 'r') as read_obj:
@@ -4724,6 +4793,8 @@ def func_normal_gems():
                         if str_variant == "'2":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4754,20 +4825,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
             with open(strCSVin, 'r') as read_obj:
@@ -4780,6 +4851,8 @@ def func_normal_gems():
                         if str_variant == "'1":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4810,20 +4883,20 @@ def func_normal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemQualityType Superior\n") # "Superior" means normal.
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Normal Gems section complete.")
 
@@ -4873,6 +4946,8 @@ def func_divergent_gems():
                         if str_variant == "'21/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4903,21 +4978,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
             with open(strCSVin, 'r') as read_obj:
@@ -4930,6 +5005,8 @@ def func_divergent_gems():
                         if str_variant == "'20/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -4960,21 +5037,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
             with open(strCSVin, 'r') as read_obj:
@@ -4987,6 +5064,8 @@ def func_divergent_gems():
                         if str_variant == "'6/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5017,21 +5096,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
             with open(strCSVin, 'r') as read_obj:
@@ -5044,6 +5123,8 @@ def func_divergent_gems():
                         if str_variant == "'21/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5074,21 +5155,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
             with open(strCSVin, 'r') as read_obj:
@@ -5101,6 +5182,8 @@ def func_divergent_gems():
                         if str_variant == "'20/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5131,21 +5214,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
             with open(strCSVin, 'r') as read_obj:
@@ -5158,6 +5241,8 @@ def func_divergent_gems():
                         if str_variant == "'6/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5188,21 +5273,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
             with open(strCSVin, 'r') as read_obj:
@@ -5215,6 +5300,8 @@ def func_divergent_gems():
                         if str_variant == "'5/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5245,21 +5332,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
             with open(strCSVin, 'r') as read_obj:
@@ -5272,6 +5359,8 @@ def func_divergent_gems():
                         if str_variant == "'21c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5302,20 +5391,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
             with open(strCSVin, 'r') as read_obj:
@@ -5328,6 +5417,8 @@ def func_divergent_gems():
                         if str_variant == "'20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5358,20 +5449,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
             with open(strCSVin, 'r') as read_obj:
@@ -5384,6 +5475,8 @@ def func_divergent_gems():
                         if str_variant == "'7c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5414,20 +5507,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 7\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 7\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
             with open(strCSVin, 'r') as read_obj:
@@ -5440,6 +5533,8 @@ def func_divergent_gems():
                         if str_variant == "'6c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5470,20 +5565,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
             with open(strCSVin, 'r') as read_obj:
@@ -5496,6 +5591,8 @@ def func_divergent_gems():
                         if str_variant == "'4c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5526,20 +5623,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 4\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 4\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
             with open(strCSVin, 'r') as read_obj:
@@ -5552,6 +5649,8 @@ def func_divergent_gems():
                         if str_variant == "'3c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5582,20 +5681,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
             with open(strCSVin, 'r') as read_obj:
@@ -5608,6 +5707,8 @@ def func_divergent_gems():
                         if str_variant == "'2c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5638,20 +5739,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
             with open(strCSVin, 'r') as read_obj:
@@ -5664,6 +5765,8 @@ def func_divergent_gems():
                         if str_variant == "'1c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5694,20 +5797,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
             with open(strCSVin, 'r') as read_obj:
@@ -5720,6 +5823,8 @@ def func_divergent_gems():
                         if str_variant == "'5/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5750,21 +5855,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
             with open(strCSVin, 'r') as read_obj:
@@ -5777,6 +5882,8 @@ def func_divergent_gems():
                         if str_variant == "'1/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5807,21 +5914,21 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
             with open(strCSVin, 'r') as read_obj:
@@ -5834,6 +5941,8 @@ def func_divergent_gems():
                         if str_variant == "'20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5864,20 +5973,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
             with open(strCSVin, 'r') as read_obj:
@@ -5890,6 +5999,8 @@ def func_divergent_gems():
                         if str_variant == "'6":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5920,20 +6031,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
             with open(strCSVin, 'r') as read_obj:
@@ -5946,6 +6057,8 @@ def func_divergent_gems():
                         if str_variant == "'3":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -5976,20 +6089,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
             with open(strCSVin, 'r') as read_obj:
@@ -6002,6 +6115,8 @@ def func_divergent_gems():
                         if str_variant == "'2":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6032,20 +6147,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
             with open(strCSVin, 'r') as read_obj:
@@ -6058,6 +6173,8 @@ def func_divergent_gems():
                         if str_variant == "'1":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6088,20 +6205,20 @@ def func_divergent_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Divergent\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Divergent\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Divergent Gems section complete.")
 
@@ -6151,6 +6268,8 @@ def func_anomalous_gems():
                         if str_variant == "'21/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6181,21 +6300,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
             with open(strCSVin, 'r') as read_obj:
@@ -6208,6 +6327,8 @@ def func_anomalous_gems():
                         if str_variant == "'20/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6238,21 +6359,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
             with open(strCSVin, 'r') as read_obj:
@@ -6265,6 +6386,8 @@ def func_anomalous_gems():
                         if str_variant == "'6/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6295,21 +6418,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
             with open(strCSVin, 'r') as read_obj:
@@ -6322,6 +6445,8 @@ def func_anomalous_gems():
                         if str_variant == "'21/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6352,21 +6477,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
             with open(strCSVin, 'r') as read_obj:
@@ -6379,6 +6504,8 @@ def func_anomalous_gems():
                         if str_variant == "'20/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6409,21 +6536,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
             with open(strCSVin, 'r') as read_obj:
@@ -6436,6 +6563,8 @@ def func_anomalous_gems():
                         if str_variant == "'6/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6466,21 +6595,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
             with open(strCSVin, 'r') as read_obj:
@@ -6493,6 +6622,8 @@ def func_anomalous_gems():
                         if str_variant == "'5/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6523,21 +6654,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
             with open(strCSVin, 'r') as read_obj:
@@ -6550,6 +6681,8 @@ def func_anomalous_gems():
                         if str_variant == "'21c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6580,20 +6713,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
             with open(strCSVin, 'r') as read_obj:
@@ -6606,6 +6739,8 @@ def func_anomalous_gems():
                         if str_variant == "'20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6636,20 +6771,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
             with open(strCSVin, 'r') as read_obj:
@@ -6662,6 +6797,8 @@ def func_anomalous_gems():
                         if str_variant == "'7c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6692,20 +6829,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 7\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 7\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
             with open(strCSVin, 'r') as read_obj:
@@ -6718,6 +6855,8 @@ def func_anomalous_gems():
                         if str_variant == "'6c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6748,20 +6887,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
             with open(strCSVin, 'r') as read_obj:
@@ -6774,6 +6913,8 @@ def func_anomalous_gems():
                         if str_variant == "'4c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6804,20 +6945,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 4\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 4\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
             with open(strCSVin, 'r') as read_obj:
@@ -6830,6 +6971,8 @@ def func_anomalous_gems():
                         if str_variant == "'3c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6860,20 +7003,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
             with open(strCSVin, 'r') as read_obj:
@@ -6886,6 +7029,8 @@ def func_anomalous_gems():
                         if str_variant == "'2c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6916,20 +7061,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
             with open(strCSVin, 'r') as read_obj:
@@ -6942,6 +7087,8 @@ def func_anomalous_gems():
                         if str_variant == "'1c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -6972,20 +7119,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
             with open(strCSVin, 'r') as read_obj:
@@ -6998,6 +7145,8 @@ def func_anomalous_gems():
                         if str_variant == "'5/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7028,21 +7177,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
             with open(strCSVin, 'r') as read_obj:
@@ -7055,6 +7204,8 @@ def func_anomalous_gems():
                         if str_variant == "'1/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7085,21 +7236,21 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
             with open(strCSVin, 'r') as read_obj:
@@ -7112,6 +7263,8 @@ def func_anomalous_gems():
                         if str_variant == "'20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7142,20 +7295,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
             with open(strCSVin, 'r') as read_obj:
@@ -7168,6 +7321,8 @@ def func_anomalous_gems():
                         if str_variant == "'6":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7198,20 +7353,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
             with open(strCSVin, 'r') as read_obj:
@@ -7224,6 +7379,8 @@ def func_anomalous_gems():
                         if str_variant == "'3":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7254,20 +7411,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
             with open(strCSVin, 'r') as read_obj:
@@ -7280,6 +7437,8 @@ def func_anomalous_gems():
                         if str_variant == "'2":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7310,20 +7469,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
             with open(strCSVin, 'r') as read_obj:
@@ -7336,6 +7495,8 @@ def func_anomalous_gems():
                         if str_variant == "'1":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7366,20 +7527,20 @@ def func_anomalous_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Anomalous\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Anomalous\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Anomalous Gems section complete.")
 
@@ -7429,6 +7590,8 @@ def func_phantasmal_gems():
                         if str_variant == "'21/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7459,21 +7622,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
             with open(strCSVin, 'r') as read_obj:
@@ -7486,6 +7649,8 @@ def func_phantasmal_gems():
                         if str_variant == "'20/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7516,21 +7681,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
             with open(strCSVin, 'r') as read_obj:
@@ -7543,6 +7708,8 @@ def func_phantasmal_gems():
                         if str_variant == "'6/23c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7573,21 +7740,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 23\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 23\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
             with open(strCSVin, 'r') as read_obj:
@@ -7600,6 +7767,8 @@ def func_phantasmal_gems():
                         if str_variant == "'21/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7630,21 +7799,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
             with open(strCSVin, 'r') as read_obj:
@@ -7657,6 +7826,8 @@ def func_phantasmal_gems():
                         if str_variant == "'20/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7687,21 +7858,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
             with open(strCSVin, 'r') as read_obj:
@@ -7714,6 +7885,8 @@ def func_phantasmal_gems():
                         if str_variant == "'6/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7744,21 +7917,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
             with open(strCSVin, 'r') as read_obj:
@@ -7771,6 +7944,8 @@ def func_phantasmal_gems():
                         if str_variant == "'5/20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7801,21 +7976,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
             with open(strCSVin, 'r') as read_obj:
@@ -7828,6 +8003,8 @@ def func_phantasmal_gems():
                         if str_variant == "'21c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7858,20 +8035,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 21\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 21\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
             with open(strCSVin, 'r') as read_obj:
@@ -7884,6 +8061,8 @@ def func_phantasmal_gems():
                         if str_variant == "'20c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7914,20 +8093,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
             with open(strCSVin, 'r') as read_obj:
@@ -7940,6 +8119,8 @@ def func_phantasmal_gems():
                         if str_variant == "'7c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -7970,20 +8151,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 7\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 7\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
             with open(strCSVin, 'r') as read_obj:
@@ -7996,6 +8177,8 @@ def func_phantasmal_gems():
                         if str_variant == "'6c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8026,20 +8209,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
             with open(strCSVin, 'r') as read_obj:
@@ -8052,6 +8235,8 @@ def func_phantasmal_gems():
                         if str_variant == "'4c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8082,20 +8267,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 4\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 4\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
             with open(strCSVin, 'r') as read_obj:
@@ -8108,6 +8293,8 @@ def func_phantasmal_gems():
                         if str_variant == "'3c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8138,20 +8325,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
             with open(strCSVin, 'r') as read_obj:
@@ -8164,6 +8351,8 @@ def func_phantasmal_gems():
                         if str_variant == "'2c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8194,20 +8383,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
             with open(strCSVin, 'r') as read_obj:
@@ -8220,6 +8409,8 @@ def func_phantasmal_gems():
                         if str_variant == "'1c":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8250,20 +8441,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted True\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
             with open(strCSVin, 'r') as read_obj:
@@ -8276,6 +8467,8 @@ def func_phantasmal_gems():
                         if str_variant == "'5/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8306,21 +8499,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 5\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 5\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
             with open(strCSVin, 'r') as read_obj:
@@ -8333,6 +8526,8 @@ def func_phantasmal_gems():
                         if str_variant == "'1/20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8363,21 +8558,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	Quality >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    Quality >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
             with open(strCSVin, 'r') as read_obj:
@@ -8390,6 +8585,8 @@ def func_phantasmal_gems():
                         if str_variant == "'20":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8420,20 +8617,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 20\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 20\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
             with open(strCSVin, 'r') as read_obj:
@@ -8446,6 +8643,8 @@ def func_phantasmal_gems():
                         if str_variant == "'6":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8476,21 +8675,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 6\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 6\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
             with open(strCSVin, 'r') as read_obj:
@@ -8503,6 +8702,8 @@ def func_phantasmal_gems():
                         if str_variant == "'3":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8533,20 +8734,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 3\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 3\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
             with open(strCSVin, 'r') as read_obj:
@@ -8559,6 +8760,8 @@ def func_phantasmal_gems():
                         if str_variant == "'2":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8589,21 +8792,21 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 2\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 2\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
             with open(strCSVin, 'r') as read_obj:
@@ -8616,6 +8819,8 @@ def func_phantasmal_gems():
                         if str_variant == "'1":
                             str_category = row[0]
                             str_name = row[1]
+                            if "&&" in str_name:
+                                str_name = str_name.replace("&&", ", ")
                             str_variant = row[3]
                             if row[12] != "":
                                 str_Tier = row[12]
@@ -8646,20 +8851,20 @@ def func_phantasmal_gems():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Class Gems\n")
-                    write_obj.write("	GemQualityType Phantasmal\n")
-                    write_obj.write("	Corrupted False\n")
-                    write_obj.write("	GemLevel >= 1\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Class Gems\n")
+                    write_obj.write("    GemQualityType Phantasmal\n")
+                    write_obj.write("    Corrupted False\n")
+                    write_obj.write("    GemLevel >= 1\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Phantasmal Gems section complete.")
 
@@ -8732,18 +8937,18 @@ def func_uweap_6():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	Sockets = 6\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    Sockets = 6\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("6L Unique Weapon section complete.")
 
 def func_uweap_5():
@@ -8815,18 +9020,18 @@ def func_uweap_5():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	Sockets = 5\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    Sockets = 5\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("5L Unique Weapon section complete.")
 
 def func_repweap_0():
@@ -8900,17 +9105,17 @@ def func_repweap_0():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("All Other Replica Weapon section complete.")
 
 def func_uweap_0():
@@ -8984,17 +9189,17 @@ def func_uweap_0():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("All Other Unique Weapon section complete.")
 
 def func_uarm_6():
@@ -9066,18 +9271,18 @@ def func_uarm_6():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	Sockets = 6\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    Sockets = 6\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("6L Unique Armor section complete.")
 
 def func_uarm_5():
@@ -9149,18 +9354,18 @@ def func_uarm_5():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	Sockets = 5\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    Sockets = 5\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("5L Unique Armor section complete.")
 
@@ -9235,17 +9440,17 @@ def func_reparm_0():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Replica True\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Replica True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("All Other Replica Armor section complete.")
 
@@ -9320,17 +9525,17 @@ def func_uarm_0():
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
                     write_obj.write("DisableDropSound True\n")
-                write_obj.write("	Rarity Unique\n")
-                write_obj.write("	BaseType =="+LineToWrite+"\n")
-                write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                write_obj.write("	SetTextColor 0 0 0 255\n")
-                write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                write_obj.write("    Rarity Unique\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                 if str_PlayAlertSound != "":
-                    write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
-                    write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                 if IconToWrite != "":
-                    write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("All Other Unique Armor section complete.")
 
@@ -9415,28 +9620,28 @@ def func_influenced():
                             print("Hiding Tier "+str(i))
                             write_obj.write("Hide\n")
                             write_obj.write("DisableDropSound True\n")
-                        write_obj.write("	HasInfluence == "+strInfluence+"\n")
-                        write_obj.write("	ItemLevel >= "+str(k)+"\n")
-                        write_obj.write("	BaseType =="+LineToWrite+"\n")
-                        write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                        write_obj.write("	SetTextColor 0 0 0 255\n")
-                        write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                        write_obj.write("    HasInfluence == "+strInfluence+"\n")
+                        write_obj.write("    ItemLevel >= "+str(k)+"\n")
+                        write_obj.write("    BaseType =="+LineToWrite+"\n")
+                        write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                        write_obj.write("    SetTextColor 0 0 0 255\n")
+                        write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                         if str_PlayAlertSound != "":
-                            write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                            write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                         if EffectToWrite != "":
-                            write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                            write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                         if IconToWrite != "":
-                            write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                            write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # All other influenced items caught here
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
-        write_obj.write("	SetFontSize 39\n")
+        write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
+        write_obj.write("    SetFontSize 39\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("	SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("	PlayAlertSound 9 300\n")
-        write_obj.write("	MinimapIcon 2 Green Kite\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
+        write_obj.write("    PlayAlertSound 9 300\n")
+        write_obj.write("    MinimapIcon 2 Green Kite\n")
 
     print ("Influenced section complete.")
 
@@ -9518,18 +9723,18 @@ def func_non_influenced():
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
                         write_obj.write("DisableDropSound True\n")
-                    write_obj.write("	Rarity Rare\n")
-                    write_obj.write("	ItemLevel >= "+str(k)+"\n")
-                    write_obj.write("	BaseType =="+LineToWrite+"\n")
-                    write_obj.write("	SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("	SetTextColor 0 0 0 255\n")
-                    write_obj.write("	SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    write_obj.write("    Rarity Rare\n")
+                    write_obj.write("    ItemLevel >= "+str(k)+"\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
                     if str_PlayAlertSound != "":
-                        write_obj.write("	PlayAlertSound "+str_PlayAlertSound+"\n")
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
-                        write_obj.write("	PlayEffect "+EffectToWrite+"\n")
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "":
-                        write_obj.write("	MinimapIcon "+IconToWrite+"\n")
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Non-influenced bases section complete.")
 
@@ -9555,12 +9760,12 @@ def func_hide_norm():
         write_obj.write("##### Sections at top of filter are adjustable, so this section doesn't need to be.\n")
         write_obj.write("\n")
         write_obj.write("Hide\n")
-        write_obj.write("	Rarity Normal Magic Rare\n")
-        write_obj.write("	Class Abyss Amulets Axes Belts Body Boots Bows Claws Daggers Flasks Gems Gloves Helmets Jewel Maces Quivers Rings Sceptres Shields Staves Swords Wands Warstaves\n")
-        write_obj.write("	SetFontSize 18\n")
-        write_obj.write("	SetBorderColor 0 0 0 0\n")
-        write_obj.write("	SetBackgroundColor 0 0 0 0\n")
-        write_obj.write("	DisableDropSound True\n")
+        write_obj.write("    Rarity Normal Magic Rare\n")
+        write_obj.write("    Class Abyss Amulets Axes Belts Body Boots Bows Claws Daggers Flasks Gems Gloves Helmets Jewel Maces Quivers Rings Sceptres Shields Staves Swords Wands Warstaves\n")
+        write_obj.write("    SetFontSize 18\n")
+        write_obj.write("    SetBorderColor 0 0 0 0\n")
+        write_obj.write("    SetBackgroundColor 0 0 0 0\n")
+        write_obj.write("    DisableDropSound True\n")
         write_obj.write("\n")
 
         with open(strCSVin, 'r') as read_obj:
@@ -9577,10 +9782,10 @@ def func_hide_norm():
         
         if LineToWrite != "":
             write_obj.write("Hide # Explicitly hide all ""Tier 12"" BaseTypes (maxvalue < strGrayCutoff)\n")
-            write_obj.write("	Rarity Unique\n")
-            write_obj.write("	BaseType =="+LineToWrite+"\n")
-            write_obj.write("	SetFontSize 39\n")
-            write_obj.write("	DisableDropSound True\n")
+            write_obj.write("    Rarity Unique\n")
+            write_obj.write("    BaseType =="+LineToWrite+"\n")
+            write_obj.write("    SetFontSize 39\n")
+            write_obj.write("    DisableDropSound True\n")
 
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 15000 Safety Net section - catch anything not caught above\n")
@@ -9590,13 +9795,13 @@ def func_hide_norm():
         write_obj.write("#####\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("	SetFontSize 45\n")
-        write_obj.write("	SetTextColor 255 0 255 255\n")
-        write_obj.write("	SetBorderColor 255 0 255 255\n")
-        write_obj.write("	SetBackgroundColor 100 0 100 255\n")
-        write_obj.write("	PlayAlertSound 3 300\n")
-        write_obj.write("	PlayEffect Pink\n")
-        write_obj.write("	MinimapIcon 0 Pink Circle\n")
+        write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 255 0 255 255\n")
+        write_obj.write("    SetBorderColor 255 0 255 255\n")
+        write_obj.write("    SetBackgroundColor 100 0 100 255\n")
+        write_obj.write("    PlayAlertSound 3 300\n")
+        write_obj.write("    PlayEffect Pink\n")
+        write_obj.write("    MinimapIcon 0 Pink Circle\n")
         write_obj.write("\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 15100 Special thanks!\n")
