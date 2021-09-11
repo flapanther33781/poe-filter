@@ -2889,7 +2889,7 @@ def func_normal_maps():
                             str_PlayEffect = row[16]
                             str_MinimapIcon = row[17]
                 
-                            if str_category == "map" and str_variant == "', Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "map" and str_variant == "Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize
@@ -2989,7 +2989,7 @@ def func_blight_maps_2():
                             str_PlayEffect = row[16]
                             str_MinimapIcon = row[17]
                 
-                            if str_category == "blight" and str_variant == "', Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "blight" and str_variant == "Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize

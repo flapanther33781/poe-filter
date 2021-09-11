@@ -48,11 +48,16 @@ def compare(searchstring1, searchstring2, str_Override):
 
             returnval = ""
             if row["category"] != "category":
-                #print (row)
-                #print (searchstring1)
-                #print (searchstring2)
-                #print ()
-                #time.sleep(1)
+                #if "Caer" in row["name"]:
+                #    print ("We're in compare(), and these are the things we're about to compare:")
+                #    print ()
+                #    print (row)
+                #    print ()
+                #    print (searchstring1)
+                #    print ()
+                #    print (searchstring2)
+                #    print ()
+                #    time.sleep(10)
 
                 # row["category"]
                 # row["name"]
@@ -119,8 +124,8 @@ def do_work():
 
         # Read each row of the input csv file as list
         for row in csv_reader:
-            print (row)
-            print ()
+            #print (row)
+            #print ()
 
             # If we see the header line initialize the new output file.
             if row[0] == "category":
@@ -191,8 +196,21 @@ def do_work():
                             #time.sleep(1)
                             # searchstring1 = from category to gemQuality, NOT including item name
                             searchstring1 = str_category + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality
-                            # searchstring2 from category to gemQuality, NOT including item name or variant
-                            searchstring1 = str_category + "," + str_baseType + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality
+                            # searchstring2 = from category to gemQuality, NOT including item name or variant
+                            searchstring2 = str_category + "," + str_baseType + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality
+                            #if "Caer" in str_name:
+                            #    print ("str_name is:")
+                            #    print ()
+                            #    print (str_name)
+                            #    print ()
+                            #    print ("Found 0, means Override = True and hasdup = True")
+                            #    print ()
+                            #    print (row)
+                            #    print ()
+                            #    print (searchstring1)
+                            #    print ()
+                            #    time.sleep(10)
+
                         if str_hasdup == "FALSE":
                             #print ("Found str_Override "+str_Override+". str_hasdup = FALSE.")
                             #print ()
@@ -201,8 +219,12 @@ def do_work():
                             searchstring1 = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality
                             # searchstring2 = ""
                             searchstring2 = ""
-                            #if "Fenumus" in str_name:
-                            #    print ("Found 1")
+                            #if "Caer" in str_name:
+                            #    print ("str_name is:")
+                            #    print ()
+                            #    print (str_name)
+                            #    print ()
+                            #    print ("Found 1, means Override = True and hasdup = False")
                             #    print ()
                             #    print (row)
                             #    print ()
@@ -210,12 +232,12 @@ def do_work():
                             #    print ()
                             #    time.sleep(10)
 
-                        #print("I am sending:")
+                        #print("I am preparing to send:")
                         #print(searchstring1)
                         #print()
                         #print(searchstring2)
                         #print()
-                        #time.sleep(1)
+                        #time.sleep(10)
                         returnval = compare(searchstring1, searchstring2, str_Override)
                         if returnval == "":
                             #print("Override was true. returnval was empty, so it doesn't exist in str30temp. Honestly, we should never see this.")
@@ -229,9 +251,12 @@ def do_work():
                             #print("I am writing:")
                             #print()
                             # print row to output
-                            #if "Fenumus" in str_name:
-                            #    print ("Found 2")
+                            #if "Caer" in str_name:
+                            #    print ("Found 2, means Override was True and comparison completed, but returnval = "".")
+                            #    print ("This is probably because we sent bad data to compare() such that it didn't find a match.")
+                            #    print ("I will print to the new file:")
                             #    print ()
+                            #    print(rowtoprint)
                             #    print ()
                             #    time.sleep(10)
                             with open(str30new, 'a', newline='') as write_obj:
@@ -249,7 +274,7 @@ def do_work():
                             #print()
                             #time.sleep(1)
                             # print returnval to output
-                            #if "Fenumus" in str_name:
+                            #if "Caer" in str_name:
                             #    print ("Found 3")
                             #    print ()
                             #    print ()
@@ -270,14 +295,21 @@ def do_work():
                         #print(rowtoprint)
                         #time.sleep(10)
                         #print()
+                        #if ",," in str_name:
+                        #    print ("Found two commas in str_name")
+                        #    print ()
+                        #if "Caer" in str_name:
+                        #    print ("Found 4.  I will be writing row (not rowtoprint?)")
+                        #    print ()
+                        #    print (row)
+                        #    print ()
+                        #    print (rowtoprint)
+                        #    print ()
+                        #    time.sleep(10)
                         with open(str30new, 'a', newline='') as write_obj:
                             csv_writer = csv.writer(write_obj)
                             csv_writer.writerow(row)
-                        #if "Fenumus" in str_name:
-                        #    print ("Found 4")
-                        #    print ()
-                        #    print ()
-                        #    time.sleep(10)
 
-func_init()
 print('Looking for Overridden items.')
+func_init()
+print('Finished updating Overridden items.')
