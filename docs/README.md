@@ -122,6 +122,7 @@ Three reasons:
 
 I'm open to suggestions, but right now on my list I have:
 
+- I'm considering using a black border to indicate items that take up 1x1 inventory space (to highlight currency, maps, etc)
 - All vendor recipies, with checkboxes (handy for challenges)
 - Separate sliders for gems/cards/prophs/etc?
 - Additional color themes (suggestions welcome)
