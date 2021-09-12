@@ -300,11 +300,11 @@ def ChangeColors (str_SetBackgroundColor):
         # str_SetBackgroundColor = "100 200 255 255 # Cyan" # Alternate
         # str_SetBackgroundColor = "92 156 188 255 # Cyan" # Alternate
     if str_SetBackgroundColor == "Purple":
-        str_SetBackgroundColor = "100 0 100 255 # Purple"
+        str_SetBackgroundColor = "150 50 150 255 # Purple"
         # str_SetBackgroundColor = "163 52 235 255 # Purple" # Alternate
         # str_SetBackgroundColor = "125 30 176 255 # Purple" # Alternate
     if str_SetBackgroundColor == "Blue":
-        str_SetBackgroundColor = "25 25 255 255 # Blue"
+        str_SetBackgroundColor = "50 50 255 255 # Blue"
         # str_SetBackgroundColor = "4 115 220 255 # Blue" # Alternate
         # str_SetBackgroundColor = "12 124 224 255 # Blue" # Alternate
     if str_SetBackgroundColor == "Green":
@@ -442,7 +442,7 @@ def func_static_intro():
             write_obj.write("    LinkedSockets = 5\n")
             write_obj.write("    SetFontSize 42\n")
             write_obj.write("    SetTextColor 0 0 0 255\n")
-            write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+            write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
             write_obj.write("    PlayAlertSound 8 300\n")
             write_obj.write("    PlayEffect Green\n")
             write_obj.write("    MinimapIcon 0 Green Triangle\n")
@@ -462,7 +462,7 @@ def func_static_intro():
         write_obj.write("    Height = 2\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
@@ -482,7 +482,7 @@ def func_static_intro():
         write_obj.write("    Height = 3\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
@@ -497,7 +497,7 @@ def func_static_intro():
         write_obj.write("    Height = 3\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("Show\n")
@@ -508,7 +508,7 @@ def func_static_intro():
         write_obj.write("    Height = 2\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
@@ -522,7 +522,7 @@ def func_static_intro():
         write_obj.write("    Class Rings Amulet Belts Jewel\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("Hide                                    # Have to hide here or else Abyss will get flagged as Purple below.\n")
@@ -1534,7 +1534,7 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    FracturedItem True\n")
         write_obj.write("    SetFontSize 40\n")
-        write_obj.write("    SetBackgroundColor 31 122 31 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Green\n")
         write_obj.write("    MinimapIcon 0 Green Kite\n")
@@ -9798,7 +9798,7 @@ def func_hide_norm():
         write_obj.write("    SetFontSize 45\n")
         write_obj.write("    SetTextColor 255 0 255 255\n")
         write_obj.write("    SetBorderColor 255 0 255 255\n")
-        write_obj.write("    SetBackgroundColor 100 0 100 255\n")
+        write_obj.write("    SetBackgroundColor 150 50 150 255\n")
         write_obj.write("    PlayAlertSound 3 300\n")
         write_obj.write("    PlayEffect Pink\n")
         write_obj.write("    MinimapIcon 0 Pink Circle\n")
