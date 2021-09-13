@@ -2,6 +2,8 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
+#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info.
+
 #### Here is an introduction video (right-click and open in a new tab):
 
 [![Introduction/Demo Video](https://user-images.githubusercontent.com/26362032/131201669-a51e130b-bd84-4dda-9e9c-52ba96e558f2.png)](https://youtu.be/-kXiwg55DLI)
@@ -37,6 +39,10 @@ I feel like I have the tool doing 98% of what it should. I'm sure there are some
 - Refactoring: There are _sooooo maaaany variations to handle!!!_ If you factorize too early you run the risk of running into edge cases that require you to rewrite what you had, and in the process you could break what you'd already written. There are so many variations to handle that I decided not to do ANY factorizing at all until I got closer to a Beta stage. I am getting closer to that, and would love it if I could find some people to assist with the factorization.  To be completely honest, I'd never written more than 50 lines of Python before taking on this project.  It was my exuse to learn Python and at the same time tackle this idea I'd been wanting to do for (literally) years.
 
 ## FAQ
+
+#### How do we install/run this program?
+
+I wanted to make this something that wouldn't need anything to be installed other than the base Python library, but it looks like I included one additional dependency without realizing it.  So in order to run the program you'll need to install Python, and then from a command propmt, issue the command `pip install requests`.  This will install the `requests` library, which you can read about here: https://docs.python-requests.org/en/latest/
 
 #### How do we interpret the colors and map icons of the items?
 
