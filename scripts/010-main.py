@@ -4,6 +4,7 @@ import sys
 #for p in sys.path:
 #    print (p)
 
+task0 = __import__('005-get-leagues')
 task1 = __import__('015-ninja')
 task2 = __import__('020-fix-shit')
 task3 = __import__('025-remove-dups')
