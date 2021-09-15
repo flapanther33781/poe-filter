@@ -2,7 +2,7 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
-#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info.
+#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can justg download the .filter files here and test with those.
 
 #### Here is an introduction video (right-click and open in a new tab):
 
@@ -128,7 +128,8 @@ Three reasons:
 
 I'm open to suggestions, but right now on my list I have:
 
-- I'm considering using a black border to indicate items that take up 1x1 inventory space (to highlight currency, maps, etc)
+- I'm considering using a black border to indicate items that take up 1x1 inventory space (to highlight currency, maps, etc) ADDED - Testing now.
+- A way to select which league you want pricing for
 - All vendor recipies, with checkboxes (handy for challenges)
 - Separate sliders for gems/cards/prophs/etc?
 - Additional color themes (suggestions welcome)
