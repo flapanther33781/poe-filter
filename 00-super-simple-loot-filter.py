@@ -1,11 +1,11 @@
 import tkinter as tk
+import os
+import sys
+import shutil
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import ttk
 from tkinter import *
-import os
-import sys
-import shutil
 
 in_filename = os.path.join(sys.path[0], "./scripts/00_user_settings.txt")
 strLeagueTXTin = os.path.join(sys.path[0], "./scripts/00_league_list.txt")
@@ -348,7 +348,11 @@ if os.path.isfile(strLeagueTXTin):
             #print(line)
             league_list = line.split("|")
 else:
-    initialize()
+    os.system('python ./scripts/005-get-leagues.py')
+    with open(strLeagueTXTin, 'r') as f:
+        for line in f:
+            #print(line)
+            league_list = line.split("|")
 
 # If in_filename exists load values, otherwise call initialize().
 if os.path.isfile(in_filename):
