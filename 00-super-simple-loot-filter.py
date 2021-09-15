@@ -341,18 +341,16 @@ def reset_settings():
 ##### Need to fix: use float for tier values below 1.0
 ##### Need to fix: use float for tier values below 1.0
 
-# If strLeagueTXTin exists, get the league list. Otherwise make an assumption.
+# If strLeagueTXTin exists, get the league list. Otherwise call initialize().
 if os.path.isfile(strLeagueTXTin):
     with open(strLeagueTXTin, 'r') as f:
         for line in f:
             #print(line)
             league_list = line.split("|")
 else:
-    # Setting these as default
-    league_number = "3.15"
-    league_name = "Standard"
+    initialize()
 
-# If in_filename exists load values, otherwise set defaults.
+# If in_filename exists load values, otherwise call initialize().
 if os.path.isfile(in_filename):
     load_values()
 else:
