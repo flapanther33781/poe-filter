@@ -8,14 +8,14 @@ import sys
 import shutil
 
 in_filename = os.path.join(sys.path[0], "./scripts/00_user_settings.txt")
-league_number = "3.15"
-league_name = "Expedition"
+strLeagueTXTin = os.path.join(sys.path[0], "./scripts/00_league_list.txt")
+league_list = []
 
 def initialize():
     # Set defaults
     with open(in_filename, 'w') as f:
         f.write("league_number: 3.15\n")
-        f.write("league_name: Expedition\n")
+        f.write("league_name: Standard\n")
         f.write("t1value: 100\n")
         f.write("t2value: 50\n")
         f.write("t3value: 25\n")
@@ -221,6 +221,8 @@ def save_values():
     t10font = e102.get()
     t11font = e112.get()
 
+    selected_league = league_selection.get()
+
     strOverallStrictness = str(slider1.get())
     strRareCutoff = str(slider2.get())
     booShowT11 = str(buttont11.get())
@@ -229,6 +231,7 @@ def save_values():
     booShowNM5S = str(buttonS5.get())
     boobuttonBB = str(buttonBB.get())
 
+    print ("Selected League is " + str(league_selection.get()))
     print ("Overall Strictness is " + str(slider1.get()))
     print ("strRareCutoff is " + str(slider2.get()))
     print ("Gray item checkbox is " + str(buttont11.get()))
@@ -287,7 +290,7 @@ def save_values():
 
     with open(in_filename, 'w') as f:
         f.write("league_number: 3.15\n")
-        f.write("league_name: Expedition\n")
+        f.write("league_name: " + selected_league + "\n")
         f.write("t1value: " + str(t1value) + "\n")
         f.write("t2value: " + str(t2value) + "\n")
         f.write("t3value: " + str(t3value) + "\n")
@@ -338,6 +341,18 @@ def reset_settings():
 ##### Need to fix: use float for tier values below 1.0
 ##### Need to fix: use float for tier values below 1.0
 
+# If strLeagueTXTin exists, get the league list. Otherwise make an assumption.
+if os.path.isfile(strLeagueTXTin):
+    with open(strLeagueTXTin, 'r') as f:
+        for line in f:
+            #print(line)
+            league_list = line.split("|")
+else:
+    # Setting these as default
+    league_number = "3.15"
+    league_name = "Standard"
+
+# If in_filename exists load values, otherwise set defaults.
 if os.path.isfile(in_filename):
     load_values()
 else:
@@ -362,101 +377,6 @@ tab_parent.add(tab2, text="Settings")
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
-
-frame0 = tk.Frame(tab2, width=100, height=40, relief=GROOVE, borderwidth=5)
-frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-# === ROW 0 === ROW 0 === ROW 0 === ROW 0
-
-frame01 = Frame(frame0, relief=GROOVE, borderwidth=5)
-frame01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-label01 = Label(frame01, justify='left', text="Filter Strictness - show tiers from 1 (highest) down to:\r(Set to 10 for league start.)")
-label01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-slider1 = Scale(frame01, from_=10, to=1, length=535, tickinterval=1, orient=HORIZONTAL)
-slider1.set(strOverallStrictness)
-slider1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# === ROW 1 === ROW 1 === ROW 1 === ROW 1
-
-frame02 = Frame(frame0, relief=GROOVE, borderwidth=5)
-frame02.grid(row=2, column=0, padx=5, pady=1, sticky = W)
-
-label02 = Label(frame02, justify='left', text="Set filter for non-influenced/veiled/fractured/synthesized Rares not caught elsewhere:\r(Set to 0 for league start.)")
-label02.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-slider2 = Scale(frame02, from_=0, to=100, length=535, tickinterval=5, orient=HORIZONTAL)
-slider2.set(strRareCutoff)
-slider2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# === ROW 2 === ROW 2 === ROW 2 === ROW 2
-
-frame03 = Frame(frame0, relief=GROOVE, borderwidth=5)
-frame03.grid(row=3, column=0, padx=5, pady=1, sticky = W)
-
-label03 = Label(frame03, justify='left', text="Set breakpoint for Unique items that share a common base (aka \"Tier 11\", or \"Gray items\"):\r(See instructions, as this can have three different effects based on how you set it.)\rTHIS FEATURE IS STULL UNDER TESTING, MAY OR MAY NOT ALWAYS WORK AS EXPECTED.")
-label03.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-slider3 = Scale(frame03, from_=0, to=200, length=535, tickinterval=10, orient=HORIZONTAL)
-slider3.set(strGrayCutoff)
-slider3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# === ROW 3 === ROW 3 === ROW 3 === ROW 3
-frame04 = Frame(frame0, width=100, relief=GROOVE, borderwidth=5)
-frame04.grid(row=4, column=0, padx=5, pady=1, sticky = W)
-
-# BUTTON T11
-frame041 = Frame(frame04, width=100, height=50, borderwidth=5)
-frame041.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-label041 = Label(frame041, justify='left', text="Show T11/Gray items?")
-label041.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-buttont11 = StringVar(value=booShowT11)
-buttonblah1 = Checkbutton(frame041, justify='left', text="Y/N", variable=buttont11)
-buttonblah1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# BUTTON 6S
-frame042 = Frame(frame04, width=100, height=50, borderwidth=5)
-frame042.grid(row=0, column=1, padx=5, pady=1, sticky = W)
-
-label042 = Label(frame042, justify='left', text="Normal/Magic 6-socket items?")
-label042.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-buttonS6 = StringVar(value=booShowNM6S)
-buttonblah2 = Checkbutton(frame042, justify='left', text="Y/N", variable=buttonS6)
-buttonblah2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# BUTTON 5S
-frame043 = Frame(frame04, width=100, height=50, borderwidth=5)
-frame043.grid(row=0, column=2, padx=5, pady=1, sticky = W)
-
-label043 = Label(frame043, justify='left', text="Normal/Magic 5-socket items?")
-label043.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-buttonS5 = StringVar(value=booShowNM5S)
-buttonblah3 = Checkbutton(frame043, justify='left', text="Y/N", variable=buttonS5)
-buttonblah3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# === ROW 4 === ROW 4 === ROW 4 === ROW 4
-frame05 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
-frame05.grid(row=5, column=0, padx=5, pady=1, sticky = W)
-
-# BOOST BUTTON
-frame051 = Frame(frame05, width=100, height=50, borderwidth=5)
-frame051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-label051 = Label(frame051, justify='left', text="+4 all tiers (league start)?")
-label051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-
-buttonBB = StringVar(value=boobuttonBB)
-buttonblah4 = Checkbutton(frame051, justify='left', text="Y/N", variable=buttonBB)
-buttonblah4.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-
-# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
-# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
-# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
 
 frame0 = tk.Frame(tab1, relief=GROOVE, borderwidth=5)
 frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
@@ -803,18 +723,120 @@ Label(row40, justify='left', text='I STRONGLY advise you to NOT change the tiers
 frame2 = tk.Frame(tab1, relief=GROOVE, borderwidth=5)
 frame2.grid(row=40, column=0, padx=5, pady=1, sticky = W)
 
-row50 = Frame(frame2)
-row50.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-Button(row50, text='Save Settings', command=save_values).pack()
+row50a = tk.Label(frame2, justify='left', text="Select League: ")
+row50a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+league_selection = StringVar(row50a)
+league_selection.set(league_name) # default value
+row50b = OptionMenu(frame2, league_selection, *league_list)
+row50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
 row51 = Frame(frame2)
-row51.grid(row=0, column=1, padx=5, pady=1, sticky = W)
-Button(row51, text='Generate Filter', command=generate_filter).pack()
+row51.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+Button(row51, text='Save Settings', command=save_values).pack()
 
 row52 = Frame(frame2)
-row51.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-Button(row51, text='Reset Settings', command=reset_settings).pack()
+row52.grid(row=1, column=1, padx=5, pady=1, sticky = W)
+Button(row52, text='Reset Settings', command=reset_settings).pack()
 
+row53 = Frame(frame2)
+row53.grid(row=1, column=2, padx=5, pady=1, sticky = W)
+Button(row53, text='Generate Filter', command=generate_filter).pack()
+
+# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
+# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
+# === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
+
+frame0 = tk.Frame(tab2, width=100, height=40, relief=GROOVE, borderwidth=5)
+frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 0 === ROW 0 === ROW 0 === ROW 0
+
+frame01 = Frame(frame0, relief=GROOVE, borderwidth=5)
+frame01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+label01 = Label(frame01, justify='left', text="Filter Strictness - show tiers from 1 (highest) down to:\r(Set to 10 for league start.)")
+label01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+slider1 = Scale(frame01, from_=10, to=1, length=535, tickinterval=1, orient=HORIZONTAL)
+slider1.set(strOverallStrictness)
+slider1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 1 === ROW 1 === ROW 1 === ROW 1
+
+frame02 = Frame(frame0, relief=GROOVE, borderwidth=5)
+frame02.grid(row=2, column=0, padx=5, pady=1, sticky = W)
+
+label02 = Label(frame02, justify='left', text="Set filter for non-influenced/veiled/fractured/synthesized Rares not caught elsewhere:\r(Set to 0 for league start.)")
+label02.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+slider2 = Scale(frame02, from_=0, to=100, length=535, tickinterval=5, orient=HORIZONTAL)
+slider2.set(strRareCutoff)
+slider2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 2 === ROW 2 === ROW 2 === ROW 2
+
+frame03 = Frame(frame0, relief=GROOVE, borderwidth=5)
+frame03.grid(row=3, column=0, padx=5, pady=1, sticky = W)
+
+label03 = Label(frame03, justify='left', text="Set breakpoint for Unique items that share a common base (aka \"Tier 11\", or \"Gray items\"):\r(See instructions, as this can have three different effects based on how you set it.)\rTHIS FEATURE IS STULL UNDER TESTING, MAY OR MAY NOT ALWAYS WORK AS EXPECTED.")
+label03.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+slider3 = Scale(frame03, from_=0, to=200, length=535, tickinterval=10, orient=HORIZONTAL)
+slider3.set(strGrayCutoff)
+slider3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 3 === ROW 3 === ROW 3 === ROW 3
+frame04 = Frame(frame0, width=100, relief=GROOVE, borderwidth=5)
+frame04.grid(row=4, column=0, padx=5, pady=1, sticky = W)
+
+# BUTTON T11
+frame041 = Frame(frame04, width=100, height=50, borderwidth=5)
+frame041.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+label041 = Label(frame041, justify='left', text="Show T11/Gray items?")
+label041.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+buttont11 = StringVar(value=booShowT11)
+buttonblah1 = Checkbutton(frame041, justify='left', text="Y/N", variable=buttont11)
+buttonblah1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# BUTTON 6S
+frame042 = Frame(frame04, width=100, height=50, borderwidth=5)
+frame042.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+label042 = Label(frame042, justify='left', text="Normal/Magic 6-socket items?")
+label042.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+buttonS6 = StringVar(value=booShowNM6S)
+buttonblah2 = Checkbutton(frame042, justify='left', text="Y/N", variable=buttonS6)
+buttonblah2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# BUTTON 5S
+frame043 = Frame(frame04, width=100, height=50, borderwidth=5)
+frame043.grid(row=0, column=2, padx=5, pady=1, sticky = W)
+
+label043 = Label(frame043, justify='left', text="Normal/Magic 5-socket items?")
+label043.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+buttonS5 = StringVar(value=booShowNM5S)
+buttonblah3 = Checkbutton(frame043, justify='left', text="Y/N", variable=buttonS5)
+buttonblah3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 4 === ROW 4 === ROW 4 === ROW 4
+frame05 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
+frame05.grid(row=5, column=0, padx=5, pady=1, sticky = W)
+
+# BOOST BUTTON
+frame051 = Frame(frame05, width=100, height=50, borderwidth=5)
+frame051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+label051 = Label(frame051, justify='left', text="+4 all tiers (league start)?")
+label051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+buttonBB = StringVar(value=boobuttonBB)
+buttonblah4 = Checkbutton(frame051, justify='left', text="Y/N", variable=buttonBB)
+buttonblah4.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
