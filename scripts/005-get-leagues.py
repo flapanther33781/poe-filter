@@ -8,6 +8,7 @@ strTXTout = os.path.join(sys.path[0], "00_league_list.txt")
 url = 'https://www.pathofexile.com/api/leagues'
 my_headers = {'user-agent': 'my-app/0.0.1'}
 response = requests.get(url, headers = my_headers)
+i = 1
 
 # If request was successful
 if (response.status_code == 200):
@@ -19,9 +20,11 @@ if (response.status_code == 200):
             #print(item["id"])
             # then add it to league_list and use a pipe as a delimiter
             if league_list == "":
-                league_list = item["id"]
+                league_list = str(i) + " " + item["id"]
+                i = i + 1
             else:
-                league_list = league_list + "|" + item["id"]
+                league_list = league_list + "|" + str(i) + " " + item["id"]
+                i = i + 1
 
     #print(league_list)
     # Check for the correct/expected number of leagues

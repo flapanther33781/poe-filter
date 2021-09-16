@@ -15,42 +15,30 @@ from csv import reader
 # 1. Connect to poe.ninja, download current prices for all items they track
 # 2. Put all of that information into a spreadsheet.
 
-dictURLS = {
-    'arts' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Artifact&language=en',
-    'base' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=BaseType',
-    'beast' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Beast',
-    'clus' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=ClusterJewel&language=en',
-    'curr' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Currency',
-    'deli' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=DeliriumOrb&language=en',
-    'div' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=DivinationCard',
-    'ess' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Essence',
-    'foss' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Fossil',
-    'frag' : 'https://poe.ninja/api/data/currencyoverview?league=Expedition&type=Fragment',
-    'gem' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=SkillGem',
-    'inc' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Incubator',
-    'inv' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Invitation&language=en',
-    'oil' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Oil',
-    'prop' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Prophecy',
-    'res' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Resonator',
-    'scar' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=Scarab',
-    'uacc' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueAccessory',
-    'uarm' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueArmour',
-    'ufla' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueFlask',
-    'ujew' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueJewel',
-    'umap' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueMap',
-    'uweap' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=UniqueWeapon',
-    'vial' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Vial&language=en',
-    'watch' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Watchstone&language=en',
-    # Keeping these separate in the list because these must reference the latest league
-    # If not then we get results of maps from all past leagues
-    'map' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=Map',
-    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=Expedition&type=BlightedMap',
-
-    # Can't do anything with this right now.
-    # 'ench' : 'https://poe.ninja/api/data/itemoverview?league=Expedition&type=HelmetEnchant'
-}
-
 strCSVout = os.path.join(sys.path[0], "z015_compiled.csv")
+
+def func_get_league():
+    strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
+    global league_name
+
+    # Overwrite defaults if found in settings file
+    with open(strUserSettings, 'r') as f:
+        for line in f:
+            if "league_name: " in line:
+                temp = (line.split("league_name: ")[1])
+                if "1 " in temp:
+                    league_name = temp.strip("1 ")
+                    league_name = league_name.strip()
+                if "2 " in temp:
+                    league_name = temp.strip("2 ")
+                    league_name = league_name.strip()
+                if "3 " in temp:
+                    league_name = temp.strip("3 ")
+                    league_name = league_name.strip()
+                if "4 " in temp:
+                    league_name = temp.strip("4 ")
+                    league_name = league_name.strip()
+                #print ("league_name is " + league_name)
 
 def func_init():
     global csv_writer
@@ -251,6 +239,45 @@ def func_other(category, URL):
 # Main starts here
 
 func_init()
+func_get_league()
+
+print("League is: " + league_name)
+
+dictURLS = {
+    'arts' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Artifact&language=en',
+    'base' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=BaseType',
+    'beast' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Beast',
+    'clus' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=ClusterJewel&language=en',
+    'curr' : 'https://poe.ninja/api/data/currencyoverview?league=' + league_name + '&type=Currency',
+    'deli' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=DeliriumOrb&language=en',
+    'div' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=DivinationCard',
+    'ess' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Essence',
+    'foss' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Fossil',
+    'frag' : 'https://poe.ninja/api/data/currencyoverview?league=' + league_name + '&type=Fragment',
+    'gem' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=SkillGem',
+    'inc' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Incubator',
+    'inv' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Invitation&language=en',
+    'oil' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Oil',
+    'prop' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Prophecy',
+    'res' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Resonator',
+    'scar' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=Scarab',
+    'uacc' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueAccessory',
+    'uarm' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueArmour',
+    'ufla' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueFlask',
+    'ujew' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueJewel',
+    'umap' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueMap',
+    'uweap' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=UniqueWeapon',
+    'vial' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Vial&language=en',
+    'watch' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Watchstone&language=en',
+    # Keeping these separate in the list because these must reference the latest league
+    # If not then we get results of maps from all past leagues
+    'map' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Map',
+    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=BlightedMap',
+
+    # Can't do anything with this right now.
+    # 'ench' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=HelmetEnchant'
+}
+
 for urlpair in dictURLS.items():
     category = urlpair[0] ; URL = urlpair[1]
     print (category)
@@ -260,12 +287,3 @@ for urlpair in dictURLS.items():
     else:
         func_other(category, URL)
 print('Done!')
-
-
-
-
-
-
-
-
-
