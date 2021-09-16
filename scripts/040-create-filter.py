@@ -25,19 +25,54 @@ current_time = datetime.now()
 arrInfluences = ["Crusader","Elder","Hunter","Redeemer","Shaper","Warlord"]
 arrDoubleInfluences = ["Crusader/Hunter","Crusader/Redeemer","Crusader/Warlord","Elder/Crusader","Elder/Hunter","Elder/Redeemer","Elder/Warlord","Redeemer/Hunter","Redeemer/Warlord","Shaper/Crusader","Shaper/Elder","Shaper/Elder/Crusader/Redeemer/Warlord/Hunter","Shaper/Hunter","Shaper/Redeemer","Shaper/Warlord","Warlord/Hunter"]
 
-def func_init():
-    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton
+def func_get_league():
+    strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
+    global league_name
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
         for line in f:
-            if "league_number: " in line:
-                league_number = (line.split("league_number: ")[1])
-                league_number = league_number.strip()
-                #print ("league_number is " + league_number)
             if "league_name: " in line:
-                league_name = (line.split("league_name: ")[1])
-                league_name = league_name.strip()
+                temp = (line.split("league_name: ")[1])
+                if "1 " in temp:
+                    league_name = temp.strip("1 ")
+                    league_name = league_name.strip()
+                if "2 " in temp:
+                    league_name = temp.strip("2 ")
+                    league_name = league_name.strip()
+                if "3 " in temp:
+                    league_name = temp.strip("3 ")
+                    league_name = league_name.strip()
+                if "4 " in temp:
+                    league_name = temp.strip("4 ")
+                    league_name = league_name.strip()
+                #print ("league_name is " + league_name)
+
+def func_init():
+    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num
+
+    # Overwrite defaults if found in settings file
+    with open(strUserSettings, 'r') as f:
+        for line in f:
+
+            if "league_name: " in line:
+                temp = (line.split("league_name: ")[1])
+                if "1 " in temp:
+                    league_name = temp.strip("1 ")
+                    league_name = league_name.strip()
+                    subleague_num = 1
+                if "2 " in temp:
+                    league_name = temp.strip("2 ")
+                    league_name = league_name.strip()
+                    subleague_num = 2
+                if "3 " in temp:
+                    league_name = temp.strip("3 ")
+                    league_name = league_name.strip()
+                    subleague_num = 3
+                if "4 " in temp:
+                    league_name = temp.strip("4 ")
+                    league_name = league_name.strip()
+                    subleague_num = 4
                 #print ("league_name is " + league_name)
 
             if "Overall Strictness: " in line:
@@ -100,7 +135,7 @@ def func_init():
     #booShowNM5S = False
     #strBoostButton = False
 
-    header00 = str("##### Super Simple Loot Filter for League: "+league_number+" ("+league_name+"), updated: "+str(current_time)+"\n")
+    header00 = str("##### Super Simple Loot Filter for League: "+league_name+" - updated: "+str(current_time)+"\n")
     header01 = str("##### Standard? : False\n")
     header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
     header03 = str("##### booShowT11 :" + str(booShowT11)+"\n")
@@ -110,8 +145,8 @@ def func_init():
     header07 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
     header08 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
 
-    # Have ot do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
-    strTXTout = league_number+"-1-"+str(strOverallStrictness)+"-"
+    # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
+    strTXTout = str(subleague_num)+"-"+str(strOverallStrictness)+"-"
     if booShowT11 == True:
         strTXTout = strTXTout + "1-"
     else:
@@ -131,6 +166,8 @@ def func_init():
     strTXTout = strTXTout + str(strRareCutoff)+"-"+str(strGrayCutoff)+".filter"
 
     header09 = ("##### Suggested filter name: "+strTXTout+"\n")
+    print ("##### Suggested filter name: "+strTXTout+"\n")
+    time.sleep(10)
 
     # Open the output file in write mode
     with open(strTXTout, 'w', newline='') as write_obj:
