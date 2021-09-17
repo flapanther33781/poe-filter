@@ -397,7 +397,7 @@ def func_static_intro():
         write_obj.write("Show\n")
         write_obj.write("    Width = 1\n")
         write_obj.write("    Height = 1\n")
-        write_obj.write("    SetBorderColor 0 0 0 255\n")
+        write_obj.write("    SetBorderColor 255 255 255 255\n")
         write_obj.write("    Continue\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10200 6L\n")
