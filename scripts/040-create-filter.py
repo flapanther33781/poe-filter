@@ -136,7 +136,6 @@ def func_init():
     #strBoostButton = False
 
     header00 = str("##### Super Simple Loot Filter for League: "+league_name+" - updated: "+str(current_time)+"\n")
-    header01 = str("##### Standard? : False\n")
     header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
     header03 = str("##### booShowT11 :" + str(booShowT11)+"\n")
     header04 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
@@ -175,7 +174,6 @@ def func_init():
         write_obj.write(header00)
         write_obj.write("#####\n")
         write_obj.write("##### Settings:\n")
-        write_obj.write(header01)
         write_obj.write(header02)
         write_obj.write(header03)
         write_obj.write(header04)
