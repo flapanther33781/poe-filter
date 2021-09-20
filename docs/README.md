@@ -128,11 +128,11 @@ Three reasons:
 
 I'm open to suggestions, but right now on my list I have:
 
-- I'm considering using a white border to indicate items that take up 1x1 inventory space (to highlight currency, maps, etc) ADDED - Testing now.
-- A way to select which league you want pricing for
+- A white border to indicate items 1x1/1x2/2x1 items, and red border for 1x3 and 2x2. (ADDED - Testing now.)
+- A way to select which league you want pricing for. (ADDED - Testing now.)
+- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy) (ADDED - Testing now.)
 - All vendor recipies, with checkboxes (handy for challenges)
 - Separate sliders for gems/cards/prophs/etc?
 - Additional color themes (suggestions welcome)
-- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy)
 - Find a way to include poe.ninja confidence ratings to filter out overpriced items with low-confidence
 - Include filtering identified items by # of T1 mods, T2 mods, etc
