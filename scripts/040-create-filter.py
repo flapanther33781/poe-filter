@@ -426,6 +426,7 @@ def func_static_intro():
         write_obj.write("#####       These can sometimes be upgraded to valuable items. Check wiki for details.\n")
         write_obj.write("#####\n")
         write_obj.write("Show # Fated Uniques - These can sometimes be upgraded to valuable items. Check wiki for details.\n")
+        write_obj.write("    Rarity Unique\n")
         write_obj.write("    BaseType == \"Goathide Gloves\" \"Painted Buckler\" \"Serrated Arrow Quiver\" \"Royal Bow\" \"Sledgehammer\" \"Iron Staff\" \"Crude Bow\" \"Plank Kite Shield\" \"Long Bow\" \"Gilded Sallet\" \"Gnarled Branch\" \"Fire Arrow Quiver\" \"Spiraled Wand\" \"Death Bow\" \"Ironscale Boots\" \"Coral Ring\" \"Coral Amulet\" \"Ornate Sword\" \"Scholar Boots\" \"Woodsplitter\" \"Jade Hatchet\" \"War Buckler\" \"Plate Vest\" \"Sharktooth Arrow Quiver\" \"Latticed Ringmail\" \"Wild Leather\" \"Iron Hat\" \"Jade Amulet\" \"Clasped Boots\" \"Studded Belt\" \"Iron Circlet\" \"Gold Amulet\" \"Coral Ring\" \"Gavel\" \"Great Crown\" \"Strapped Leather\" \"Great Mallet\" \"Crusader Plate\" \"Crystal Wand\" \"Rusted Sword\" \"Velvet Slippers\" \"Reaver Sword\" \"Royal Staff\" \"Tarnished Spirit Shield\" \"Reinforced Greaves\" \"Brass Maul\" \"Jagged Maul\" \"Cleaver\" \"Iron Mask\" \"Vine Circlet\" \"Iron Ring\" \"Moonstone Ring\" \"Velvet Gloves\" \"Leather Hood\" \"Skinning Knife\" \"Golden Buckler\"\n")        write_obj.write("    SetFontSize 39\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 100 100 100 255 # Grey\n")
@@ -720,7 +721,7 @@ def func_frag():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Map\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -797,7 +798,7 @@ def func_curr():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -881,7 +882,7 @@ def func_oil():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -969,7 +970,7 @@ def func_heist():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Heist\n")
                 write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -1035,7 +1036,7 @@ def func_heist():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Heist\n")
                 write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -1101,7 +1102,7 @@ def func_heist():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Heist\n")
                 write_obj.write("    ItemLevel >= "+LevelToWrite+"\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -1165,7 +1166,7 @@ def func_heist():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Heist\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -1534,7 +1535,7 @@ def func_other():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class "+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -1687,7 +1688,7 @@ def func_watch():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    BaseType "+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -1784,7 +1785,7 @@ def func_deli():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -1868,7 +1869,7 @@ def func_inv():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -1952,7 +1953,7 @@ def func_vial():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2036,7 +2037,7 @@ def func_inc():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Incubator\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2120,7 +2121,7 @@ def func_scar():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class ""Map Fragments""\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2204,7 +2205,7 @@ def func_foss():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Stackable\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2288,7 +2289,7 @@ def func_ess():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Currency\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2372,7 +2373,7 @@ def func_div():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Divination\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2468,7 +2469,7 @@ def func_prop():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    BaseType ""Prophecy""\n")
                 write_obj.write("    Prophecy "+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -2552,7 +2553,7 @@ def func_beast():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                 write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -2634,7 +2635,7 @@ def func_replica_umap():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Maps\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -2718,7 +2719,7 @@ def func_replica_ujew():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Jewel\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -2802,7 +2803,7 @@ def func_replica_ufla():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Flasks\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -2886,7 +2887,7 @@ def func_replica_uacc():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Belts Rings Amulet\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -2984,7 +2985,7 @@ def func_normal_maps():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Maps\n")
                     write_obj.write("    Rarity Normal Magic Rare\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3084,7 +3085,7 @@ def func_blight_maps_2():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Maps\n")
                     write_obj.write("    BlightedMap True\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3211,7 +3212,7 @@ def func_blight_maps():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Maps\n")
                 write_obj.write("    BlightedMap True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3302,7 +3303,7 @@ def func_umaps():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Class Maps\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3386,7 +3387,7 @@ def func_ujew():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Jewel\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3469,7 +3470,7 @@ def func_ufla():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Flasks\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3552,7 +3553,7 @@ def func_uacc():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Belts Rings Amulet\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -3637,7 +3638,7 @@ def func_ench():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 #write_obj.write("    Class Helm\n")
                 write_obj.write("    HasEnchantment =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -3728,7 +3729,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -3787,7 +3788,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -3846,7 +3847,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -3905,7 +3906,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -3964,7 +3965,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4023,7 +4024,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4082,7 +4083,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4141,7 +4142,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4199,7 +4200,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4257,7 +4258,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4315,7 +4316,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4373,7 +4374,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4431,7 +4432,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4489,7 +4490,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4547,7 +4548,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted True\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4605,7 +4606,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4664,7 +4665,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4723,7 +4724,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4782,7 +4783,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4840,7 +4841,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4898,7 +4899,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -4956,7 +4957,7 @@ def func_normal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
@@ -5051,7 +5052,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5110,7 +5111,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5169,7 +5170,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5228,7 +5229,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5287,7 +5288,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5346,7 +5347,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5405,7 +5406,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5464,7 +5465,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5522,7 +5523,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5580,7 +5581,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5638,7 +5639,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5696,7 +5697,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5754,7 +5755,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5812,7 +5813,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5870,7 +5871,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted True\n")
@@ -5928,7 +5929,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -5987,7 +5988,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6046,7 +6047,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6104,7 +6105,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6162,7 +6163,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6220,7 +6221,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6278,7 +6279,7 @@ def func_divergent_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Divergent\n")
                     write_obj.write("    Corrupted False\n")
@@ -6373,7 +6374,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6432,7 +6433,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6491,7 +6492,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6550,7 +6551,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6609,7 +6610,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6668,7 +6669,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6727,7 +6728,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6786,7 +6787,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6844,7 +6845,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6902,7 +6903,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -6960,7 +6961,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -7018,7 +7019,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -7076,7 +7077,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -7134,7 +7135,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -7192,7 +7193,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted True\n")
@@ -7250,7 +7251,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7309,7 +7310,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7368,7 +7369,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7426,7 +7427,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7484,7 +7485,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7542,7 +7543,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7600,7 +7601,7 @@ def func_anomalous_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Anomalous\n")
                     write_obj.write("    Corrupted False\n")
@@ -7695,7 +7696,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -7754,7 +7755,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -7813,7 +7814,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -7872,7 +7873,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -7931,7 +7932,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -7990,7 +7991,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8049,7 +8050,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8108,7 +8109,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8166,7 +8167,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8224,7 +8225,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8282,7 +8283,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8340,7 +8341,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8398,7 +8399,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8456,7 +8457,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8514,7 +8515,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted True\n")
@@ -8572,7 +8573,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8631,7 +8632,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8690,7 +8691,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8748,7 +8749,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8807,7 +8808,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8865,7 +8866,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -8924,7 +8925,7 @@ def func_phantasmal_gems():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
                     write_obj.write("    GemQualityType Phantasmal\n")
                     write_obj.write("    Corrupted False\n")
@@ -9010,7 +9011,7 @@ def func_uweap_6():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    Sockets = 6\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -9093,7 +9094,7 @@ def func_uweap_5():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    Sockets = 5\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -9178,7 +9179,7 @@ def func_repweap_0():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -9262,7 +9263,7 @@ def func_uweap_0():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -9344,7 +9345,7 @@ def func_uarm_6():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    Sockets = 6\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -9427,7 +9428,7 @@ def func_uarm_5():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    Sockets = 5\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -9513,7 +9514,7 @@ def func_reparm_0():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Replica True\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -9598,7 +9599,7 @@ def func_uarm_0():
                 if booHIDE == True:
                     print("Hiding Tier "+str(i))
                     write_obj.write("Hide\n")
-                    write_obj.write("DisableDropSound True\n")
+                    write_obj.write("    DisableDropSound True\n")
                 write_obj.write("    Rarity Unique\n")
                 write_obj.write("    BaseType =="+LineToWrite+"\n")
                 write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
@@ -9693,7 +9694,7 @@ def func_influenced():
                         if booHIDE == True:
                             print("Hiding Tier "+str(i))
                             write_obj.write("Hide\n")
-                            write_obj.write("DisableDropSound True\n")
+                            write_obj.write("    DisableDropSound True\n")
                         write_obj.write("    HasInfluence == "+strInfluence+"\n")
                         write_obj.write("    ItemLevel >= "+str(k)+"\n")
                         write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -9796,7 +9797,7 @@ def func_non_influenced():
                     if booHIDE == True:
                         print("Hiding Tier "+str(i))
                         write_obj.write("Hide\n")
-                        write_obj.write("DisableDropSound True\n")
+                        write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Rarity Rare\n")
                     write_obj.write("    ItemLevel >= "+str(k)+"\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
