@@ -1,16 +1,16 @@
 #===============================================================================================================
-##### Super Simple Loot Filter for League: 3.15 Standard - updated: 2021-09-25 01:17:54.117496
+##### Super Simple Loot Filter for League: 3.15 Expedition - updated: 2021-09-25 02:06:20.358750
 #####
 ##### Settings:
-##### strOverallStrictness :10
+##### strOverallStrictness :7
 ##### booShowT11 :True
 ##### booShowNM6S :True
 ##### booShowNM5S :True
 ##### strBoostButton :False
-##### strRareCutoff :0
-##### strGrayCutoff :0
+##### strRareCutoff :80
+##### strGrayCutoff :3
 #####
-##### Suggested filter name: 3.15-1-10-1-1-1-0-0-0.filter
+##### Suggested filter name: 3.15-3-7-1-1-1-0-80-3.filter
 #===============================================================================================================
 ##### LINKS TO LATEST VERSION AND FILTER EDITOR
 ##### 
@@ -231,7 +231,7 @@ Show
     MinimapIcon 0 Purple Triangle
 Show                                    # This ilvl is adjustable in User Settings.
     Sockets = 6
-    ItemLevel >= 0
+    ItemLevel >= 80
     Rarity Rare
     SetFontSize 42
     SetTextColor 0 0 0 255
@@ -263,7 +263,7 @@ Show
     MinimapIcon 0 Purple Cross
 Show                                    # This ilvl is adjustable in User Settings.
     LinkedSockets = 5
-    ItemLevel >= 0
+    ItemLevel >= 80
     Rarity Rare
     SetFontSize 42
     SetTextColor 0 0 0 255
@@ -289,7 +289,7 @@ Show # Normal & Magic 5L, or Rare and below the ilvl mentioned above
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 80
     LinkedSockets = 4
     Width = 2
     Height = 2
@@ -309,7 +309,7 @@ Show                                    # This ilvl is adjustable in User Settin
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 80
     LinkedSockets = 3
     Width = 1
     Height = 3
@@ -352,7 +352,7 @@ Show
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 80
     Class Rings Amulet Belts Jewel
     SetFontSize 40
     SetTextColor 0 0 0 255
@@ -825,7 +825,8 @@ Show
     PlayEffect None
 
 ##### Tier 8
-Show
+Hide
+    DisableDropSound True
     BaseType Prophecy
     Prophecy  "The Lost Maps" "The Unbreathing Queen I" "Possessed Foe" "Lasting Impressions" "The Lady in Black" "The Eagle's Cry" "The Prison Key" "Hunter's Lesson" "Gilded Within" "Forceful Exorcism" "Resistant to Change" "The Alchemist" "The Scout" "Fear's Wide Reach" "A Valuable Combination" "Vital Transformation"
     SetFontSize 42
@@ -1182,7 +1183,8 @@ Show
     PlayEffect None
 
 ##### Tier 8
-Show
+Hide
+    DisableDropSound True
     Class Currency
     BaseType == "Annulment Shard" "Regal Orb" "Simple Sextant" "Orb of Alteration" "Jeweller's Orb" "Armourer's Scrap" "Blacksmith's Whetstone" "Ancient Shard" "Chaos Shard" "Horizon Shard"
     SetFontSize 42
@@ -1192,7 +1194,8 @@ Show
     PlayEffect None
 
 ##### Tier 9
-Show
+Hide
+    DisableDropSound True
     Class Currency
     BaseType == "Scroll of Wisdom"
     SetFontSize 39
@@ -1202,7 +1205,8 @@ Show
     PlayEffect None
 
 ##### Tier 10
-Show
+Hide
+    DisableDropSound True
     Class Currency
     BaseType == "Orb of Augmentation" "Portal Scroll" "Engineer's Orb" "Alteration Shard" "Engineer's Shard" "Regal Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard"
     SetFontSize 39
@@ -2525,7 +2529,8 @@ Show
 
 
 ##### Economy Tier 8 Map Tier 1
-Show
+Hide
+    DisableDropSound True
     Class Maps
     Rarity Normal Magic Rare
     BaseType == "Park Map"
@@ -2812,7 +2817,8 @@ Show
     PlayEffect None
 
 ##### Tier 8
-Show
+Hide
+    DisableDropSound True
     Rarity Unique
     BaseType == "Soldier Helmet" "Ornate Ringmail" "Baroque Round Shield" "Wrapped Mitts" "Buckskin Tunic" "Chain Gloves" "Visored Sallet" "Simple Robe" "Vaal Buckler" "Bronze Gauntlets" "Colossal Tower Shield" "Ivory Spirit Shield" "Strapped Boots" "Plated Greaves" "Tricorne" "Scholar's Robe" "Conquest Chainmail"
     SetFontSize 42
@@ -2949,7 +2955,8 @@ Show
     PlayEffect None
 
 ##### Tier 8
-Show
+Hide
+    DisableDropSound True
     Rarity Unique
     BaseType == "Decorative Axe" "Antique Rapier" "Dream Mace" "Goat's Horn" "Nailed Fist" "Dread Maul" "Boot Blade" "Imbued Wand" "Estoc" "Stiletto" "Spiked Club" "Headsman Axe" "Boot Knife" "Poleaxe" "Ornate Mace" "Bastard Sword"
     SetFontSize 42
@@ -3425,7 +3432,8 @@ Show
     PlayEffect None
 
 ##### Item level 86, Tier 8
-Show
+Hide
+    DisableDropSound True
     Rarity Rare
     ItemLevel >= 86
     BaseType == "Engraved Greatsword"
@@ -6646,7 +6654,8 @@ Show
     PlayEffect None
 
 ##### Tier 8
-Show
+Hide
+    DisableDropSound True
     Class Gems
     Corrupted False
     GemQualityType Superior

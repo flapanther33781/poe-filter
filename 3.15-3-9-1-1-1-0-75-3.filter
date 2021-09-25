@@ -1,16 +1,16 @@
 #===============================================================================================================
-##### Super Simple Loot Filter for League: 3.15 Standard - updated: 2021-09-25 01:17:54.117496
+##### Super Simple Loot Filter for League: 3.15 Expedition - updated: 2021-09-25 01:54:44.774557
 #####
 ##### Settings:
-##### strOverallStrictness :10
+##### strOverallStrictness :9
 ##### booShowT11 :True
 ##### booShowNM6S :True
 ##### booShowNM5S :True
 ##### strBoostButton :False
-##### strRareCutoff :0
-##### strGrayCutoff :0
+##### strRareCutoff :75
+##### strGrayCutoff :3
 #####
-##### Suggested filter name: 3.15-1-10-1-1-1-0-0-0.filter
+##### Suggested filter name: 3.15-3-9-1-1-1-0-75-3.filter
 #===============================================================================================================
 ##### LINKS TO LATEST VERSION AND FILTER EDITOR
 ##### 
@@ -231,7 +231,7 @@ Show
     MinimapIcon 0 Purple Triangle
 Show                                    # This ilvl is adjustable in User Settings.
     Sockets = 6
-    ItemLevel >= 0
+    ItemLevel >= 75
     Rarity Rare
     SetFontSize 42
     SetTextColor 0 0 0 255
@@ -263,7 +263,7 @@ Show
     MinimapIcon 0 Purple Cross
 Show                                    # This ilvl is adjustable in User Settings.
     LinkedSockets = 5
-    ItemLevel >= 0
+    ItemLevel >= 75
     Rarity Rare
     SetFontSize 42
     SetTextColor 0 0 0 255
@@ -289,7 +289,7 @@ Show # Normal & Magic 5L, or Rare and below the ilvl mentioned above
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 75
     LinkedSockets = 4
     Width = 2
     Height = 2
@@ -309,7 +309,7 @@ Show                                    # This ilvl is adjustable in User Settin
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 75
     LinkedSockets = 3
     Width = 1
     Height = 3
@@ -352,7 +352,7 @@ Show
 
 Show                                    # This ilvl is adjustable in User Settings.
     Rarity Rare
-    ItemLevel >= 0
+    ItemLevel >= 75
     Class Rings Amulet Belts Jewel
     SetFontSize 40
     SetTextColor 0 0 0 255
@@ -1202,7 +1202,8 @@ Show
     PlayEffect None
 
 ##### Tier 10
-Show
+Hide
+    DisableDropSound True
     Class Currency
     BaseType == "Orb of Augmentation" "Portal Scroll" "Engineer's Orb" "Alteration Shard" "Engineer's Shard" "Regal Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard"
     SetFontSize 39
