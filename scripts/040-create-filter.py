@@ -589,6 +589,7 @@ def func_static_intro():
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10800 Rare Rings/Amulet/Belts/Jewels\n")
         write_obj.write("##### I only want Rare Rings/Amulet/Belts/Jewels if Unique if ilvl is met\n")
+        write_obj.write("##### Can't hide Jewels here or it'll affect Cluster Jewels when we don't want it to.\n")
         write_obj.write("##### This ilvl is adjustable in User Settings.\n")
         write_obj.write("\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
@@ -600,10 +601,6 @@ def func_static_intro():
         write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
-        write_obj.write("Hide                                    # Have to hide here or else Abyss will get flagged as Purple below.\n")
-        write_obj.write("    Rarity Normal Magic\n")
-        write_obj.write("    Class Jewel\n")
-        write_obj.write("    DisableDropSound True\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10900 White and Abyss Sockets\n")
         write_obj.write("##### Can't upgrade Normal/Magic corrupted items, only useful if Rare.\n")
@@ -1228,7 +1225,7 @@ def func_cluster():
 
         write_obj.write("Show # T3\n")
         write_obj.write("    BaseType \"Medium Cluster Jewel\"\n")
-        write_obj.write("    ItemLevel = 84\n")
+        write_obj.write("    ItemLevel >= 84\n")
         write_obj.write("    EnchantmentPassiveNum 4\n")
         write_obj.write("    SetFontSize 42\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -1484,6 +1481,10 @@ def func_other():
         write_obj.write("##### 12700 Other\n")
         write_obj.write("##### Added from ""other"" csv file, not tracked by poe.ninja at this time. \n")
         write_obj.write("#####\n")
+        write_obj.write("Hide                                    # Have to hide here or else Abyss will get flagged as Purple below.\n")
+        write_obj.write("    Rarity Normal Magic                 # Can't hide above or it'll affect Cluster Jewels.\n")
+        write_obj.write("    Class Jewel\n")
+        write_obj.write("    DisableDropSound True\n")
 
         # ilvl81 items
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
