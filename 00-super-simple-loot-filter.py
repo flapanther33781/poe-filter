@@ -14,8 +14,8 @@ league_list = []
 def initialize():
     # Set defaults
     with open(in_filename, 'w') as f:
-        f.write("league_number: 3.15\n")
-        f.write("league_name: Standard\n")
+        f.write("patch_number: 3.15\n")         # We're setting defaults here. We can't use a variable. User will have to change or update.
+        f.write("league_name: 1 Standard\n")
         f.write("t1value: 100\n")
         f.write("t2value: 50\n")
         f.write("t3value: 25\n")
@@ -45,17 +45,17 @@ def initialize():
         f.write("Boost Button (+4 all tiers for league start): True\n")
 
 def load_values():
-    global league_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
+    global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
     global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
         for line in f:
-            if "league_number: " in line:
-                league_number = (line.split("league_number: ")[1])
-                league_number = league_number.strip()
-                #print ("league_number is " + str(league_number)
+            if "patch_number: " in line:
+                patch_number = (line.split("patch_number: ")[1])
+                patch_number = patch_number.strip()
+                #print ("patch_number is " + str(patch_number)
             if "league_name: " in line:
                 league_name = (line.split("league_name: ")[1])
                 league_name = league_name.strip()
@@ -194,7 +194,7 @@ def load_values():
         boobuttonBB = "0"
 
 def save_values():
-    global league_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
+    global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
     global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
 
@@ -221,6 +221,7 @@ def save_values():
     t10font = e102.get()
     t11font = e112.get()
 
+    patch_number = e50b.get()
     selected_league = league_selection.get()
 
     strOverallStrictness = str(slider1.get())
@@ -231,6 +232,7 @@ def save_values():
     booShowNM5S = str(buttonS5.get())
     boobuttonBB = str(buttonBB.get())
 
+    print ("Patch Number is " + str(e50b.get()))
     print ("Selected League is " + str(league_selection.get()))
     print ("Overall Strictness is " + str(slider1.get()))
     print ("strRareCutoff is " + str(slider2.get()))
@@ -289,7 +291,7 @@ def save_values():
         boobuttonBB = "False"
 
     with open(in_filename, 'w') as f:
-        f.write("league_number: 3.15\n")
+        f.write("patch_number: " + patch_number + "\n")
         f.write("league_name: " + selected_league + "\n")
         f.write("t1value: " + str(t1value) + "\n")
         f.write("t2value: " + str(t2value) + "\n")
@@ -725,13 +727,34 @@ Label(row40, justify='left', text='I STRONGLY advise you to NOT change the tiers
 frame2 = tk.Frame(tab1, relief=GROOVE, borderwidth=5)
 frame2.grid(row=40, column=0, padx=5, pady=1, sticky = W)
 
-row50a = tk.Label(frame2, justify='left', text="Select League: ")
-row50a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-league_selection = StringVar(row50a)
-league_selection.set(league_name) # default value
-row50b = OptionMenu(frame2, league_selection, *league_list)
+row50a = tk.Label(frame2, justify='left', text="Patch #:")
+row50b = tk.Label(frame2, justify='left')
+
+e50b = StringVar(value=patch_number)
+entry50b = Entry(row50b, width=5, textvariable=e50b)
+
+row50a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 row50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+entry50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+
+
+
+
+
+
+
+
+
+
+row50c = tk.Label(frame2, justify='left', text="Select League: ")
+row50c.grid(row=0, column=2, padx=5, pady=1, sticky = W)
+
+league_selection = StringVar(row50c)
+league_selection.set(league_name) # default value
+row50d = OptionMenu(frame2, league_selection, *league_list)
+row50d.grid(row=0, column=3, padx=5, pady=1, sticky = W)
 
 row51 = Frame(frame2)
 row51.grid(row=1, column=0, padx=5, pady=1, sticky = W)
