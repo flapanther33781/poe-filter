@@ -103,7 +103,8 @@ Here's the legend:
 
 3.15-A-B-C-D-E-F-GG-HH.filter
 
-A - League: 0 = Standard SC, 1 = league SC    
+3.15 - This is the current patch level. I'll use 3.15 as the default, but you can edit in the GUI in case I don't update it.
+A - Sub-league (Standard/HC/Challenge League/Challenge League HC): 1-4, will match the # shown next to the subleague name in the GUI.    
 B - Filter strictness: 1-9 means 1-9, 0 means 10.    
 C - Show gray items: 1 = True, 0 = False    
 D - Show Normal/Magic 6S items: 1 = True, 0 = False    
