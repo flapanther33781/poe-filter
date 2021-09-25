@@ -736,7 +736,7 @@ def func_frag():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Fragments and Sacarabs section complete.")
 
@@ -813,7 +813,7 @@ def func_curr():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Currency section complete.")
 
@@ -897,7 +897,7 @@ def func_oil():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Oil section complete.")
 
@@ -986,7 +986,7 @@ def func_heist():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # ilvl83 items
@@ -1052,7 +1052,7 @@ def func_heist():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # ilvl84 items
@@ -1118,7 +1118,7 @@ def func_heist():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # All other items
@@ -1181,7 +1181,7 @@ def func_heist():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # Last few Heist items
@@ -1553,7 +1553,7 @@ def func_other():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         write_obj.write("#####################################################################################################################\n")
@@ -1706,7 +1706,7 @@ def func_watch():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # Last few Atlas items
@@ -1804,7 +1804,7 @@ def func_deli():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Delirium Orb section complete.")
 
@@ -1888,7 +1888,7 @@ def func_inv():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Invitations section complete.")
 
@@ -1972,7 +1972,7 @@ def func_vial():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Vial section complete.")
 
@@ -2056,7 +2056,7 @@ def func_inc():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Incubator section complete.")
 
@@ -2140,7 +2140,7 @@ def func_scar():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Scarab section complete.")
 
@@ -2224,7 +2224,7 @@ def func_foss():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Fossil & Resonator section complete.")
 
@@ -2308,7 +2308,7 @@ def func_ess():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Essences section complete.")
 
@@ -2392,7 +2392,7 @@ def func_div():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Div Card section complete.")
 
@@ -2488,7 +2488,7 @@ def func_prop():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Prophecies section complete.")
 
@@ -2571,7 +2571,7 @@ def func_beast():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Beasts section complete.")
 
@@ -2655,7 +2655,7 @@ def func_replica_umap():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Maps section complete.")
 
@@ -2739,7 +2739,7 @@ def func_replica_ujew():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Jewels section complete.")
 
@@ -2823,7 +2823,7 @@ def func_replica_ufla():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Flasks section complete.")
 
@@ -2907,7 +2907,7 @@ def func_replica_uacc():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Replica Accessories section complete.")
 
@@ -3006,7 +3006,7 @@ def func_normal_maps():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                     write_obj.write("\n")
     print ("Normal Map section complete.")
@@ -3106,7 +3106,7 @@ def func_blight_maps_2():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                     write_obj.write("\n")
     print ("Normal Map section complete.")
@@ -3232,7 +3232,7 @@ def func_blight_maps():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                 write_obj.write("\n")
     print ("Blight Map section complete.")
@@ -3323,7 +3323,7 @@ def func_umaps():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
                 write_obj.write("\n")
     print ("Unique Map section complete.")
@@ -3407,7 +3407,7 @@ def func_ujew():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Jewel section complete.")
 
@@ -3490,7 +3490,7 @@ def func_ufla():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Flask section complete.")
 
@@ -3573,7 +3573,7 @@ def func_uacc():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Unique Accessories section complete.")
 
@@ -3657,7 +3657,7 @@ def func_ench():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("Helmet Enchants section complete.")
 
@@ -3752,7 +3752,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
@@ -3811,7 +3811,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
@@ -3870,7 +3870,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
@@ -3929,7 +3929,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
@@ -3988,7 +3988,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
@@ -4047,7 +4047,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
@@ -4106,7 +4106,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
@@ -4164,7 +4164,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
@@ -4222,7 +4222,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
@@ -4280,7 +4280,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
@@ -4338,7 +4338,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
@@ -4396,7 +4396,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
@@ -4454,7 +4454,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
@@ -4512,7 +4512,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
@@ -4570,7 +4570,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
@@ -4629,7 +4629,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
@@ -4688,7 +4688,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
@@ -4746,7 +4746,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
@@ -4805,7 +4805,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
@@ -4863,7 +4863,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
@@ -4921,7 +4921,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
@@ -4979,7 +4979,7 @@ def func_normal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Normal Gems section complete.")
@@ -5075,7 +5075,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
@@ -5134,7 +5134,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
@@ -5193,7 +5193,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
@@ -5252,7 +5252,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
@@ -5311,7 +5311,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
@@ -5370,7 +5370,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
@@ -5429,7 +5429,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
@@ -5487,7 +5487,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
@@ -5545,7 +5545,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
@@ -5603,7 +5603,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
@@ -5661,7 +5661,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
@@ -5719,7 +5719,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
@@ -5777,7 +5777,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
@@ -5835,7 +5835,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
@@ -5893,7 +5893,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
@@ -5952,7 +5952,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
@@ -6011,7 +6011,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
@@ -6069,7 +6069,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
@@ -6127,7 +6127,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
@@ -6185,7 +6185,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
@@ -6243,7 +6243,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
@@ -6301,7 +6301,7 @@ def func_divergent_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Divergent Gems section complete.")
@@ -6397,7 +6397,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
@@ -6456,7 +6456,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
@@ -6515,7 +6515,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
@@ -6574,7 +6574,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
@@ -6633,7 +6633,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
@@ -6692,7 +6692,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
@@ -6751,7 +6751,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
@@ -6809,7 +6809,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
@@ -6867,7 +6867,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
@@ -6925,7 +6925,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
@@ -6983,7 +6983,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
@@ -7041,7 +7041,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
@@ -7099,7 +7099,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
@@ -7157,7 +7157,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
@@ -7215,7 +7215,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
@@ -7274,7 +7274,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
@@ -7333,7 +7333,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
@@ -7391,7 +7391,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
@@ -7449,7 +7449,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
@@ -7507,7 +7507,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
@@ -7565,7 +7565,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
@@ -7623,7 +7623,7 @@ def func_anomalous_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Anomalous Gems section complete.")
@@ -7719,7 +7719,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/23c
@@ -7778,7 +7778,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/23c
@@ -7837,7 +7837,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21/20c
@@ -7896,7 +7896,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20/20c
@@ -7955,7 +7955,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6/20c
@@ -8014,7 +8014,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20c
@@ -8073,7 +8073,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 21c
@@ -8131,7 +8131,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20c
@@ -8189,7 +8189,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 7c
@@ -8247,7 +8247,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6c
@@ -8305,7 +8305,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 4c
@@ -8363,7 +8363,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3c
@@ -8421,7 +8421,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2c
@@ -8479,7 +8479,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1c
@@ -8537,7 +8537,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 5/20
@@ -8596,7 +8596,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1/20
@@ -8655,7 +8655,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 20
@@ -8713,7 +8713,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 6
@@ -8772,7 +8772,7 @@ def func_phantasmal_gems():
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 3
@@ -8830,7 +8830,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 2
@@ -8889,7 +8889,7 @@ def func_phantasmal_gems():
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
             # 1
@@ -8947,7 +8947,7 @@ def func_phantasmal_gems():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Phantasmal Gems section complete.")
@@ -9031,7 +9031,7 @@ def func_uweap_6():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("6L Unique Weapon section complete.")
 
@@ -9114,7 +9114,7 @@ def func_uweap_5():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("5L Unique Weapon section complete.")
 
@@ -9198,7 +9198,7 @@ def func_repweap_0():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("All Other Replica Weapon section complete.")
 
@@ -9282,7 +9282,7 @@ def func_uweap_0():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("All Other Unique Weapon section complete.")
 
@@ -9365,7 +9365,7 @@ def func_uarm_6():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
     print ("6L Unique Armor section complete.")
 
@@ -9448,7 +9448,7 @@ def func_uarm_5():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("5L Unique Armor section complete.")
@@ -9533,7 +9533,7 @@ def func_reparm_0():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("All Other Replica Armor section complete.")
@@ -9618,7 +9618,7 @@ def func_uarm_0():
                     write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                 if EffectToWrite != "":
                     write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                if IconToWrite != "":
+                if IconToWrite != "" and booHIDE == False:
                     write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("All Other Unique Armor section complete.")
@@ -9714,7 +9714,7 @@ def func_influenced():
                             write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                         if EffectToWrite != "":
                             write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                        if IconToWrite != "":
+                        if IconToWrite != "" and booHIDE == False:
                             write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # All other influenced items caught here
@@ -9817,7 +9817,7 @@ def func_non_influenced():
                         write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
                     if EffectToWrite != "":
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "":
+                    if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Non-influenced bases section complete.")
