@@ -85,16 +85,17 @@ def func_init():
         # Add the updated row / list to the output file
         csv_writer.writerow(output_row)
 
-def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
-    global strGrayCutoff, strBoostButton
+def assign_tier(str_chaosEquivalent, minval, str_maxval):
+    global strGrayCutoff, strBoostButton, str_name
 
-#    print ("str_chaosEquivalent")
-#    print (str_chaosEquivalent)
-#    print (type(str_chaosEquivalent))
-
-#    print ("str_minval")
-#    print (str_minval)
-#    print (type(str_minval))
+#    if str_name == "Astragali":
+#        print ("Astragali")
+#        print ("str_chaosEquivalent: ", str_chaosEquivalent)
+#        print (type(str_chaosEquivalent))
+#        print ("minval: ", minval)
+#        print (type(minval))
+#        print ("str_maxval: ", str_maxval)
+#        print (type(str_maxval))
 
     # Set default of temp_val = str_chaosEquivalent
     if ("." not in str_chaosEquivalent):
@@ -102,22 +103,39 @@ def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
     if ("." in str_chaosEquivalent):
         temp_val = float(str_chaosEquivalent)
     
-#    print ("temp")
-#    print (temp)
-#    print (type(temp))
+#    if str_name == "Astragali":
+#        print ("temp_val: ", temp_val)
+#        print (type(temp_val))
 
-    # No matter what the item is, if str_minval != "" we need to Tier the item based on minvalue.
+    # No matter what the item is, if minval != "" we need to Tier the item based on minvalue.
     # This is because the chaosEquivalent of the line that gets put into the CSV may not be the
-    # lowest valued item, but the str_minval field should be tracking the minval either way.
-    if (str_minval != ""):
-#        print ("str_minval is not empty")
-        if (("." not in str_minval)):
-            temp_val = int(str_minval)
-        if (("." in str_minval)):
-            temp_val = float(str_minval)
+    # lowest valued item, but the minval field should be tracking the minval either way.
+    if (minval != ""):
+#        print ("minval is not empty")
+        if (("." not in minval)):
+            temp_val = int(minval)
+        if (("." in minval)):
+            temp_val = float(minval)
 
-#    print ("temp")
-#    print (temp)
+#    if str_name == "Astragali":
+#        print ("minval should be empty for Astragali.  temp_val should stay the same.")
+#        print ("temp_val: ", temp_val)
+#        print (type(temp_val))
+
+    # Also need to do this for maxval because reasons
+    if (str_maxval != ""):
+#        print ("minval is not empty")
+        if (("." not in str_maxval)):
+            temp_maxval = int(str_maxval)
+        if (("." in str_maxval)):
+            temp_maxval = float(str_maxval)
+    else:
+        temp_maxval = ""
+
+#    if str_name == "Astragali":
+#        print ("temp_maxval should be empty for Astragali.")
+#        print ("temp_maxval: ", temp_maxval)
+#        print (type(temp_maxval))
 
     # Start with T10 and work our way up.
     temp_tier = 10
@@ -140,6 +158,10 @@ def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
     if temp_val >= 100:
         temp_tier = 1
 
+#    if str_name == "Astragali":
+#        print ("temp_tier should be 7 for Astragali.")
+#        print ("temp_tier: ", temp_tier)
+
     # League Start Boost Button boosts tiers 10-5 up 4 levels
     # Brown items will become yellow, red will become orange, etc.
     if strBoostButton == "True" and temp_tier > 4 and temp_tier < 11:
@@ -148,18 +170,31 @@ def assign_tier(str_chaosEquivalent, str_minval, str_maxval):
         #print (temp_tier)
         #time.sleep(1)
 
-    # Now, only mark the item as gray if str_minval < strGrayCutoff
-    # if str_minval >= strGrayCutoff we want it to retain the tier set above.
-    if ((str_minval != "") and (str_minval < strGrayCutoff)):
-        temp_tier = 11
+    # Now, only mark the item as gray if temp_val < strGrayCutoff
+    # if temp_val >= strGrayCutoff we want it to retain the tier set above.
+    if (minval != ""):
+        if (temp_val < int(strGrayCutoff)) and (temp_maxval > int(strGrayCutoff)):
+            temp_tier = 11
+
+#    if str_name == "Astragali":
+#        print ("temp_val should be empty for Astragali, so this should never be triggered.")
+#        print ("temp_val: ", temp_val)
+#        print ("strGrayCutoff: ", strGrayCutoff)
+#        print ("temp_tier: ", temp_tier)
+#        time.sleep(30)
 
     # Now, if str_maxval < strGrayCutoff we can hide the item completely by setting it to T12
     # which will never be shown because the function that creates the filters only goes up to T11
     # But we'll have to add a sepcial HIDE section at the bottom of that function to explicitly hide all T12.
-    if ((str_maxval != "") and (str_maxval < strGrayCutoff)):
+    if (temp_maxval != "") and (temp_maxval < int(strGrayCutoff)):
+        temp_tier = 12
+        #print (str_maxval)
+        #print (strGrayCutoff)
+        #print (float(str_maxval) < float(strGrayCutoff))
+        #print ()
+        #time.sleep(2)
         #print((str_maxval != "") and (str_maxval < strGrayCutoff))
         #time.sleep(10)
-        temp_tier = 12
 
     if temp_tier > 12:
         print ("PROBLEM !!!!!!!!!")
@@ -186,6 +221,9 @@ with open(strCSVin, 'r') as read_obj, \
 
     for row in csv_reader:
         if row[10] != "chaosEquivalent":
+            #if "Caer" in row[1]:
+            #    print (row)
+
             print (row)
             str_category = row[0]
             str_name = row[1]
@@ -206,14 +244,14 @@ with open(strCSVin, 'r') as read_obj, \
             str_PlayEffect = row[16]
             str_MinimapIcon = row[17]
             str_hasdup = row[18]
-            str_minval = row[19]
+            minval = row[19]
             str_maxval = row[20]
 
             # Assign the tier
             #if str_name == "Regal Shard":
                 #print("Found Regal shard")
                 #time.sleep(10)
-            str_Tier = assign_tier(str_chaosEquivalent, str_minval, str_maxval)
+            str_Tier = assign_tier(str_chaosEquivalent, minval, str_maxval)
             #if str_name == "Regal Shard":
                 #print("Found Regal shard")
                 #print(str_Tier)
@@ -239,16 +277,18 @@ with open(strCSVin, 'r') as read_obj, \
             output_row.append(str_PlayEffect)
             output_row.append(str_MinimapIcon)
             output_row.append(str_hasdup)
-            output_row.append(str_minval)
+            output_row.append(minval)
             output_row.append(str_maxval)
     
             # Add the updated row / list to the output file
             #print(output_row)
-            #if str_category == "clus" and str_baseType == "Small Cluster Jewel" and str_minval != "":
-                #print("str_minval is " + str(str_minval))
+            #if str_category == "clus" and str_baseType == "Small Cluster Jewel" and minval != "":
+                #print("minval is " + str(minval))
                 #print("strGrayCutoff is " + str(strGrayCutoff))
                 #time.sleep(10)
+            #if "Caer" in row[1]:
+            #    print (row)
+            #    time.sleep(10)
             csv_writer.writerow(output_row)
  
 print('Done!')
-

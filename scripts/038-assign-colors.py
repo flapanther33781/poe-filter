@@ -224,7 +224,7 @@ with open(strCSVin, 'r') as read_obj, \
             str_PlayEffect = row[16]
             str_MinimapIcon = row[17]
             str_hasdup = row[18]
-            str_minval = row[18]
+            str_minval = row[19]
             str_maxval = row[20]
 
             #if str_name == "Regal Shard":

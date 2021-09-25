@@ -73,6 +73,15 @@ def filter_duplicates(reader):
         if row in result_dict:
             result_dict[row]["hasdup"] = True
 
+            #if result_dict[row]["category"] == "uacc" and result_dict[row]["baseType"] == "Studded Belt":
+            #    print ("1")
+            #    print ()
+            #    print (row)
+            #    print ()
+            #    print (result_dict[row])
+            #    print ()
+            #    time.sleep(5)
+
             # Track minvalue
             if float(row["chaosEquivalent"]) < float(result_dict[row]["chaosEquivalent"]):
                 result_dict[row]["minval"] = row["chaosEquivalent"]
@@ -88,6 +97,15 @@ def filter_duplicates(reader):
         else:
             result_dict[row] = row
             result_dict[row]["hasdup"] = False
+
+        #if result_dict[row]["category"] == "uacc" and result_dict[row]["baseType"] == "Studded Belt":
+        #    print ("2")
+        #    print ()
+        #    print (row)
+        #    print ()
+        #    print (result_dict[row])
+        #    print ()
+        #    time.sleep(10)
 
     return list(result_dict.values())
 

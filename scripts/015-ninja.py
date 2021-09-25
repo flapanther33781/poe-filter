@@ -38,7 +38,9 @@ def func_get_league():
                 if "4 " in temp:
                     league_name = temp.strip("4 ")
                     league_name = league_name.strip()
-                #print ("league_name is " + league_name)
+                print ("league_name is " + league_name)
+            else:
+                print ("league_name not in 00_user_settings.txt")
 
 def func_init():
     global csv_writer

@@ -124,7 +124,7 @@ def do_work():
 
         # Read each row of the input csv file as list
         for row in csv_reader:
-            #print (row)
+            print (row)
             #print ()
 
             # If we see the header line initialize the new output file.
@@ -275,13 +275,13 @@ def do_work():
                             #time.sleep(1)
                             # print returnval to output
                             #if "Caer" in str_name:
-                            #    print ("Found 3")
+                            #   print ("Found 3")
                             #    print ()
                             #    print ()
-                            #    time.sleep(10)
+                            #   time.sleep(10)
                             with open(str30new, 'a', newline='') as write_obj:
                                 csv_writer = csv.writer(write_obj)
-                                write_obj.writerow(returnval)
+                                csv_writer.writerow(returnval)
 
                             #with open(strTXTout, 'a', newline='') as write_obj:
                             #    txt_writer = writer(write_obj)

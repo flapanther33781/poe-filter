@@ -27,11 +27,14 @@ arrDoubleInfluences = ["Crusader/Hunter","Crusader/Redeemer","Crusader/Warlord",
 
 def func_get_league():
     strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
-    global league_name
+    global patch_number, league_name
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
         for line in f:
+            if "patch_number: " in line:
+                patch_number = (line.split("patch_number: ")[1])
+                patch_number = patch_number.strip()
             if "league_name: " in line:
                 temp = (line.split("league_name: ")[1])
                 if "1 " in temp:
@@ -54,6 +57,10 @@ def func_init():
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
         for line in f:
+
+            if "patch_number: " in line:
+                patch_number = (line.split("patch_number: ")[1])
+                patch_number = patch_number.strip()
 
             if "league_name: " in line:
                 temp = (line.split("league_name: ")[1])
@@ -135,7 +142,7 @@ def func_init():
     #booShowNM5S = False
     #strBoostButton = False
 
-    header00 = str("##### Super Simple Loot Filter for League: "+league_name+" - updated: "+str(current_time)+"\n")
+    header00 = str("##### Super Simple Loot Filter for League: " + patch_number + " "+league_name+" - updated: "+str(current_time)+"\n")
     header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
     header03 = str("##### booShowT11 :" + str(booShowT11)+"\n")
     header04 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
@@ -145,7 +152,7 @@ def func_init():
     header08 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
-    strTXTout = str(subleague_num)+"-"+str(strOverallStrictness)+"-"
+    strTXTout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
     if booShowT11 == True:
         strTXTout = strTXTout + "1-"
     else:
@@ -166,7 +173,7 @@ def func_init():
 
     header09 = ("##### Suggested filter name: "+strTXTout+"\n")
     print ("##### Suggested filter name: "+strTXTout+"\n")
-    time.sleep(10)
+    #time.sleep(10)
 
     # Open the output file in write mode
     with open(strTXTout, 'w', newline='') as write_obj:
@@ -427,7 +434,8 @@ def func_static_intro():
         write_obj.write("#####\n")
         write_obj.write("Show # Fated Uniques - These can sometimes be upgraded to valuable items. Check wiki for details.\n")
         write_obj.write("    Rarity Unique\n")
-        write_obj.write("    BaseType == \"Goathide Gloves\" \"Painted Buckler\" \"Serrated Arrow Quiver\" \"Royal Bow\" \"Sledgehammer\" \"Iron Staff\" \"Crude Bow\" \"Plank Kite Shield\" \"Long Bow\" \"Gilded Sallet\" \"Gnarled Branch\" \"Fire Arrow Quiver\" \"Spiraled Wand\" \"Death Bow\" \"Ironscale Boots\" \"Coral Ring\" \"Coral Amulet\" \"Ornate Sword\" \"Scholar Boots\" \"Woodsplitter\" \"Jade Hatchet\" \"War Buckler\" \"Plate Vest\" \"Sharktooth Arrow Quiver\" \"Latticed Ringmail\" \"Wild Leather\" \"Iron Hat\" \"Jade Amulet\" \"Clasped Boots\" \"Studded Belt\" \"Iron Circlet\" \"Gold Amulet\" \"Coral Ring\" \"Gavel\" \"Great Crown\" \"Strapped Leather\" \"Great Mallet\" \"Crusader Plate\" \"Crystal Wand\" \"Rusted Sword\" \"Velvet Slippers\" \"Reaver Sword\" \"Royal Staff\" \"Tarnished Spirit Shield\" \"Reinforced Greaves\" \"Brass Maul\" \"Jagged Maul\" \"Cleaver\" \"Iron Mask\" \"Vine Circlet\" \"Iron Ring\" \"Moonstone Ring\" \"Velvet Gloves\" \"Leather Hood\" \"Skinning Knife\" \"Golden Buckler\"\n")        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    BaseType == \"Goathide Gloves\" \"Painted Buckler\" \"Serrated Arrow Quiver\" \"Royal Bow\" \"Sledgehammer\" \"Iron Staff\" \"Crude Bow\" \"Plank Kite Shield\" \"Long Bow\" \"Gilded Sallet\" \"Gnarled Branch\" \"Fire Arrow Quiver\" \"Spiraled Wand\" \"Death Bow\" \"Ironscale Boots\" \"Coral Ring\" \"Coral Amulet\" \"Ornate Sword\" \"Scholar Boots\" \"Woodsplitter\" \"Jade Hatchet\" \"War Buckler\" \"Plate Vest\" \"Sharktooth Arrow Quiver\" \"Latticed Ringmail\" \"Wild Leather\" \"Iron Hat\" \"Jade Amulet\" \"Clasped Boots\" \"Studded Belt\" \"Iron Circlet\" \"Gold Amulet\" \"Coral Ring\" \"Gavel\" \"Great Crown\" \"Strapped Leather\" \"Great Mallet\" \"Crusader Plate\" \"Crystal Wand\" \"Rusted Sword\" \"Velvet Slippers\" \"Reaver Sword\" \"Royal Staff\" \"Tarnished Spirit Shield\" \"Reinforced Greaves\" \"Brass Maul\" \"Jagged Maul\" \"Cleaver\" \"Iron Mask\" \"Vine Circlet\" \"Iron Ring\" \"Moonstone Ring\" \"Velvet Gloves\" \"Leather Hood\" \"Skinning Knife\" \"Golden Buckler\"\n")
+        write_obj.write("    SetFontSize 39\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 100 100 100 255 # Grey\n")
         write_obj.write("    PlayEffect None\n")
@@ -589,7 +597,7 @@ def func_static_intro():
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10800 Rare Rings/Amulet/Belts/Jewels\n")
         write_obj.write("##### I only want Rare Rings/Amulet/Belts/Jewels if Unique if ilvl is met\n")
-        write_obj.write("##### Can't hide Jewels here or it'll affect Cluster Jewels when we don't want it to.\n")
+        write_obj.write("##### Can't hide normal Jewels here or it'll affect Cluster Jewels when we don't want it to.\n")
         write_obj.write("##### This ilvl is adjustable in User Settings.\n")
         write_obj.write("\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
