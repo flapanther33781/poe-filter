@@ -2,7 +2,7 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
-#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can justg download the .filter files here and test with those.
+#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
 
 #### Here is an introduction video (right-click and open in a new tab):
 
