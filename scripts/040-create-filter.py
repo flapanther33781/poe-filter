@@ -401,7 +401,7 @@ def func_static_intro():
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10150 Testing putting borders to highlight items that are not 2x3 or 2x4.\n")
         write_obj.write("#####       This is more useful once you set strictness to 6 or higher, as poe.ninja thinks a decent number of\n")
-        write_obj.write("#####       higher-lvl bases are worth 5c-10c. Seems to be at map tiers 14+.\n")
+        write_obj.write("#####       higher-lvl bases are worth 5c-10c when most are trash. Seems to start around map tiers 14+.\n")
         write_obj.write("#####\n")
         write_obj.write("Show\n")
         write_obj.write("    Width = 1\n")
@@ -1610,7 +1610,7 @@ def func_other():
         write_obj.write("    PlayEffect Blue\n")
         write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("\n")
-        write_obj.write("Hide\n")
+        write_obj.write("Hide                    # As per https://www.youtube.com/watch?v=GGwpWxycJ8s these probably aren't worth anything.\n")
         write_obj.write("    FracturedItem True\n")
         write_obj.write("    Class Gloves Boots Body Amulets Rings Shields Quivers\n")
         write_obj.write("    DisableDropSound True\n")
@@ -9724,7 +9724,8 @@ def func_influenced():
                             write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
         # All other influenced items caught here - commenting out for now because this includes low-level influenced items
-       #write_obj.write("\n")
+        # Do I still want to show these?  Could be useful for exalt shard recipies.  Maybe make a checkbox?
+        #write_obj.write("\n")
         #write_obj.write("Show    # This will catch any influenced items not spelled out above.\n")
         #write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
         #write_obj.write("    SetFontSize 45\n")
