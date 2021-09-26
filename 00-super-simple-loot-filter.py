@@ -12,6 +12,7 @@ strLeagueTXTin = os.path.join(sys.path[0], "./scripts/00_league_list.txt")
 league_list = []
 
 def initialize():
+    print("called")
     # Set defaults
     with open(in_filename, 'w') as f:
         f.write("patch_number: 3.15\n")         # We're setting defaults here. We can't use a variable. User will have to change or update.
@@ -780,7 +781,7 @@ frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 frame01 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-label01 = Label(frame01, justify='left', text="Filter Strictness - show tiers from 1 (highest) down to:\r(Set to 10 for league start.)")
+label01 = Label(frame01, justify='left', text="Overall Filter Strictness - show tiers from 1 (highest) down to:\r(Set to 10 for league start.)")
 label01.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
 slider1 = Scale(frame01, from_=10, to=1, length=535, tickinterval=1, orient=HORIZONTAL)
@@ -804,7 +805,7 @@ slider2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 frame03 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame03.grid(row=3, column=0, padx=5, pady=1, sticky = W)
 
-label03 = Label(frame03, justify='left', text="Set breakpoint for Unique items that share a common base (aka \"Tier 11\", or \"Gray items\"):\r(See instructions, as this can have three different effects based on how you set it.)\rTHIS FEATURE IS STULL UNDER TESTING, MAY OR MAY NOT ALWAYS WORK AS EXPECTED.")
+label03 = Label(frame03, justify='left', text="Set breakpoint for Unique items that share a common base (aka \"Tier 11\", or \"Gray items\"). Check the\rGithub FAQ, as this can have three different effects based on how you set it. Take care setting this\rabove 0, as it may hide Uniques that poe.ninja thinks aren't worth much. Rememeber, poe.ninja's\rpricing is usually for the lowest value, good rolls can fetch much more. Identify and use Awakened\rPoE Trade to price these until you get to know them.\r\rExample: I had this set to 3c, Overall Strictness to 6. The filter hid Unique Hallowed Hybrid flasks\rbecause poe.ninja thought all variants were were worth 2c max, but with good rolls it was worth 10c.")
 label03.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
 slider3 = Scale(frame03, from_=0, to=200, length=535, tickinterval=10, orient=HORIZONTAL)
