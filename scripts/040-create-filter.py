@@ -938,7 +938,7 @@ def func_heist():
                 # Create a csv.reader object from the input file object
                 csv_reader = reader(read_obj)
                 for row in csv_reader:
-                    print(row)
+                    #print(row)
                     if row[10] != "chaosEquivalent":
                         str_category = row[0]
                         str_baseType = row[2]
@@ -9672,18 +9672,24 @@ def func_influenced():
                                 if row[12] != "":
                                     str_Tier = row[12]
                                 else:
-                                    str_Tier = row[13]
+                                    str_Tier = row[11]
                                 str_SetFontSize = row[13]
                                 str_PlayAlertSound = row[14]
                                 str_SetBackgroundColor = row[15]
                                 str_PlayEffect = row[16]
                                 str_MinimapIcon = row[17]
+                                #print()
                                 #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
-                                #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
-                                #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
+                                #print()
+                                #time.sleep(1)
 
+                                #if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == strInfluence:
+                                #    print("Does ", str_variant, " match " , strInfluence, " ?")
+                                #    time.sleep(1)
                                 if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == strInfluence:
                                     LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                                    #print (LineToWrite)
+                                    #time.sleep(10)
                                     FontSizeToWrite = str_SetFontSize
                                     BackgroundColorToWrite = str_SetBackgroundColor
                                     AlertSoundToWrite = str_PlayAlertSound
@@ -9717,15 +9723,17 @@ def func_influenced():
                         if IconToWrite != "" and booHIDE == False:
                             write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
-        # All other influenced items caught here
-        write_obj.write("\n")
-        write_obj.write("Show\n")
-        write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
-        write_obj.write("    SetFontSize 39\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("    PlayAlertSound 9 300\n")
-        write_obj.write("    MinimapIcon 2 Green Kite\n")
+        # All other influenced items caught here - commenting out for now because this includes low-level influenced items
+       #write_obj.write("\n")
+        #write_obj.write("Show    # This will catch any influenced items not spelled out above.\n")
+        #write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
+        #write_obj.write("    SetFontSize 45\n")
+        #write_obj.write("    SetTextColor 255 0 255 255\n")
+        #write_obj.write("    SetBorderColor 255 0 255 255\n")
+        #write_obj.write("    SetBackgroundColor 150 50 150 255\n")
+        #write_obj.write("    PlayAlertSound 3 300\n")
+        #write_obj.write("    PlayEffect Pink\n")
+        #write_obj.write("    MinimapIcon 0 Pink Circle\n")
 
     print ("Influenced section complete.")
 
@@ -9751,74 +9759,76 @@ def func_non_influenced():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for k in range (86, 81, -1):
             LineToWrite = ""
-            print("Item level "+str(k))
-            for i in range (1,12):
-                booHIDE = False
-                if (booShowT11 == False) and (i > strOverallStrictness):
-                    print ("Hiding tier " + str(i) + ".")
-                    booHIDE = True
-                if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                    print ("Hiding tier " + str(i) + ".")
-                    booHIDE = True
 
-                LineToWrite = ""
-                with open(strCSVin, 'r') as read_obj:
-                    # Create a csv.reader object from the input file object
-                    csv_reader = reader(read_obj)
-                    for row in csv_reader:
-                        if row[0] == "base":
-                            #print(row)
-                            str_category = row[0]
-                            str_baseType = row[2]
-                            str_variant = row[3]
-                            str_levelRequired = row[4]
-                            str_links = row[5]
-                            if row[12] != "":
-                                str_Tier = row[12]
-                            else:
-                                str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
-                            #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
-                            #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
-                            #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
-
-                            if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == "":
-                                LineToWrite = LineToWrite + ' "' + str_baseType + '"'
-                                FontSizeToWrite = str_SetFontSize
-                                BackgroundColorToWrite = str_SetBackgroundColor
-                                AlertSoundToWrite = str_PlayAlertSound
-                                EffectToWrite = str_PlayEffect
-                                IconToWrite = str_MinimapIcon
-    
-                if LineToWrite != "":
-                    str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
-                    str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
-                    str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                    write_obj.write("\n")
-                    write_obj.write("##### Item level "+str(k)+", Tier "+str(i)+"\n")
-                    if booHIDE == False:
-                        print("Showing Tier "+str(i))
-                        write_obj.write("Show\n")
-                    if booHIDE == True:
-                        print("Hiding Tier "+str(i))
-                        write_obj.write("Hide\n")
-                        write_obj.write("    DisableDropSound True\n")
-                    write_obj.write("    Rarity Rare\n")
-                    write_obj.write("    ItemLevel >= "+str(k)+"\n")
-                    write_obj.write("    BaseType =="+LineToWrite+"\n")
-                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
-                    write_obj.write("    SetTextColor 0 0 0 255\n")
-                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
-                    if str_PlayAlertSound != "":
-                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
-                    if EffectToWrite != "":
-                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                    if IconToWrite != "" and booHIDE == False:
-                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+            if k >= int(strRareCutoff):
+                print("Item level "+str(k))
+                for i in range (1,12):
+                    booHIDE = False
+                    if (booShowT11 == False) and (i > strOverallStrictness):
+                        print ("Hiding tier " + str(i) + ".")
+                        booHIDE = True
+                    if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                        print ("Hiding tier " + str(i) + ".")
+                        booHIDE = True
+                
+                    LineToWrite = ""
+                    with open(strCSVin, 'r') as read_obj:
+                        # Create a csv.reader object from the input file object
+                        csv_reader = reader(read_obj)
+                        for row in csv_reader:
+                            if row[0] == "base":
+                                #print(row)
+                                str_category = row[0]
+                                str_baseType = row[2]
+                                str_variant = row[3]
+                                str_levelRequired = row[4]
+                                str_links = row[5]
+                                if row[12] != "":
+                                    str_Tier = row[12]
+                                else:
+                                    str_Tier = row[11]
+                                str_SetFontSize = row[13]
+                                str_PlayAlertSound = row[14]
+                                str_SetBackgroundColor = row[15]
+                                str_PlayEffect = row[16]
+                                str_MinimapIcon = row[17]
+                                #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
+                                #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
+                                #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
+                
+                                if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == "":
+                                    LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                                    FontSizeToWrite = str_SetFontSize
+                                    BackgroundColorToWrite = str_SetBackgroundColor
+                                    AlertSoundToWrite = str_PlayAlertSound
+                                    EffectToWrite = str_PlayEffect
+                                    IconToWrite = str_MinimapIcon
+                
+                    if LineToWrite != "":
+                        str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
+                        str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
+                        str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
+                        write_obj.write("\n")
+                        write_obj.write("##### Item level "+str(k)+", Tier "+str(i)+"\n")
+                        if booHIDE == False:
+                            print("Showing Tier "+str(i))
+                            write_obj.write("Show\n")
+                        if booHIDE == True:
+                            print("Hiding Tier "+str(i))
+                            write_obj.write("Hide\n")
+                            write_obj.write("    DisableDropSound True\n")
+                        write_obj.write("    Rarity Rare\n")
+                        write_obj.write("    ItemLevel >= "+str(k)+"\n")
+                        write_obj.write("    BaseType =="+LineToWrite+"\n")
+                        write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                        write_obj.write("    SetTextColor 0 0 0 255\n")
+                        write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                        if str_PlayAlertSound != "":
+                            write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                        if EffectToWrite != "":
+                            write_obj.write("    PlayEffect "+EffectToWrite+"\n")
+                        if IconToWrite != "" and booHIDE == False:
+                            write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Non-influenced bases section complete.")
 
