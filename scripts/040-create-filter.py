@@ -1355,7 +1355,7 @@ def func_stacks():
         write_obj.write("    StackSize >= 20\n")
         write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
         write_obj.write("    SetFontSize 45\n")
-        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
         write_obj.write("    MinimapIcon 0 White Diamond\n")
@@ -1402,7 +1402,7 @@ def func_stacks():
         write_obj.write("    StackSize >= 10\n")
         write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
         write_obj.write("    SetFontSize 45\n")
-        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
         write_obj.write("    MinimapIcon 0 White Diamond\n")
@@ -1562,7 +1562,7 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    Class Quest\n")
         write_obj.write("    SetFontSize 45\n")
-        write_obj.write("    SetBackgroundColor 0 0 0 255 # White\n")
+        write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
         write_obj.write("    MinimapIcon 0 White Diamond\n")
@@ -1858,7 +1858,7 @@ def func_inv():
                         str_PlayEffect = row[16]
                         str_MinimapIcon = row[17]
 
-                        if int(str_Tier) == i and str_category == "frag":
+                        if int(str_Tier) == i and str_category == "inv":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
