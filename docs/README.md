@@ -77,7 +77,7 @@ There are like 3 things that all come into play here.
 
 2. On the other hand, by the time you get to red maps so many Rares are dropping that even setting the slider to ilvl 86 will still leave lots of items appearing on the screen.  That's when the Economy-Based slider will come into play.  If you were to use the Overall Filter Strictness slider then you might be hiding a bunch of other items that you are willing to view otherwise (currency, maps, oils, div cards, etc.), so having a separate slider for the Rares allows us to filter them without then needing to go and set overrides for all those other items.
 
-3. Price-fixing, Dump Tabs, default pricing, and how they affect pricing on poe.ninja.  I think I'm going to make a video explaining these because I could say it in 5-10 minutes but it would take many paragraphs to write it out.  I'll add a link to the video here when I make it.
+3. Price-fixing, Dump Tabs, default pricing, and how they affect pricing on poe.ninja.  I made a video to talk about this (here: https://youtu.be/xGkBxN_aNAA) because it took about 7-8 minutes to discuss these things. Spoke word takes a lot of space to write out, so a video is just faster.
 
 #### What does the slider for non-influenced/veiled/etc Rare items do?
 
