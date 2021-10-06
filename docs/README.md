@@ -19,17 +19,23 @@ Due to not showing those items **this filter** will be more strict than theirs, 
 
 I may add other schemes later, but for now this is what it looks like:
 
-![ss01](https://user-images.githubusercontent.com/26362032/130993851-52d7c04e-4535-44ba-9d69-7b0ca024d615.PNG)
+![01](https://user-images.githubusercontent.com/26362032/136266615-a20e1eb2-4f98-46a3-953b-feea4f2acb2a.PNG)
+![02](https://user-images.githubusercontent.com/26362032/136266626-6eef0b94-392c-4dee-8cd0-2d8d16a39755.PNG)
+
+#### White border = item takes 1-2 inventory slots, Red border = item takes 3-4 slots, no border = item takes 5-6 slots
+
+![04](https://user-images.githubusercontent.com/26362032/136266817-4e7e65e1-878e-490f-8c5d-618ccd978eaf.PNG)
+![05](https://user-images.githubusercontent.com/26362032/136266824-89d5bc0e-d3f6-49fb-ab02-394f5bdbc178.PNG)
 
 ## The second goal for this filter is to configure tiers universally, across all item types.
 
 #### If you see a color you know what its value is, regardless of what kind of item it is. No need to memorize multiple tier profiles, nor combinations of background and border colors. By default these are the tiers and map icon assignments:
 
-![ss02](https://user-images.githubusercontent.com/26362032/130992017-5944432a-754c-4639-9ba9-fc7a3c7b344c.PNG)
+![Tab1](https://user-images.githubusercontent.com/26362032/136266861-f8254bcc-0bb4-4e4d-8b91-c5139b1aa25c.PNG)
 
 On the second tab are some additional settings (scroll down for a FAQ with more info on what these do/mean):
 
-![ss03](https://user-images.githubusercontent.com/26362032/130992040-8c31b422-bf04-4517-abf1-016377544d39.PNG)
+![Tab2](https://user-images.githubusercontent.com/26362032/136266872-bf13b783-981c-42e7-aa57-38f9e3f7790a.PNG)
 
 ## What is the status of this project?
 
