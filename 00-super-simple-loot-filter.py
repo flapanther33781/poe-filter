@@ -45,11 +45,12 @@ def initialize():
         f.write("Show Normal/Magic 6-socket items: True\n")
         f.write("Show Normal/Magic 5-socket items: True\n")
         f.write("Boost Button (+4 all tiers for league start): True\n")
+        f.write("Invert colors: False\n")
 
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -176,6 +177,10 @@ def load_values():
                 boobuttonBB = (line.split("Boost Button (+4 all tiers for league start): ")[1])
                 boobuttonBB = boobuttonBB.strip()
                 #print ("boobuttonBB is " + boobuttonBB)
+            if "Invert colors: " in line:
+                booInvert = (line.split("Invert colors: ")[1])
+                booInvert = booInvert.strip()
+                #print ("booInvert is " + booInvert)
 
     # Swap 0/1 Boolean values for True/False
     # I probably shouldn't do this but I like seeing True/False in the settings txt file.
@@ -199,10 +204,15 @@ def load_values():
     if boobuttonBB == "False":
         boobuttonBB = "0"
 
+    if booInvert == "True":
+        booInvert = "1"
+    if booInvert == "False":
+        booInvert = "0"
+
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert
 
     # Get entererd values
     t1value = e13.get()
@@ -238,6 +248,7 @@ def save_values():
     booShowNM6S = str(buttonS6.get())
     booShowNM5S = str(buttonS5.get())
     boobuttonBB = str(buttonBB.get())
+    booInvert = str(InvertButton.get())
 
     print ("Patch Number is " + str(e50b.get()))
     print ("Selected League is " + str(league_selection.get()))
@@ -248,6 +259,7 @@ def save_values():
     print ("booShowNM6S is " + str(buttonS6.get()))
     print ("booShowNM5S is " + str(buttonS5.get()))
     print ("boobuttonBB is " + str(buttonBB.get()))
+    print ("booInvert is " + str(InvertButton.get()))
 
     print ("t1value is " + str(t1value))
     print ("t2value is " + str(t2value))
@@ -297,6 +309,11 @@ def save_values():
     if boobuttonBB == "0":
         boobuttonBB = "False"
 
+    if booInvert == "1":
+        booInvert = "True"
+    if booInvert == "0":
+        booInvert = "False"
+
     with open(in_filename, 'w') as f:
         f.write("patch_number: " + patch_number + "\n")
         f.write("league_name: " + selected_league + "\n")
@@ -328,6 +345,7 @@ def save_values():
         f.write("Show Normal/Magic 6-socket items: " + booShowNM6S + "\n")
         f.write("Show Normal/Magic 5-socket items: " + booShowNM5S + "\n")
         f.write("Boost Button (+4 all tiers for league start): " + boobuttonBB + "\n")
+        f.write("Invert colors: " + booInvert + "\n")
 
 def on_tab_selected(event):
     selected_tab = event.widget.select()
@@ -876,6 +894,17 @@ label051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 buttonBB = StringVar(value=boobuttonBB)
 buttonblah4 = Checkbutton(frame051, justify='left', text="Y/N", variable=buttonBB)
 buttonblah4.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+# INVERT BUTTON
+frame052 = Frame(frame05, width=100, height=50, borderwidth=5)
+frame052.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+label052 = Label(frame052, justify='left', text="Invert Text & BG Colors?")
+label052.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+InvertButton = StringVar(value=booInvert)
+buttonblah5 = Checkbutton(frame052, justify='left', text="Y/N", variable=InvertButton)
+buttonblah5.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
