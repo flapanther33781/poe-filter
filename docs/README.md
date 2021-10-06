@@ -59,9 +59,19 @@ You can save your filter settings two ways: either by clicking the `Save Setting
 
 The `Reset Settings` button will reset the `00_user_settings.txt` file but I don't yet know how to get Python to reset the checkboxes and sliders.  So for right now if you want to reset the program, click that button, then close the program and reopen it.
 
-#### What does the slider for Strictness selector do?
+#### What does the Overall Filter Strictness slider do?
 
 As shown above, we put all items into tiers based on their value. This slider will allow you to modify your filter's strictness.  For example, if you set the slider to 5 then items in tiers 6 through 10 will be hidden.
+
+#### Why are there two sliders for non-influenced/veiled/etc Rare items?
+
+There are like 3 things that all come into play here.
+
+1. In the first few Acts Rare items might be usable upgrades for your own gear, but as you progress through the Acts on your way towards the Endgame the odds of them being usable start to drop, especially if you're using build guides (which is suggested).  You may still want to pick them up to trade to vendors for currency, but once you start getting to the point where you can do the Chaos Recipe you'll probably want to hide all rares below ilvl 65 because you can't use those for the Chaos Recipe.  These items will be pretty cheap, so using the Economy-Based slider for rares may not give you the granularity you need.
+
+2. On the other hand, by the time you get to red maps so many Rares are dropping that even setting the slider to ilvl 86 will still leave lots of items appearing on the screen.  That's when the Economy-Based slider will come into play.  If you were to use the Overall Filter Strictness slider then you might be hiding a bunch of other items that you are willing to view otherwise (currency, maps, oils, div cards, etc.), so having a separate slider for the Rares allows us to filter them without then needing to go and set overrides for all those other items.
+
+3. Price-fixing, Dump Tabs, default pricing, and how they affect pricing on poe.ninja.  I think I'm going to make a video explaining these because I could say it in 5-10 minutes but it would take many paragraphs to write it out.  I'll add a link to the video here when I make it.
 
 #### What does the slider for non-influenced/veiled/etc Rare items do?
 
