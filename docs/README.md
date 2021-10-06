@@ -53,6 +53,12 @@ Basically it goes from darkest to lightest, but the easiest way to remember it i
 Regarding icons, aside from Diamond and Rain, more sides = more important, but color's still more important than the icon.    
 (An item with a Green Circle is worth more than one with a Red Pentagon, etc.)
 
+#### What do we need to know about the Save Settings/Reset Settings/Generate Filter buttons?
+
+You can save your filter settings two ways: either by clicking the `Save Settings` button, or by clicking the `Generate Filter` button.  Clicking the `Generate Filter` button automatically saves the settings to `00_user_settings.txt`, then kicks off the filter generation scripts which reads the settings from that file.  If you change the filter settings but close out of the program without doing one of those two things your changes will not be saved.
+
+The `Reset Settings` button will reset the `00_user_settings.txt` file but I don't yet know how to get Python to reset the checkboxes and sliders.  So for right now if you want to reset the program, click that button, then close the program and reopen it.
+
 #### What does the slider for Strictness selector do?
 
 As shown above, we put all items into tiers based on their value. This slider will allow you to modify your filter's strictness.  For example, if you set the slider to 5 then items in tiers 6 through 10 will be hidden.
