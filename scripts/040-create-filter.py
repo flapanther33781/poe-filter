@@ -219,7 +219,7 @@ def func_init():
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
         write_obj.write("##### GET THE LATEST VERSION:                        https://github.com/flapanther33781/poe-filter\n")
-        write_obj.write("##### POE FORUM THREAD:                                (TBD)\n")
+        write_obj.write("##### POE FORUM THREAD:                                https://www.pathofexile.com/forum/view-thread/3185095\n")
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### SUPPORT THE DEVELOPMENT:\n")
         write_obj.write("##### \n")
