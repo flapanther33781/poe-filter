@@ -173,7 +173,17 @@ def assign_tier(str_chaosEquivalent, minval, str_maxval):
     # Now, only mark the item as gray if temp_val < strGrayCutoff
     # if temp_val >= strGrayCutoff we want it to retain the tier set above.
     if (minval != ""):
-        if (temp_val < int(strGrayCutoff)) and (temp_maxval > int(strGrayCutoff)):
+        #print("found minval")
+        #print("temp_val is ", temp_val)
+        #print("temp_val is ", type(temp_val))
+        #print("temp_maxval is ", temp_maxval)
+        #print("temp_maxval is ", type(temp_maxval))
+        #print("strGrayCutoff is ", strGrayCutoff)
+        #print("strGrayCutoff is ", type(strGrayCutoff))
+        #print(temp_val < int(strGrayCutoff))
+        #print(temp_maxval > int(strGrayCutoff))
+        #time.sleep(10)
+        if temp_maxval > int(strGrayCutoff):
             temp_tier = 11
 
 #    if str_name == "Astragali":
@@ -200,7 +210,9 @@ def assign_tier(str_chaosEquivalent, minval, str_maxval):
         print ("PROBLEM !!!!!!!!!")
         time.sleep(5)
 
-#    print (temp_tier)
+    #if (str_maxval != ""):
+    #    print (temp_tier)
+    #    time.sleep(10)
     return temp_tier
 
 # Main starts here

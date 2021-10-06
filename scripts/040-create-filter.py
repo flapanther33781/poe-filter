@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -86,6 +86,10 @@ def func_init():
                 strOverallStrictness = (line.split("Overall Strictness: ")[1])
                 strOverallStrictness = int(strOverallStrictness.strip())
                 #print ("strOverallStrictness is " + strOverallStrictness)
+            if "Rare Strictness: " in line:
+                strRareStrictness = (line.split("Rare Strictness: ")[1])
+                strRareStrictness = int(strRareStrictness.strip())
+                #print ("strRareStrictness is " + strRareStrictness)
             if "Non-special Rare cutoff: " in line:
                 strRareCutoff = (line.split("Non-special Rare cutoff: ")[1])
                 strRareCutoff = int(strRareCutoff.strip())
@@ -144,15 +148,17 @@ def func_init():
 
     header00 = str("##### Super Simple Loot Filter for League: " + patch_number + " "+league_name+" - updated: "+str(current_time)+"\n")
     header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
-    header03 = str("##### booShowT11 :" + str(booShowT11)+"\n")
-    header04 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
-    header05 = str("##### booShowNM5S :" + str(booShowNM5S)+"\n")
-    header06 = str("##### strBoostButton :" + str(strBoostButton)+"\n")
-    header07 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
-    header08 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
+    header03 = str("##### strRareStrictness :" + str(strRareStrictness)+"\n")
+    header04 = str("##### booShowT11 :" + str(booShowT11)+"\n")
+    header05 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
+    header06 = str("##### booShowNM5S :" + str(booShowNM5S)+"\n")
+    header07 = str("##### strBoostButton :" + str(strBoostButton)+"\n")
+    header08 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
+    header09 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTXTout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
+    strTXTout = strTXTout + str(strRareStrictness) + "-"
     if booShowT11 == True:
         strTXTout = strTXTout + "1-"
     else:
@@ -171,7 +177,7 @@ def func_init():
         strTXTout = strTXTout + "0-"
     strTXTout = strTXTout + str(strRareCutoff)+"-"+str(strGrayCutoff)+".filter"
 
-    header09 = ("##### Suggested filter name: "+strTXTout+"\n")
+    header10 = ("##### Suggested filter name: "+strTXTout+"\n")
     print ("##### Suggested filter name: "+strTXTout+"\n")
     #time.sleep(10)
 
@@ -188,8 +194,9 @@ def func_init():
         write_obj.write(header06)
         write_obj.write(header07)
         write_obj.write(header08)
-        write_obj.write("#####\n")
         write_obj.write(header09)
+        write_obj.write("#####\n")
+        write_obj.write(header10)
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
@@ -679,12 +686,10 @@ def func_frag():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -756,12 +761,10 @@ def func_curr():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -840,12 +843,10 @@ def func_oil():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -926,12 +927,10 @@ def func_heist():
         # ilvl81 items
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -1498,12 +1497,10 @@ def func_other():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -1651,12 +1648,10 @@ def func_watch():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVinOther, 'r') as read_obj:
@@ -1747,12 +1742,10 @@ def func_deli():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1831,12 +1824,10 @@ def func_inv():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1915,12 +1906,10 @@ def func_vial():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -1999,12 +1988,10 @@ def func_inc():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2083,12 +2070,10 @@ def func_scar():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2167,12 +2152,10 @@ def func_foss():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2251,12 +2234,10 @@ def func_ess():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2335,12 +2316,10 @@ def func_div():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2419,12 +2398,10 @@ def func_prop():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2515,12 +2492,10 @@ def func_beast():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2598,12 +2573,10 @@ def func_replica_umap():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2682,12 +2655,10 @@ def func_replica_ujew():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2766,12 +2737,10 @@ def func_replica_ufla():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2850,12 +2819,10 @@ def func_replica_uacc():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -2940,12 +2907,10 @@ def func_normal_maps():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             for j in range (16):
@@ -3040,12 +3005,10 @@ def func_blight_maps_2():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             for j in range (16):
@@ -3175,12 +3138,10 @@ def func_blight_maps():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3266,12 +3227,10 @@ def func_umaps():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3351,12 +3310,10 @@ def func_ujew():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3434,12 +3391,10 @@ def func_ufla():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3517,12 +3472,10 @@ def func_uacc():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3600,12 +3553,10 @@ def func_ench():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -3684,12 +3635,10 @@ def func_normal_gems():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             write_obj.write("\n")
@@ -5007,12 +4956,10 @@ def func_divergent_gems():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             write_obj.write("\n")
@@ -6329,12 +6276,10 @@ def func_anomalous_gems():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             write_obj.write("\n")
@@ -7651,12 +7596,10 @@ def func_phantasmal_gems():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             write_obj.write("\n")
@@ -8974,12 +8917,10 @@ def func_uweap_6():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9057,12 +8998,10 @@ def func_uweap_5():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9142,12 +9081,10 @@ def func_repweap_0():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9226,12 +9163,10 @@ def func_uweap_0():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9308,12 +9243,10 @@ def func_uarm_6():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9391,12 +9324,10 @@ def func_uarm_5():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9477,12 +9408,10 @@ def func_reparm_0():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9562,12 +9491,10 @@ def func_uarm_0():
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
             booHIDE = False
-            if (booShowT11 == False) and (i > strOverallStrictness):
-                print ("Hiding tier " + str(i) + ".")
+            if i > strOverallStrictness:
                 booHIDE = True
-            if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                print ("Hiding tier " + str(i) + ".")
-                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
 
             LineToWrite = ""
             with open(strCSVin, 'r') as read_obj:
@@ -9740,6 +9667,7 @@ def func_influenced():
 
 def func_non_influenced():
     global strOverallStrictness
+    global strRareStrictness
     global strRareCutoff
     global booShowT11
     global strGrayCutoff
@@ -9757,7 +9685,7 @@ def func_non_influenced():
         write_obj.write("##### 14400 Non-influenced bases\n")
         write_obj.write("#####\n")
 
-        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
+        print ("Overall strictness filter is " + str(strOverallStrictness) + ", Rare strictness is " + str(strRareStrictness) + ", and booShowT11 is " + str(booShowT11))
         for k in range (86, 81, -1):
             LineToWrite = ""
 
@@ -9765,12 +9693,10 @@ def func_non_influenced():
                 print("Item level "+str(k))
                 for i in range (1,12):
                     booHIDE = False
-                    if (booShowT11 == False) and (i > strOverallStrictness):
-                        print ("Hiding tier " + str(i) + ".")
+                    if (i > strOverallStrictness) or (i > strRareStrictness):
                         booHIDE = True
-                    if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
-                        print ("Hiding tier " + str(i) + ".")
-                        booHIDE = True
+                    if (booShowT11 == True) and (i == 11):
+                        booHIDE = False
                 
                     LineToWrite = ""
                     with open(strCSVin, 'r') as read_obj:
