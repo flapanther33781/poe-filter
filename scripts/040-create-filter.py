@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num, booInvert
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -136,6 +136,16 @@ def func_init():
                     strBoostButton = False
                 #print (strBoostButton)
                 #time.sleep(5)
+            if "Invert colors: " in line:
+                booInvert = (line.split(": ")[1])
+                #print ("booInvert is " + booInvert)
+                #time.sleep(5)
+                if "True" in booInvert:
+                    booInvert = True
+                else:
+                    booInvert = False
+                #print (booInvert)
+                #time.sleep(5)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
@@ -155,6 +165,7 @@ def func_init():
     header07 = str("##### strBoostButton :" + str(strBoostButton)+"\n")
     header08 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
     header09 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
+    header10 = str("##### booInvert :" + str(booInvert)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTXTout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -175,9 +186,15 @@ def func_init():
         strTXTout = strTXTout + "1-"
     else:
         strTXTout = strTXTout + "0-"
-    strTXTout = strTXTout + str(strRareCutoff)+"-"+str(strGrayCutoff)+".filter"
 
-    header10 = ("##### Suggested filter name: "+strTXTout+"\n")
+    strTXTout = strTXTout + str(strRareCutoff)+"-"+str(strGrayCutoff)
+
+    if booInvert == True:
+        strTXTout = strTXTout + "-INV" + ".filter"
+    else:
+        strTXTout = strTXTout + ".filter"
+
+    header11 = ("##### Suggested filter name: "+strTXTout+"\n")
     print ("##### Suggested filter name: "+strTXTout+"\n")
     #time.sleep(10)
 
@@ -195,8 +212,9 @@ def func_init():
         write_obj.write(header07)
         write_obj.write(header08)
         write_obj.write(header09)
-        write_obj.write("#####\n")
         write_obj.write(header10)
+        write_obj.write("#####\n")
+        write_obj.write(header11)
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
@@ -234,7 +252,8 @@ def func_init():
         write_obj.write("##### \n")
         write_obj.write("##### Due to not showing those items this filter will be more strict than theirs, and does NOT use combinations of\n")
         write_obj.write("##### background color, text color, or border color when displaying an item.  This filter displays ALL items with\n")
-        write_obj.write("##### black text, no border, and the background color is based on softcore market prices obtained from poe.ninja.\n")
+        write_obj.write("##### black text, a white border for items that take up 1-2 inventory slots, a red border if it takes 3-4 slots,\n")
+        write_obj.write("##### and the background color is based on softcore market prices obtained from poe.ninja.\n")
         write_obj.write("##### \n")
         write_obj.write("##### (Yes, experienced players know poe.ninja's pricing isn't perfect, but for a completely new player it's good\n")
         write_obj.write("##### enough to start with. Anyway, this tool also allows you to do manual overrides.)\n")
@@ -349,11 +368,11 @@ def ChangeColors (str_SetBackgroundColor):
         # str_SetBackgroundColor = "100 200 255 255 # Cyan" # Alternate
         # str_SetBackgroundColor = "92 156 188 255 # Cyan" # Alternate
     if str_SetBackgroundColor == "Purple":
-        str_SetBackgroundColor = "150 50 150 255 # Purple"
+        str_SetBackgroundColor = "200 10 150 255 # Purple"
         # str_SetBackgroundColor = "163 52 235 255 # Purple" # Alternate
         # str_SetBackgroundColor = "125 30 176 255 # Purple" # Alternate
     if str_SetBackgroundColor == "Blue":
-        str_SetBackgroundColor = "50 50 255 255 # Blue"
+        str_SetBackgroundColor = "10 100 255 255 # Blue"
         # str_SetBackgroundColor = "4 115 220 255 # Blue" # Alternate
         # str_SetBackgroundColor = "12 124 224 255 # Blue" # Alternate
     if str_SetBackgroundColor == "Green":
@@ -378,9 +397,9 @@ def ChangeColors (str_SetBackgroundColor):
         # str_SetBackgroundColor = "255 0 0 210 # Red" # Alternate
         # str_SetBackgroundColor = "212 32 48 210 # Red" # Alternate
         # str_SetBackgroundColor = "148 25 31 210 # Red" # Alternate
-        str_SetBackgroundColor = "187 28 28 210 # Red" # Alternate
+        str_SetBackgroundColor = "200 28 28 210 # Red" # Alternate
     if str_SetBackgroundColor == "Brown":
-        str_SetBackgroundColor = "82 51 7 220 # Brown"
+        str_SetBackgroundColor = "90 60 10 220 # Brown"
         # str_SetBackgroundColor = "116 52 4 220 # Brown" # Alternate
         # str_SetBackgroundColor = "160 98 18 220 # Brown" # Alternate
         # str_SetBackgroundColor = "125 76 12 220 # Brown" # Alternate
@@ -9858,8 +9877,19 @@ def func_cleanup():
         new_filter = re.sub("\n\n##### Tier 11\n\n#####","\n\n#####",new_filter) # replace unused Tier lines followed by 2 newlines & #####
 
         f.write(new_filter) # write the new file
-
     print ("Cleanup of empty tier sections complete.")
+
+def func_invert():
+    with open(strTXTout, "r+") as f:
+        current_filter = f.read() # read everything in the file
+        f.seek(0) # rewind
+
+        new_filter = re.sub('SetBackgroundColor',"SetBackgroundColor2",current_filter)
+        new_filter = re.sub('SetTextColor', "SetBackgroundColor",new_filter)
+        new_filter = re.sub('SetBackgroundColor2',"SetTextColor",new_filter)
+
+        f.write(new_filter) # write the new file
+    print ("Background and Text Colors inverted.")
 
 # INITIALIZE NEW FILE - INITIALIZE NEW FILE - INITIALIZE NEW FILE
 # INITIALIZE NEW FILE - INITIALIZE NEW FILE - INITIALIZE NEW FILE
@@ -9949,8 +9979,15 @@ func_normal_gems()
 # HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
 func_hide_norm()
 
-# Always do the cleanup last.
+# Cleanup
 func_cleanup()
+
+# Invert colors
+if booInvert == True:
+    func_invert()
+
+
+
 print('Done!')
 
 # NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK
