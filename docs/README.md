@@ -123,7 +123,7 @@ It's mainly a feel-good thing.  When you start a new character (or a new league)
 
 Here's the legend:
 
-3.15-A-B-C-D-E-F-G-HH-II.filter
+3.15-A-B-C-D-E-F-G-HH-II-INV.filter
 
 3.15 - This is the current patch level. I'll use 3.15 as the default, but you can edit in the GUI in case I don't update it.    
 A - Sub-league (Standard/HC/Challenge League/Challenge League HC): 1-4, will match the # shown next to the subleague name in the GUI.    
@@ -135,6 +135,7 @@ F - Show Normal/Magic 5S items: 1 = True, 0 = False
 G - Add +4 to all tiers: 1 = True, 0 = False    
 HH - Non-influenced/synthesized/etc Rare ilvl cutoff    
 II - Unique item breakpoint
+INV - If the color inversion option is selected "-INV" will be added to the filter name.
 
 So, for example, let's decipher a filter named: 3.15-1-8-8-1-0-0-0-76-10.filter ... this is a filter for 3.15, league, shows items down to Tier 8 (both Rare and otherwise), shows grey items, does not show 5S or 6S normal/magic items, does not add 4+ tiers, the cutoff for non-special rares is ilvl 76, and the Unique item breakpoint is 10c.
 
