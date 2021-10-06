@@ -38,6 +38,7 @@ def initialize():
         f.write("t10font: 32\n")
         f.write("t11font: 39\n")
         f.write("Overall Strictness: 10\n")
+        f.write("Rare Strictness: 10\n")
         f.write("Non-special Rare cutoff: 0\n")
         f.write("Gray item cutoff: 0\n")
         f.write("Show gray items: True\n")
@@ -48,7 +49,7 @@ def initialize():
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -147,6 +148,10 @@ def load_values():
                 strOverallStrictness = (line.split("Overall Strictness: ")[1])
                 strOverallStrictness = strOverallStrictness.strip()
                 #print ("strOverallStrictness is " + strOverallStrictness)
+            if "Rare Strictness: " in line:
+                strRareStrictness = (line.split("Rare Strictness: ")[1])
+                strRareStrictness = strRareStrictness.strip()
+                #print ("strRareStrictness is " + strRareStrictness)
             if "Non-special Rare cutoff: " in line:
                 strRareCutoff = (line.split("Non-special Rare cutoff: ")[1])
                 strRareCutoff = strRareCutoff.strip()
@@ -197,7 +202,7 @@ def load_values():
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB
 
     # Get entererd values
     t1value = e13.get()
@@ -226,6 +231,7 @@ def save_values():
     selected_league = league_selection.get()
 
     strOverallStrictness = str(slider1.get())
+    strRareStrictness = str(slider6.get())
     strRareCutoff = str(slider2.get())
     booShowT11 = str(buttont11.get())
     strGrayCutoff = str(slider3.get())
@@ -315,6 +321,7 @@ def save_values():
         f.write("t10font: " + str(t10font) + "\n")
         f.write("t11font: " + str(t11font) + "\n")
         f.write("Overall Strictness: " + strOverallStrictness + "\n")
+        f.write("Rare Strictness: " + strRareStrictness + "\n")
         f.write("Non-special Rare cutoff: " + strRareCutoff + "\n")
         f.write("Gray item cutoff: " + strGrayCutoff + "\n")
         f.write("Show gray items: " + booShowT11 + "\n")
@@ -334,6 +341,7 @@ def on_tab_selected(event):
         print("TAB-3 tab selected")
 
 def generate_filter():
+    save_values()
     os.system('python ./scripts/010-main.py')
 
 def reset_settings():
@@ -739,16 +747,6 @@ row50a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 row50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 entry50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-
-
-
-
-
-
-
-
-
-
 row50c = tk.Label(frame2, justify='left', text="Select League: ")
 row50c.grid(row=0, column=2, padx=5, pady=1, sticky = W)
 
@@ -769,6 +767,9 @@ row53 = Frame(frame2)
 row53.grid(row=1, column=2, padx=5, pady=1, sticky = W)
 Button(row53, text='Generate Filter', command=generate_filter).pack()
 
+row54 = tk.Label(frame2, justify='left', text="See FAQ for important notes about these buttons.")
+row54.grid(row=2, column=0, padx=5, pady=1, sticky = W, columnspan = 4)
+
 # === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
 # === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
 # === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
@@ -788,12 +789,24 @@ slider1 = Scale(frame01, from_=10, to=1, length=535, tickinterval=1, orient=HORI
 slider1.set(strOverallStrictness)
 slider1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
+# === ROW 5 === ROW 5 === ROW 5 === ROW 5
+
+frame06 = Frame(frame0, relief=GROOVE, borderwidth=5)
+frame06.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
+label06 = Label(frame06, justify='left', text="Economy-Based Filter Strictness for non-influenced/synthesized/veiled/fractured Rares:\r(Set to 10 for league start.  See FAQ for some notes about this slider.)")
+label06.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+slider6 = Scale(frame06, from_=10, to=1, length=535, tickinterval=1, orient=HORIZONTAL)
+slider6.set(strRareStrictness)
+slider6.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+
 # === ROW 1 === ROW 1 === ROW 1 === ROW 1
 
 frame02 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame02.grid(row=2, column=0, padx=5, pady=1, sticky = W)
 
-label02 = Label(frame02, justify='left', text="Set filter for non-influenced/veiled/fractured/synthesized Rares not caught elsewhere:\r(Set to 0 for league start.)")
+label02 = Label(frame02, justify='left', text="ilvl-Based Filter Strictness for non-influenced/veiled/fractured/synthesized Rares not caught elsewhere:\r(Set to 0 for league start.  See FAQ for some notes about this slider.)")
 label02.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
 slider2 = Scale(frame02, from_=0, to=100, length=535, tickinterval=5, orient=HORIZONTAL)
