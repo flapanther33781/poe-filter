@@ -19,7 +19,7 @@ from datetime import datetime
 strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
 strCSVin = os.path.join(sys.path[0], "z038_assigned-colors.csv")
 strCSVinOther = os.path.join(sys.path[0], "00_other.csv")
-#strTXTout = os.path.join(sys.path[0], "z030_filter.filter")
+strTEMPout = os.path.join(sys.path[0], "z_temp.filter")
 
 current_time = datetime.now()
 arrInfluences = ["Crusader","Elder","Hunter","Redeemer","Shaper","Warlord"]
@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTXTout, strBoostButton, subleague_num, booInvert
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -168,38 +168,38 @@ def func_init():
     header10 = str("##### booInvert :" + str(booInvert)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
-    strTXTout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
-    strTXTout = strTXTout + str(strRareStrictness) + "-"
+    strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
+    strTEMPout = strTEMPout + str(strRareStrictness) + "-"
     if booShowT11 == True:
-        strTXTout = strTXTout + "1-"
+        strTEMPout = strTEMPout + "1-"
     else:
-        strTXTout = strTXTout + "0-"
+        strTEMPout = strTEMPout + "0-"
     if booShowNM6S == True:
-        strTXTout = strTXTout + "1-"
+        strTEMPout = strTEMPout + "1-"
     else:
-        strTXTout = strTXTout + "0-"
+        strTEMPout = strTEMPout + "0-"
     if booShowNM5S == True:
-        strTXTout = strTXTout + "1-"
+        strTEMPout = strTEMPout + "1-"
     else:
-        strTXTout = strTXTout + "0-"
+        strTEMPout = strTEMPout + "0-"
     if strBoostButton == True:
-        strTXTout = strTXTout + "1-"
+        strTEMPout = strTEMPout + "1-"
     else:
-        strTXTout = strTXTout + "0-"
+        strTEMPout = strTEMPout + "0-"
 
-    strTXTout = strTXTout + str(strRareCutoff)+"-"+str(strGrayCutoff)
+    strTEMPout = strTEMPout + str(strRareCutoff)+"-"+str(strGrayCutoff)
 
     if booInvert == True:
-        strTXTout = strTXTout + "-INV" + ".filter"
+        strTEMPout = strTEMPout + "-INV" + ".filter"
     else:
-        strTXTout = strTXTout + ".filter"
+        strTEMPout = strTEMPout + ".filter"
 
-    header11 = ("##### Suggested filter name: "+strTXTout+"\n")
-    print ("##### Suggested filter name: "+strTXTout+"\n")
+    header11 = ("##### Suggested filter name: "+strTEMPout+"\n")
+    print ("##### Suggested filter name: "+strTEMPout+"\n")
     #time.sleep(10)
 
     # Open the output file in write mode
-    with open(strTXTout, 'w', newline='') as write_obj:
+    with open(strTEMPout, 'w', newline='') as write_obj:
         write_obj.write("#===============================================================================================================\n")
         write_obj.write(header00)
         write_obj.write("#####\n")
@@ -414,7 +414,7 @@ def ChangeColors (str_SetBackgroundColor):
 
 def func_static_intro():
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -665,7 +665,7 @@ def func_frag():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -741,7 +741,7 @@ def func_frag():
 def func_curr():
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -822,7 +822,7 @@ def func_oil():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -904,7 +904,7 @@ def func_heist():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1199,7 +1199,7 @@ def func_cluster():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1275,7 +1275,7 @@ def func_cluster():
 
 def func_stacks():
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1470,7 +1470,7 @@ def func_other():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1624,7 +1624,7 @@ def func_watch():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1721,7 +1721,7 @@ def func_deli():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1803,7 +1803,7 @@ def func_inv():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1885,7 +1885,7 @@ def func_vial():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -1967,7 +1967,7 @@ def func_inc():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2049,7 +2049,7 @@ def func_scar():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2131,7 +2131,7 @@ def func_foss():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2213,7 +2213,7 @@ def func_ess():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2295,7 +2295,7 @@ def func_div():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2377,7 +2377,7 @@ def func_prop():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2471,7 +2471,7 @@ def func_beast():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2552,7 +2552,7 @@ def func_replica_umap():
     global booShowNM5S
 
 # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2634,7 +2634,7 @@ def func_replica_ujew():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2716,7 +2716,7 @@ def func_replica_ufla():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2798,7 +2798,7 @@ def func_replica_uacc():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2886,7 +2886,7 @@ def func_normal_maps():
 # For each variant, for each maptier, for each economy tier means there will be an assload of sections.
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -2984,7 +2984,7 @@ def func_blight_maps_2():
 # For each variant, for each maptier, for each economy tier means there will be an assload of sections.
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3079,7 +3079,7 @@ def func_influenced_maps():
 # So we will hard-set these as Tier 4 for now.
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3117,7 +3117,7 @@ def func_blight_maps():
 # For each variant, for each maptier, for each economy tier means there will be 160 sections x number of leagues
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3206,7 +3206,7 @@ def func_umaps():
 # For each variant, for each maptier, for each economy tier means there will be 160 sections x number of leagues
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3289,7 +3289,7 @@ def func_ujew():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3370,7 +3370,7 @@ def func_ufla():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3451,7 +3451,7 @@ def func_uacc():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3532,7 +3532,7 @@ def func_ench():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -3614,7 +3614,7 @@ def func_normal_gems():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -4935,7 +4935,7 @@ def func_divergent_gems():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -6255,7 +6255,7 @@ def func_anomalous_gems():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -7575,7 +7575,7 @@ def func_phantasmal_gems():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -8897,7 +8897,7 @@ def func_uweap_6():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -8978,7 +8978,7 @@ def func_uweap_5():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9059,7 +9059,7 @@ def func_repweap_0():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9141,7 +9141,7 @@ def func_uweap_0():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9223,7 +9223,7 @@ def func_uarm_6():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9304,7 +9304,7 @@ def func_uarm_5():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9386,7 +9386,7 @@ def func_reparm_0():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9469,7 +9469,7 @@ def func_uarm_0():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9552,7 +9552,7 @@ def func_influenced():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9668,7 +9668,7 @@ def func_non_influenced():
     global booShowNM5S
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9762,7 +9762,7 @@ def func_hide_norm():
     all_u_cats = ["uacc","uarm","ufla","ujew","umap","uweap"]
 
     # Open the input_file in read mode and output_file in write mode
-    with open(strTXTout, 'a', newline='') as write_obj:
+    with open(strTEMPout, 'a', newline='') as write_obj:
 
         # Create a csv.writer object from the output file object
         txt_writer = writer(write_obj)
@@ -9827,7 +9827,7 @@ def func_hide_norm():
     print ("Hide normal section complete.")
 
 def func_cleanup():
-    with open(strTXTout, "r+") as f:
+    with open(strTEMPout, "r+") as f:
         current_filter = f.read() # read everything in the file
         f.seek(0) # rewind
 
@@ -9854,13 +9854,29 @@ def func_cleanup():
     print ("Cleanup of empty tier sections complete.")
 
 def func_invert():
-    with open(strTXTout, "r+") as f:
+    with open(strTEMPout, "r") as f:
         current_filter = f.read() # read everything in the file
         f.seek(0) # rewind
 
-        new_filter = re.sub('SetBackgroundColor',"SetBackgroundColor2",current_filter)
-        new_filter = re.sub('SetTextColor', "SetBackgroundColor",new_filter)
-        new_filter = re.sub('SetBackgroundColor2',"SetTextColor",new_filter)
+        #new_filter = re.sub('SetBackgroundColor',"SetBackgroundColor2",current_filter)
+        #new_filter = re.sub('SetTextColor', "SetBackgroundColor",new_filter)
+
+        new_filter = current_filter.replace("SetBackgroundColor", "SetBackgroundColor2")
+        new_filter = new_filter.replace("SetTextColor", "SetBackgroundColor")
+        new_filter = new_filter.replace("SetBackgroundColor2", "SetTextColor")
+
+    strTXTout = strTEMPout
+    with open(strTXTout, "w") as f2:
+        f2.write(new_filter) # write the new file
+
+    print ("Background and Text Colors inverted.")
+
+def func_invert2():
+    with open(strTEMPout, "r+") as f:
+        current_filter = f.read() # read everything in the file
+        f.seek(0) # rewind
+
+        new_filter = re.sub('SetBackgroundColor2',"SetTextColor",current_filter)
 
         f.write(new_filter) # write the new file
     print ("Background and Text Colors inverted.")
@@ -9960,10 +9976,9 @@ func_cleanup()
 # Invert colors
 if booInvert == True:
     func_invert()
+    #func_invert2()
 
-
-
-print('Done!')
+print('Done!  Completed filter file name: ' + strTEMPout)
 
 # NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK
 # NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK - NEEDS WORK
