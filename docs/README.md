@@ -59,6 +59,10 @@ Basically it goes from darkest to lightest, but the easiest way to remember it i
 Regarding icons, aside from Diamond and Rain, more sides = more important, but color's still more important than the icon.    
 (An item with a Green Circle is worth more than one with a Red Pentagon, etc.)
 
+#### Is there anything important about the Path # field?
+
+This is used in the naming of the fiolter file this tool exports (scroll down in the FAQ to see more info about the naming convention I use for the filter file names).  I thought it might be interesting in case you want to keep filters from previous leagues. But there is no easy way to programatically download this patch # so I'll have to manually update it eacy league.  I decided to make it a user-editable field in case you want to use this tool for a new league and I haven't had a chance to update the tool yet.
+
 #### What do we need to know about the Save Settings/Reset Settings/Generate Filter buttons?
 
 You can save your filter settings two ways: either by clicking the `Save Settings` button, or by clicking the `Generate Filter` button.  Clicking the `Generate Filter` button automatically saves the settings to `00_user_settings.txt`, then kicks off the filter generation scripts which reads the settings from that file.  If you change the filter settings but close out of the program without doing one of those two things your changes will not be saved.
