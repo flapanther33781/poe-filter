@@ -46,11 +46,13 @@ def initialize():
         f.write("Show Normal/Magic 5-socket items: True\n")
         f.write("Boost Button (+4 all tiers for league start): True\n")
         f.write("Invert colors: False\n")
+        f.write("Chaos Recipe: False\n")
+        f.write("Exalt Recipe: False\n")
 
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -181,6 +183,14 @@ def load_values():
                 booInvert = (line.split("Invert colors: ")[1])
                 booInvert = booInvert.strip()
                 #print ("booInvert is " + booInvert)
+            if "Chaos Recipe: " in line:
+                booChaosRec = (line.split(": ")[1])
+                booChaosRec = booChaosRec.strip()
+                #print ("booChaosRec is " + booChaosRec)
+            if "Exalt Recipe: " in line:
+                booExaltRec = (line.split(": ")[1])
+                booExaltRec = booExaltRec.strip()
+                #print ("booExaltRec is " + booExaltRec)
 
     # Swap 0/1 Boolean values for True/False
     # I probably shouldn't do this but I like seeing True/False in the settings txt file.
@@ -209,10 +219,20 @@ def load_values():
     if booInvert == "False":
         booInvert = "0"
 
+    if booChaosRec == "True":
+        booChaosRec = "1"
+    if booChaosRec == "False":
+        booChaosRec = "0"
+
+    if booExaltRec == "True":
+        booExaltRec = "1"
+    if booExaltRec == "False":
+        booExaltRec = "0"
+
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec
 
     # Get entererd values
     t1value = e13.get()
@@ -249,6 +269,8 @@ def save_values():
     booShowNM5S = str(buttonS5.get())
     boobuttonBB = str(buttonBB.get())
     booInvert = str(InvertButton.get())
+    booChaosRec = str(ChaosRecButton.get())
+    booExaltRec = str(ExaltRecButton.get())
 
     print ("Patch Number is " + str(e50b.get()))
     print ("Selected League is " + str(league_selection.get()))
@@ -260,6 +282,8 @@ def save_values():
     print ("booShowNM5S is " + str(buttonS5.get()))
     print ("boobuttonBB is " + str(buttonBB.get()))
     print ("booInvert is " + str(InvertButton.get()))
+    print ("booChaosRec is " + str(ChaosRecButton.get()))
+    print ("booExaltRec is " + str(ExaltRecButton.get()))
 
     print ("t1value is " + str(t1value))
     print ("t2value is " + str(t2value))
@@ -314,6 +338,16 @@ def save_values():
     if booInvert == "0":
         booInvert = "False"
 
+    if booChaosRec == "1":
+        booChaosRec = "True"
+    if booChaosRec == "0":
+        booChaosRec = "False"
+
+    if booExaltRec == "1":
+        booExaltRec = "True"
+    if booExaltRec == "0":
+        booExaltRec = "False"
+
     with open(in_filename, 'w') as f:
         f.write("patch_number: " + patch_number + "\n")
         f.write("league_name: " + selected_league + "\n")
@@ -346,6 +380,8 @@ def save_values():
         f.write("Show Normal/Magic 5-socket items: " + booShowNM5S + "\n")
         f.write("Boost Button (+4 all tiers for league start): " + boobuttonBB + "\n")
         f.write("Invert colors: " + booInvert + "\n")
+        f.write("Chaos Recipe: " + booChaosRec + "\n")
+        f.write("Exalt Recipe: " + booExaltRec + "\n")
 
 def on_tab_selected(event):
     selected_tab = event.widget.select()
@@ -398,12 +434,12 @@ tab_parent = ttk.Notebook(form)
 
 tab1 = ttk.Frame(tab_parent)
 tab2 = ttk.Frame(tab_parent)
-#tab3 = ttk.Frame(tab_parent)
+tab3 = ttk.Frame(tab_parent)
 
 tab_parent.bind("<<NotebookTabChanged>>", on_tab_selected)
 tab_parent.add(tab1, text="Tiers")
 tab_parent.add(tab2, text="Settings")
-#tab_parent.add(tab3, text="Reserved")
+tab_parent.add(tab3, text="Recipes")
 
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
@@ -807,7 +843,7 @@ slider1 = Scale(frame01, from_=10, to=1, length=535, tickinterval=1, orient=HORI
 slider1.set(strOverallStrictness)
 slider1.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 5 === ROW 5 === ROW 5 === ROW 5
+# === ROW 6 === ROW 6 === ROW 6 === ROW 6
 
 frame06 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame06.grid(row=1, column=0, padx=5, pady=1, sticky = W)
@@ -819,7 +855,7 @@ slider6 = Scale(frame06, from_=10, to=1, length=535, tickinterval=1, orient=HORI
 slider6.set(strRareStrictness)
 slider6.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 1 === ROW 1 === ROW 1 === ROW 1
+# === ROW 2 === ROW 2 === ROW 2 === ROW 2
 
 frame02 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame02.grid(row=2, column=0, padx=5, pady=1, sticky = W)
@@ -831,7 +867,7 @@ slider2 = Scale(frame02, from_=0, to=100, length=535, tickinterval=5, orient=HOR
 slider2.set(strRareCutoff)
 slider2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 2 === ROW 2 === ROW 2 === ROW 2
+# === ROW 3 === ROW 3 === ROW 3 === ROW 3
 
 frame03 = Frame(frame0, relief=GROOVE, borderwidth=5)
 frame03.grid(row=3, column=0, padx=5, pady=1, sticky = W)
@@ -843,7 +879,7 @@ slider3 = Scale(frame03, from_=0, to=200, length=535, tickinterval=10, orient=HO
 slider3.set(strGrayCutoff)
 slider3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 3 === ROW 3 === ROW 3 === ROW 3
+# === ROW 4 === ROW 4 === ROW 4 === ROW 4
 frame04 = Frame(frame0, width=100, relief=GROOVE, borderwidth=5)
 frame04.grid(row=4, column=0, padx=5, pady=1, sticky = W)
 
@@ -880,7 +916,7 @@ buttonS5 = StringVar(value=booShowNM5S)
 buttonblah3 = Checkbutton(frame043, justify='left', text="Y/N", variable=buttonS5)
 buttonblah3.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 4 === ROW 4 === ROW 4 === ROW 4
+# === ROW 5 === ROW 5 === ROW 5 === ROW 5
 frame05 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
 frame05.grid(row=5, column=0, padx=5, pady=1, sticky = W)
 
@@ -911,6 +947,48 @@ buttonblah5.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
 # === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE === WIDGETS FOR TAB THREE
+
+frame0 = tk.Frame(tab3, relief=GROOVE, borderwidth=5)
+frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+frame000 = tk.Frame(frame0, relief=GROOVE, borderwidth=5)
+frame000.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+# === ROW 1 === ROW 1 === ROW 1 === ROW 1
+
+frame06 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
+frame06.grid(row=5, column=0, padx=5, pady=1, sticky = W)
+
+
+
+# ChaosRec BUTTON
+frame061 = Frame(frame06, width=100, height=50, borderwidth=5)
+frame061.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+label061 = Label(frame061, justify='left', text="Chaos Recipe?")
+label061.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+ChaosRecButton = StringVar(value=booChaosRec)
+buttonblah6 = Checkbutton(frame061, justify='left', text="Y/N", variable=ChaosRecButton)
+buttonblah6.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+
+
+# ExaltRec BUTTON
+frame062 = Frame(frame06, width=100, height=50, borderwidth=5)
+frame062.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+label062 = Label(frame062, justify='left', text="Exalt Recipe?")
+label062.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+ExaltRecButton = StringVar(value=booExaltRec)
+buttonblah7 = Checkbutton(frame062, justify='left', text="Y/N", variable=ExaltRecButton)
+buttonblah7.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+
+
+
+
 
 tab_parent.pack(expand=1, fill='both')
 
