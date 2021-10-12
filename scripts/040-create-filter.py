@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -145,6 +145,24 @@ def func_init():
                 else:
                     booInvert = False
                 #print (booInvert)
+            if "Chaos Recipe: " in line:
+                strChaosRec = (line.split(": ")[1])
+                #print ("strChaosRec is " + strChaosRec)
+                #time.sleep(5)
+                if "True" in strChaosRec:
+                    strChaosRec = True
+                else:
+                    strChaosRec = False
+                #print (strChaosRec)
+            if "Exalt Recipe: " in line:
+                strExaltRec = (line.split(": ")[1])
+                #print ("strExaltRec is " + strExaltRec)
+                #time.sleep(5)
+                if "True" in strExaltRec:
+                    strExaltRec = True
+                else:
+                    strExaltRec = False
+                #print (strExaltRec)
                 #time.sleep(5)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
@@ -166,6 +184,8 @@ def func_init():
     header08 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
     header09 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
     header10 = str("##### booInvert :" + str(booInvert)+"\n")
+    header11 = str("##### strChaosRec :" + str(strChaosRec)+"\n")
+    header12 = str("##### strExaltRec :" + str(strExaltRec)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -194,8 +214,9 @@ def func_init():
     else:
         strTEMPout = strTEMPout + ".filter"
 
-    header11 = ("##### Suggested filter name: "+strTEMPout+"\n")
-    print ("##### Suggested filter name: "+strTEMPout+"\n")
+    # Have to do this because the .write method below only accepts 1 argument.
+    strSuggested_Name = ("##### Suggested filter name: "+strTEMPout+"\n")
+    print (strSuggested_Name)
     #time.sleep(10)
 
     # Open the output file in write mode
@@ -213,8 +234,10 @@ def func_init():
         write_obj.write(header08)
         write_obj.write(header09)
         write_obj.write(header10)
-        write_obj.write("#####\n")
         write_obj.write(header11)
+        write_obj.write(header12)
+        write_obj.write("#####\n")
+        write_obj.write(strSuggested_Name)
         write_obj.write("#===============================================================================================================\n")
         write_obj.write("##### LINKS TO LATEST VERSION AND FILTER EDITOR\n")
         write_obj.write("##### \n")
@@ -347,6 +370,7 @@ def func_init():
         write_obj.write("##### 14600 Anomalous Gems\n")
         write_obj.write("##### 14700 Phantasmal Gems\n")
         write_obj.write("##### 14800 Normal Gems (new GemQualityType Superior means normal)\n")
+        write_obj.write("##### 14850 Automated recipes\n")
         write_obj.write("##### 14900 Hide specific normal/magic/rare items. Interesting rares caught at top of filter.\n")
         write_obj.write("##### 15000 Safety Net section - catch anything not caught above\n")
         write_obj.write("##### 15100 Special thanks!\n")
@@ -9826,6 +9850,53 @@ def func_hide_norm():
         write_obj.write("\n")
     print ("Hide normal section complete.")
 
+def func_chaos_rec():
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 14850 Automated Chaos Recipe - ignores items that take up 6 or 8 slots\n")
+        write_obj.write("##### NOTE: Only ONE Rare needs to be below ilvl 74.  All others can be ilvl 1-100.\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    ItemLevel >= 65\n")
+        write_obj.write("    Class Helmets Body Boots Gloves Rings Belts Amulets Claws Daggers Swords Wands\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+    print ("Chaos Recipe section complete.")
+
+def func_exalt_rec():
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 14850 Automated Exalt Recipe - ignores items that take up 6 or 8 slots\n")
+        write_obj.write("##### NOTE: Leave the items unidentified to get 4 shards instead of 2.\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Rarity Rare\n")
+        write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
+        write_obj.write("    ItemLevel >= 65\n")
+        write_obj.write("    Class Helmets Body Boots Gloves Rings Belts Amulets Claws Daggers Swords Wands\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+    print ("Chaos Recipe section complete.")
+
 def func_cleanup():
     with open(strTEMPout, "r+") as f:
         current_filter = f.read() # read everything in the file
@@ -9964,6 +10035,15 @@ func_divergent_gems()
 func_anomalous_gems()
 func_phantasmal_gems()
 func_normal_gems()
+
+# AUTOMATED RECIPES AUTOMATED RECIPES AUTOMATED RECIPES 
+# AUTOMATED RECIPES AUTOMATED RECIPES AUTOMATED RECIPES 
+# AUTOMATED RECIPES AUTOMATED RECIPES AUTOMATED RECIPES 
+if strChaosRec == True:
+    func_chaos_rec()
+if strExaltRec == True:
+    func_exalt_rec()
+
 
 # HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
 # HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS

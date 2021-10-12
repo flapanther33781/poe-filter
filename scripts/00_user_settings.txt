@@ -20,11 +20,14 @@ t8font: 36
 t9font: 32
 t10font: 32
 t11font: 39
-Overall Strictness: 8
+Overall Strictness: 7
 Rare Strictness: 5
-Non-special Rare cutoff: 86
+Non-special Rare cutoff: 84
 Gray item cutoff: 2
 Show gray items: True
 Show Normal/Magic 6-socket items: False
 Show Normal/Magic 5-socket items: False
 Boost Button (+4 all tiers for league start): False
+Invert colors: False
+Chaos Recipe: False
+Exalt Recipe: True
