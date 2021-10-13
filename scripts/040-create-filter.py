@@ -1626,10 +1626,10 @@ def func_other():
         write_obj.write("\n")
         write_obj.write("Hide                    # As per https://www.youtube.com/watch?v=GGwpWxycJ8s these probably aren't worth anything.\n")
         write_obj.write("    FracturedItem True\n")
-        write_obj.write("    Class Gloves Boots Body Amulets Rings Shields Quivers\n")
+        write_obj.write("    Class Gloves Boots Body Shields Quivers\n")
         write_obj.write("    DisableDropSound True\n")
         write_obj.write("\n")
-        write_obj.write("Show\n")
+        write_obj.write("Show                    # Show the rest. Guy says no to rings & amulets but I want them anyway.\n")
         write_obj.write("    FracturedItem True\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
@@ -10044,12 +10044,6 @@ if strChaosRec == True:
 if strExaltRec == True:
     func_exalt_rec()
 
-
-# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
-# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
-# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
-func_hide_norm()
-
 # Cleanup
 func_cleanup()
 
@@ -10057,6 +10051,12 @@ func_cleanup()
 if booInvert == True:
     func_invert()
     #func_invert2()
+
+# Hide these after possible inversion selection, otherwise font becomes black.
+# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
+# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
+# HIDE NORMAL AND MAGIC ITEMS - HIDE NORMAL AND MAGIC ITEMS
+func_hide_norm()
 
 print('Done!  Completed filter file name: ' + strTEMPout)
 
