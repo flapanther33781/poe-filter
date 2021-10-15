@@ -4,11 +4,11 @@
 
 #### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
 
-#### Here is a quick video showing the filter in action (right-click and open in a new tab):
+#### Here is a quick video showing the filter in action (right-click and open in a new tab) - also, I did fix the black on black thing:
 
 [![Quick Intro Video](https://user-images.githubusercontent.com/26362032/137053308-877ea63d-dff5-4b70-bc66-728936d0ee03.png)](https://youtu.be/3RdbGLjCu5g)
 
-#### Here is a more in-depth introduction video (right-click and open in a new tab) - also, I did fix the black on black thing:
+#### Here is a more in-depth introduction video (right-click and open in a new tab):
 
 [![Introduction/Demo Video](https://user-images.githubusercontent.com/26362032/131201669-a51e130b-bd84-4dda-9e9c-52ba96e558f2.png)](https://youtu.be/-kXiwg55DLI)
 
