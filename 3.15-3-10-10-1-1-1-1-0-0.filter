@@ -1,5 +1,5 @@
 #===============================================================================================================
-##### Super Simple Loot Filter for League: 3.15 Expedition - updated: 2021-10-14 21:55:58.322492
+##### Super Simple Loot Filter for League: 3.15 Expedition - updated: 2021-10-16 08:24:13.882616
 #####
 ##### Settings:
 ##### strOverallStrictness :10
@@ -13,6 +13,8 @@
 ##### booInvert :False
 ##### strChaosRec :True
 ##### strExaltRec :True
+##### strChromRec :True
+##### strMiscRec :True
 #####
 ##### Suggested filter name: 3.15-3-10-10-1-1-1-1-0-0.filter
 #===============================================================================================================
@@ -6400,6 +6402,65 @@ Show
     HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord
     ItemLevel >= 65
     Class Helmets Body Boots Gloves Rings Belts Amulets Claws Daggers Swords Wands
+    SetFontSize 39
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
+    PlayAlertSound 9 1
+    PlayEffect Red
+    MinimapIcon 2 Red Raindrop
+
+################################################################################################################
+##### 14850 Automated Chromium Recipe - ignores items that take up 6 or 8 slots
+
+Show
+    Width <= 2
+    Height <= 2
+    LinkedSockets >= 3
+    SocketGroup RGB
+    SetFontSize 39
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
+    PlayAlertSound 9 1
+    PlayEffect Red
+    MinimapIcon 2 Red Raindrop
+
+Show
+    Width = 1
+    LinkedSockets >= 3
+    SocketGroup RGB
+    SetFontSize 39
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
+    PlayAlertSound 9 1
+    PlayEffect Red
+    MinimapIcon 2 Red Raindrop
+
+################################################################################################################
+##### 14850 Automated Misc Recipe - All Utility flasks, Rings, Belts, Amulets, Jewels, and Gems
+##### Some Magic or Rare items.  These can all be listed for 1 alt or 1 alch, ppl will need for recipes.
+
+Show
+    Class Amulets Belts Flasks Gems Jewel Rings Utility
+    SetFontSize 39
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
+    PlayAlertSound 9 1
+    PlayEffect Red
+    MinimapIcon 2 Red Raindrop
+
+Show
+    Rarity Magic Rare
+    Class Helmets Body Boots Gloves Claws Daggers Wands Swords
+    SetFontSize 39
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
+    PlayAlertSound 9 1
+    PlayEffect Red
+    MinimapIcon 2 Red Raindrop
+
+Show
+    Rarity Magic Rare
+    Class Helmets Body Boots Gloves Claws Daggers Wands Swords
     SetFontSize 39
     SetTextColor 0 0 0 255
     SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED
