@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -164,6 +164,26 @@ def func_init():
                     strExaltRec = False
                 #print (strExaltRec)
                 #time.sleep(5)
+            if "Chromium Recipe: " in line:
+                strChromRec = (line.split(": ")[1])
+                #print ("strChromRec is " + strChromRec)
+                #time.sleep(5)
+                if "True" in strChromRec:
+                    strChromRec = True
+                else:
+                    strChromRec = False
+                #print (strChromRec)
+                #time.sleep(5)
+            if "Misc Recipes: " in line:
+                strMiscRec = (line.split(": ")[1])
+                #print ("strMiscRec is " + strMiscRec)
+                #time.sleep(5)
+                if "True" in strMiscRec:
+                    strMiscRec = True
+                else:
+                    strMiscRec = False
+                #print (strMiscRec)
+                #time.sleep(5)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
@@ -186,6 +206,8 @@ def func_init():
     header10 = str("##### booInvert :" + str(booInvert)+"\n")
     header11 = str("##### strChaosRec :" + str(strChaosRec)+"\n")
     header12 = str("##### strExaltRec :" + str(strExaltRec)+"\n")
+    header13 = str("##### strChromRec :" + str(strChromRec)+"\n")
+    header14 = str("##### strMiscRec :" + str(strMiscRec)+"\n")
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -236,6 +258,8 @@ def func_init():
         write_obj.write(header10)
         write_obj.write(header11)
         write_obj.write(header12)
+        write_obj.write(header13)
+        write_obj.write(header14)
         write_obj.write("#####\n")
         write_obj.write(strSuggested_Name)
         write_obj.write("#===============================================================================================================\n")
@@ -9897,6 +9921,81 @@ def func_exalt_rec():
         write_obj.write("    MinimapIcon 2 Red Raindrop\n")
     print ("Chaos Recipe section complete.")
 
+def func_chrom_rec():
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 14850 Automated Chromium Recipe - ignores items that take up 6 or 8 slots\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Width <= 2\n")
+        write_obj.write("    Height <= 2\n")
+        write_obj.write("    LinkedSockets >= 3\n")
+        write_obj.write("    SocketGroup RGB\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Width = 1\n")
+        write_obj.write("    LinkedSockets >= 3\n")
+        write_obj.write("    SocketGroup RGB\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+    print ("Chromium Recipe section complete.")
+
+def func_misc_rec():
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 14850 Automated Misc Recipe - All Utility flasks, Rings, Belts, Amulets, Jewels, and Gems\n")
+        write_obj.write("##### Some Magic or Rare items.  These can all be listed for 1 alt or 1 alch, ppl will need for recipes.\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Class Amulets Belts Flasks Gems Jewel Rings Utility\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Rarity Magic Rare\n")
+        write_obj.write("    Class Helmets Body Boots Gloves Claws Daggers Wands Swords\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+        write_obj.write("\n")
+        write_obj.write("Show\n")
+        write_obj.write("    Rarity Magic Rare\n")
+        write_obj.write("    Class Helmets Body Boots Gloves Claws Daggers Wands Swords\n")
+        write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 200 28 28 210     # BACKGROUNDCOLOR RED\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect Red\n")
+        write_obj.write("    MinimapIcon 2 Red Raindrop\n")
+    print ("Misc Recipe section complete.")
+
 def func_cleanup():
     with open(strTEMPout, "r+") as f:
         current_filter = f.read() # read everything in the file
@@ -10043,6 +10142,10 @@ if strChaosRec == True:
     func_chaos_rec()
 if strExaltRec == True:
     func_exalt_rec()
+if strChromRec == True:
+    func_chrom_rec()
+if strMiscRec == True:
+    func_misc_rec()
 
 # Cleanup
 func_cleanup()
