@@ -127,6 +127,10 @@ These items can be relatively valuable early in the game, but as you get farther
 
 It's mainly a feel-good thing.  When you start a new character (or a new league) you'll be doing very low-tier areas where all the drops are very low in value.  By default most of them will be T9 or T10 (red or brown) items.  It might be nice to see some yellow or green highlighted drops, so if you want, check this box and it'll boost the tiers of lower-tier items.
 
+#### What does the "Misc Recipes" checkbox do?
+
+This will sow all flasks, Rings, Belts, Amulets, Jewels, Gems, and Magic or Rare items if they don't take up 6 or 8 inventory slots.  These can all be listed for 1 alt or 1 alch at league start, people will need them for recipes.  Vendor anything that doesn't sell within an hour or two.  They will hae a red background and the minimap icon will be a red raindrop.
+
 #### How do we interpret the filter file names?
 
 Here's the legend:
