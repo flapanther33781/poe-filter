@@ -44,7 +44,7 @@ def initialize():
         f.write("Show gray items: True\n")
         f.write("Show Normal/Magic 6-socket items: True\n")
         f.write("Show Normal/Magic 5-socket items: True\n")
-        f.write("Boost Button (+4 all tiers for league start): True\n")
+        f.write("Boost Button (+4 all tiers for league start): False\n")
         f.write("Invert colors: False\n")
         f.write("Chaos Recipe: True\n")
         f.write("Exalt Recipe: True\n")
@@ -412,7 +412,8 @@ def save_values():
         f.write("Show gray items: " + booShowT11 + "\n")
         f.write("Show Normal/Magic 6-socket items: " + booShowNM6S + "\n")
         f.write("Show Normal/Magic 5-socket items: " + booShowNM5S + "\n")
-        f.write("Boost Button (+4 all tiers for league start): " + boobuttonBB + "\n")
+        #f.write("Boost Button (+4 all tiers for league start): " + boobuttonBB + "\n")
+        f.write("Boost Button (+4 all tiers for league start): False\n")
         f.write("Invert colors: " + booInvert + "\n")
         f.write("Chaos Recipe: " + booChaosRec + "\n")
         f.write("Exalt Recipe: " + booExaltRec + "\n")
@@ -957,15 +958,15 @@ frame05 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
 frame05.grid(row=5, column=0, padx=5, pady=1, sticky = W)
 
 # BOOST BUTTON
-frame051 = Frame(frame05, width=100, height=50, borderwidth=5)
-frame051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+#frame051 = Frame(frame05, width=100, height=50, borderwidth=5)
+#frame051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-label051 = Label(frame051, justify='left', text="+4 all tiers (league start)?")
-label051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+#label051 = Label(frame051, justify='left', text="+4 all tiers (league start)?")
+#label051.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-buttonBB = StringVar(value=boobuttonBB)
-buttonblah4 = Checkbutton(frame051, justify='left', text="Y/N", variable=buttonBB)
-buttonblah4.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+#buttonBB = StringVar(value=boobuttonBB)
+#buttonblah4 = Checkbutton(frame051, justify='left', text="Y/N", variable=buttonBB)
+#buttonblah4.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
 # INVERT BUTTON
 frame052 = Frame(frame05, width=100, height=50, borderwidth=5)
