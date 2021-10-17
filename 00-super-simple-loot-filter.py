@@ -50,11 +50,12 @@ def initialize():
         f.write("Exalt Recipe: True\n")
         f.write("Chromium Recipe: True\n")
         f.write("Misc Recipes: True\n")
+        f.write("Hide Corrupted: False\n")
 
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -177,10 +178,10 @@ def load_values():
                 booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
                 booShowNM5S = booShowNM5S.strip()
                 #print ("booShowNM5S is " + booShowNM5S)
-            if "Boost Button (+4 all tiers for league start): " in line:
-                boobuttonBB = (line.split("Boost Button (+4 all tiers for league start): ")[1])
-                boobuttonBB = boobuttonBB.strip()
-                #print ("boobuttonBB is " + boobuttonBB)
+            #if "Boost Button (+4 all tiers for league start): " in line:
+            #    boobuttonBB = (line.split("Boost Button (+4 all tiers for league start): ")[1])
+            #    boobuttonBB = boobuttonBB.strip()
+            #    #print ("boobuttonBB is " + boobuttonBB)
             if "Invert colors: " in line:
                 booInvert = (line.split("Invert colors: ")[1])
                 booInvert = booInvert.strip()
@@ -201,6 +202,10 @@ def load_values():
                 booMiscRec = (line.split("Misc Recipes: ")[1])
                 booMiscRec = booMiscRec.strip()
                 #print ("booMiscRec is " + booMiscRec)
+            if "Hide Corrupted: " in line:
+                booHideCorr = (line.split("Hide Corrupted: ")[1])
+                booHideCorr = booHideCorr.strip()
+                #print ("booHideCorr is " + booHideCorr)
 
     # Swap 0/1 Boolean values for True/False
     # I probably shouldn't do this but I like seeing True/False in the settings txt file.
@@ -219,10 +224,10 @@ def load_values():
     if booShowNM5S == "False":
         booShowNM5S = "0"
 
-    if boobuttonBB == "True":
-        boobuttonBB = "1"
-    if boobuttonBB == "False":
-        boobuttonBB = "0"
+    #if boobuttonBB == "True":
+    #    boobuttonBB = "1"
+    #if boobuttonBB == "False":
+    #    boobuttonBB = "0"
 
     if booInvert == "True":
         booInvert = "1"
@@ -249,10 +254,15 @@ def load_values():
     if booMiscRec == "False":
         booMiscRec = "0"
 
+    if booHideCorr == "True":
+        booHideCorr = "1"
+    if booHideCorr == "False":
+        booHideCorr = "0"
+
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr
 
     # Get entererd values
     t1value = e13.get()
@@ -287,12 +297,13 @@ def save_values():
     strGrayCutoff = str(slider3.get())
     booShowNM6S = str(buttonS6.get())
     booShowNM5S = str(buttonS5.get())
-    boobuttonBB = str(buttonBB.get())
+    #boobuttonBB = str(buttonBB.get())
     booInvert = str(InvertButton.get())
     booChaosRec = str(ChaosRecButton.get())
     booExaltRec = str(ExaltRecButton.get())
     booChromRec = str(ChromRecButton.get())
     booMiscRec = str(MiscRecButton.get())
+    booHideCorr = str(HideCorrButton.get())
 
     print ("Patch Number is " + str(e50b.get()))
     print ("Selected League is " + str(league_selection.get()))
@@ -302,12 +313,13 @@ def save_values():
     print ("strGrayCutoff is " + str(slider3.get()))
     print ("booShowNM6S is " + str(buttonS6.get()))
     print ("booShowNM5S is " + str(buttonS5.get()))
-    print ("boobuttonBB is " + str(buttonBB.get()))
+    #print ("boobuttonBB is " + str(buttonBB.get()))
     print ("booInvert is " + str(InvertButton.get()))
     print ("booChaosRec is " + str(ChaosRecButton.get()))
     print ("booExaltRec is " + str(ExaltRecButton.get()))
     print ("booChromRec is " + str(ChromRecButton.get()))
     print ("booMiscRec is " + str(MiscRecButton.get()))
+    print ("booHideCorr is " + str(HideCorrButton.get()))
 
     print ("t1value is " + str(t1value))
     print ("t2value is " + str(t2value))
@@ -352,10 +364,10 @@ def save_values():
     if booShowNM5S == "0":
         booShowNM5S = "False"
 
-    if boobuttonBB == "1":
-        boobuttonBB = "True"
-    if boobuttonBB == "0":
-        boobuttonBB = "False"
+    #if boobuttonBB == "1":
+    #    boobuttonBB = "True"
+    #if boobuttonBB == "0":
+    #    boobuttonBB = "False"
 
     if booInvert == "1":
         booInvert = "True"
@@ -381,6 +393,11 @@ def save_values():
         booMiscRec = "True"
     if booMiscRec == "0":
         booMiscRec = "False"
+
+    if booHideCorr == "1":
+        booHideCorr = "True"
+    if booHideCorr == "0":
+        booHideCorr = "False"
 
     with open(in_filename, 'w') as f:
         f.write("patch_number: " + patch_number + "\n")
@@ -419,6 +436,7 @@ def save_values():
         f.write("Exalt Recipe: " + booExaltRec + "\n")
         f.write("Chromium Recipe: " + booChromRec + "\n")
         f.write("Misc Recipes: " + booMiscRec + "\n")
+        f.write("Hide Corrupted: " + booHideCorr + "\n")
 
 def on_tab_selected(event):
     selected_tab = event.widget.select()
@@ -476,7 +494,7 @@ tab3 = ttk.Frame(tab_parent)
 tab_parent.bind("<<NotebookTabChanged>>", on_tab_selected)
 tab_parent.add(tab1, text="Tiers")
 tab_parent.add(tab2, text="Settings")
-tab_parent.add(tab3, text="Recipes")
+tab_parent.add(tab3, text="Options")
 
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
 # === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE === WIDGETS FOR TAB ONE
@@ -991,13 +1009,14 @@ frame0.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 frame000 = tk.Frame(frame0, relief=GROOVE, borderwidth=5)
 frame000.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-# === ROW 1 === ROW 1 === ROW 1 === ROW 1
+# === FRAME === FRAME === FRAME === FRAME
 
 frame06 = Frame(frame0, width=1000, relief=GROOVE, borderwidth=5)
 frame06.grid(row=5, column=0, padx=5, pady=1, sticky = W)
 
+# === ROW 1 === ROW 1 === ROW 1 === ROW 1
 
-# ChaosRec BUTTON
+# ChaosRec Checkbox
 frame061 = Frame(frame06, width=100, height=50, borderwidth=5)
 frame061.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
@@ -1008,8 +1027,7 @@ ChaosRecButton = StringVar(value=booChaosRec)
 buttonblah6 = Checkbutton(frame061, justify='left', text="Y/N", variable=ChaosRecButton)
 buttonblah6.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-
-# ExaltRec BUTTON
+# ExaltRec Checkbox
 frame062 = Frame(frame06, width=100, height=50, borderwidth=5)
 frame062.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
@@ -1020,8 +1038,9 @@ ExaltRecButton = StringVar(value=booExaltRec)
 buttonblah7 = Checkbutton(frame062, justify='left', text="Y/N", variable=ExaltRecButton)
 buttonblah7.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
+# === ROW 2 === ROW 2 === ROW 2 === ROW 2
 
-# ChromRec BUTTON
+# ChromRec Checkbox
 frame063 = Frame(frame06, width=100, height=50, borderwidth=5)
 frame063.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
@@ -1032,8 +1051,7 @@ ChromRecButton = StringVar(value=booChromRec)
 buttonblah8 = Checkbutton(frame063, justify='left', text="Y/N", variable=ChromRecButton)
 buttonblah8.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-
-# MiscRec BUTTON
+# MiscRec Checkbox
 frame063 = Frame(frame06, width=100, height=50, borderwidth=5)
 frame063.grid(row=1, column=1, padx=5, pady=1, sticky = W)
 
@@ -1044,10 +1062,18 @@ MiscRecButton = StringVar(value=booMiscRec)
 buttonblah9 = Checkbutton(frame063, justify='left', text="Y/N", variable=MiscRecButton)
 buttonblah9.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
+# === ROW 3 === ROW 3 === ROW 3 === ROW 3
 
+# HideCorr Checkbox
+frame064 = Frame(frame06, width=100, height=50, borderwidth=5)
+frame064.grid(row=2, column=0, padx=5, pady=1, sticky = W)
 
+label064 = Label(frame064, justify='left', text="Hide Corrupted?\r  (not 5L/6L or gems)")
+label064.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-
+HideCorrButton = StringVar(value=booHideCorr)
+buttonblah9 = Checkbutton(frame064, justify='left', text="Y/N", variable=HideCorrButton)
+buttonblah9.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
 tab_parent.pack(expand=1, fill='both')
 
