@@ -4,7 +4,7 @@
 
 #### New League update: Please check the FAQ below for notes on my plans for adding the new items for this league.
 
-#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
+#### My eventual goal is to make this an execytable program anyone can run, but in its current stage you need to install Python and one dependency. There is a 6-minute video linked in the FAQ at the bottom of the page that shows how to do this.  If you don't want to install the program just download the .filter files shown above.  There's a legend at the bottom of the FAQ that explains what the filenames mean and what's in each filter.
 
 #### Here is a quick video showing the filter in action (right-click and open in a new tab) - also, I did fix the black on black thing:
 
@@ -54,7 +54,7 @@ I feel like I have the tool doing 98% of what it should. I'm sure there are some
 
 #### How do we install/run this program?
 
-I wanted to make this something that wouldn't need anything to be installed other than the base Python library, but it looks like I included one additional dependency without realizing it.  So in order to run the program you'll need to install Python, and then from a command propmt, issue the command `pip install requests`.  This will install the `requests` library, which you can read about here: https://docs.python-requests.org/en/latest/
+Here's a short video (6 minutes) that explains how to install the program and get it to run: https://youtu.be/07Te5tPNaWc
 
 #### How do we interpret the colors and map icons of the items?
 
