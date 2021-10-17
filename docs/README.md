@@ -4,7 +4,7 @@
 
 #### New League update: Please check the FAQ below for notes on my plans for adding the new items for this league.
 
-#### My eventual goal is to make this an execytable program anyone can run, but in its current stage you need to install Python and one dependency. There is a 6-minute video linked in the FAQ at the bottom of the page that shows how to do this.  If you don't want to install the program just download the .filter files shown above.  There's a legend at the bottom of the FAQ that explains what the filenames mean and what's in each filter.
+#### My eventual goal is to make this an executable program anyone can run, but in its current stage you need to install Python and one dependency. There is a 6-minute video linked in the FAQ at the bottom of the page that shows how to do this.  If you don't want to install the program just download the .filter files shown above.  There's a legend at the bottom of the FAQ that explains what the filenames mean and what's in each filter.
 
 #### Here is a quick video showing the filter in action (right-click and open in a new tab) - also, I did fix the black on black thing:
 
