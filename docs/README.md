@@ -4,6 +4,8 @@
 
 #### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
 
+#### New League update: Please check the FAQ below for notes on my plans for adding the new items for this league.
+
 #### Here is a quick video showing the filter in action (right-click and open in a new tab) - also, I did fix the black on black thing:
 
 [![Quick Intro Video](https://user-images.githubusercontent.com/26362032/137053308-877ea63d-dff5-4b70-bc66-728936d0ee03.png)](https://youtu.be/3RdbGLjCu5g)
@@ -160,6 +162,10 @@ Three reasons:
 2. Once you know the naming convention you can swap between filters quickly without trying to remember what the differences are between filters.  You'll know exactly just by looking at the file name.
 
 3. Now I don't have to sit there trying to think of what to name the filter in order to differentiate it from the other filters I've made.
+
+#### What are your plans for adding new items introduced in the new league?
+
+I've looked at some of GGG's notes about what items they've added to the game, but from my perspective the first thing I need to find out is whether or not poe.ninja has added them to the list of items they're tracking.  If they have then I might only need to update 1 HTML link to the items they've added, and after that they should automatically be included into the filters this tool generates.  But there will be some delay and process between getting their new items and then finding out if there are any they've left out.  If you know of some item that my tool is not handling, please open an issue in the Issues section at the top of the Github page to let me know to look at it.
 
 #### What additional features will you be adding to this tool?
 
