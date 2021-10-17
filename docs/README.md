@@ -2,9 +2,9 @@
 
 ### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
 
-#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
-
 #### New League update: Please check the FAQ below for notes on my plans for adding the new items for this league.
+
+#### Note: It's been brought to my attention that I included one dependency that needs to be installed with this. See the FAQ for more info if you're okay with that, if not then you can just download the .filter files here and test with those.
 
 #### Here is a quick video showing the filter in action (right-click and open in a new tab) - also, I did fix the black on black thing:
 
