@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -101,13 +101,10 @@ def func_init():
             if "Show gray items: " in line:
                 booShowT11 = (line.split("Show gray items: ")[1])
                 #print ("booShowT11 is " + booShowT11)
-                #time.sleep(5)
                 if "True" in booShowT11:
                     booShowT11 = True
                 else:
                     booShowT11 = False
-                #print (booShowT11)
-                #time.sleep(5)
             if "Show Normal/Magic 6-socket items: " in line:
                 booShowNM6S = (line.split("Show Normal/Magic 6-socket items: ")[1])
                 #print ("booShowNM6S is " + booShowNM6S)
@@ -115,8 +112,6 @@ def func_init():
                     booShowNM6S = True
                 else:
                     booShowNM6S = False
-                #print (booShowNM6S)
-                #time.sleep(5)
             if "Show Normal/Magic 5-socket items: " in line:
                 booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
                 #print ("booShowNM5S is " + booShowNM5S)
@@ -124,67 +119,56 @@ def func_init():
                     booShowNM5S = True
                 else:
                     booShowNM5S = False
-                #print (booShowNM5S)
-                #time.sleep(5)
             strBoostButton = False
             #if "Boost Button" in line:
             #    strBoostButton = (line.split(": ")[1])
             #    #print ("strBoostButton is " + strBoostButton)
-            #    #time.sleep(5)
             #    if "True" in strBoostButton:
             #        strBoostButton = True
             #    else:
             #        strBoostButton = False
-            #    #print (strBoostButton)
-            #    #time.sleep(5)
             if "Invert colors: " in line:
                 booInvert = (line.split(": ")[1])
                 #print ("booInvert is " + booInvert)
-                #time.sleep(5)
                 if "True" in booInvert:
                     booInvert = True
                 else:
                     booInvert = False
-                #print (booInvert)
             if "Chaos Recipe: " in line:
                 strChaosRec = (line.split(": ")[1])
                 #print ("strChaosRec is " + strChaosRec)
-                #time.sleep(5)
                 if "True" in strChaosRec:
                     strChaosRec = True
                 else:
                     strChaosRec = False
-                #print (strChaosRec)
             if "Exalt Recipe: " in line:
                 strExaltRec = (line.split(": ")[1])
                 #print ("strExaltRec is " + strExaltRec)
-                #time.sleep(5)
                 if "True" in strExaltRec:
                     strExaltRec = True
                 else:
                     strExaltRec = False
-                #print (strExaltRec)
-                #time.sleep(5)
             if "Chromium Recipe: " in line:
                 strChromRec = (line.split(": ")[1])
                 #print ("strChromRec is " + strChromRec)
-                #time.sleep(5)
                 if "True" in strChromRec:
                     strChromRec = True
                 else:
                     strChromRec = False
-                #print (strChromRec)
-                #time.sleep(5)
             if "Misc Recipes: " in line:
                 strMiscRec = (line.split(": ")[1])
                 #print ("strMiscRec is " + strMiscRec)
-                #time.sleep(5)
                 if "True" in strMiscRec:
                     strMiscRec = True
                 else:
                     strMiscRec = False
-                #print (strMiscRec)
-                #time.sleep(5)
+            if "Hide Corrupted: " in line:
+                strHideCorr = (line.split(": ")[1])
+                #print ("strHideCorr is " + strHideCorr)
+                if "True" in strHideCorr:
+                    strHideCorr = True
+                else:
+                    strHideCorr = False
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
@@ -209,6 +193,21 @@ def func_init():
     header12 = str("##### strExaltRec :" + str(strExaltRec)+"\n")
     header13 = str("##### strChromRec :" + str(strChromRec)+"\n")
     header14 = str("##### strMiscRec :" + str(strMiscRec)+"\n")
+    header15 = str("##### strHideCorr :" + str(strHideCorr)+"\n")
+    print(header02)
+    print(header03)
+    print(header04)
+    print(header05)
+    print(header06)
+    print(header07)
+    print(header08)
+    print(header09)
+    print(header10)
+    print(header11)
+    print(header12)
+    print(header13)
+    print(header14)
+    print(header15)
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -261,19 +260,7 @@ def func_init():
         write_obj.write(header12)
         write_obj.write(header13)
         write_obj.write(header14)
-        print(header02)
-        print(header03)
-        print(header04)
-        print(header05)
-        print(header06)
-        print(header07)
-        print(header08)
-        print(header09)
-        print(header10)
-        print(header11)
-        print(header12)
-        print(header13)
-        print(header14)
+        write_obj.write(header15)
         write_obj.write("#####\n")
         write_obj.write(strSuggested_Name)
         write_obj.write("#===============================================================================================================\n")
@@ -487,42 +474,34 @@ def func_static_intro():
         write_obj.write("#####\n")
         write_obj.write("#####\n")
         write_obj.write("################################################################################################################\n")
-        write_obj.write("##### 10150 Testing putting borders to highlight items that are not 2x3 or 2x4.\n")
+        write_obj.write("##### 10150 Testing putting borders to highlight amount of inventory space items take up.\n")
         write_obj.write("#####       This is more useful once you set strictness to 6 or higher, as poe.ninja thinks a decent number of\n")
         write_obj.write("#####       higher-lvl bases are worth 5c-10c when most are trash. Seems to start around map tiers 14+.\n")
         write_obj.write("#####\n")
         write_obj.write("Show\n")
         write_obj.write("    Width = 1\n")
         write_obj.write("    Height = 1\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBorderColor 255 255 255 255\n")
         write_obj.write("    Continue\n")
         write_obj.write("Show # Flasks\n")
         write_obj.write("    Width = 1\n")
         write_obj.write("    Height = 2\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBorderColor 255 255 255 255\n")
         write_obj.write("    Continue\n")
         write_obj.write("Show # Belts\n")
         write_obj.write("    Width = 2\n")
         write_obj.write("    Height = 1\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBorderColor 255 255 255 255\n")
         write_obj.write("    Continue\n")
         write_obj.write("Show # 1x3 weapons\n")
         write_obj.write("    Width = 1\n")
         write_obj.write("    Height = 3\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBorderColor 187 28 28 210 # Red\n")
         write_obj.write("    Continue\n")
         write_obj.write("Show # 2x2 items\n")
         write_obj.write("    Width = 2\n")
         write_obj.write("    Height = 2\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBorderColor 187 28 28 210 # Red\n")
-        write_obj.write("    Continue\n")
-        write_obj.write("Show # All Other items\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    Continue\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10150 Testing showing all Fated Uniques.\n")
@@ -565,7 +544,7 @@ def func_static_intro():
         write_obj.write("    MinimapIcon 0 Purple Cross\n")
         write_obj.write("Show\n")
         write_obj.write("    Sockets = 6\n")
-        write_obj.write("    ItemLevel >= 84\n")
+        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("    Rarity Rare\n")
         write_obj.write("    SetFontSize 45\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -625,6 +604,16 @@ def func_static_intro():
             write_obj.write("    PlayAlertSound 8 300\n")
             write_obj.write("    PlayEffect Green\n")
             write_obj.write("    MinimapIcon 0 Green Triangle\n")
+        if strHideCorr == 1:
+            write_obj.write("################################################################################################################\n")
+            write_obj.write("##### Hide all corrupted gear not caught above. Must specify gear to not catch expensive skill gems farther below.\n")
+            write_obj.write("Hide\n")
+            write_obj.write("    Corrupted True\n")
+            write_obj.write("    Class Abyss Amulets Axes Belts Body Boots Bows Claws Daggers Flasks Gloves Helmets Jewel Maces Quivers Rings Sceptres Shields Staves Swords Wands Warstaves\n")
+            write_obj.write("    SetFontSize 18\n")
+            write_obj.write("    SetBorderColor 0 0 0 0\n")
+            write_obj.write("    SetBackgroundColor 0 0 0 0\n")
+            write_obj.write("    DisableDropSound True\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10500 4L and 2x2\n")
         write_obj.write("##### I only want LinkedSockets = 4 if Unique, or Rare and 2x2.\n")
@@ -681,11 +670,12 @@ def func_static_intro():
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10900 White and Abyss Sockets\n")
-        write_obj.write("##### Can't upgrade Normal/Magic corrupted items, only useful if Rare.\n")
-        write_obj.write("##### Maybe make # of White or Abyss sockets adjustable later for strictness.\n")
+        write_obj.write("##### Can't upgrade Normal/Magic corrupted items, only useful if Rare.  Also, W or WW are a dime a dozen.\n")
+        write_obj.write("##### May make # of White or Abyss sockets adjustable later.\n")
+        write_obj.write("##### WHITE SOCKET ITEMS ONLY SHOWN IF ALL OTHER CORRUPTED GEAR NOT HIDDEN ABOVE.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
-        write_obj.write("    SocketGroup W\n")
+        write_obj.write("    SocketGroup WWW\n")
         write_obj.write("    Rarity Rare\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -1417,6 +1407,7 @@ def func_stacks():
         write_obj.write("    StackSize >= 20\n")
         write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
         write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
@@ -1464,6 +1455,7 @@ def func_stacks():
         write_obj.write("    StackSize >= 10\n")
         write_obj.write("    BaseType \"Exotic Coinage\" \"Burial Medallion\"\n")
         write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
@@ -1622,6 +1614,7 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    Class Quest\n")
         write_obj.write("    SetFontSize 45\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 255 255 255 255 # White\n")
         write_obj.write("    PlayAlertSound 2 300\n")
         write_obj.write("    PlayEffect White\n")
@@ -1629,6 +1622,7 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    HasExplicitMod "" Veil""\n")
         write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Blue\n")
@@ -1636,6 +1630,7 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    AnyEnchantment True\n")
         write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Blue\n")
@@ -1643,18 +1638,21 @@ def func_other():
         write_obj.write("Show\n")
         write_obj.write("    SynthesisedItem True\n")
         write_obj.write("    SetFontSize 39\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Blue\n")
         write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("#####################################################################################################################\n")
-        write_obj.write("##### 12900 Fractured items\n")
+        write_obj.write("##### 12900 Fractured items - filtering as per https://www.youtube.com/watch?v=GGwpWxycJ8s some are worth more, but\n")
+        write_obj.write("#####  he doesn't include rings.  Not sure I trust that, as some rings are definitely extremely valuable.\n")
         write_obj.write("\n")
         write_obj.write("Show\n")
         write_obj.write("    FracturedItem True\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")        write_obj.write("    Class Helmets\n")
+        write_obj.write("    Class Helmets\n")
         write_obj.write("    ItemLevel >= 86\n")
         write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("    PlayAlertSound 10 300\n")
         write_obj.write("    PlayEffect Purple\n")
@@ -1665,19 +1663,16 @@ def func_other():
         write_obj.write("    Class Wands\n")
         write_obj.write("    ItemLevel >= 55\n")
         write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 25 25 255 235 # Blue\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Blue\n")
         write_obj.write("    MinimapIcon 2 Blue Kite\n")
         write_obj.write("\n")
-        write_obj.write("Hide                    # As per https://www.youtube.com/watch?v=GGwpWxycJ8s these probably aren't worth anything.\n")
-        write_obj.write("    FracturedItem True\n")
-        write_obj.write("    Class Gloves Boots Body Shields Quivers\n")
-        write_obj.write("    DisableDropSound True\n")
-        write_obj.write("\n")
-        write_obj.write("Show                    # Show the rest. Guy says no to rings & amulets but I want them anyway.\n")
+        write_obj.write("Show\n")
         write_obj.write("    FracturedItem True\n")
         write_obj.write("    SetFontSize 40\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
         write_obj.write("    PlayAlertSound 8 300\n")
         write_obj.write("    PlayEffect Green\n")
