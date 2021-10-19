@@ -41,7 +41,11 @@ I may add other schemes later, but for now this is what it looks like:
 
 On the second tab are some additional settings (scroll down for a FAQ with more info on what these do/mean):
 
-![Tab2](https://user-images.githubusercontent.com/26362032/136266872-bf13b783-981c-42e7-aa57-38f9e3f7790a.PNG)
+![Tab2](![image](https://user-images.githubusercontent.com/26362032/138002094-0ae70546-fb3a-4686-84a2-62903a010bde.png))
+
+On the third tab are more settings (scroll down for a FAQ with more info on what these do/mean):
+
+![Tab3](![image](https://user-images.githubusercontent.com/26362032/138002151-f604c138-0533-4d8e-bc42-e54f8e6f571e.png))
 
 ## What is the status of this project?
 
