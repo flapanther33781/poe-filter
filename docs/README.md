@@ -54,40 +54,39 @@ I feel like I have the tool doing 98% of what it should. I'm sure there are some
 
 #### How do we install/run this program?
 
-Here's a short video (6 minutes) that explains how to install the program and get it to run: https://youtu.be/07Te5tPNaWc
+Here's a short video (6 minute) that explains how to install the program and get it to run: https://youtu.be/07Te5tPNaWc
 
 #### How do we interpret the colors and map icons of the items?
 
-The color order is: Brown > Red > Orange > Yellow > Green > Blue > Purple > Cyan > Pink > White
+The order is: Brown > Red > Orange > Yellow > Green > Blue > Purple > Cyan > Pink > White
 
-Basically it goes from darkest to lightest, but the easiest way to remember it is to just follow the the rainbow.  Red through Purple are in the same order as in the rainbow.  Then you just need to know that brown is below red, and above purple are cyan, pink, and white.
+Just follow the the rainbow.  Red through Purple are in the same order as in the rainbow.  Then you just need to know that brown is below red, and above purple are cyan, pink, and white.
 
-Regarding icons, aside from Diamond and Rain, more sides = more important, but color's still more important than the icon.    
-(An item with a Green Circle is worth more than one with a Red Pentagon, etc.)
+Regarding icons, aside from Diamond and Rain, more sides = more important, but color's still more important than the icon. (An item with a Green Circle is worth more than one with a Red Pentagon, etc.)
 
-#### Is there anything important about the Path # field?
+#### Is there anything important about the Patch # field?
 
-This is used in the naming of the fiolter file this tool exports (scroll down in the FAQ to see more info about the naming convention I use for the filter file names).  I thought it might be interesting in case you want to keep filters from previous leagues. But there is no easy way to programatically download this patch # so I'll have to manually update it eacy league.  I decided to make it a user-editable field in case you want to use this tool for a new league and I haven't had a chance to update the tool yet.
+This is used in the naming of the filter file (scroll down in the FAQ to see more info about that).  I thought it might be interesting in case you want to keep filters from previous leagues. There's no easy way to programatically download this patch # so I'll have to manually update it eacy league.  I decided to make it a user-editable field in case you want to use this tool before I've had a chance to update the tool yet.  The actual legue names (Epedition, Scourge) should update automatically, so no need for manual intervention there.
 
 #### What do we need to know about the Save Settings/Reset Settings/Generate Filter buttons?
 
-You can save your filter settings two ways: either by clicking the `Save Settings` button, or by clicking the `Generate Filter` button.  Clicking the `Generate Filter` button automatically saves the settings to `00_user_settings.txt`, then kicks off the filter generation scripts which reads the settings from that file.  If you change the filter settings but close out of the program without doing one of those two things your changes will not be saved.
+Clicking the `Generate Filter` button automatically saves the settings to `00_user_settings.txt`, then kicks off the filter generation scripts, which reads the settings from that file.  If you change the filter settings but close out of the program without Saving your settings or Generating a new file THEN YOUR CHANGES WILL NOT BE SAVED.
 
-The `Reset Settings` button will reset the `00_user_settings.txt` file but I don't yet know how to get Python to reset the checkboxes and sliders.  So for right now if you want to reset the program, click that button, then close the program and reopen it.
+Also, the `Reset Settings` button will reset the `00_user_settings.txt` file but I don't yet know how to get Python to reset the checkboxes and sliders.  So for right now, if you want to reset the settings, click that button, then close the program and reopen it.  Then the checkboxes and sliders will be where they should be.
 
 #### What does the Overall Filter Strictness slider do?
 
-As shown above, we put all items into tiers based on their value. This slider will allow you to modify your filter's strictness.  For example, if you set the slider to 5 then items in tiers 6 through 10 will be hidden.
+As shown above, we put all items into tiers based on their value. This slider will allow you to modify your filter's strictness.  For example, if you set the slider to 5 then items in tiers 6 through 10 will be hidden.  The other sliders work in relation to this.  Read the other questions/answers for more info.
 
 #### Why are there two sliders for non-influenced/veiled/etc Rare items?
 
 There are like 3 things that all come into play here.
 
-1. In the first few Acts Rare items might be usable upgrades for your own gear, but as you progress through the Acts on your way towards the Endgame the odds of them being usable start to drop, especially if you're using build guides (which is suggested).  You may still want to pick them up to trade to vendors for currency, but once you start getting to the point where you can do the Chaos Recipe you'll probably want to hide all rares below ilvl 65 because you can't use those for the Chaos Recipe.  These items will be pretty cheap, so using the Economy-Based slider for rares may not give you the granularity you need.
+1. In the first few Acts Rare items might be usable upgrades for your own gear, but as you progress through the Acts on your way towards the Endgame the odds of them being usable start to drop, especially if you're using build guides (which is suggested).  You may still want to pick them up to trade to vendors for currency, but once you start getting to the point where you can do the Chaos Recipe you'll probably want to hide all rares below ilvl 65 because you can't use those for the Chaos Recipe.  These items will be pretty cheap, but using the Economy-Based slider for rares may not give you the granularity you need because the economy at the start of a league can be pretty weird for the first few days (assuming you're not playing in Standard).
 
-2. On the other hand, by the time you get to red maps so many Rares are dropping that even setting the slider to ilvl 86 will still leave lots of items appearing on the screen.  That's when the Economy-Based slider will come into play.  If you were to use the Overall Filter Strictness slider then you might be hiding a bunch of other items that you are willing to view otherwise (currency, maps, oils, div cards, etc.), so having a separate slider for the Rares allows us to filter them without then needing to go and set overrides for all those other items.
+2. On the other hand, by the time you get to red maps so many Rares are dropping that even setting the slider to ilvl 86 will still leave lots of items appearing on the screen.  That's when the Economy-Based slider will come into play.  If you were to use the Overall Filter Strictness slider then you might be hiding a bunch of other items that you are willing to view otherwise (currency, maps, oils, div cards, etc.), so having a separate slider for the Rares allows us to filter those without needing to go and set overrides for all other items.
 
-3. Price-fixing, Dump Tabs, default pricing, and how they affect pricing on poe.ninja.  I made a video to talk about this (here: https://youtu.be/xGkBxN_aNAA) because it took about 7-8 minutes to discuss these things. Spoke word takes a lot of space to write out, so a video is just faster.
+3. You also need to understand price-fixing, Dump Tabs, default pricing, and how they affect pricing on poe.ninja.  I made a video about this (here: https://youtu.be/xGkBxN_aNAA) because it took about 7-8 minutes to discuss these things. Spoken word takes a lot of space to write out, so a video is faster.
 
 #### What does the slider for non-influenced/veiled/etc Rare items do?
 
@@ -113,25 +112,21 @@ NOTE 1: In reality, this Unique Item Breakpoint feature is not 100% foolproof.  
 
 NOTE 2: Keep in mind that certain basetypes will always be shown. Unique Leather Belts could be a HeadHunter. HeadHunters are so valueable you'd have to set the breakpoint above 50-150 Exalts to hide all Unique Leather Belts, but the slider only goes up to 200c, so that's not possible ... unless you manually edit the filter file, which you shouldn't do if you're a new player.
 
-#### What if I want to manually edit the filter?
+#### Why does the tool have checkboxes for Normal/Magic 5-link and 6-socket items?
 
-I've included a way to override certain settings by editing a CSV file (see below), and there is a Manual Override section at the top of the filter, but if you're a new player I'd suggest you not try to edit the filter settngs below that section.  Let's put it this way: if you feel like you can't do what you want with my tool, the CSV override method, or the manual override section, then either open a feature request via Github, or maybe you're ready to graduate to using FilterBlade or StupidFatHobbit's filters.  I did say my tool's not meant to replace theirs.
-
-#### How does the Override feature work?
-
-I explain how to do manual overrides in the video at the top of this page, please watch that.  Or, if you want a link to the exact timestamp: https://youtu.be/-kXiwg55DLI?t=479
-
-#### Why does the tool have checkboxes for Normal/Magic 5-socket and 6-socket items?
-
-These items can be relatively valuable early in the game, but as you get farther into the game they become less valuable. Also, these items take up a lot of inventory space. So at some point you'll want to hide them from your loot drops.  But note, these checkboxes are for 5/6 sockets, not links.  5L/6L items are handled differently.  6L items will always be shown.  5L items will always be shown if the item is a Unique item, or if it's a Rare item that's above your Rare item cutoff.
+These items can be relatively valuable early in the game, but as you get farther into the game they become less valuable. Also, these items take up a lot of inventory space. So at some point you'll want to hide them from your loot drops.  But 6L items will always be shown.  5L items will always be shown if the item is a Unique item, or if it's a Rare item that's above your Rare item ilvl cutoff.
 
 #### What does the "+4 tiers (league start)" checkbox do?
 
-It's mainly a feel-good thing.  When you start a new character (or a new league) you'll be doing very low-tier areas where all the drops are very low in value.  By default most of them will be T9 or T10 (red or brown) items.  It might be nice to see some yellow or green highlighted drops, so if you want, check this box and it'll boost the tiers of lower-tier items.
+This has been disabled for now.  It was mainly a feel-good thing, but may have been affecting normal functioning of the tool, so I disabled it.  When you start a new character (or a new league) you'll be doing very low-tier areas where all the drops are very low in value.  By default most of them will be T9 or T10 (red or brown) items.  It might be nice to see some yellow or green highlighted drops, so I created this checkbox.  When selected it'll boost the tiers of lower-tier items up by 4 levels.
 
 #### What does the "Misc Recipes" checkbox do?
 
-This will sow all flasks, Rings, Belts, Amulets, Jewels, Gems, and Magic or Rare items if they don't take up 6 or 8 inventory slots.  These can all be listed for 1 alt or 1 alch at league start, people will need them for recipes.  Vendor anything that doesn't sell within an hour or two.  They will hae a red background and the minimap icon will be a red raindrop.
+This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  Checking this box will show all Flasks, Rings, Belts, Amulets, Jewels, Gems, and Magic or Rare items that are smaller than 6 or 8 inventory slots.  These can all be listed for 1 alt or 1 alch at league start.  People will need them for recipes.  Vendor anything that doesn't sell within an hour or two.  These items will have a red background and the minimap icon will be a Red Raindrop.  
+
+#### What if I want to manually override/edit the filter?
+
+I explain how to do manual overrides in the video at the top of this page, please watch that.  Or, if you want a link to the exact timestamp: https://youtu.be/-kXiwg55DLI?t=479  If you feel like you can't do what you want with my tool (even with the CSV override method) then either open a feature request via Github, or maybe you're ready to graduate to using FilterBlade or StupidFatHobbit's filters.  I did say my tool's not meant to replace theirs.
 
 #### How do we interpret the filter file names?
 
@@ -165,17 +160,18 @@ Three reasons:
 
 #### What are your plans for adding new items introduced in the new league?
 
-I've looked at some of GGG's notes about what items they've added to the game, but from my perspective the first thing I need to find out is whether or not poe.ninja has added them to the list of items they're tracking.  If they have then I might only need to update 1 HTML link to the items they've added, and after that they should automatically be included into the filters this tool generates.  But there will be some delay and process between getting their new items and then finding out if there are any they've left out.  If you know of some item that my tool is not handling, please open an issue in the Issues section at the top of the Github page to let me know to look at it.
+I've looked at some of GGG's notes about what items they've added to the game, but from my perspective the first thing I need to do is find out is whether or not poe.ninja has added them to the list of items they're tracking.  If they have then I might only need to update my link to the items they've added, and after that they should automatically be included into the filters this tool generates.  But there will be some delay and process between getting their new items and then finding out if there are any they've left out.  If you know of some item that my tool is not handling, please open an issue in the Issues section at the top of the Github page to let me know to look at it.
 
 #### What additional features will you be adding to this tool?
 
 I'm open to suggestions, but right now on my list I have:
 
-- A white border to indicate items 1x1/1x2/2x1 items, and red border for 1x3 and 2x2. (ADDED - Testing now.)
-- A way to select which league you want pricing for. (ADDED - Testing now.)
-- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy) (ADDED - Testing now.)
-- All vendor recipies, with checkboxes (handy for challenges)
-- Separate sliders for gems/cards/prophs/etc?
-- Additional color themes (suggestions welcome)
+- A white border to indicate items 1x1/1x2/2x1 items, and red border for 1x3 and 2x2. (ADDED.)
+- A way to select which league you want pricing for. (ADDED.)
+- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy) (ADDED, need to add checkbox.)
+- All vendor recipies, with checkboxes (handy for challenges - some added)
+- A button to hide some corrupt items - (ADDED. For MF, to limit Corrupted Rare 5L or 6S set the non-influenced ilvl Rare slider to ilvl 100.)
+- Separate sliders for gems/cards/prophs/etc - not sure if I should do this.
+- Additional color themes (suggestions welcome!)
 - Find a way to include poe.ninja confidence ratings to filter out overpriced items with low-confidence
 - Include filtering identified items by # of T1 mods, T2 mods, etc
