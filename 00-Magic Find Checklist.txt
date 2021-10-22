@@ -1,0 +1,37 @@
+This is a checklist of all the statically-assigned items in the filter. MF players will want to adjust these depending on what you're farming, but everything falls into one of three categories: delete the section completely, safe to ignore, or can be adjusted by tool settings.
+
+Statically assigned GREEN items:
+2x2 and 1x3 items that exceed the Rare ilvl slider setting - set the slider to 100
+Rare Rings/Amulet/Belts/Jewels that exceed the Rare ilvl slider setting - set the slider to 100
+Only if checkbox is selected: Normal & Magic 5L, or Rares below the Rare ilvl slider - don't check the checkbox
+Magic Divine/Eternal Life/Mana flasks - manually delete
+Normal/Magic Utility Flasks - manually delete
+Default cluster jewels - manually delete
+Perandus Coins StackSize >= 5000 ... leaving in for now - you can probably ignore
+Fractured items - delete if you want to
+
+Statically assigned BLUE items:
+5L that exceed the Rare ilvl slider setting - set the slider to 100
+Only if checkbox is selected: Normal & Magic 6S, or Rares below the Rare ilvl slider - don't check the checkbox
+SocketGroup WWW or SocketGroup A - manually delete
+Heist Targets, Trinkets, Contracts, and Blueprints - some Heist items are set dynamically, but there's a catchall, delete for MF
+Small Cluster Jewel ilvl82 - manually delete
+Atlas Region Upgrade Item - you can probably ignore
+All Veiled, Enchanted, and Synthesised items - up to you
+Fractured Wands - up to you
+Influenced Maps - up to you
+
+Statically assigned PURPLE items:
+All Unique 6S and 5L - up to you
+Rare 6S and 5L if above the Rare ilvl slider setting - set the slider to 100
+All Large Cluster Jewel w/EnchantmentPassiveNum 8 or Medium Cluster Jewel w/EnchantmentPassiveNum 4 - up to you
+Fractured Helms - up to you
+
+Statically assigned CYAN items:
+Large Cluster Jewel ilvl >= 82 EnchantmentPassiveNum = 8, and Medium Cluster Jewel ilvl >= 84 EnchantmentPassiveNum = 4 - up to you
+
+Statically assigned WHITE items:
+All 6L - up to you
+Quest items - you can probably ignore
+
+Other statically assigned colors: Perandus coins and Expedition currency, both of which you should be able to ignore.

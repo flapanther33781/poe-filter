@@ -43,7 +43,7 @@ def initialize():
         f.write("Gray item cutoff: 0\n")
         f.write("Show gray items: True\n")
         f.write("Show Normal/Magic 6-socket items: True\n")
-        f.write("Show Normal/Magic 5-socket items: True\n")
+        f.write("Show Normal/Magic 5-link items: True\n")
         f.write("Boost Button (+4 all tiers for league start): False\n")
         f.write("Invert colors: False\n")
         f.write("Chaos Recipe: True\n")
@@ -174,8 +174,8 @@ def load_values():
                 booShowNM6S = (line.split("Show Normal/Magic 6-socket items: ")[1])
                 booShowNM6S = booShowNM6S.strip()
                 #print ("booShowNM6S is " + booShowNM6S)
-            if "Show Normal/Magic 5-socket items: " in line:
-                booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
+            if "Show Normal/Magic 5-link items: " in line:
+                booShowNM5S = (line.split("Show Normal/Magic 5-link items: ")[1])
                 booShowNM5S = booShowNM5S.strip()
                 #print ("booShowNM5S is " + booShowNM5S)
             #if "Boost Button (+4 all tiers for league start): " in line:
@@ -428,7 +428,7 @@ def save_values():
         f.write("Gray item cutoff: " + strGrayCutoff + "\n")
         f.write("Show gray items: " + booShowT11 + "\n")
         f.write("Show Normal/Magic 6-socket items: " + booShowNM6S + "\n")
-        f.write("Show Normal/Magic 5-socket items: " + booShowNM5S + "\n")
+        f.write("Show Normal/Magic 5-link items: " + booShowNM5S + "\n")
         #f.write("Boost Button (+4 all tiers for league start): " + boobuttonBB + "\n")
         f.write("Boost Button (+4 all tiers for league start): False\n")
         f.write("Invert colors: " + booInvert + "\n")
@@ -964,7 +964,7 @@ buttonblah2.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 frame043 = Frame(frame04, width=100, height=50, borderwidth=5)
 frame043.grid(row=0, column=2, padx=5, pady=1, sticky = W)
 
-label043 = Label(frame043, justify='left', text="Normal/Magic 5-socket items?")
+label043 = Label(frame043, justify='left', text="Normal/Magic 5-link items?")
 label043.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
 buttonS5 = StringVar(value=booShowNM5S)
