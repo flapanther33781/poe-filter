@@ -416,7 +416,7 @@ Show
 ##### Tier 3
 Show
     Class Map
-    BaseType == "Xoph's Pure Breachstone" "Esh's Pure Breachstone" "Timeless Templar Emblem" "Timeless Maraketh Emblem" "Fragment of Knowledge" "Gift to the Goddess" "Fragment of Terror" "Fragment of Emptiness" "Winged Abyss Scarab" "Winged Legion Scarab" "Winged Reliquary Scarab" "Winged Blight Scarab" "Craicic Lure" "Winged Perandus Scarab" "Winged Divination Scarab"
+    BaseType == "Xoph's Pure Breachstone" "Esh's Pure Breachstone" "Timeless Templar Emblem" "Timeless Maraketh Emblem" "Fragment of Knowledge" "Gift to the Goddess" "Fragment of Terror" "Fragment of Emptiness" "Winged Abyss Scarab" "Winged Legion Scarab" "Winged Reliquary Scarab" "Winged Blight Scarab" "Craicic Lure" "Winged Divination Scarab"
     SetFontSize 45
     SetBackgroundColor 0 0 0 255
     SetTextColor 132 211 250 255 # Cyan
@@ -449,7 +449,7 @@ Show
 ##### Tier 6
 Show
     Class Map
-    BaseType == "Timeless Vaal Emblem" "Fragment of Purification" "Timeless Karui Emblem" "Mortal Ignorance" "Esh's Enriched Breachstone" "Timeless Eternal Emblem" "Fragment of the Chimera" "Tul's Breachstone" "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Hydra" "Fragment of Eradication" "Uul-Netol's Charged Breachstone" "Xoph's Breachstone" "Dedication to the Goddess" "Saqawine Lure" "Rusted Blight Scarab" "Polished Blight Scarab" "Polished Harbinger Scarab" "Polished Legion Scarab" "Gilded Divination Scarab" "Gilded Metamorph Scarab" "Gilded Bestiary Scarab" "Gilded Perandus Scarab" "Gilded Cartography Scarab" "Gilded Abyss Scarab"
+    BaseType == "Timeless Vaal Emblem" "Fragment of Purification" "Timeless Karui Emblem" "Mortal Ignorance" "Esh's Enriched Breachstone" "Timeless Eternal Emblem" "Fragment of the Chimera" "Tul's Breachstone" "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Hydra" "Fragment of Eradication" "Uul-Netol's Charged Breachstone" "Xoph's Breachstone" "Dedication to the Goddess" "Saqawine Lure" "Rusted Blight Scarab" "Polished Blight Scarab" "Polished Harbinger Scarab" "Polished Legion Scarab" "Gilded Divination Scarab" "Gilded Metamorph Scarab" "Gilded Bestiary Scarab" "Gilded Cartography Scarab" "Gilded Abyss Scarab"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 28 236 4 215 # Green
@@ -460,7 +460,7 @@ Show
 ##### Tier 7
 Show
     Class Map
-    BaseType == "Esh's Breachstone" "Volkuur's Key" "Eber's Key" "Inya's Key" "Yriel's Key" "Mortal Rage" "Mortal Hope" "Xoph's Charged Breachstone" "Tul's Charged Breachstone" "Uul-Netol's Breachstone" "Fragment of Enslavement" "Mortal Grief" "Tribute to the Goddess" "Tul's Enriched Breachstone" "Esh's Charged Breachstone" "Inscribed Ultimatum" "Gilded Reliquary Scarab" "Polished Sulphite Scarab" "Polished Breach Scarab" "Gilded Elder Scarab" "Rusted Legion Scarab" "Polished Ambush Scarab" "Gilded Torment Scarab" "Polished Cartography Scarab" "Polished Abyss Scarab" "Polished Metamorph Scarab" "Rusted Harbinger Scarab" "Rusted Sulphite Scarab" "Gilded Shaper Scarab" "Polished Elder Scarab" "Polished Bestiary Scarab" "Polished Perandus Scarab" "Polished Divination Scarab" "Rusted Breach Scarab" "Rusted Ambush Scarab" "Rusted Metamorph Scarab" "Rusted Elder Scarab" "Rusted Cartography Scarab" "Polished Reliquary Scarab" "Rusted Bestiary Scarab" "Rusted Divination Scarab" "Rusted Reliquary Scarab" "Rusted Torment Scarab" "Rusted Shaper Scarab" "Rusted Perandus Scarab" "Polished Shaper Scarab" "Polished Torment Scarab" "Rusted Abyss Scarab"
+    BaseType == "Esh's Breachstone" "Volkuur's Key" "Eber's Key" "Inya's Key" "Yriel's Key" "Mortal Rage" "Mortal Hope" "Xoph's Charged Breachstone" "Tul's Charged Breachstone" "Uul-Netol's Breachstone" "Fragment of Enslavement" "Mortal Grief" "Tribute to the Goddess" "Tul's Enriched Breachstone" "Esh's Charged Breachstone" "Inscribed Ultimatum" "Gilded Reliquary Scarab" "Polished Sulphite Scarab" "Polished Breach Scarab" "Gilded Elder Scarab" "Rusted Legion Scarab" "Polished Ambush Scarab" "Gilded Torment Scarab" "Polished Cartography Scarab" "Polished Abyss Scarab" "Polished Metamorph Scarab" "Rusted Harbinger Scarab" "Rusted Sulphite Scarab" "Gilded Shaper Scarab" "Polished Elder Scarab" "Polished Bestiary Scarab" "Polished Divination Scarab" "Rusted Breach Scarab" "Rusted Ambush Scarab" "Rusted Metamorph Scarab" "Rusted Elder Scarab" "Rusted Cartography Scarab" "Polished Reliquary Scarab" "Rusted Bestiary Scarab" "Rusted Divination Scarab" "Rusted Reliquary Scarab" "Rusted Torment Scarab" "Rusted Shaper Scarab" "Polished Shaper Scarab" "Polished Torment Scarab" "Rusted Abyss Scarab"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -585,7 +585,7 @@ Show
 ##### Tier 7
 Show
     Class Incubator
-    BaseType == "Enchanted Incubator" "Geomancer's Incubator" "Time-Lost Incubator" "Blighted Incubator" "Ornate Incubator" "Primal Incubator" "Celestial Jeweller's Incubator" "Cartographer's Incubator" "Skittering Incubator" "Diviner's Incubator" "Fossilised Incubator" "Abyssal Incubator" "Thaumaturge's Incubator" "Mysterious Incubator" "Celestial Armoursmith's Incubator" "Foreboding Incubator" "Otherworldly Incubator" "Obscured Incubator" "Fragmented Incubator" "Decadent Incubator" "Celestial Blacksmith's Incubator" "Morphing Incubator" "Singular Incubator" "Infused Incubator"
+    BaseType == "Enchanted Incubator" "Geomancer's Incubator" "Time-Lost Incubator" "Blighted Incubator" "Ornate Incubator" "Primal Incubator" "Celestial Jeweller's Incubator" "Cartographer's Incubator" "Skittering Incubator" "Diviner's Incubator" "Fossilised Incubator" "Abyssal Incubator" "Thaumaturge's Incubator" "Mysterious Incubator" "Celestial Armoursmith's Incubator" "Foreboding Incubator" "Otherworldly Incubator" "Obscured Incubator" "Fragmented Incubator" "Celestial Blacksmith's Incubator" "Morphing Incubator" "Singular Incubator" "Infused Incubator"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -621,7 +621,7 @@ Show
 ##### Tier 6
 Show
     Class Stackable
-    BaseType == "Sanctified Fossil" "Gilded Fossil" "Perfect Fossil" "Enchanted Fossil" "Tangled Fossil"
+    BaseType == "Sanctified Fossil" "Gilded Fossil" "Perfect Fossil" "Tangled Fossil"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 28 236 4 215 # Green
@@ -632,7 +632,7 @@ Show
 ##### Tier 7
 Show
     Class Stackable
-    BaseType == "Encrusted Fossil" "Serrated Fossil" "Aetheric Fossil" "Bound Fossil" "Prismatic Fossil" "Corroded Fossil" "Shuddering Fossil" "Jagged Fossil" "Dense Fossil" "Pristine Fossil" "Lucent Fossil" "Powerful Chaotic Resonator" "Potent Alchemical Resonator" "Primitive Alchemical Resonator" "Potent Chaotic Resonator" "Powerful Alchemical Resonator"
+    BaseType == "Serrated Fossil" "Aetheric Fossil" "Bound Fossil" "Prismatic Fossil" "Corroded Fossil" "Shuddering Fossil" "Jagged Fossil" "Dense Fossil" "Pristine Fossil" "Lucent Fossil" "Powerful Chaotic Resonator" "Potent Alchemical Resonator" "Primitive Alchemical Resonator" "Potent Chaotic Resonator" "Powerful Alchemical Resonator"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -816,7 +816,7 @@ Show
 ##### Tier 7
 Show
     BaseType Prophecy
-    Prophecy  "Cleanser of Sins" "The Forgotten Soldiers" "The Petrified" "Defiled in the Sceptre" "Blind Faith" "A Vision of Ice and Fire" "Monstrous Treasure" "The Servant's Heart" "Fallow At Last" "The Undead Storm" "A Prodigious Hand" "The Hollow Pledge" "The Forgotten Garrison" "The Jeweller's Touch" "The Silverwood" "The Soulless Beast" "Twice Enchanted" "The Bishop's Legacy" "Visions of the Drowned" "The Flayed Man" "The Twins" "Day of Sacrifice IV" "Anarchy's End I" "Beyond Sight IV" "The Unbreathing Queen V" "Undead Uprising" "Thaumaturgical History IV" "Day of Sacrifice III" "Lightning Falls" "Flesh of the Beast" "In the Grasp of Corruption" "Fire and Ice" "Holding the Bridge" "Ancient Doom" "Baptism by Death" "Deadly Twins" "Plague of Frogs" "The Eagle's Cry" "The Feral Lord V" "The Karui Rebellion" "The Misunderstood Queen" "The Warmongers III" "Unbearable Whispers V" "A Rift in Time" "The Malevolent Witch" "The Nightmare Awakens" "The Mysterious Gift" "Fire and Brimstone" "The Ambitious Bandit I" "The Dreamer's Dream" "Graceful Flames" "The Child of Lunaris" "Custodians of Silence" "Thaumaturgical History II" "Anarchy's End III" "Deadly Rivalry V" "Blood of the Betrayed" "Anarchy's End IV" "The Dream Trial" "Storm on the Reef" "The Plaguemaw V" "Fire from the Sky" "Plague of Rats" "Agony at Dusk" "A Call into the Void" "The Stockkeeper" "The Prison Key" "Vital Transformation" "Wind and Thunder" "Dark Instincts" "A Forest of False Idols" "A Regal Death" "A Valuable Combination" "A Whispered Prayer" "Abnormal Effulgence" "An Unseen Peril" "Anarchy's End II" "Beyond Sight I" "Beyond Sight II" "Blood in the Eyes" "Bountiful Traps" "Crushing Squall" "Day of Sacrifice I" "Day of Sacrifice II" "Deadly Rivalry I" "Deadly Rivalry II" "Deadly Rivalry III" "Deadly Rivalry IV" "Dying Cry" "Ending the Torment" "Erased from Memory" "Erasmus' Gift" "Fear's Wide Reach" "Forceful Exorcism" "From Death Springs Life" "From The Void" "Gilded Within" "Golden Touch" "Heart of the Fire" "Heavy Blows" "Hidden Reinforcements" "Hidden Vaal Pathways" "Hunter's Lesson" "Ice from Above" "Kalandra's Craft" "Lasting Impressions" "Mouth of Horrors" "Mysterious Invaders" "Nature's Resilience" "Nemesis of Greed" "Notched Flesh" "Pleasure and Pain" "Possessed Foe" "Power Magnified" "Rebirth" "Reforged Bonds" "Risen Blood" "Severed Limbs" "Smothering Tendrils" "Soil, Worms and Blood" "Strong as a Bull" "Thaumaturgical History I" "Thaumaturgical History III" "The Alchemist" "The Ambitious Bandit II" "The Ambitious Bandit III" "The Apex Predator" "The Beautiful Guide" "The Beginning and the End" "The Bloody Flowers Redux" "The Brothers of Necromancy" "The Brutal Enforcer" "The Corrupt" "The Cursed Choir" "The Feral Lord I" "The Feral Lord II" "The Feral Lord III" "The Feral Lord IV" "The Flow of Energy" "The Fortune Teller's Collection" "The Four Feral Exiles" "The God of Misfortune" "The Hardened Armour" "The Hungering Swarm" "The Invader" "The King and the Brambles" "The Lost Maps" "The Lost Undying" "The Nest" "The Plaguemaw I" "The Plaguemaw II" "The Plaguemaw III" "The Plaguemaw IV" "The Prison Guard" "The Queen's Vaults" "The Scout" "The Sharpened Blade" "The Singular Spirit" "The Snuffed Flame" "The Sword King's Passion" "The Trembling Earth" "The Unbreathing Queen I" "The Unbreathing Queen II" "The Unbreathing Queen III" "The Unbreathing Queen IV" "The Undead Brutes" "The Vanguard" "The Warmongers I" "The Warmongers II" "The Warmongers IV" "The Wealthy Exile" "Touched by the Wind" "Unbearable Whispers I" "Unbearable Whispers II" "Unbearable Whispers III" "Unbearable Whispers IV" "Waiting in Ambush" "Winter's Mournful Melodies" "Greed's Folly" "Dance of Steel" "The Dreaded Rhoa" "Burning Dread" "The Storm Spire" "Black Devotion" "Trapped in the Tower" "End of the Light" "Sun's Punishment" "Cold Greed" "The Fall of an Empire" "Crimson Hues" "Blinding Light" "Faith Exhumed"
+    Prophecy  "Cleanser of Sins" "The Forgotten Soldiers" "The Petrified" "Defiled in the Sceptre" "Blind Faith" "A Vision of Ice and Fire" "Monstrous Treasure" "The Servant's Heart" "Fallow At Last" "The Undead Storm" "A Prodigious Hand" "The Forgotten Garrison" "The Jeweller's Touch" "The Silverwood" "The Soulless Beast" "Twice Enchanted" "The Bishop's Legacy" "Visions of the Drowned" "The Flayed Man" "The Twins" "Day of Sacrifice IV" "Anarchy's End I" "Beyond Sight IV" "The Unbreathing Queen V" "Undead Uprising" "Thaumaturgical History IV" "Day of Sacrifice III" "Lightning Falls" "Flesh of the Beast" "In the Grasp of Corruption" "Fire and Ice" "Holding the Bridge" "Ancient Doom" "Baptism by Death" "Deadly Twins" "Plague of Frogs" "The Eagle's Cry" "The Feral Lord V" "The Karui Rebellion" "The Misunderstood Queen" "The Warmongers III" "Unbearable Whispers V" "A Rift in Time" "The Malevolent Witch" "The Nightmare Awakens" "The Mysterious Gift" "Fire and Brimstone" "The Ambitious Bandit I" "The Dreamer's Dream" "Graceful Flames" "The Child of Lunaris" "Custodians of Silence" "Thaumaturgical History II" "Anarchy's End III" "Deadly Rivalry V" "Blood of the Betrayed" "Anarchy's End IV" "The Dream Trial" "Storm on the Reef" "The Plaguemaw V" "Fire from the Sky" "Plague of Rats" "Agony at Dusk" "A Call into the Void" "The Stockkeeper" "The Prison Key" "Vital Transformation" "Wind and Thunder" "Dark Instincts" "A Forest of False Idols" "A Regal Death" "A Valuable Combination" "A Whispered Prayer" "Abnormal Effulgence" "An Unseen Peril" "Anarchy's End II" "Beyond Sight I" "Beyond Sight II" "Blood in the Eyes" "Bountiful Traps" "Crushing Squall" "Day of Sacrifice I" "Day of Sacrifice II" "Deadly Rivalry I" "Deadly Rivalry II" "Deadly Rivalry III" "Deadly Rivalry IV" "Dying Cry" "Ending the Torment" "Erased from Memory" "Erasmus' Gift" "Fear's Wide Reach" "Forceful Exorcism" "From Death Springs Life" "From The Void" "Gilded Within" "Golden Touch" "Heart of the Fire" "Heavy Blows" "Hidden Reinforcements" "Hidden Vaal Pathways" "Hunter's Lesson" "Ice from Above" "Kalandra's Craft" "Lasting Impressions" "Mouth of Horrors" "Mysterious Invaders" "Nature's Resilience" "Nemesis of Greed" "Notched Flesh" "Pleasure and Pain" "Possessed Foe" "Power Magnified" "Rebirth" "Reforged Bonds" "Risen Blood" "Severed Limbs" "Smothering Tendrils" "Soil, Worms and Blood" "Strong as a Bull" "Thaumaturgical History I" "Thaumaturgical History III" "The Alchemist" "The Ambitious Bandit II" "The Ambitious Bandit III" "The Apex Predator" "The Beautiful Guide" "The Beginning and the End" "The Bloody Flowers Redux" "The Brothers of Necromancy" "The Brutal Enforcer" "The Corrupt" "The Cursed Choir" "The Feral Lord I" "The Feral Lord II" "The Feral Lord III" "The Feral Lord IV" "The Flow of Energy" "The Fortune Teller's Collection" "The Four Feral Exiles" "The God of Misfortune" "The Hardened Armour" "The Hungering Swarm" "The Invader" "The King and the Brambles" "The Lost Maps" "The Lost Undying" "The Nest" "The Plaguemaw I" "The Plaguemaw II" "The Plaguemaw III" "The Plaguemaw IV" "The Prison Guard" "The Queen's Vaults" "The Scout" "The Sharpened Blade" "The Singular Spirit" "The Snuffed Flame" "The Sword King's Passion" "The Trembling Earth" "The Unbreathing Queen I" "The Unbreathing Queen II" "The Unbreathing Queen III" "The Unbreathing Queen IV" "The Undead Brutes" "The Vanguard" "The Warmongers I" "The Warmongers II" "The Warmongers IV" "The Wealthy Exile" "Touched by the Wind" "Unbearable Whispers I" "Unbearable Whispers II" "Unbearable Whispers III" "Unbearable Whispers IV" "Waiting in Ambush" "Winter's Mournful Melodies" "Greed's Folly" "Dance of Steel" "The Dreaded Rhoa" "Burning Dread" "The Storm Spire" "Black Devotion" "Trapped in the Tower" "End of the Light" "Sun's Punishment" "Cold Greed" "The Fall of an Empire" "Crimson Hues" "Blinding Light" "Faith Exhumed"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -860,7 +860,7 @@ Show
 ##### Tier 6
 Show
     Class Currency
-    BaseType == "Obscured Delirium Orb" "Fragmented Delirium Orb" "Portentous Delirium Orb" "Cartographer's Delirium Orb" "Abyssal Delirium Orb" "Singular Delirium Orb" "Primal Delirium Orb" "Decadent Delirium Orb"
+    BaseType == "Obscured Delirium Orb" "Fragmented Delirium Orb" "Portentous Delirium Orb" "Cartographer's Delirium Orb" "Abyssal Delirium Orb" "Singular Delirium Orb" "Primal Delirium Orb"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 28 236 4 215 # Green
@@ -875,57 +875,6 @@ Show
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
-    PlayAlertSound 9 1
-    PlayEffect None
-
-#####################################################################################################################
-##### 12000 Perandus coins - not tracked by poe.ninja.
-
-#### Tier 1
-
-Show #5c
-    StackSize >= 5000
-    BaseType "Perandus"
-    SetFontSize 42
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 28 236 4 215 # Green
-    PlayAlertSound 9 300
-    PlayEffect None
-    MinimapIcon 2 Green Hexagon
-
-Show #1c
-    StackSize >= 1000
-    BaseType "Perandus"
-    SetFontSize 42
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 255 255 0 215 # Yellow
-    PlayAlertSound 9 1
-    PlayEffect None
-
-Show #.5c
-    StackSize >= 500
-    BaseType "Perandus"
-    SetFontSize 42
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 244 92 36 230 # Orange
-    PlayAlertSound 9 1
-    PlayEffect None
-
-Show #.2c
-    StackSize >= 200
-    BaseType "Perandus"
-    SetFontSize 39
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 187 28 28 210 # Red
-    PlayAlertSound 9 1
-    PlayEffect None
-
-Show #.1c
-    StackSize >= 1
-    BaseType "Perandus"
-    SetFontSize 39
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 82 51 7 220 # Brown
     PlayAlertSound 9 1
     PlayEffect None
 
