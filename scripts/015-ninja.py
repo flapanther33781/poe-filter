@@ -19,7 +19,8 @@ strCSVout = os.path.join(sys.path[0], "z015_compiled.csv")
 
 def func_get_league():
     strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
-    global league_name
+    strLeagueList = os.path.join(sys.path[0], "00_league_list.txt")
+    global league_name, maps_for_league
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -41,6 +42,23 @@ def func_get_league():
                 print ("league_name is " + league_name)
             else:
                 print ("league_name not in 00_user_settings.txt")
+
+    # We need to get the Softcore Challenge League to get pricing info on league maps
+    # because poe.ninja only tracks maps from PAST legues in their "Standard" league data.
+    with open(strLeagueList, 'r') as f2:
+        maps_for_league = ""
+        for line in f2:
+            if "|3 " in line:
+                maps_for_league = (line.split("|3 ")[1])
+                maps_for_league = (maps_for_league.split("|4 ")[0])
+                maps_for_league = maps_for_league.strip()
+        if maps_for_league == "":
+            maps_for_league = "Standard"
+            print("00_league_list.txt was not filled properly. We're either between leagues or poe.ninja's having some error.")
+            print("We'll move forward only getting maps for Standard league.  League maps will be error-pink but it's better than failing here.")
+
+    #print(maps_for_league)
+    #time.sleep(10)
 
 def func_init():
     global csv_writer
@@ -273,8 +291,8 @@ dictURLS = {
     'watch' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Watchstone&language=en',
     # Keeping these separate in the list because these must reference the latest league
     # If not then we get results of maps from all past leagues
-    'map' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=Map',
-    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=' + league_name + '&type=BlightedMap',
+    'map' : 'https://poe.ninja/api/data/ItemOverview?league=' + maps_for_league + '&type=Map',
+    'blight' : 'https://poe.ninja/api/data/ItemOverview?league=' + maps_for_league + '&type=BlightedMap',
 
     # Can't do anything with this right now.
     # 'ench' : 'https://poe.ninja/api/data/itemoverview?league=' + league_name + '&type=HelmetEnchant'

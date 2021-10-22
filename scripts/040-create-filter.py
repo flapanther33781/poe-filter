@@ -112,8 +112,8 @@ def func_init():
                     booShowNM6S = True
                 else:
                     booShowNM6S = False
-            if "Show Normal/Magic 5-socket items: " in line:
-                booShowNM5S = (line.split("Show Normal/Magic 5-socket items: ")[1])
+            if "Show Normal/Magic 5-link items: " in line:
+                booShowNM5S = (line.split("Show Normal/Magic 5-link items: ")[1])
                 #print ("booShowNM5S is " + booShowNM5S)
                 if "True" in booShowNM5S:
                     booShowNM5S = True
@@ -542,21 +542,11 @@ def func_static_intro():
         write_obj.write("    PlayAlertSound 10 300\n")
         write_obj.write("    PlayEffect Purple\n")
         write_obj.write("    MinimapIcon 0 Purple Cross\n")
-        write_obj.write("Show\n")
-        write_obj.write("    Sockets = 6\n")
-        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("    Rarity Rare\n")
-        write_obj.write("    SetFontSize 45\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
-        write_obj.write("    PlayAlertSound 10 300\n")
-        write_obj.write("    PlayEffect Purple\n")
-        write_obj.write("    MinimapIcon 0 Purple Triangle\n")
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
         write_obj.write("    Sockets = 6\n")
         write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
         write_obj.write("    Rarity Rare\n")
-        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetFontSize 45\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 102 0 102 255     # BACKGROUNDCOLOR PURPLE\n")
         write_obj.write("    PlayAlertSound 10 300\n")
@@ -616,7 +606,7 @@ def func_static_intro():
             write_obj.write("    DisableDropSound True\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10500 4L and 2x2\n")
-        write_obj.write("##### I only want LinkedSockets = 4 if Unique, or Rare and 2x2.\n")
+        write_obj.write("##### I only want LinkedSockets = 4 if Rare and 2x2.  Uniques caught elsewhere.\n")
         write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
         write_obj.write("##### I know 4L doesn't add much to the value, but 99.9999% are trash anyway,\n")
         write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
@@ -635,7 +625,7 @@ def func_static_intro():
         write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10600 3L and 1x3\n")
-        write_obj.write("##### I only want Rare 3L items if 1x3.\n")
+        write_obj.write("##### I only want Rare 3L items if Rare and 1x3.  Uniques caught elsewhere.\n")
         write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
         write_obj.write("##### I know 3L doesn't add much to the value, but 99.9999% are trash anyway,\n")
         write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
@@ -1284,9 +1274,20 @@ def func_cluster():
         write_obj.write("    MinimapIcon 1 Cyan Pentagon\n")
 
         write_obj.write("Show # T3\n")
+        write_obj.write("    BaseType \"Large Cluster Jewel\"\n")
+        write_obj.write("    ItemLevel >= 82\n")
+        write_obj.write("    EnchantmentPassiveNum = 12 # Used by some int stacking and minion builds.\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 132 211 250 255 # Cyan\n")
+        write_obj.write("    PlayAlertSound 6 300\n")
+        write_obj.write("    PlayEffect Cyan\n")
+        write_obj.write("    MinimapIcon 1 Cyan Pentagon\n")
+
+        write_obj.write("Show # T3\n")
         write_obj.write("    BaseType \"Medium Cluster Jewel\"\n")
         write_obj.write("    ItemLevel >= 84\n")
-        write_obj.write("    EnchantmentPassiveNum 4\n")
+        write_obj.write("    EnchantmentPassiveNum <= 5\n")
         write_obj.write("    SetFontSize 42\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 132 211 250 255 # Cyan\n")
@@ -10189,12 +10190,14 @@ print('Done!  Completed filter file name: ' + strTEMPout)
 # Might be able to use these for identified items.
 # func_ench() 
 
-# Work on GUI - allow reset button to apply changes onscreen
-# Work on GUI - Add buttons to second tab
-# Work on GUI - Select league
-# Are talismans working correctly?
+#Pending questions yet to be answered:
+#
+# Should I add checkboxes to hide all fractured items?
+# Not sure what to do (if anything) about bases that are so valuable they're worth picking up even if magic (currently being hidden).  May be worth it in Standard, may not be worth it in league.
 
-# Stretch goal: Crafting Recipes
+# Stretch goal: Crafting Recipes - partially done!
 # Stretch goal: include filtering identified items by # of T1 mods, T2 mods, etc.
-# Stretch goal: hide items where maxvalue < strGrayCutoff
+# Work on GUI - allow reset button to apply changes onscreen
 
+# 3.16 new items: https://www.pathofexile.com/forum/view-thread/3187476/page
+# poe.ninja may add a column or variant for UberBlightedMap, need to check
