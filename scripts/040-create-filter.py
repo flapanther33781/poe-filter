@@ -1344,59 +1344,6 @@ def func_stacks():
         # Create section
         write_obj.write("\n")
         write_obj.write("#####################################################################################################################\n")
-        write_obj.write("##### 12000 Perandus coins - not tracked by poe.ninja.\n")
-        write_obj.write("\n")
-        write_obj.write("#### Tier 1\n")
-        write_obj.write("\n")
-        write_obj.write("Show #5c\n")
-        write_obj.write("    StackSize >= 5000\n")
-        write_obj.write("    BaseType \"Perandus\"\n")
-        write_obj.write("    SetFontSize 42\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
-        write_obj.write("    PlayAlertSound 9 300\n")
-        write_obj.write("    PlayEffect None\n")
-        write_obj.write("    MinimapIcon 2 Green Hexagon\n")
-        write_obj.write("\n")
-        write_obj.write("Show #1c\n")
-        write_obj.write("    StackSize >= 1000\n")
-        write_obj.write("    BaseType \"Perandus\"\n")
-        write_obj.write("    SetFontSize 42\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
-        write_obj.write("    PlayAlertSound 9 1\n")
-        write_obj.write("    PlayEffect None\n")
-        write_obj.write("\n")
-        write_obj.write("Show #.5c\n")
-        write_obj.write("    StackSize >= 500\n")
-        write_obj.write("    BaseType \"Perandus\"\n")
-        write_obj.write("    SetFontSize 42\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 244 92 36 230 # Orange\n")
-        write_obj.write("    PlayAlertSound 9 1\n")
-        write_obj.write("    PlayEffect None\n")
-        write_obj.write("\n")
-        write_obj.write("Show #.2c\n")
-        write_obj.write("    StackSize >= 200\n")
-        write_obj.write("    BaseType \"Perandus\"\n")
-        write_obj.write("    SetFontSize 39\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 187 28 28 210 # Red\n")
-        write_obj.write("    PlayAlertSound 9 1\n")
-        write_obj.write("    PlayEffect None\n")
-        write_obj.write("\n")
-        write_obj.write("Show #.1c\n")
-        write_obj.write("    StackSize >= 1\n")
-        write_obj.write("    BaseType \"Perandus\"\n")
-        write_obj.write("    SetFontSize 39\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 82 51 7 220 # Brown\n")
-        write_obj.write("    PlayAlertSound 9 1\n")
-        write_obj.write("    PlayEffect None\n")
-
-        # Create section
-        write_obj.write("\n")
-        write_obj.write("#####################################################################################################################\n")
         write_obj.write("##### 12100 Expedition items\n")
         write_obj.write("##### Stacksize 20+ first, then 10+. Singles handled under currency.\n")
         write_obj.write("##### Will try to automate stacksizes later.\n")
@@ -2997,7 +2944,7 @@ def func_normal_maps():
                             str_PlayEffect = row[16]
                             str_MinimapIcon = row[17]
                 
-                            if str_category == "map" and str_variant == "Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "map" and "Gen-" in str_variant  and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize
@@ -3095,7 +3042,7 @@ def func_blight_maps_2():
                             str_PlayEffect = row[16]
                             str_MinimapIcon = row[17]
                 
-                            if str_category == "blight" and str_variant == "Gen-11" and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "blight" and "Gen-" in str_variant and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize
