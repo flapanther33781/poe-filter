@@ -15,7 +15,7 @@ def initialize():
     print("called")
     # Set defaults
     with open(in_filename, 'w') as f:
-        f.write("patch_number: 3.15\n")         # We're setting defaults here. We can't use a variable. User will have to change or update.
+        f.write("patch_number: 3.16\n")         # We're setting defaults here. We can't use a variable. User will have to change or update.
         f.write("league_name: 1 Standard\n")
         f.write("t1value: 100\n")
         f.write("t2value: 50\n")
