@@ -124,7 +124,7 @@ def assign_icon(str_Category, str_strTier):
         str_MinimapIcon = "Hexagon"
 
     # Maps
-    if str_Category == "map" or str_Category == "umap" or str_Category == "repmap" or str_Category == "clus" or str_Category == "arts" or str_Category == "deli" or str_Category == "blight" or str_Category == "inv" or str_Category == "vial" or str_Category == "watch":
+    if str_Category == "map" or str_Category == "umap" or str_Category == "repmap" or str_Category == "clus" or str_Category == "arts" or str_Category == "deli" or str_Category == "blight" or str_Category == "inv" or str_Category == "vial" or str_Category == "watch" or str_Category == "ubermap" or str_Category == "scourgemap":
         str_MinimapIcon = "Pentagon"
 
     # Uniques

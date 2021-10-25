@@ -213,14 +213,42 @@ def func_other(category, URL):
                     if "Maelström" in item["baseType"]:
                         item["baseType"] = item["baseType"].replace("Maelström", "Maelstrom")
 
-            row = [category]
+            # Move UberBlightedMap and Scourged maps to their own categories
+            if (category == "map" or category == "blight") and "Blight-ravaged" in item["name"]:
+                #print()
+                #print(item)
+                #print()
+                #time.sleep(5)
+                row = ["ubermap"]
+                item["name"] = item["name"].replace("Blight-ravaged ", "")
+                item["baseType"] = item["baseType"].replace("Blight-ravaged ", "")
+                #print()
+                #print(item)
+                #print()
+                #time.sleep(5)
+            elif (category == "map" or category == "blight") and "Scourged" in item["name"]:
+                #print()
+                #print(item)
+                #print()
+                #time.sleep(5)
+                row = ["scourgemap"]
+                item["name"] = item["name"].replace("Scourged ", "")
+                item["baseType"] = item["baseType"].replace("Scourged ", "")
+                #print()
+                #print(item)
+                #print()
+                #time.sleep(5)
+            else:
+                row = [category]
+
+
             row.append(item["name"])
             if "baseType" in item: row.append(item["baseType"])
             else: row.append("")
             ############# If it has a variant, then append ' otherwise Excel converts to date when opened
             ############# EXCEPT if it's a map or blight map, in which case don't append the ` and remove the leading comma
             if "variant" in item:
-                if category == "map" or category == "blight":
+                if category == "map" or category == "blight" or category == "scourgemap":
                     item["variant"] = item["variant"].replace(", ", "")
                     row.append(item["variant"])
                 else:

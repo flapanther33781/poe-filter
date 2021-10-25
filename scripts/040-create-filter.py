@@ -3204,6 +3204,172 @@ def func_blight_maps():
                 write_obj.write("\n")
     print ("Blight Map section complete.")
 
+def func_ubermaps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 13350 Upber-Blighted Maps\n")
+        write_obj.write("#####\n")
+
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
+        for i in range (1,12):
+            booHIDE = False
+            if i > strOverallStrictness:
+                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
+
+            LineToWrite = ""
+            with open(strCSVin, 'r') as read_obj:
+                # Create a csv.reader object from the input file object
+                csv_reader = reader(read_obj)
+                for row in csv_reader:
+                    if row[10] != "chaosEquivalent":
+                        str_category = row[0]
+                        str_baseType = row[2]
+                        str_mapTier = row[7]
+                        if row[12] != "":
+                            str_Tier = row[12]
+                        else:
+                            str_Tier = row[11]
+                        str_SetFontSize = row[13]
+                        str_PlayAlertSound = row[14]
+                        str_SetBackgroundColor = row[15]
+                        str_PlayEffect = row[16]
+                        str_MinimapIcon = row[17]
+
+                        if int(str_Tier) == i and str_category == "ubermap":
+                            LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                            FontSizeToWrite = str_SetFontSize
+                            BackgroundColorToWrite = str_SetBackgroundColor
+                            AlertSoundToWrite = str_PlayAlertSound
+                            EffectToWrite = str_PlayEffect
+                            IconToWrite = str_MinimapIcon
+
+            if LineToWrite != "":
+                str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
+                str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
+                str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
+                write_obj.write("\n")
+                write_obj.write("##### Tier "+str(i)+"\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
+                    write_obj.write("    DisableDropSound True\n")
+                write_obj.write("    Class Maps\n")
+                write_obj.write("    UberBlightedMap True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                if str_PlayAlertSound != "":
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                if EffectToWrite != "":
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
+                if IconToWrite != "" and booHIDE == False:
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+                write_obj.write("\n")
+    print ("Uber-Blighted Map section complete.")
+
+def func_scourgemaps():
+    global strOverallStrictness
+    global strRareCutoff
+    global booShowT11
+    global strGrayCutoff
+    global booShowNM6S
+    global booShowNM5S
+
+    # Open the input_file in read mode and output_file in write mode
+    with open(strTEMPout, 'a', newline='') as write_obj:
+
+        # Create a csv.writer object from the output file object
+        txt_writer = writer(write_obj)
+
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("################################################################################################################\n")
+        write_obj.write("##### 13360 Scourge Maps\n")
+        write_obj.write("#####\n")
+
+        print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
+        for i in range (1,12):
+            booHIDE = False
+            if i > strOverallStrictness:
+                booHIDE = True
+            if (booShowT11 == True) and (i == 11):
+                booHIDE = False
+
+            LineToWrite = ""
+            with open(strCSVin, 'r') as read_obj:
+                # Create a csv.reader object from the input file object
+                csv_reader = reader(read_obj)
+                for row in csv_reader:
+                    if row[10] != "chaosEquivalent":
+                        str_category = row[0]
+                        str_baseType = row[2]
+                        str_mapTier = row[7]
+                        if row[12] != "":
+                            str_Tier = row[12]
+                        else:
+                            str_Tier = row[11]
+                        str_SetFontSize = row[13]
+                        str_PlayAlertSound = row[14]
+                        str_SetBackgroundColor = row[15]
+                        str_PlayEffect = row[16]
+                        str_MinimapIcon = row[17]
+
+                        if int(str_Tier) == i and str_category == "scourgemap":
+                            LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                            FontSizeToWrite = str_SetFontSize
+                            BackgroundColorToWrite = str_SetBackgroundColor
+                            AlertSoundToWrite = str_PlayAlertSound
+                            EffectToWrite = str_PlayEffect
+                            IconToWrite = str_MinimapIcon
+
+            if LineToWrite != "":
+                str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
+                str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
+                str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
+                write_obj.write("\n")
+                write_obj.write("##### Tier "+str(i)+"\n")
+                if booHIDE == False:
+                    print("Showing Tier "+str(i))
+                    write_obj.write("Show\n")
+                if booHIDE == True:
+                    print("Hiding Tier "+str(i))
+                    write_obj.write("Hide\n")
+                    write_obj.write("    DisableDropSound True\n")
+                write_obj.write("    Class Maps\n")
+                write_obj.write("    Scourged True\n")
+                write_obj.write("    BaseType =="+LineToWrite+"\n")
+                write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                write_obj.write("    SetTextColor 0 0 0 255\n")
+                write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                if str_PlayAlertSound != "":
+                    write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                if EffectToWrite != "":
+                    write_obj.write("    PlayEffect "+EffectToWrite+"\n")
+                if IconToWrite != "" and booHIDE == False:
+                    write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+                write_obj.write("\n")
+    print ("Unique Map section complete.")
+
 def func_umaps():
     global strOverallStrictness
     global strRareCutoff
@@ -10061,6 +10227,8 @@ func_replica_uacc() # replicas only, can't recognize relics yet
 # Replica maps are in the replica section, which must stay above this section.
 # Unique maps above normal, blighted/influenced maps next
 func_replica_umap() # replicas only, can't recognize relics yet
+func_ubermaps()
+func_scourgemaps()
 func_umaps()
 func_blight_maps_2() ##################################################################### need to filter based on map tier like other maps
 func_influenced_maps()
