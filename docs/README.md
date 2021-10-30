@@ -134,7 +134,7 @@ This is really only relevant for the challenge leagues, and specifically, only r
 
 #### What does the "Enforce 3L/4L" checkbox do?
 
-This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  At league start you'll have no currency, and one of the best ways to start getting some is to identify and then sell Rare gear to vendors (assuming it's not something you can use or sell).  As you get farther into the game you may want to limit how many Rare items the loot filter shows. The slider for ilvl may get you what you want, but it also may not.  Checking this checkbox will only show 1x3 items or 2x2 items if they have the maximum number of links possible (3 and 4, respectively).
+This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  At league start you'll have no currency, and one of the best ways to start getting some is to identify and then sell Rare gear to vendors (assuming it's not something you can use or sell).  As you get farther into the game you may want to limit how many Rare items the loot filter shows. The slider for ilvl may get you what you want, but it also may not.  Checking this checkbox will only show 1x3 items or 2x2 items if they have the maximum number of links possible (3 and 4, respectively) as another way to limit what the filter shows.  Typically 3L/4L on an item does not add much to its value, it's just an arbitrary thing we can do to limit what gets through the filter.
 
 #### What if I want to manually override/edit the filter?
 
