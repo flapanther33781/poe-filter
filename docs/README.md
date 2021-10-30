@@ -128,6 +128,14 @@ This has been disabled for now.  It was mainly a feel-good thing, but may have b
 
 This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  Checking this box will show all Flasks, Rings, Belts, Amulets, Jewels, Gems, and Magic or Rare items that are smaller than 6 or 8 inventory slots.  These can all be listed for 1 alt or 1 alch at league start.  People will need them for recipes.  Vendor anything that doesn't sell within an hour or two.  These items will have a red background and the minimap icon will be a Red Raindrop.  
 
+#### What does the "Hide Corrupted" checkbox do?
+
+This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  At league start you'll have no currency, and one of the best ways to start getting some is to identify and then sell Rare gear to vendors (assuming it's not something you can use or sell).  Corrupted gear is good for this because it always drops identified, so you don't have to waste Scrolls of Wisdom on them.  Also, you also may want to put corrupted items into the Scourge cauldron rather than risk bricking otherwise good items.  As you get farther into the game you may want to hide corrupted items, however this checkbox will not hide corrupted gems, nor 5L or 6L items (which could be valuable).
+
+#### What does the "Enforce 3L/4L" checkbox do?
+
+This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  At league start you'll have no currency, and one of the best ways to start getting some is to identify and then sell Rare gear to vendors (assuming it's not something you can use or sell).  As you get farther into the game you may want to limit how many Rare items the loot filter shows. The slider for ilvl may get you what you want, but it also may not.  Checking this checkbox will only show 1x3 items or 2x2 items if they have the maximum number of links possible (3 and 4, respectively).
+
 #### What if I want to manually override/edit the filter?
 
 I explain how to do manual overrides in the video at the top of this page, please watch that.  Or, if you want a link to the exact timestamp: https://youtu.be/-kXiwg55DLI?t=479  If you feel like you can't do what you want with my tool (even with the CSV override method) then either open a feature request via Github, or maybe you're ready to graduate to using FilterBlade or StupidFatHobbit's filters.  I did say my tool's not meant to replace theirs.
