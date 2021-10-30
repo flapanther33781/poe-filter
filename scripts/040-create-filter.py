@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr, strEnforce34
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -169,6 +169,13 @@ def func_init():
                     strHideCorr = True
                 else:
                     strHideCorr = False
+            if "Enforce 3L/4L: " in line:
+                strEnforce34 = (line.split(": ")[1])
+                #print ("strEnforce34 is " + strEnforce34)
+                if "True" in strEnforce34:
+                    strEnforce34 = True
+                else:
+                    strEnforce34 = False
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
     #strLeague = "3.15 (Expedition)"
@@ -180,20 +187,21 @@ def func_init():
     #strBoostButton = False
 
     header00 = str("##### Super Simple Loot Filter for League: " + patch_number + " "+league_name+" - updated: "+str(current_time)+"\n")
-    header02 = str("##### strOverallStrictness :" + str(strOverallStrictness)+"\n")
-    header03 = str("##### strRareStrictness :" + str(strRareStrictness)+"\n")
-    header04 = str("##### booShowT11 :" + str(booShowT11)+"\n")
-    header05 = str("##### booShowNM6S :" + str(booShowNM6S)+"\n")
-    header06 = str("##### booShowNM5S :" + str(booShowNM5S)+"\n")
-    header07 = str("##### strBoostButton :" + str(strBoostButton)+"\n")
-    header08 = str("##### strRareCutoff :" + str(strRareCutoff)+"\n")
-    header09 = str("##### strGrayCutoff :" + str(strGrayCutoff)+"\n")
-    header10 = str("##### booInvert :" + str(booInvert)+"\n")
-    header11 = str("##### strChaosRec :" + str(strChaosRec)+"\n")
-    header12 = str("##### strExaltRec :" + str(strExaltRec)+"\n")
-    header13 = str("##### strChromRec :" + str(strChromRec)+"\n")
-    header14 = str("##### strMiscRec :" + str(strMiscRec)+"\n")
-    header15 = str("##### strHideCorr :" + str(strHideCorr)+"\n")
+    header02 = str("##### strOverallStrictness: " + str(strOverallStrictness)+"\n")
+    header03 = str("##### strRareStrictness: " + str(strRareStrictness)+"\n")
+    header04 = str("##### booShowT11: " + str(booShowT11)+"\n")
+    header05 = str("##### booShowNM6S: " + str(booShowNM6S)+"\n")
+    header06 = str("##### booShowNM5S: " + str(booShowNM5S)+"\n")
+    header07 = str("##### strBoostButton: " + str(strBoostButton)+"\n")
+    header08 = str("##### strRareCutoff: " + str(strRareCutoff)+"\n")
+    header09 = str("##### strGrayCutoff: " + str(strGrayCutoff)+"\n")
+    header10 = str("##### booInvert: " + str(booInvert)+"\n")
+    header11 = str("##### strChaosRec: " + str(strChaosRec)+"\n")
+    header12 = str("##### strExaltRec: " + str(strExaltRec)+"\n")
+    header13 = str("##### strChromRec: " + str(strChromRec)+"\n")
+    header14 = str("##### strMiscRec: " + str(strMiscRec)+"\n")
+    header15 = str("##### strHideCorr: " + str(strHideCorr)+"\n")
+    header16 = str("##### strEnforce34: " + str(strEnforce34)+"\n")
     print(header02)
     print(header03)
     print(header04)
@@ -208,6 +216,7 @@ def func_init():
     print(header13)
     print(header14)
     print(header15)
+    print(header16)
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -261,6 +270,7 @@ def func_init():
         write_obj.write(header13)
         write_obj.write(header14)
         write_obj.write(header15)
+        write_obj.write(header16)
         write_obj.write("#####\n")
         write_obj.write(strSuggested_Name)
         write_obj.write("#===============================================================================================================\n")
@@ -615,7 +625,8 @@ def func_static_intro():
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
         write_obj.write("    Rarity Rare\n")
         write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("    LinkedSockets = 4\n")
+        if strEnforce34 == True:
+            write_obj.write("    LinkedSockets = 4\n")
         write_obj.write("    Width = 2\n")
         write_obj.write("    Height = 2\n")
         write_obj.write("    SetFontSize 40\n")
@@ -635,7 +646,8 @@ def func_static_intro():
         write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
         write_obj.write("    Rarity Rare\n")
         write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
-        write_obj.write("    LinkedSockets = 3\n")
+        if strEnforce34 == True:
+            write_obj.write("    LinkedSockets = 3\n")
         write_obj.write("    Width = 1\n")
         write_obj.write("    Height = 3\n")
         write_obj.write("    SetFontSize 40\n")
@@ -10315,4 +10327,7 @@ print('Done!  Completed filter file name: ' + strTEMPout)
 # Work on GUI - allow reset button to apply changes onscreen
 
 # 3.16 new items: https://www.pathofexile.com/forum/view-thread/3187476/page
-# poe.ninja may add a column or variant for UberBlightedMap, need to check
+# poe.ninja may add a column or variant for UberBlightedMap or Scourged, need to check
+
+# This is the offical GGG page about item filters. They added new tags in 3.16, may do so again later.
+# https://www.pathofexile.com/item-filter/about
