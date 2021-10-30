@@ -137,10 +137,11 @@ def func_currency(category, URL):
         if category == "curr":
             row = [category,"Chaos Orb","","","","","","","","","1","","","","","","",""]
             csv_writer.writerow(row)
-            row = [category,"Instilling Orb","","","","","","","","","1","","","","","","",""]
-            csv_writer.writerow(row)
-            row = [category,"Enkindling Orb","","","","","","","","","1","","","","","","",""]
-            csv_writer.writerow(row)
+            # These are now showing up
+            #row = [category,"Instilling Orb","","","","","","","","","1","","","","","","",""]
+            #csv_writer.writerow(row)
+            #row = [category,"Enkindling Orb","","","","","","","","","1","","","","","","",""]
+            #csv_writer.writerow(row)
 
         # Have to manually add these shards???
         if category == "curr":
