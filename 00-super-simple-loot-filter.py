@@ -51,11 +51,12 @@ def initialize():
         f.write("Chromium Recipe: True\n")
         f.write("Misc Recipes: True\n")
         f.write("Hide Corrupted: False\n")
+        f.write("Enforce 3L/4L: False\n")
 
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -206,6 +207,10 @@ def load_values():
                 booHideCorr = (line.split("Hide Corrupted: ")[1])
                 booHideCorr = booHideCorr.strip()
                 #print ("booHideCorr is " + booHideCorr)
+            if "Enforce 3L/4L: " in line:
+                booEnforce34 = (line.split("Enforce 3L/4L: ")[1])
+                booEnforce34 = booEnforce34.strip()
+                #print ("booEnforce34 is " + booEnforce34)
 
     # Swap 0/1 Boolean values for True/False
     # I probably shouldn't do this but I like seeing True/False in the settings txt file.
@@ -259,10 +264,15 @@ def load_values():
     if booHideCorr == "False":
         booHideCorr = "0"
 
+    if booEnforce34 == "True":
+        booEnforce34 = "1"
+    if booEnforce34 == "False":
+        booEnforce34 = "0"
+
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34
 
     # Get entererd values
     t1value = e13.get()
@@ -304,6 +314,7 @@ def save_values():
     booChromRec = str(ChromRecButton.get())
     booMiscRec = str(MiscRecButton.get())
     booHideCorr = str(HideCorrButton.get())
+    booEnforce34 = str(Enforce34Button.get())
 
     print ("Patch Number is " + str(e50b.get()))
     print ("Selected League is " + str(league_selection.get()))
@@ -320,6 +331,7 @@ def save_values():
     print ("booChromRec is " + str(ChromRecButton.get()))
     print ("booMiscRec is " + str(MiscRecButton.get()))
     print ("booHideCorr is " + str(HideCorrButton.get()))
+    print ("booEnforce34 is " + str(Enforce34Button.get()))
 
     print ("t1value is " + str(t1value))
     print ("t2value is " + str(t2value))
@@ -399,6 +411,11 @@ def save_values():
     if booHideCorr == "0":
         booHideCorr = "False"
 
+    if booEnforce34 == "1":
+        booEnforce34 = "True"
+    if booEnforce34 == "0":
+        booEnforce34 = "False"
+
     with open(in_filename, 'w') as f:
         f.write("patch_number: " + patch_number + "\n")
         f.write("league_name: " + selected_league + "\n")
@@ -437,6 +454,7 @@ def save_values():
         f.write("Chromium Recipe: " + booChromRec + "\n")
         f.write("Misc Recipes: " + booMiscRec + "\n")
         f.write("Hide Corrupted: " + booHideCorr + "\n")
+        f.write("Enforce 3L/4L: " + booEnforce34 + "\n")
 
 def on_tab_selected(event):
     selected_tab = event.widget.select()
@@ -1074,6 +1092,17 @@ label064.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 HideCorrButton = StringVar(value=booHideCorr)
 buttonblah9 = Checkbutton(frame064, justify='left', text="Y/N", variable=HideCorrButton)
 buttonblah9.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+# Enforce34 Checkbox
+frame065 = Frame(frame06, width=100, height=50, borderwidth=5)
+frame065.grid(row=2, column=1, padx=5, pady=1, sticky = W)
+
+label065 = Label(frame065, justify='left', text="Enforce 3L/4L?\r  (non-special rares)")
+label065.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+Enforce34Button = StringVar(value=booEnforce34)
+buttonblah10 = Checkbutton(frame065, justify='left', text="Y/N", variable=Enforce34Button)
+buttonblah10.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
 tab_parent.pack(expand=1, fill='both')
 
