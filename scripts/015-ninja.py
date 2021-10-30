@@ -132,6 +132,8 @@ def func_currency(category, URL):
         if category == "curr":
             row = [category,"Scroll of Wisdom","","","","","","","","",".1","","","","","","",""]
             csv_writer.writerow(row)
+            row = [category,"Portal Scroll","","","","","","","","",".1","","","","","","",""]
+            csv_writer.writerow(row)
 
         # Have to manually add these orbs???
         if category == "curr":
