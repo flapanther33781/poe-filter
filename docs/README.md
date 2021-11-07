@@ -1,6 +1,31 @@
 # Fla_Panther's Super Simple Loot Filter
 
-### Desktop tool for generating Path of Exile filters using current poe.ninja prices.
+#### Current Features:
+
+- Creates filters based on pricing from poe.ninja
+- Universal tiering (tiers set for all items in one place)
+- Adjustable strictness (set strictness for all items in one place)
+- Manual overrides possible, and tool respects overrides for later filters
+- Filter non-special bases by value, ilvl, or both
+- Further filter non-special 1x3 and 2x2 bases by enforcing max links
+- Option to hide corrupted (other than 5L, 6L, or gems)
+- Filter uniques differently based on the value of their basetypes
+- Borders indicate item size (# of inventory slots) to assist with loot choices
+- Swap for colored font on black background
+- Possibly useable by Magic Find players as well (see FAQ).
+- A few recipes (chaos, exalt, chromium, etc)
+
+#### Planned features:
+
+- Filter out low-confidence items (based on poe.ninja confidence)
+- Filter currency based on stack sizes
+- Allow custom color selections
+
+#### Features I'm considering:
+
+- Additional vendor recipies, with checkboxes (handy for challenges - some added)
+- Separate sliders for gems/cards/prophs/etc.
+- Include filtering identified items by # of T1 mods, T2 mods, etc
 
 #### New League update: Please check the FAQ below for notes on my plans for adding the new items for this league.
 
@@ -174,16 +199,6 @@ Three reasons:
 
 I've looked at some of GGG's notes about what items they've added to the game, but from my perspective the first thing I need to do is find out is whether or not poe.ninja has added them to the list of items they're tracking.  If they have then I might only need to update my link to the items they've added, and after that they should automatically be included into the filters this tool generates.  But there will be some delay and process between getting their new items and then finding out if there are any they've left out.  If you know of some item that my tool is not handling, please open an issue in the Issues section at the top of the Github page to let me know to look at it.
 
-#### What additional features will you be adding to this tool?
+#### Can this tool be used by Magic Find players?
 
-I'm open to suggestions, but right now on my list I have:
-
-- A white border to indicate items 1x1/1x2/2x1 items, and red border for 1x3 and 2x2. (ADDED.)
-- A way to select which league you want pricing for. (ADDED.)
-- Create auto-override for Fated Unique items (Uniques that have an itemized prophecy) (ADDED, need to add checkbox.)
-- All vendor recipies, with checkboxes (handy for challenges - some added)
-- A button to hide some corrupt items - (ADDED. For MF, to limit Corrupted Rare 5L or 6S set the non-influenced ilvl Rare slider to ilvl 100.)
-- Separate sliders for gems/cards/prophs/etc - not sure if I should do this.
-- Additional color themes (suggestions welcome!)
-- Find a way to include poe.ninja confidence ratings to filter out overpriced items with low-confidence
-- Include filtering identified items by # of T1 mods, T2 mods, etc
+With some tweaks, yes.  In the files section I've included a checklist of all the statically-assigned items in the fitler and given notes/instructions on how you can modify them to suit your needs.  One thing to note is that until I learn how to filter out low-confidence items from poe.ninja I am only showing non-special (non-veiled, influenced, etc) bases if they're rare.  So you could be missing some normal/magic bases that might be worth something, but if you're not targeting those you should be fine.  Once I learn how to filter out low-confidence items I will note that in the features section above and modify this note here.
