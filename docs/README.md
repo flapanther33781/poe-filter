@@ -62,7 +62,7 @@ I may add other schemes later, but for now this is what it looks like:
 
 #### If you see a color you know what its value is, regardless of what kind of item it is. No need to memorize multiple tier profiles, nor combinations of background and border colors. By default these are the tiers and map icon assignments:
 
-![Tab1](https://user-images.githubusercontent.com/26362032/136266861-f8254bcc-0bb4-4e4d-8b91-c5139b1aa25c.PNG)
+![Tab1](https://user-images.githubusercontent.com/26362032/141643781-40b0ff9c-1be0-428a-a42d-a23f592b044a.png)
 
 On the second tab are some additional settings (scroll down for a FAQ with more info on what these do/mean):
 
@@ -70,7 +70,7 @@ On the second tab are some additional settings (scroll down for a FAQ with more 
 
 On the third tab are more settings (scroll down for a FAQ with more info on what these do/mean):
 
-![Tab3](https://user-images.githubusercontent.com/26362032/138002151-f604c138-0533-4d8e-bc42-e54f8e6f571e.png)
+![Tab3](https://user-images.githubusercontent.com/26362032/141643800-fab8eb7f-ceb7-4d48-b476-41e1b06ce64b.png)
 
 ## What is the status of this project?
 
@@ -102,6 +102,10 @@ This is used in the naming of the filter file (scroll down in the FAQ to see mor
 Clicking the `Generate Filter` button automatically saves the settings to `00_user_settings.txt`, then kicks off the filter generation scripts, which reads the settings from that file.  If you change the filter settings but close out of the program without Saving your settings or Generating a new file THEN YOUR CHANGES WILL NOT BE SAVED.
 
 Also, the `Reset Settings` button will reset the `00_user_settings.txt` file but I don't yet know how to get Python to reset the checkboxes and sliders.  So for right now, if you want to reset the settings, click that button, then close the program and reopen it.  Then the checkboxes and sliders will be where they should be.
+
+#### What does the poe.ninja confidence slider do?
+
+poe.ninja has three confidence ratings: high (10+ of the items are listed for sale), medium (5-10 of the items are listed for sale), and low (fewer than 5 of the items are listed for sale).  If more of an item are listed the more confident you can be that the price listed is probably accurate. If only a few are listed then it's harder to be confident of the listed price because of things like overpriced dump tabs (which there's nothing wrong with), or people underpricing things to try to scam by price-fixing (which there is something wrong with).
 
 #### What does the Overall Filter Strictness slider do?
 
@@ -160,6 +164,10 @@ This is really only relevant for the challenge leagues, and specifically, only r
 #### What does the "Enforce 3L/4L" checkbox do?
 
 This is really only relevant for the challenge leagues, and specifically, only relelvant at league start, from Acts 1-10.  At league start you'll have no currency, and one of the best ways to start getting some is to identify and then sell Rare gear to vendors (assuming it's not something you can use or sell).  As you get farther into the game you may want to limit how many Rare items the loot filter shows. The slider for ilvl may get you what you want, but it also may not.  Checking this checkbox will only show 1x3 items or 2x2 items if they have the maximum number of links possible (3 and 4, respectively) as another way to limit what the filter shows.  Typically 3L/4L on an item does not add much to its value, it's just an arbitrary thing we can do to limit what gets through the filter.
+
+#### What do the radio buttons for Junk Gem Quality do?
+
+The tool does a lot of filtering for gems because there are a lot of possible variations (level, quality, corruption, etc). If a gem doesn't meet any of those criteria it would normally be hidden, but gems with quality (that are otherwise not worth showing) can be traded in for Gemcutter's Prisms (check out Vendor Recipes).  Also, as a personal note ... I keep 1 tab where I list nothing but gems for 1c each.  These are gems I picked up off the ground, without leveling them at all.  Last league I made 200c-300c just from selling those.  Even if you only sell two or three a day, it adds up.
 
 #### What if I want to manually override/edit the filter?
 
