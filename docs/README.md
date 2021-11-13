@@ -2,18 +2,20 @@
 
 #### Current Features:
 
-- Creates filters based on pricing from poe.ninja
+- Creates filters based on pricing from poe.ninja (now includes confidence!)
 - Universal tiering (tiers set for all items in one place)
-- Adjustable strictness (set strictness for all items in one place)
+- Adjustable strictness - for all item classes, in one place!
+- Borders indicate item size (# of inventory slots) to assist with loot choices
 - Manual overrides possible, and tool respects overrides for later filters
 - Filter non-special bases by value, ilvl, or both
 - Further filter non-special 1x3 and 2x2 bases by enforcing max links
 - Option to hide corrupted (other than 5L, 6L, or gems)
 - Filter uniques differently based on the value of their basetypes
-- Borders indicate item size (# of inventory slots) to assist with loot choices
 - Swap for colored font on black background
-- Possibly useable by Magic Find players as well (see FAQ).
 - A few recipes (chaos, exalt, chromium, etc)
+- Semi-adjustable gem quality for GCP recipes
+- Drop sounds: more expensive items use the heavier sounds!!!
+- Possibly useable by Magic Find players as well (see FAQ).
 
 #### Planned features:
 
