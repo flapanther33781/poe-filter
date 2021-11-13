@@ -72,6 +72,7 @@ def compare(cat_test, dict_searchstring1, dict_searchstring2, str_Override):
                 # row["chaosEquivalent"]
                 # row["Tier"]
                 # row["Override"]
+                # row["count"]
                 # row["SetFontSize"]
                 # row["PlayAlertSound"]
                 # row["SetBackgroundColor"]
@@ -227,8 +228,8 @@ def do_work():
                         #print("Override was true. returnval was empty, so it doesn't exist in str30temp. Honestly, we should never see this.")
                         #print("But if we did, this is what I'm about to save to str30new:")
                         # I don't know why I have to do this, but I do.
-                        #rowtoprint = row["category"] + "," + row["name"] + "," + row["baseType"] + "," + row["variant"] + "," + row["levelRequired"] + "," + row["links"] + "," + row["corrupted"] + "," + row["mapTier"] + "," + row["gemLevel"] + "," + row["gemQuality"] + "," + row["chaosEquivalent"] + "," + row["Tier"] + "," + row["Override"] + "," + row["SetFontSize"] + "," + row["PlayAlertSound"] + "," + row["SetBackgroundColor"] + "," + row["PlayEffect"] + "," + row["MinimapIcon"] + "," + row["hasdup"] + "," + row["minval"] + "," + row["maxval"]
-                        dict_rowtoprint = {"category": [],"name": [],"baseType": [],"variant": [],"levelRequired": [],"links": [],"corrupted": [],"mapTier": [],"gemLevel": [],"gemQuality": [],"chaosEquivalent": [],"Tier": [],"Override": [],"SetFontSize": [],"PlayAlertSound": [],"SetBackgroundColor": [],"PlayEffect": [],"MinimapIcon": [],"hasdup": [],"minval": [],"maxval": []}
+                        #rowtoprint = row["category"] + "," + row["name"] + "," + row["baseType"] + "," + row["variant"] + "," + row["levelRequired"] + "," + row["links"] + "," + row["corrupted"] + "," + row["mapTier"] + "," + row["gemLevel"] + "," + row["gemQuality"] + "," + row["chaosEquivalent"] + "," + row["Tier"] + "," + row["Override"] + "," + row["count"] + "," + row["SetFontSize"] + "," + row["PlayAlertSound"] + "," + row["SetBackgroundColor"] + "," + row["PlayEffect"] + "," + row["MinimapIcon"] + "," + row["hasdup"] + "," + row["minval"] + "," + row["maxval"]
+                        dict_rowtoprint = {"category": [],"name": [],"baseType": [],"variant": [],"levelRequired": [],"links": [],"corrupted": [],"mapTier": [],"gemLevel": [],"gemQuality": [],"chaosEquivalent": [],"Tier": [],"Override": [],"count": [],"SetFontSize": [],"PlayAlertSound": [],"SetBackgroundColor": [],"PlayEffect": [],"MinimapIcon": [],"hasdup": [],"minval": [],"maxval": []}
 
                         dict_rowtoprint["category"].append(row["category"])
                         dict_rowtoprint["name"].append(row["name"])
@@ -243,6 +244,7 @@ def do_work():
                         dict_rowtoprint["chaosEquivalent"].append(row["chaosEquivalent"])
                         dict_rowtoprint["Tier"].append(row["Tier"])
                         dict_rowtoprint["Override"].append(row["Override"])
+                        dict_rowtoprint["count"].append(row["count"])
                         dict_rowtoprint["SetFontSize"].append(row["SetFontSize"])
                         dict_rowtoprint["PlayAlertSound"].append(row["PlayAlertSound"])
                         dict_rowtoprint["SetBackgroundColor"].append(row["SetBackgroundColor"])
@@ -294,7 +296,7 @@ def do_work():
                     #print("Override field empty, so we never called the function.  Just write this row to str30new.")
                     #print("I am writing:")
                     # I don't know why I have to do this, but I do.
-                    dict_rowtoprint = {"category": [],"name": [],"baseType": [],"variant": [],"levelRequired": [],"links": [],"corrupted": [],"mapTier": [],"gemLevel": [],"gemQuality": [],"chaosEquivalent": [],"Tier": [],"Override": [],"SetFontSize": [],"PlayAlertSound": [],"SetBackgroundColor": [],"PlayEffect": [],"MinimapIcon": [],"hasdup": [],"minval": [],"maxval": []}
+                    dict_rowtoprint = {"category": [],"name": [],"baseType": [],"variant": [],"levelRequired": [],"links": [],"corrupted": [],"mapTier": [],"gemLevel": [],"gemQuality": [],"chaosEquivalent": [],"Tier": [],"Override": [],"count": [],"SetFontSize": [],"PlayAlertSound": [],"SetBackgroundColor": [],"PlayEffect": [],"MinimapIcon": [],"hasdup": [],"minval": [],"maxval": []}
 
                     dict_rowtoprint["category"].append(row["category"])
                     dict_rowtoprint["name"].append(row["name"])
@@ -317,8 +319,8 @@ def do_work():
                     dict_rowtoprint["hasdup"].append(row["hasdup"])
                     dict_rowtoprint["minval"].append(row["minval"])
                     dict_rowtoprint["maxval"].append(row["maxval"])
-                    #rowtoprint = row["category"] + "," + row["name"] + "," + row["baseType"] + "," + row["variant"] + "," + row["levelRequired"] + "," + row["links"] + "," + row["corrupted"] + "," + row["mapTier"] + "," + row["gemLevel"] + "," + row["gemQuality"] + "," + row["chaosEquivalent"] + "," + row["Tier"] + "," + row["Override"] + "," + row["SetFontSize"] + "," + row["PlayAlertSound"] + "," + row["SetBackgroundColor"] + "," + row["PlayEffect"] + "," + row["MinimapIcon"] + "," + row["hasdup"] + "," + row["minval"] + "," + row["maxval"]
-                    #rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
+                    #rowtoprint = row["category"] + "," + row["name"] + "," + row["baseType"] + "," + row["variant"] + "," + row["levelRequired"] + "," + row["links"] + "," + row["corrupted"] + "," + row["mapTier"] + "," + row["gemLevel"] + "," + row["gemQuality"] + "," + row["chaosEquivalent"] + "," + row["Tier"] + "," + row["Override"] + "," + row["count"] + "," + row["SetFontSize"] + "," + row["PlayAlertSound"] + "," + row["SetBackgroundColor"] + "," + row["PlayEffect"] + "," + row["MinimapIcon"] + "," + row["hasdup"] + "," + row["minval"] + "," + row["maxval"]
+                    #rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_Count + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
                     print(dict_rowtoprint)
                     print()
                     #time.sleep(10)

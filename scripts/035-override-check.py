@@ -72,6 +72,7 @@ def compare(searchstring1, searchstring2, str_Override):
                 # row["chaosEquivalent"]
                 # row["Tier"]
                 # row["Override"]
+                # row["count"]
                 # row["SetFontSize"]
                 # row["PlayAlertSound"]
                 # row["SetBackgroundColor"]
@@ -148,6 +149,7 @@ def do_work():
                     output_row.append("chaosEquivalent")
                     output_row.append("Tier")
                     output_row.append("str_Override")
+                    output_row.append("count")
                     output_row.append("SetFontSize")
                     output_row.append("PlayAlertSound")
                     output_row.append("SetBackgroundColor")
@@ -176,14 +178,15 @@ def do_work():
                 str_chaosEquivalent = row[10]
                 str_Tier = row[11]
                 str_Override = row[12]
-                str_SetFontSize = row[13]
-                str_PlayAlertSound = row[14]
-                str_SetBackgroundColor = row[15]
-                str_PlayEffect = row[16]
-                str_MinimapIcon = row[17]
-                str_hasdup = row[18]
-                str_minval = row[19]
-                str_maxval = row[20]
+                str_Count = row[13]
+                str_SetFontSize = row[14]
+                str_PlayAlertSound = row[15]
+                str_SetBackgroundColor = row[16]
+                str_PlayEffect = row[17]
+                str_MinimapIcon = row[18]
+                str_hasdup = row[19]
+                str_minval = row[20]
+                str_maxval = row[21]
 
                 if str_category != "category":
                     if str_Override != "":
@@ -243,7 +246,7 @@ def do_work():
                             #print("Override was true. returnval was empty, so it doesn't exist in str30temp. Honestly, we should never see this.")
                             #print("But if we did, this is what I'm about to save to str30new:")
                             # I don't know why I have to do this, but I do.
-                            rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
+                            rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_Count + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
                             #print(rowtoprint)
                             #time.sleep(10)
                             #print(returnval)
@@ -291,7 +294,7 @@ def do_work():
                         #print("Override field empty, so we never called the function.  Just write this row to str30new.")
                         #print("I am writing:")
                         # I don't know why I have to do this, but I do.
-                        rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
+                        rowtoprint = str_category + "," + str_name + "," + str_baseType + "," + str_variant + "," + str_levelRequired + "," + str_links + "," + str_corrupted + "," + str_mapTier + "," + str_gemLevel + "," + str_gemQuality + "," + str_chaosEquivalent + "," + str_Tier + "," + str_Override + "," + str_Count + "," + str_SetFontSize + "," + str_PlayAlertSound + "," + str_SetBackgroundColor + "," + str_PlayEffect + "," + str_MinimapIcon + "," + str_hasdup + "," + str_minval + "," + str_maxval + "\r\n"
                         #print(rowtoprint)
                         #time.sleep(10)
                         #print()

@@ -18,7 +18,7 @@ out_filename = os.path.join(sys.path[0], "z025_dups_removed.csv")
 
 all_cats = ["anomalous","base","beast","blight","clus","curr","deli","div","divergent","ess","foss","frag","gem","inc","inv","map","oil","phantasmal","prop","res","scar","uacc","uarm","ufla","ujew","umap","uweap","vial","watch"]
 
-all_cols = ["category","name","baseType","variant","levelRequired","links","corrupted","mapTier","gemLevel","gemQuality","chaosEquivalent","Tier","Override","SetFontSize","PlayAlertSound","SetBackgroundColor","PlayEffect","MinimapIcon","hasdup","minval","maxval"]
+all_cols = ["category","name","baseType","variant","levelRequired","links","corrupted","mapTier","gemLevel","gemQuality","chaosEquivalent","Tier","Override","count","SetFontSize","PlayAlertSound","SetBackgroundColor","PlayEffect","MinimapIcon","hasdup","minval","maxval"]
 
 col_dict = {
     "anomalous" : ["category","name","variant","gemLevel","gemQuality"],

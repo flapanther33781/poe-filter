@@ -52,7 +52,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr, strEnforce34
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr, strEnforce34, strConfidence, strGemQual
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -176,9 +176,32 @@ def func_init():
                     strEnforce34 = True
                 else:
                     strEnforce34 = False
+            if "Confidence: " in line:
+                print ("Confidence found")
+                strConfidence = (line.split(": ")[1])
+                strConfidence = strConfidence.strip()
+                #print ("strConfidence is " + strConfidence)
+                if strConfidence == "1":
+                    strConfidence = 10
+                    print ("Count will need to be equal to *",strConfidence,"* or higher to be listed in this filter.")
+                if strConfidence == "2":
+                    strConfidence = 5
+                    print ("Count will need to be equal to *",strConfidence,"* or higher to be listed in this filter.")
+                if strConfidence == "3":
+                    strConfidence = 0
+                    print ("Count will need to be equal to *",strConfidence,"* or higher to be listed in this filter.")
+            if "Junk Gem Quality: " in line:
+                strGemQual = (line.split(": ")[1])
+                if "10" in strGemQual:
+                    strGemQual = "10"
+                elif "20" in strGemQual:
+                    strGemQual = "20"
+                else:
+                    strGemQual = "0"
+                #print ("strGemQual is " + strGemQual)
 
     # Hard setting these right now so I can play with the GUI without screwing up my filters
-    #strLeague = "3.15 (Expedition)"
+    #strLeague = "3.16 (Scourge)"
     #strOverallStrictness = 9
     #strRareCutoff = 76
     #strGrayCutoff = 5
@@ -202,6 +225,8 @@ def func_init():
     header14 = str("##### strMiscRec: " + str(strMiscRec)+"\n")
     header15 = str("##### strHideCorr: " + str(strHideCorr)+"\n")
     header16 = str("##### strEnforce34: " + str(strEnforce34)+"\n")
+    header17 = str("##### strConfidence: " + str(strConfidence)+"\n")
+    header18 = str("##### strGemQual: " + str(strGemQual)+"\n")
     print(header02)
     print(header03)
     print(header04)
@@ -217,6 +242,8 @@ def func_init():
     print(header14)
     print(header15)
     print(header16)
+    print(header17)
+    print(header18)
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
@@ -271,6 +298,8 @@ def func_init():
         write_obj.write(header14)
         write_obj.write(header15)
         write_obj.write(header16)
+        write_obj.write(header17)
+        write_obj.write(header18)
         write_obj.write("#####\n")
         write_obj.write(strSuggested_Name)
         write_obj.write("#===============================================================================================================\n")
@@ -752,6 +781,7 @@ def func_frag():
                 csv_reader = reader(read_obj)
                 for row in csv_reader:
                     if row[10] != "chaosEquivalent":
+                        #print(row)
                         str_category = row[0]
                         str_name = row[1]
                         if "&&" in str_name:
@@ -760,13 +790,14 @@ def func_frag():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and (str_category == "frag" or str_category == "scar"):
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and (str_category == "frag" or str_category == "scar"):
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -835,13 +866,14 @@ def func_curr():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "curr":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "curr":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -917,13 +949,14 @@ def func_oil():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "oil":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "oil":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1001,13 +1034,14 @@ def func_heist():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "heist" and str_levelRequired == "84":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "heist" and str_levelRequired == "84":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             LevelToWrite = str_levelRequired
                             FontSizeToWrite = str_SetFontSize
@@ -1067,13 +1101,14 @@ def func_heist():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "heist" and str_levelRequired == "83":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "heist" and str_levelRequired == "83":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             LevelToWrite = str_levelRequired
                             FontSizeToWrite = str_SetFontSize
@@ -1133,13 +1168,14 @@ def func_heist():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "heist" and str_levelRequired == "81":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "heist" and str_levelRequired == "81":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             LevelToWrite = str_levelRequired
                             FontSizeToWrite = str_SetFontSize
@@ -1199,13 +1235,14 @@ def func_heist():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "heist" and str_levelRequired == "":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "heist" and str_levelRequired == "":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1530,13 +1567,14 @@ def func_other():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "other":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "other":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1684,13 +1722,14 @@ def func_watch():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "watch":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "watch":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1779,13 +1818,14 @@ def func_deli():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "deli":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "deli":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1861,13 +1901,14 @@ def func_inv():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "inv":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "inv":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -1943,13 +1984,14 @@ def func_vial():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "vial":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "vial":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2025,13 +2067,14 @@ def func_inc():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "inc":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "inc":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2107,13 +2150,14 @@ def func_scar():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "scar":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "scar":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2189,13 +2233,14 @@ def func_foss():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and (str_category == "foss" or str_category == "res"):
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and (str_category == "foss" or str_category == "res"):
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2271,13 +2316,14 @@ def func_ess():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "ess":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "ess":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2353,13 +2399,14 @@ def func_div():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "div":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "div":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2435,14 +2482,15 @@ def func_prop():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
                         # These are now drop-disabled but poe.ninja still tracks them.
-                        if int(str_Tier) == i and str_category == "prop":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "prop":
                             if "The Emperor's Trove" in str_name:
                                 LineToWrite = ""
                             elif "A Gracious Master" in str_name:
@@ -2529,13 +2577,14 @@ def func_beast():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "beast":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "beast":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2609,13 +2658,14 @@ def func_replica_umap():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if str_category == "repmap" and int(str_Tier) == i:
+                        if str_category == "repmap" and int(str_Count) >= int(strConfidence) and int(str_Tier) == i:
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2691,13 +2741,14 @@ def func_replica_ujew():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if str_category == "repjew" and int(str_Tier) == i:
+                        if str_category == "repjew" and int(str_Count) >= int(strConfidence) and int(str_Tier) == i:
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2773,13 +2824,14 @@ def func_replica_ufla():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if str_category == "repfla" and int(str_Tier) == i:
+                        if str_category == "repfla" and int(str_Count) >= int(strConfidence) and int(str_Tier) == i:
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2855,13 +2907,14 @@ def func_replica_uacc():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if str_category == "repacc" and int(str_Tier) == i:
+                        if str_category == "repacc" and int(str_Count) >= int(strConfidence) and int(str_Tier) == i:
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -2950,13 +3003,14 @@ def func_normal_maps():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
                 
-                            if str_category == "map" and "Gen-" in str_variant  and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "map" and int(str_Count) >= int(strConfidence) and "Gen-" in str_variant  and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize
@@ -3048,13 +3102,14 @@ def func_blight_maps_2():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
                 
-                            if str_category == "blight" and "Gen-" in str_variant and int(str_mapTier) == k and int(str_Tier) == i:
+                            if str_category == "blight" and int(str_Count) >= int(strConfidence) and "Gen-" in str_variant and int(str_mapTier) == k and int(str_Tier) == i:
                                 LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                 MapTierToWrite = str_mapTier
                                 FontSizeToWrite = str_SetFontSize
@@ -3173,13 +3228,14 @@ def func_blight_maps():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "blight":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "blight":
                             str_baseType = str_baseType.replace("Blighted ", "")
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
@@ -3257,13 +3313,14 @@ def func_ubermaps():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "ubermap":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "ubermap":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3340,13 +3397,14 @@ def func_scourgemaps():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "scourgemap":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "scourgemap":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3429,13 +3487,14 @@ def func_umaps():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "umap":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "umap":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3511,13 +3570,14 @@ def func_ujew():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "ujew":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "ujew":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3592,13 +3652,14 @@ def func_ufla():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "ufla":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "ufla":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3673,13 +3734,14 @@ def func_uacc():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uacc":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uacc":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3756,13 +3818,14 @@ def func_ench():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "ench":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "ench":
                             LineToWrite = LineToWrite + ' "' + str_name + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -3847,13 +3910,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -3906,13 +3970,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -3965,13 +4030,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4024,13 +4090,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4083,13 +4150,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4142,13 +4210,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4201,13 +4270,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4260,13 +4330,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4318,13 +4389,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4376,13 +4448,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4434,13 +4507,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4492,13 +4566,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4550,13 +4625,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4608,13 +4684,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4666,13 +4743,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4724,13 +4802,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4783,13 +4862,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4842,13 +4922,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4901,13 +4982,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -4959,13 +5041,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5017,13 +5100,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5075,13 +5159,14 @@ def func_normal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "gem":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "gem":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5114,6 +5199,18 @@ def func_normal_gems():
                         write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                     if IconToWrite != "" and booHIDE == False:
                         write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+
+        # Create section
+        write_obj.write("\n")
+        write_obj.write("##### All other Junk Gems\n")
+        write_obj.write("#####\n")
+        write_obj.write("    Class Gems\n")
+        write_obj.write("    GemLevel >= "+strGemQual+"\n")
+        write_obj.write("    SetFontSize 36\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
+        write_obj.write("    PlayAlertSound 9 1\n")
+        write_obj.write("    PlayEffect None\n")
 
     print ("Normal Gems section complete.")
 
@@ -5168,13 +5265,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5227,13 +5325,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5286,13 +5385,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5345,13 +5445,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5404,13 +5505,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5463,13 +5565,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5522,13 +5625,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5581,13 +5685,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5639,13 +5744,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5697,13 +5803,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5755,13 +5862,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5813,13 +5921,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5871,13 +5980,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5929,13 +6039,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -5987,13 +6098,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6045,13 +6157,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6104,13 +6217,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6163,13 +6277,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6221,13 +6336,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6279,13 +6395,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6337,13 +6454,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6395,13 +6513,14 @@ def func_divergent_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "divergent":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "divergent":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6488,13 +6607,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6547,13 +6667,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6606,13 +6727,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6665,13 +6787,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6724,13 +6847,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6783,13 +6907,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6842,13 +6967,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6901,13 +7027,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -6959,13 +7086,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7017,13 +7145,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7075,13 +7204,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7133,13 +7263,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7191,13 +7322,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7249,13 +7381,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7307,13 +7440,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7365,13 +7499,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7424,13 +7559,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7483,13 +7619,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7541,13 +7678,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7599,13 +7737,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7657,13 +7796,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7715,13 +7855,14 @@ def func_anomalous_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "anomalous":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "anomalous":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7808,13 +7949,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7867,13 +8009,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7926,13 +8069,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -7985,13 +8129,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8044,13 +8189,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8103,13 +8249,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8162,13 +8309,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8221,13 +8369,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8279,13 +8428,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8337,13 +8487,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8395,13 +8546,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8453,13 +8605,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8511,13 +8664,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8569,13 +8723,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8627,13 +8782,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8685,13 +8841,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8744,13 +8901,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8803,13 +8961,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8861,13 +9020,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8920,13 +9080,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -8978,13 +9139,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -9037,13 +9199,14 @@ def func_phantasmal_gems():
                                 str_Tier = row[12]
                             else:
                                 str_Tier = row[11]
-                            str_SetFontSize = row[13]
-                            str_PlayAlertSound = row[14]
-                            str_SetBackgroundColor = row[15]
-                            str_PlayEffect = row[16]
-                            str_MinimapIcon = row[17]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
 
-                            if int(str_Tier) == i and str_category == "phantasmal":
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "phantasmal":
                                 LineToWrite = LineToWrite + ' "' + str_name + '"'
                                 FontSizeToWrite = str_SetFontSize
                                 BackgroundColorToWrite = str_SetBackgroundColor
@@ -9119,13 +9282,14 @@ def func_uweap_6():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uweap" and str_links == "6":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uweap" and str_links == "6":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9200,13 +9364,14 @@ def func_uweap_5():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uweap" and str_links == "5":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uweap" and str_links == "5":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9283,13 +9448,14 @@ def func_repweap_0():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "repweap" and str_links == "":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "repweap" and str_links == "":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9365,13 +9531,14 @@ def func_uweap_0():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uweap" and str_links == "":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uweap" and str_links == "":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9445,13 +9612,14 @@ def func_uarm_6():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uarm" and str_links == "6":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uarm" and str_links == "6":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9526,13 +9694,14 @@ def func_uarm_5():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uarm" and str_links == "5":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uarm" and str_links == "5":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9610,13 +9779,14 @@ def func_reparm_0():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "reparm" and str_links == "":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "reparm" and str_links == "":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9693,13 +9863,14 @@ def func_uarm_0():
                             str_Tier = row[12]
                         else:
                             str_Tier = row[11]
-                        str_SetFontSize = row[13]
-                        str_PlayAlertSound = row[14]
-                        str_SetBackgroundColor = row[15]
-                        str_PlayEffect = row[16]
-                        str_MinimapIcon = row[17]
+                        str_Count = row[13]
+                        str_SetFontSize = row[14]
+                        str_PlayAlertSound = row[15]
+                        str_SetBackgroundColor = row[16]
+                        str_PlayEffect = row[17]
+                        str_MinimapIcon = row[18]
 
-                        if int(str_Tier) == i and str_category == "uarm" and str_links == "":
+                        if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and str_category == "uarm" and str_links == "":
                             LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                             FontSizeToWrite = str_SetFontSize
                             BackgroundColorToWrite = str_SetBackgroundColor
@@ -9784,11 +9955,12 @@ def func_influenced():
                                     str_Tier = row[12]
                                 else:
                                     str_Tier = row[11]
-                                str_SetFontSize = row[13]
-                                str_PlayAlertSound = row[14]
-                                str_SetBackgroundColor = row[15]
-                                str_PlayEffect = row[16]
-                                str_MinimapIcon = row[17]
+                                str_Count = row[13]
+                                str_SetFontSize = row[14]
+                                str_PlayAlertSound = row[15]
+                                str_SetBackgroundColor = row[16]
+                                str_PlayEffect = row[17]
+                                str_MinimapIcon = row[18]
                                 #print()
                                 #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
                                 #print()
@@ -9797,7 +9969,7 @@ def func_influenced():
                                 #if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == strInfluence:
                                 #    print("Does ", str_variant, " match " , strInfluence, " ?")
                                 #    time.sleep(1)
-                                if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == strInfluence:
+                                if int(str_levelRequired) == k and int(str_Count) >= int(strConfidence) and int(str_Tier) == i and str_variant == strInfluence:
                                     LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                     #print (LineToWrite)
                                     #time.sleep(10)
@@ -9834,18 +10006,15 @@ def func_influenced():
                         if IconToWrite != "" and booHIDE == False:
                             write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
-        # All other influenced items caught here - commenting out for now because this includes low-level influenced items
-        # Do I still want to show these?  Could be useful for exalt shard recipies.  Maybe make a checkbox?
-        #write_obj.write("\n")
-        #write_obj.write("Show    # This will catch any influenced items not spelled out above.\n")
-        #write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
-        #write_obj.write("    SetFontSize 45\n")
-        #write_obj.write("    SetTextColor 255 0 255 255\n")
-        #write_obj.write("    SetBorderColor 255 0 255 255\n")
-        #write_obj.write("    SetBackgroundColor 150 50 150 255\n")
-        #write_obj.write("    PlayAlertSound 3 300\n")
-        #write_obj.write("    PlayEffect Pink\n")
-        #write_obj.write("    MinimapIcon 0 Pink Circle\n")
+        write_obj.write("\n")
+        write_obj.write("Show    # This will catch any influenced items not spelled out above.\n")
+        write_obj.write("    HasInfluence Shaper Elder Crusader Redeemer Hunter Warlord\n")
+        write_obj.write("    SetFontSize 42\n")
+        write_obj.write("    SetTextColor 0 0 0 255\n")
+        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
+        write_obj.write("    PlayAlertSound 8 300\n")
+        write_obj.write("    PlayEffect Green\n")
+        write_obj.write("    MinimapIcon 0 Green Kite\n")
 
     print ("Influenced section complete.")
 
@@ -9898,16 +10067,17 @@ def func_non_influenced():
                                     str_Tier = row[12]
                                 else:
                                     str_Tier = row[11]
-                                str_SetFontSize = row[13]
-                                str_PlayAlertSound = row[14]
-                                str_SetBackgroundColor = row[15]
-                                str_PlayEffect = row[16]
-                                str_MinimapIcon = row[17]
+                                str_Count = row[13]
+                                str_SetFontSize = row[14]
+                                str_PlayAlertSound = row[15]
+                                str_SetBackgroundColor = row[16]
+                                str_PlayEffect = row[17]
+                                str_MinimapIcon = row[18]
                                 #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
                                 #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
                                 #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
                 
-                                if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == "":
+                                if int(str_levelRequired) == k and int(str_Count) >= int(strConfidence) and int(str_Tier) == i and str_variant == "":
                                     LineToWrite = LineToWrite + ' "' + str_baseType + '"'
                                     FontSizeToWrite = str_SetFontSize
                                     BackgroundColorToWrite = str_SetBackgroundColor
@@ -9928,7 +10098,8 @@ def func_non_influenced():
                             print("Hiding Tier "+str(i))
                             write_obj.write("Hide\n")
                             write_obj.write("    DisableDropSound True\n")
-                        write_obj.write("    Rarity Rare\n")
+# Testing removing this now that I have the confidence thing set
+#                        write_obj.write("    Rarity Rare\n")
                         write_obj.write("    ItemLevel >= "+str(k)+"\n")
                         write_obj.write("    BaseType =="+LineToWrite+"\n")
                         write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")

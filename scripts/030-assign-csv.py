@@ -73,6 +73,7 @@ def func_init():
         output_row.append("chaosEquivalent")
         output_row.append("Tier")
         output_row.append("Override")
+        output_row.append("count")
         output_row.append("SetFontSize")
         output_row.append("PlayAlertSound")
         output_row.append("SetBackgroundColor")
@@ -250,14 +251,15 @@ with open(strCSVin, 'r') as read_obj, \
             str_chaosEquivalent = row[10]
             str_Tier = row[11]
             str_Override = row[12]
-            str_SetFontSize = row[13]
-            str_PlayAlertSound = row[14]
-            str_SetBackgroundColor = row[15]
-            str_PlayEffect = row[16]
-            str_MinimapIcon = row[17]
-            str_hasdup = row[18]
-            minval = row[19]
-            str_maxval = row[20]
+            str_Count = row[13]
+            str_SetFontSize = row[14]
+            str_PlayAlertSound = row[15]
+            str_SetBackgroundColor = row[16]
+            str_PlayEffect = row[17]
+            str_MinimapIcon = row[18]
+            str_hasdup = row[19]
+            minval = row[20]
+            str_maxval = row[21]
 
             # Assign the tier
             #if str_name == "Regal Shard":
@@ -283,6 +285,7 @@ with open(strCSVin, 'r') as read_obj, \
             output_row.append(str_chaosEquivalent)
             output_row.append(str_Tier)
             output_row.append(str_Override)
+            output_row.append(str_Count)
             output_row.append(str_SetFontSize)
             output_row.append(str_PlayAlertSound)
             output_row.append(str_SetBackgroundColor)

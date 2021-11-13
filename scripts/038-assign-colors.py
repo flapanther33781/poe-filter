@@ -40,6 +40,7 @@ def func_init():
         output_row.append("chaosEquivalent")
         output_row.append("Tier")
         output_row.append("Override")
+        output_row.append("count")
         output_row.append("SetFontSize")
         output_row.append("PlayAlertSound")
         output_row.append("SetBackgroundColor")
@@ -116,7 +117,7 @@ def assign_color(str_Tier):
         str_PlayEffect = "None"
     return str_SetFontSize, str_PlayAlertSound, str_SetBackgroundColor, str_PlayEffect
 
-def assign_icon(str_Category, str_strTier):
+def assign_icon(str_Category, str_variant, str_strTier):
     #print (str_Category)
     #print(str_Tier)
     # Currency
@@ -145,9 +146,13 @@ def assign_icon(str_Category, str_strTier):
     if str_Category == "oil" or str_Category == "div" or str_Category == "ess" or str_Category == "foss" or str_Category == "inc" or str_Category == "prop" or str_Category == "res":
         str_MinimapIcon = "Square"
 
-    # Rare gear
-    if str_Category == "base" or str_Category == "ench":
+    # non-Influenced Bases
+    if (str_Category == "base" or str_Category == "ench") and str_variant == "":
         str_MinimapIcon = "Triangle"
+
+    # Influenced Bases
+    if (str_Category == "base" or str_Category == "ench") and str_variant != "":
+        str_MinimapIcon = "Kite"
 
     # Gems
     if str_Category == "gem" or str_Category == "divergent" or str_Category == "anomalous" or str_Category == "phantasmal":
@@ -218,14 +223,15 @@ with open(strCSVin, 'r') as read_obj, \
                 str_Override = int(row[12])
             else:
                 str_Override = ""
-            str_SetFontSize = row[13]
-            str_PlayAlertSound = row[14]
-            str_SetBackgroundColor = row[15]
-            str_PlayEffect = row[16]
-            str_MinimapIcon = row[17]
-            str_hasdup = row[18]
-            str_minval = row[19]
-            str_maxval = row[20]
+            str_Count = row[13]
+            str_SetFontSize = row[14]
+            str_PlayAlertSound = row[15]
+            str_SetBackgroundColor = row[16]
+            str_PlayEffect = row[17]
+            str_MinimapIcon = row[18]
+            str_hasdup = row[19]
+            str_minval = row[20]
+            str_maxval = row[21]
 
             #if str_name == "Regal Shard":
             #    print ("Regal Shard found.")
@@ -244,7 +250,7 @@ with open(strCSVin, 'r') as read_obj, \
             str_PlayAlertSound = tempColor[1]
             str_SetBackgroundColor = tempColor[2]
             str_PlayEffect = tempColor[3]
-            str_MinimapIcon = assign_icon(str_Category, str_Tier)
+            str_MinimapIcon = assign_icon(str_Category, str_variant, str_Tier)
             str_MinimapIcon = assign_s_n_c(str_Tier)
 
             # Overwrite Color, Icon, size, and color - if str_Override != ""
@@ -255,7 +261,7 @@ with open(strCSVin, 'r') as read_obj, \
                 str_PlayAlertSound = tempColor[1]
                 str_SetBackgroundColor = tempColor[2]
                 str_PlayEffect = tempColor[3]
-                str_MinimapIcon = assign_icon(str_Category, str_Override)
+                str_MinimapIcon = assign_icon(str_Category, str_variant, str_Override)
                 str_MinimapIcon = assign_s_n_c(str_Override)
 
             # Create output row
@@ -272,6 +278,7 @@ with open(strCSVin, 'r') as read_obj, \
             output_row.append(str_chaosEquivalent)
             output_row.append(str_Tier)
             output_row.append(str_Override)
+            output_row.append(str_Count)
             output_row.append(str_SetFontSize)
             output_row.append(str_PlayAlertSound)
             output_row.append(str_SetBackgroundColor)
