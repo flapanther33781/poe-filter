@@ -52,7 +52,7 @@ def initialize():
         f.write("Misc Recipes: True\n")
         f.write("Hide Corrupted: False\n")
         f.write("Enforce 3L/4L: False\n")
-        f.write("Confidence: 2\n")
+        f.write("Confidence: 1\n")
         f.write("Junk Gem Quality: 0\n")
 
 def load_values():
@@ -920,7 +920,7 @@ row204.grid(row=2, column=0, padx=5, pady=1, sticky = W, columnspan = 4)
 frame401 = tk.Frame(frame2, relief=GROOVE, borderwidth=5)
 frame401.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-labe401 = Label(frame401, justify='left', text="poe.ninja confidence rating (2 is suggested):")
+labe401 = Label(frame401, justify='left', text="poe.ninja confidence rating (1 is suggested):")
 labe401.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
 ConSlider = Scale(frame401, from_=3, to=1, length=200, tickinterval=1, orient=HORIZONTAL)
