@@ -19,7 +19,6 @@
 
 #### Planned features:
 
-- Filter out low-confidence items (based on poe.ninja confidence)
 - Filter currency based on stack sizes
 - Allow custom color selections
 
