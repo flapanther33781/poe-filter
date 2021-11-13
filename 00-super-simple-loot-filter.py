@@ -52,11 +52,13 @@ def initialize():
         f.write("Misc Recipes: True\n")
         f.write("Hide Corrupted: False\n")
         f.write("Enforce 3L/4L: False\n")
+        f.write("Confidence: 2\n")
+        f.write("Junk Gem Quality: 0\n")
 
 def load_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34, strConfidence, strGemQual
 
     # Get settings in settings file
     with open(in_filename, 'r') as f:
@@ -211,6 +213,14 @@ def load_values():
                 booEnforce34 = (line.split("Enforce 3L/4L: ")[1])
                 booEnforce34 = booEnforce34.strip()
                 #print ("booEnforce34 is " + booEnforce34)
+            if "Confidence: " in line:
+                strConfidence = (line.split("Confidence: ")[1])
+                strConfidence = strConfidence.strip()
+                #print ("strConfidence is " + strConfidence)
+            if "Junk Gem Quality: " in line:
+                strGemQual = (line.split("Junk Gem Quality: ")[1])
+                strGemQual = strGemQual.strip()
+                #print ("strGemQual is " + strGemQual)
 
     # Swap 0/1 Boolean values for True/False
     # I probably shouldn't do this but I like seeing True/False in the settings txt file.
@@ -272,7 +282,7 @@ def load_values():
 def save_values():
     global patch_number, league_name, t1font, t1value, t2font, t2value, t3font, t3value, t4font, t4value, t5font, t5value, t6font, t6value, t7font, t7value, t8font, t8value, t9font, t9value, t10font, t11font
     global e12, e13, e22, e23, e32, e33, e42, e43, e52, e53, e62, e63, e72, e73, e82, e83, e92, e93, e102, e112
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34
+    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, boobuttonBB, booInvert, booChaosRec, booExaltRec, booChromRec, booMiscRec, booHideCorr, booEnforce34, strConfidence, strGemQual
 
     # Get entererd values
     t1value = e13.get()
@@ -297,7 +307,7 @@ def save_values():
     t10font = e102.get()
     t11font = e112.get()
 
-    patch_number = e50b.get()
+    patch_number = e200b.get()
     selected_league = league_selection.get()
 
     strOverallStrictness = str(slider1.get())
@@ -315,8 +325,10 @@ def save_values():
     booMiscRec = str(MiscRecButton.get())
     booHideCorr = str(HideCorrButton.get())
     booEnforce34 = str(Enforce34Button.get())
+    strConfidence = str(ConSlider.get())
+    strGemQual = str(LoadGemVal.get())
 
-    print ("Patch Number is " + str(e50b.get()))
+    print ("Patch Number is " + str(e200b.get()))
     print ("Selected League is " + str(league_selection.get()))
     print ("Overall Strictness is " + str(slider1.get()))
     print ("strRareCutoff is " + str(slider2.get()))
@@ -332,6 +344,8 @@ def save_values():
     print ("booMiscRec is " + str(MiscRecButton.get()))
     print ("booHideCorr is " + str(HideCorrButton.get()))
     print ("booEnforce34 is " + str(Enforce34Button.get()))
+    print ("strConfidence is " + str(ConSlider.get()))
+    print ("strGemQual is " + str(LoadGemVal.get()))
 
     print ("t1value is " + str(t1value))
     print ("t2value is " + str(t2value))
@@ -455,6 +469,8 @@ def save_values():
         f.write("Misc Recipes: " + booMiscRec + "\n")
         f.write("Hide Corrupted: " + booHideCorr + "\n")
         f.write("Enforce 3L/4L: " + booEnforce34 + "\n")
+        f.write("Confidence: " + strConfidence + "\n")
+        f.write("Junk Gem Quality: " + strGemQual + "\n")
 
 def on_tab_selected(event):
     selected_tab = event.widget.select()
@@ -863,39 +879,53 @@ Label(row40, justify='left', text='I STRONGLY advise you to NOT change the tiers
 frame2 = tk.Frame(tab1, relief=GROOVE, borderwidth=5)
 frame2.grid(row=40, column=0, padx=5, pady=1, sticky = W)
 
+frame200 = tk.Frame(frame2, relief=GROOVE, borderwidth=5)
+frame200.grid(row=0, column=0, padx=5, pady=1, sticky = W)
 
-row50a = tk.Label(frame2, justify='left', text="Patch #:")
-row50b = tk.Label(frame2, justify='left')
+row200a = tk.Label(frame200, justify='left', text="Patch #:")
+row200b = tk.Label(frame200, justify='left')
 
-e50b = StringVar(value=patch_number)
-entry50b = Entry(row50b, width=5, textvariable=e50b)
+e200b = StringVar(value=patch_number)
+entry200b = Entry(row200b, width=5, textvariable=e200b)
 
-row50a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
-row50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
-entry50b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+row200a.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+row200b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+entry200b.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-row50c = tk.Label(frame2, justify='left', text="Select League: ")
-row50c.grid(row=0, column=2, padx=5, pady=1, sticky = W)
+row200c = tk.Label(frame200, justify='left', text="Select League: ")
+row200c.grid(row=0, column=2, padx=5, pady=1, sticky = W)
 
-league_selection = StringVar(row50c)
+league_selection = StringVar(row200c)
 league_selection.set(league_name) # default value
-row50d = OptionMenu(frame2, league_selection, *league_list)
-row50d.grid(row=0, column=3, padx=5, pady=1, sticky = W)
+row200d = OptionMenu(frame200, league_selection, *league_list)
+row200d.grid(row=0, column=3, padx=5, pady=1, sticky = W)
 
-row51 = Frame(frame2)
-row51.grid(row=1, column=0, padx=5, pady=1, sticky = W)
-Button(row51, text='Save Settings', command=save_values).pack()
+row201 = Frame(frame200)
+row201.grid(row=1, column=0, padx=5, pady=1, sticky = W)
+Button(row201, text='Save Settings', command=save_values).pack()
 
-row52 = Frame(frame2)
-row52.grid(row=1, column=1, padx=5, pady=1, sticky = W)
-Button(row52, text='Reset Settings', command=reset_settings).pack()
+row202 = Frame(frame200)
+row202.grid(row=1, column=1, padx=5, pady=1, sticky = W)
+Button(row202, text='Reset Settings', command=reset_settings).pack()
 
-row53 = Frame(frame2)
-row53.grid(row=1, column=2, padx=5, pady=1, sticky = W)
-Button(row53, text='Generate Filter', command=generate_filter).pack()
+row203 = Frame(frame200)
+row203.grid(row=1, column=2, padx=5, pady=1, sticky = W)
+Button(row203, text='Generate Filter', command=generate_filter).pack()
 
-row54 = tk.Label(frame2, justify='left', text="See FAQ for important notes about these buttons.")
-row54.grid(row=2, column=0, padx=5, pady=1, sticky = W, columnspan = 4)
+row204 = tk.Label(frame200, justify='left', text="See FAQ for important notes about these buttons.")
+row204.grid(row=2, column=0, padx=5, pady=1, sticky = W, columnspan = 4)
+
+# === POE.NINJA CONFIDENCE === POE.NINJA CONFIDENCE === POE.NINJA CONFIDENCE
+
+frame401 = tk.Frame(frame2, relief=GROOVE, borderwidth=5)
+frame401.grid(row=0, column=1, padx=5, pady=1, sticky = W)
+
+labe401 = Label(frame401, justify='left', text="poe.ninja confidence rating (2 is suggested):")
+labe401.grid(row=0, column=0, padx=5, pady=1, sticky = W)
+
+ConSlider = Scale(frame401, from_=3, to=1, length=200, tickinterval=1, orient=HORIZONTAL)
+ConSlider.set(strConfidence)
+ConSlider.grid(row=1, column=0, padx=5, pady=1, sticky = W)
 
 # === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
 # === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO === WIDGETS FOR TAB TWO
@@ -1104,6 +1134,22 @@ Enforce34Button = StringVar(value=booEnforce34)
 buttonblah10 = Checkbutton(frame065, justify='left', text="Y/N", variable=Enforce34Button)
 buttonblah10.grid(row=0, column=1, padx=5, pady=1, sticky = W)
 
-tab_parent.pack(expand=1, fill='both')
+# === ROW 4 === ROW 4 === ROW 4 === ROW 4
 
+# Junk Gem Quality Radio buttons
+frame070 = Frame(frame06, width=100, height=50, borderwidth=5)
+frame070.grid(row=3, column=0, padx=5, pady=1, sticky = W)
+
+LoadGemVal = StringVar(value=strGemQual)
+GemRadio1 = Radiobutton(frame070, text="Gem Quality 0+ (league start)", variable=LoadGemVal, value=0)
+GemRadio1.pack(anchor = W)
+GemRadio2 = Radiobutton(frame070, text="Junk Gem Quality 10+", variable=LoadGemVal, value=10)
+GemRadio2.pack(anchor = W)
+GemRadio3 = Radiobutton(frame070, text="Junk Gem Quality 20+", variable=LoadGemVal, value=20)
+GemRadio3.pack(anchor = W)
+
+
+
+# End of tab stuff below this
+tab_parent.pack(expand=1, fill='both')
 form.mainloop()
