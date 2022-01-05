@@ -165,9 +165,9 @@ def assign_tier(str_chaosEquivalent, minval, str_maxval):
 
     # League Start Boost Button boosts tiers 10-5 up 4 levels
     # Brown items will become yellow, red will become orange, etc.
-    if strBoostButton == "True" and temp_tier > 4 and temp_tier < 11:
+    #if strBoostButton == "True" and temp_tier > 4 and temp_tier < 11:
         #print ("strBoostButton == ""True"" and temp_tier = ", temp_tier)
-        temp_tier = temp_tier - 4
+        #temp_tier = temp_tier - 4
         #print (temp_tier)
         #time.sleep(1)
 

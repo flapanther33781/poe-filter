@@ -20,10 +20,12 @@ strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
 strCSVin = os.path.join(sys.path[0], "z038_assigned-colors.csv")
 strCSVinOther = os.path.join(sys.path[0], "00_other.csv")
 strTEMPout = os.path.join(sys.path[0], "z_temp.filter")
+strCurrencyOther = os.path.join(sys.path[0], "00_currency_assigned.csv")
 
 current_time = datetime.now()
 arrInfluences = ["Crusader","Elder","Hunter","Redeemer","Shaper","Warlord"]
 arrDoubleInfluences = ["Crusader/Hunter","Crusader/Redeemer","Crusader/Warlord","Elder/Crusader","Elder/Hunter","Elder/Redeemer","Elder/Warlord","Redeemer/Hunter","Redeemer/Warlord","Shaper/Crusader","Shaper/Elder","Shaper/Elder/Crusader/Redeemer/Warlord/Hunter","Shaper/Hunter","Shaper/Redeemer","Shaper/Warlord","Warlord/Hunter"]
+arrStackSizes = ["300","200","100","50","40","30","20","10","5","4","3","2"]
 
 def func_get_league():
     strUserSettings = os.path.join(sys.path[0], "00_user_settings.txt")
@@ -52,7 +54,7 @@ def func_get_league():
                 #print ("league_name is " + league_name)
 
 def func_init():
-    global strOverallStrictness, strRareStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr, strEnforce34, strConfidence, strGemQual
+    global strOverallStrictness, strBaseStrictness, strRareCutoff, booShowT11, strGrayCutoff, booShowNM6S, booShowNM5S, strTEMPout, strBoostButton, subleague_num, booInvert, strChaosRec, strExaltRec, strChromRec, strMiscRec, strHideCorr, strEnforce34, strConfidence, strGemQual
 
     # Overwrite defaults if found in settings file
     with open(strUserSettings, 'r') as f:
@@ -86,10 +88,10 @@ def func_init():
                 strOverallStrictness = (line.split("Overall Strictness: ")[1])
                 strOverallStrictness = int(strOverallStrictness.strip())
                 #print ("strOverallStrictness is " + strOverallStrictness)
-            if "Rare Strictness: " in line:
-                strRareStrictness = (line.split("Rare Strictness: ")[1])
-                strRareStrictness = int(strRareStrictness.strip())
-                #print ("strRareStrictness is " + strRareStrictness)
+            if "Non-special Base Strictness: " in line:
+                strBaseStrictness = (line.split("Non-special Base Strictness: ")[1])
+                strBaseStrictness = int(strBaseStrictness.strip())
+                #print ("strBaseStrictness is " + strBaseStrictness)
             if "Non-special Rare cutoff: " in line:
                 strRareCutoff = (line.split("Non-special Rare cutoff: ")[1])
                 strRareCutoff = int(strRareCutoff.strip())
@@ -211,7 +213,7 @@ def func_init():
 
     header00 = str("##### Super Simple Loot Filter for League: " + patch_number + " "+league_name+" - updated: "+str(current_time)+"\n")
     header02 = str("##### strOverallStrictness: " + str(strOverallStrictness)+"\n")
-    header03 = str("##### strRareStrictness: " + str(strRareStrictness)+"\n")
+    header03 = str("##### strBaseStrictness: " + str(strBaseStrictness)+"\n")
     header04 = str("##### booShowT11: " + str(booShowT11)+"\n")
     header05 = str("##### booShowNM6S: " + str(booShowNM6S)+"\n")
     header06 = str("##### booShowNM5S: " + str(booShowNM5S)+"\n")
@@ -247,7 +249,7 @@ def func_init():
 
     # Have to do this stupid bullshit bceause swapping between types in Python is an absolute PAIN IN THE DICK.
     strTEMPout = patch_number + "-" + str(subleague_num) + "-" + str(strOverallStrictness) + "-"
-    strTEMPout = strTEMPout + str(strRareStrictness) + "-"
+    strTEMPout = strTEMPout + str(strBaseStrictness) + "-"
     if booShowT11 == True:
         strTEMPout = strTEMPout + "1-"
     else:
@@ -429,6 +431,7 @@ def func_init():
         write_obj.write("##### 14100 All Other Unique Armor (5L and 6L caught at the top of the filter)\n")
         write_obj.write("##### 14200 All Other Replica Weapons (5L and 6L caught at the top of the filter)\n")
         write_obj.write("##### 14300 All Other Unique Weapons (5L and 6L caught at the top of the filter)\n")
+        write_obj.write("##### 14350 Influenced bases\n")
         write_obj.write("##### 14400 Non-influenced bases\n")
         write_obj.write("##### 14500 Divergent Gems\n")
         write_obj.write("##### 14600 Anomalous Gems\n")
@@ -643,47 +646,47 @@ def func_static_intro():
             write_obj.write("    SetBorderColor 0 0 0 0\n")
             write_obj.write("    SetBackgroundColor 0 0 0 0\n")
             write_obj.write("    DisableDropSound True\n")
-        write_obj.write("################################################################################################################\n")
-        write_obj.write("##### 10500 4L and 2x2\n")
-        write_obj.write("##### I only want LinkedSockets = 4 if Rare and 2x2.  Uniques caught elsewhere.\n")
-        write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
-        write_obj.write("##### I know 4L doesn't add much to the value, but 99.9999% are trash anyway,\n")
-        write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
-        write_obj.write("##### identifying all of them.\n")
-        write_obj.write("\n")
-        write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("    Rarity Rare\n")
-        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
-        if strEnforce34 == True:
-            write_obj.write("    LinkedSockets = 4\n")
-        write_obj.write("    Width = 2\n")
-        write_obj.write("    Height = 2\n")
-        write_obj.write("    SetFontSize 40\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("    PlayAlertSound 8 300\n")
-        write_obj.write("    MinimapIcon 0 Green Triangle\n")
-        write_obj.write("################################################################################################################\n")
-        write_obj.write("##### 10600 3L and 1x3\n")
-        write_obj.write("##### I only want Rare 3L items if Rare and 1x3.  Uniques caught elsewhere.\n")
-        write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
-        write_obj.write("##### I know 3L doesn't add much to the value, but 99.9999% are trash anyway,\n")
-        write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
-        write_obj.write("##### identifying all of them.\n")
-        write_obj.write("##### This ilvl is adjustable in User Settings.\n")
-        write_obj.write("\n")
-        write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
-        write_obj.write("    Rarity Rare\n")
-        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
-        if strEnforce34 == True:
-            write_obj.write("    LinkedSockets = 3\n")
-        write_obj.write("    Width = 1\n")
-        write_obj.write("    Height = 3\n")
-        write_obj.write("    SetFontSize 40\n")
-        write_obj.write("    SetTextColor 0 0 0 255\n")
-        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
-        write_obj.write("    PlayAlertSound 8 300\n")
-        write_obj.write("    MinimapIcon 0 Green Triangle\n")
+#        write_obj.write("################################################################################################################\n")
+#        write_obj.write("##### 10500 4L and 2x2\n")
+#        write_obj.write("##### I only want LinkedSockets = 4 if Rare and 2x2.  Uniques caught elsewhere.\n")
+#        write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
+#        write_obj.write("##### I know 4L doesn't add much to the value, but 99.9999% are trash anyway,\n")
+#        write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
+#        write_obj.write("##### identifying all of them.\n")
+#        write_obj.write("\n")
+#        write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
+#        write_obj.write("    Rarity Rare\n")
+#        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+#        if strEnforce34 == True:
+#            write_obj.write("    LinkedSockets = 4\n")
+#        write_obj.write("    Width = 2\n")
+#        write_obj.write("    Height = 2\n")
+#        write_obj.write("    SetFontSize 40\n")
+#        write_obj.write("    SetTextColor 0 0 0 255\n")
+#        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
+#        write_obj.write("    PlayAlertSound 8 300\n")
+#        write_obj.write("    MinimapIcon 0 Green Triangle\n")
+#        write_obj.write("################################################################################################################\n")
+#        write_obj.write("##### 10600 3L and 1x3\n")
+#        write_obj.write("##### I only want Rare 3L items if Rare and 1x3.  Uniques caught elsewhere.\n")
+#        write_obj.write("##### For mapping the ilvl is adjustable for Rares.\n")
+#        write_obj.write("##### I know 3L doesn't add much to the value, but 99.9999% are trash anyway,\n")
+#        write_obj.write("##### so using ANY method to filter them is better than picking up and\n")
+#        write_obj.write("##### identifying all of them.\n")
+#        write_obj.write("##### This ilvl is adjustable in User Settings.\n")
+#        write_obj.write("\n")
+#        write_obj.write("Show                                    # This ilvl is adjustable in User Settings.\n")
+#        write_obj.write("    Rarity Rare\n")
+#        write_obj.write("    ItemLevel >= "+str(strRareCutoff)+"\n")
+#        if strEnforce34 == True:
+#            write_obj.write("    LinkedSockets = 3\n")
+#        write_obj.write("    Width = 1\n")
+#        write_obj.write("    Height = 3\n")
+#        write_obj.write("    SetFontSize 40\n")
+#        write_obj.write("    SetTextColor 0 0 0 255\n")
+#        write_obj.write("    SetBackgroundColor 28 236 4 255     # BACKGROUNDCOLOR GREEN\n")
+#        write_obj.write("    PlayAlertSound 8 300\n")
+#        write_obj.write("    MinimapIcon 0 Green Triangle\n")
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 10800 Rare Rings/Amulet/Belts/Jewels\n")
         write_obj.write("##### I only want Rare Rings/Amulet/Belts/Jewels if Unique if ilvl is met\n")
@@ -728,7 +731,8 @@ def func_static_intro():
         write_obj.write("##### Maybe make this adjustable later.\n")
         write_obj.write("Show\n")
         write_obj.write("    Rarity Magic\n")
-        write_obj.write("    BaseType \"Divine Life\" \"Divine Mana\" \"Eternal Life\" \"Eternal Mana\"\n")
+        #write_obj.write("    BaseType \"Divine Life\" \"Divine Mana\" \"Eternal Life\" \"Eternal Mana\"\n")
+        write_obj.write("    BaseType \"Divine Life\" \"Eternal Life\"\n")
         write_obj.write("    SetFontSize 40\n")
         write_obj.write("    SetTextColor 0 0 0 255\n")
         write_obj.write("    SetBackgroundColor 28 236 4 215 # Green\n")
@@ -749,7 +753,6 @@ def func_static_intro():
 
 def func_frag():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -843,6 +846,81 @@ def func_curr():
         write_obj.write("################################################################################################################\n")
         write_obj.write("##### 12200 Currency\n")
         write_obj.write("#####\n")
+        write_obj.write("##### Currency Stacks\n")
+
+        for str_Current_Stack in arrStackSizes:
+            print("Stack Size "+str_Current_Stack)
+            #time.sleep(2)
+            for i in range (1,11):
+                booHIDE = False
+                if (booShowT11 == False) and (i > strOverallStrictness):
+                    print ("Hiding tier " + str(i) + ".")
+                    booHIDE = True
+                if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
+                    print ("Hiding tier " + str(i) + ".")
+                    booHIDE = True
+
+                LineToWrite = ""
+                with open(strCurrencyOther, 'r') as read_obj:
+                    # Create a csv.reader object from the input file object
+                    csv_reader = reader(read_obj)
+                    for row in csv_reader:
+                        if row[0] == "curr":
+                            #print(row)
+                            str_baseType = row[2]
+                            str_variant = row[3]
+                            str_Tier = row[11]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
+                            #print()
+                            #print(str_Current_Stack + " " + str(i) + " " + str_variant + " " + str_Tier)
+                            #print()
+                            #time.sleep(1)
+
+                            #if int(str_levelRequired) == k and int(str_Tier) == i and str_variant == strInfluence:
+                            #    print("Does ", str_variant, " match " , strInfluence, " ?")
+                            #    time.sleep(1)
+                            if int(str_Tier) == i and int(str_Count) >= int(strConfidence) and int(str_Current_Stack) == int(str_variant):
+                                LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                                #print (LineToWrite)
+                                #time.sleep(1)
+                                FontSizeToWrite = str_SetFontSize
+                                BackgroundColorToWrite = str_SetBackgroundColor
+                                AlertSoundToWrite = str_PlayAlertSound
+                                EffectToWrite = str_PlayEffect
+                                IconToWrite = str_MinimapIcon
+        
+                if LineToWrite != "":
+                    str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
+                    str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
+                    str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
+                    write_obj.write("\n")
+                    write_obj.write("##### Stack Size "+str_Current_Stack+", Tier "+str(i)+"\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
+                        write_obj.write("    DisableDropSound True\n")
+                    write_obj.write("    StackSize >= "+str_Current_Stack+"\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    if str_PlayAlertSound != "":
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                    if EffectToWrite != "":
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
+                    if IconToWrite != "" and booHIDE == False:
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+
+        write_obj.write("#####\n")
+        write_obj.write("##### Non-stacked Currency\n")
 
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
         for i in range (1,12):
@@ -909,7 +987,6 @@ def func_curr():
 
 def func_oil():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -992,7 +1069,6 @@ def func_oil():
 
 def func_heist():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1291,7 +1367,6 @@ def func_heist():
 
 def func_cluster():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1522,7 +1597,6 @@ def func_stacks():
 
 def func_other():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1680,7 +1754,6 @@ def func_other():
 
 def func_watch():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1778,7 +1851,6 @@ def func_watch():
 
 def func_deli():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1861,7 +1933,6 @@ def func_deli():
 
 def func_inv():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -1944,7 +2015,6 @@ def func_inv():
 
 def func_vial():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2027,7 +2097,6 @@ def func_vial():
 
 def func_inc():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2110,7 +2179,6 @@ def func_inc():
 
 def func_scar():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2193,7 +2261,6 @@ def func_scar():
 
 def func_foss():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2276,7 +2343,6 @@ def func_foss():
 
 def func_ess():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2359,7 +2425,6 @@ def func_ess():
 
 def func_div():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2442,7 +2507,6 @@ def func_div():
 
 def func_prop():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2537,7 +2601,6 @@ def func_prop():
 
 def func_beast():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2619,7 +2682,6 @@ def func_beast():
 
 def func_replica_umap():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2702,7 +2764,6 @@ def func_replica_umap():
 
 def func_replica_ujew():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2785,7 +2846,6 @@ def func_replica_ujew():
 
 def func_replica_ufla():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2868,7 +2928,6 @@ def func_replica_ufla():
 
 def func_replica_uacc():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -2951,7 +3010,6 @@ def func_replica_uacc():
 
 def func_normal_maps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3050,7 +3108,6 @@ def func_normal_maps():
 
 def func_blight_maps_2():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3149,7 +3206,6 @@ def func_blight_maps_2():
 
 def func_influenced_maps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3184,7 +3240,6 @@ def func_influenced_maps():
 
 def func_blight_maps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3274,7 +3329,6 @@ def func_blight_maps():
 
 def func_ubermaps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3358,7 +3412,6 @@ def func_ubermaps():
 
 def func_scourgemaps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3442,7 +3495,6 @@ def func_scourgemaps():
 
 def func_umaps():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3532,7 +3584,6 @@ def func_umaps():
 
 def func_ujew():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3614,7 +3665,6 @@ def func_ujew():
 
 def func_ufla():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3696,7 +3746,6 @@ def func_ufla():
 
 def func_uacc():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3778,7 +3827,6 @@ def func_uacc():
 
 def func_ench():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -3861,7 +3909,6 @@ def func_ench():
 
 def func_normal_gems():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -4770,7 +4817,7 @@ def func_normal_gems():
                         write_obj.write("Hide\n")
                         write_obj.write("    DisableDropSound True\n")
                     write_obj.write("    Class Gems\n")
-                    write_obj.write("    Corrupted True\n")
+                    write_obj.write("    Corrupted True # See how many Vaal gems we see. If too many add quality restriction later.\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
                     write_obj.write("    GemLevel >= 1\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
@@ -5012,6 +5059,10 @@ def func_normal_gems():
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
                     write_obj.write("    GemLevel >= 6\n")
+                    if strGemQual == "20" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 20 # We should only see this for Tiers 7 and worse\n")
+                    if strGemQual == "10" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 10 # We should only see this for Tiers 7 and worse\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
                     write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                     write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -5071,6 +5122,10 @@ def func_normal_gems():
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
                     write_obj.write("    GemLevel >= 3\n")
+                    if strGemQual == "20" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 20 # We should only see this for Tiers 7 and worse\n")
+                    if strGemQual == "10" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 10 # We should only see this for Tiers 7 and worse\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
                     write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                     write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -5130,6 +5185,10 @@ def func_normal_gems():
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
                     write_obj.write("    GemLevel >= 2\n")
+                    if strGemQual == "20" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 20 # We should only see this for Tiers 7 and worse\n")
+                    if strGemQual == "10" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 10 # We should only see this for Tiers 7 and worse\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
                     write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                     write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -5189,6 +5248,10 @@ def func_normal_gems():
                     write_obj.write("    Corrupted False\n")
                     write_obj.write("    GemQualityType Superior\n") # "Superior" means normal.
                     write_obj.write("    GemLevel >= 1\n")
+                    if strGemQual == "20" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 20 # We should only see this for Tiers 7 and worse\n")
+                    if strGemQual == "10" and int(str_Tier) >= 7:
+                        write_obj.write("    Quality >= 10 # We should only see this for Tiers 7 and worse\n")
                     write_obj.write("    BaseType =="+LineToWrite+"\n")
                     write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
                     write_obj.write("    SetTextColor 0 0 0 255\n")
@@ -5212,11 +5275,21 @@ def func_normal_gems():
         write_obj.write("    PlayAlertSound 9 1\n")
         write_obj.write("    PlayEffect None\n")
 
+        if strGemQual != "0":
+            write_obj.write("\n")
+            write_obj.write("Hide # We still want to color these so as not to confuse with Vaals if we hit Alt\n")
+            write_obj.write("    Class Gems\n")
+            write_obj.write("    GemLevel < "+strGemQual+"\n")
+            write_obj.write("    SetFontSize 36\n")
+            write_obj.write("    SetTextColor 0 0 0 255\n")
+            write_obj.write("    SetBackgroundColor 255 255 0 215 # Yellow\n")
+            write_obj.write("    PlayAlertSound 9 1\n")
+            write_obj.write("    PlayEffect None\n")
+
     print ("Normal Gems section complete.")
 
 def func_divergent_gems():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -6558,7 +6631,6 @@ def func_divergent_gems():
 
 def func_anomalous_gems():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -7900,7 +7972,6 @@ def func_anomalous_gems():
 
 def func_phantasmal_gems():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9244,7 +9315,6 @@ def func_phantasmal_gems():
 
 def func_uweap_6():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9326,7 +9396,6 @@ def func_uweap_6():
 
 def func_uweap_5():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9408,7 +9477,6 @@ def func_uweap_5():
 
 def func_repweap_0():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9491,7 +9559,6 @@ def func_repweap_0():
 
 def func_uweap_0():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9574,7 +9641,6 @@ def func_uweap_0():
 
 def func_uarm_6():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9656,7 +9722,6 @@ def func_uarm_6():
 
 def func_uarm_5():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9739,7 +9804,6 @@ def func_uarm_5():
 
 def func_reparm_0():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9823,7 +9887,6 @@ def func_reparm_0():
 
 def func_uarm_0():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9907,7 +9970,6 @@ def func_uarm_0():
 
 def func_influenced():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -9921,7 +9983,7 @@ def func_influenced():
 
         # Create section
         write_obj.write("################################################################################################################\n")
-        write_obj.write("##### Influenced items\n")
+        write_obj.write("##### 14350 Influenced items\n")
         write_obj.write("#####\n")
 
         print ("Strictness filter is " + str(strOverallStrictness) + " and booShowT11 is " + str(booShowT11))
@@ -9937,6 +9999,9 @@ def func_influenced():
                     if (booShowT11 == True) and (i < 11) and (i > int(strOverallStrictness)):
                         print ("Hiding tier " + str(i) + ".")
                         booHIDE = True
+                    if (booHIDE == True) and (strExaltRec == True):
+                        print ("strExaltRec == True.  We will show the items and give them a mnimap icon even if they would otherwise normally be hidden.")
+                        booHIDE = False
 
                     LineToWrite = ""
                     with open(strCSVin, 'r') as read_obj:
@@ -10005,6 +10070,8 @@ def func_influenced():
                             write_obj.write("    PlayEffect "+EffectToWrite+"\n")
                         if IconToWrite != "" and booHIDE == False:
                             write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+                        if IconToWrite == "" and strExaltRec == True:
+                            write_obj.write("    MinimapIcon 2 Red Raindrop\n")
 
         write_obj.write("\n")
         write_obj.write("Show    # This will catch any influenced items not spelled out above.\n")
@@ -10020,8 +10087,7 @@ def func_influenced():
 
 def func_non_influenced():
     global strOverallStrictness
-    global strRareStrictness
-    global strRareCutoff
+    global strBaseStrictness
     global booShowT11
     global strGrayCutoff
     global booShowNM6S
@@ -10038,85 +10104,83 @@ def func_non_influenced():
         write_obj.write("##### 14400 Non-influenced bases\n")
         write_obj.write("#####\n")
 
-        print ("Overall strictness filter is " + str(strOverallStrictness) + ", Rare strictness is " + str(strRareStrictness) + ", and booShowT11 is " + str(booShowT11))
+        print ("Overall strictness filter is " + str(strOverallStrictness) + ", Rare strictness is " + str(strBaseStrictness) + ", and booShowT11 is " + str(booShowT11))
         for k in range (86, 81, -1):
             LineToWrite = ""
 
-            if k >= int(strRareCutoff):
-                print("Item level "+str(k))
-                for i in range (1,12):
+            print("Item level "+str(k))
+            for i in range (1,12):
+                booHIDE = False
+                if (i > strOverallStrictness) or (i > strBaseStrictness):
+                    booHIDE = True
+                if (booShowT11 == True) and (i == 11):
                     booHIDE = False
-                    if (i > strOverallStrictness) or (i > strRareStrictness):
-                        booHIDE = True
-                    if (booShowT11 == True) and (i == 11):
-                        booHIDE = False
-                
-                    LineToWrite = ""
-                    with open(strCSVin, 'r') as read_obj:
-                        # Create a csv.reader object from the input file object
-                        csv_reader = reader(read_obj)
-                        for row in csv_reader:
-                            if row[0] == "base":
-                                #print(row)
-                                str_category = row[0]
-                                str_baseType = row[2]
-                                str_variant = row[3]
-                                str_levelRequired = row[4]
-                                str_links = row[5]
-                                if row[12] != "":
-                                    str_Tier = row[12]
-                                else:
-                                    str_Tier = row[11]
-                                str_Count = row[13]
-                                str_SetFontSize = row[14]
-                                str_PlayAlertSound = row[15]
-                                str_SetBackgroundColor = row[16]
-                                str_PlayEffect = row[17]
-                                str_MinimapIcon = row[18]
-                                #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
-                                #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
-                                #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
-                
-                                if int(str_levelRequired) == k and int(str_Count) >= int(strConfidence) and int(str_Tier) == i and str_variant == "":
-                                    LineToWrite = LineToWrite + ' "' + str_baseType + '"'
-                                    FontSizeToWrite = str_SetFontSize
-                                    BackgroundColorToWrite = str_SetBackgroundColor
-                                    AlertSoundToWrite = str_PlayAlertSound
-                                    EffectToWrite = str_PlayEffect
-                                    IconToWrite = str_MinimapIcon
-                
-                    if LineToWrite != "":
-                        str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
-                        str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
-                        str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
-                        write_obj.write("\n")
-                        write_obj.write("##### Item level "+str(k)+", Tier "+str(i)+"\n")
-                        if booHIDE == False:
-                            print("Showing Tier "+str(i))
-                            write_obj.write("Show\n")
-                        if booHIDE == True:
-                            print("Hiding Tier "+str(i))
-                            write_obj.write("Hide\n")
-                            write_obj.write("    DisableDropSound True\n")
-# Testing removing this now that I have the confidence thing set
-#                        write_obj.write("    Rarity Rare\n")
-                        write_obj.write("    ItemLevel >= "+str(k)+"\n")
-                        write_obj.write("    BaseType =="+LineToWrite+"\n")
-                        write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
-                        write_obj.write("    SetTextColor 0 0 0 255\n")
-                        write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
-                        if str_PlayAlertSound != "":
-                            write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
-                        if EffectToWrite != "":
-                            write_obj.write("    PlayEffect "+EffectToWrite+"\n")
-                        if IconToWrite != "" and booHIDE == False:
-                            write_obj.write("    MinimapIcon "+IconToWrite+"\n")
+            
+                LineToWrite = ""
+                with open(strCSVin, 'r') as read_obj:
+                    # Create a csv.reader object from the input file object
+                    csv_reader = reader(read_obj)
+                    for row in csv_reader:
+                        if row[0] == "base":
+                            #print(row)
+                            str_category = row[0]
+                            str_baseType = row[2]
+                            str_variant = row[3]
+                            str_levelRequired = row[4]
+                            str_links = row[5]
+                            if row[12] != "":
+                                str_Tier = row[12]
+                            else:
+                                str_Tier = row[11]
+                            str_Count = row[13]
+                            str_SetFontSize = row[14]
+                            str_PlayAlertSound = row[15]
+                            str_SetBackgroundColor = row[16]
+                            str_PlayEffect = row[17]
+                            str_MinimapIcon = row[18]
+                            #print(str(k)+" "+str_levelRequired+" "+str(i)+" "+str_Tier)
+                            #write_obj.write("##### Item level "+str(k)+", Influence "+strInfluence+", Tier "+str(i)+"\n")
+                            #write_obj.write(str_baseType+" "+str_chaosEquivalent+" "+str_Tier+"\n")
+            
+                            if int(str_levelRequired) == k and int(str_Count) >= int(strConfidence) and int(str_Tier) == i and str_variant == "":
+                                LineToWrite = LineToWrite + ' "' + str_baseType + '"'
+                                FontSizeToWrite = str_SetFontSize
+                                BackgroundColorToWrite = str_SetBackgroundColor
+                                AlertSoundToWrite = str_PlayAlertSound
+                                EffectToWrite = str_PlayEffect
+                                IconToWrite = str_MinimapIcon
+            
+                if LineToWrite != "":
+                    str_SetBackgroundColor = ChangeColors (BackgroundColorToWrite)
+                    str_PlayAlertSound = AlertSoundToWrite.replace("'", "")
+                    str_PlayAlertSound = str_PlayAlertSound.replace("-", " ")
+                    write_obj.write("\n")
+                    write_obj.write("##### Item level "+str(k)+", Tier "+str(i)+"\n")
+                    if booHIDE == False:
+                        print("Showing Tier "+str(i))
+                        write_obj.write("Show\n")
+                    if booHIDE == True:
+                        print("Hiding Tier "+str(i))
+                        write_obj.write("Hide\n")
+                        write_obj.write("    DisableDropSound True\n")
+# Testing this now that I have confidence values
+#                    write_obj.write("    Rarity Rare\n")
+                    write_obj.write("    ItemLevel >= "+str(k)+"\n")
+                    write_obj.write("    BaseType =="+LineToWrite+"\n")
+                    write_obj.write("    SetFontSize "+FontSizeToWrite+"\n")
+                    write_obj.write("    SetTextColor 0 0 0 255\n")
+                    write_obj.write("    SetBackgroundColor "+str_SetBackgroundColor+"\n")
+                    if str_PlayAlertSound != "":
+                        write_obj.write("    PlayAlertSound "+str_PlayAlertSound+"\n")
+                    if EffectToWrite != "":
+                        write_obj.write("    PlayEffect "+EffectToWrite+"\n")
+                    if IconToWrite != "" and booHIDE == False:
+                        write_obj.write("    MinimapIcon "+IconToWrite+"\n")
 
     print ("Non-influenced bases section complete.")
 
 def func_hide_norm():
     global strOverallStrictness
-    global strRareCutoff
     global booShowT11
     global strGrayCutoff
     global booShowNM6S

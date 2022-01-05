@@ -296,5 +296,80 @@ with open(strCSVin, 'r') as read_obj, \
             #    print (output_row)
             #    time.sleep(10)
 
+strCurrencyin = os.path.join(sys.path[0], "00_currency_stacks.csv")
+strCurrencyout = os.path.join(sys.path[0], "00_currency_assigned.csv")
+print("Starting to assign colors to 00_currency_stacks.csv")
+
+# Open the input_file in read mode and output_file in write mode
+with open(strCurrencyin, 'r') as read_obj, \
+    open(strCurrencyout, 'w', newline='') as write_obj:
+
+    # Create a csv.reader object from the input file object
+    csv_reader = reader(read_obj)
+    # Create a csv.writer object from the output file object
+    csv_writer = writer(write_obj)
+    # Read each row of the input csv file as list
+
+    for row in csv_reader:
+        print (row)
+        #print ()
+        if row[0] == "curr":
+            str_Category = row[0]
+            str_name = row[1]
+            str_baseType = row[2]
+            str_variant = row[3]
+            str_levelRequired = row[4]
+            str_links = row[5]
+            str_corrupted = row[6]
+            str_mapTier = row[7]
+            str_gemLevel = row[8]
+            str_gemQuality = row[9]
+            str_chaosEquivalent = row[10]
+            str_Tier = int(row[11])
+            if row[12] != "":
+                str_Override = int(row[12])
+            else:
+                str_Override = ""
+            str_Count = row[13]
+
+            # Assign Color, Icon, size, and color - based on strTier
+            # return str_SetFontSize, str_PlayAlertSound, SetBackgroundColor, PlayEffect
+            tempColor = assign_color(str_Tier)
+            str_SetFontSize = tempColor[0]
+            str_PlayAlertSound = tempColor[1]
+            str_SetBackgroundColor = tempColor[2]
+            str_PlayEffect = tempColor[3]
+            str_MinimapIcon = assign_icon(str_Category, str_variant, str_Tier)
+            str_MinimapIcon = assign_s_n_c(str_Tier)
+
+            # Create output row
+            output_row = [str_Category]
+            output_row.append(str_name)
+            output_row.append(str_baseType)
+            output_row.append(str_variant)
+            output_row.append(str_levelRequired)
+            output_row.append(str_links)
+            output_row.append(str_corrupted)
+            output_row.append(str_mapTier)
+            output_row.append(str_gemLevel)
+            output_row.append(str_gemQuality)
+            output_row.append(str_chaosEquivalent)
+            output_row.append(str_Tier)
+            output_row.append(str_Override)
+            output_row.append(str_Count)
+            output_row.append(str_SetFontSize)
+            output_row.append(str_PlayAlertSound)
+            output_row.append(str_SetBackgroundColor)
+            output_row.append(str_PlayEffect)
+            output_row.append(str_MinimapIcon)
+    
+            # Add the updated row / list to the output file
+            #print(output_row)
+            csv_writer.writerow(output_row)
+ 
+            #if str_name == "Regal Shard":
+            #    print (output_row)
+            #    time.sleep(10)
+
 print('Done!')
 

@@ -7,6 +7,7 @@ import sys
 task0 = __import__('005-get-leagues')
 task1 = __import__('015-ninja')
 task2 = __import__('020-fix-shit')
+task2 = __import__('022-currency-stacks')
 task3 = __import__('025-remove-dups')
 #task4 = __import__('a024-dupcheck-uarm')
 #task5 = __import__('a026-
