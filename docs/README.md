@@ -1,5 +1,13 @@
 # Fla_Panther's Super Simple Loot Filter
 
+## This tool is on hiatus.
+
+Unfortunately poe.ninja doesn't work the way I thought it did.
+- They do not keep a database of all items, they only gather data from items if they're listed on the trade site.  If an item is not on the trade site there is no baseline, it will simply not exist in the filter.  So I'll need to create a baseline and incorporate it into the tool.
+- I'd thought base really meant base, but it does not.  Their pricing mechanism for non-special bases includes all Normal/Magic/Rares of that base, which throws off the pricing for the items.  Rare items with good mods skew the items high, so we cannot assume that Normal/Magic items will fetch that price.
+
+Unfortunately my father's cancer has also returned, and I have other personal matters that are more pressing.  So I have to set this aside for now.  I'll try to work on it a bit here and there but I'll probably not be ready in time for league start, and if I play at all it'll probably only be to test a few things.  I can't give PoE much time right now.
+
 #### Current Features:
 
 - Creates filters based on pricing from poe.ninja (now includes confidence!)
