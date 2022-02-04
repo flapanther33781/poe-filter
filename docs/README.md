@@ -1,6 +1,6 @@
 # Fla_Panther's Super Simple Loot Filter
 
-## This tool is on hiatus.
+## This tool is on hiatus. I have created some manually-curated filters and placed them in a folder marked 3.17-3
 
 Unfortunately poe.ninja doesn't work the way I thought it did.
 - They do not keep a database of all items, they only gather data from items if they're listed on the trade site.  If an item is not on the trade site there is no baseline, it will simply not exist in the filter.  So I'll need to create a baseline and incorporate it into the tool.
@@ -8,7 +8,6 @@ Unfortunately poe.ninja doesn't work the way I thought it did.
 - Having used this filter for a league or two now I've learned of what I call the 1c/5c wastelands (which I describe in the FAQ below).  Because of these a good filter needs to be manually curated more than I thought.  That's not impossible, but it's depressing because that defeats the purpose of having a tool to automate filter building.  I may be able to create a mechanism that allows an item's price to rise in the filter if and only if poe.ninja shows the item as being higher than 1c or something, but I will need to code that and test it.
 
 Unfortunately my father's cancer has also returned, and I have other personal matters that are more pressing.  So I have to set this aside for now.  I'll try to work on it a bit here and there but I'll probably not be ready in time for league start, and if I play at all it'll probably only be to test a few things.  I can't give PoE much time right now.
-### That said, I have created some manually-curated filters and placed them in a folder marked 3.17-3
 
 #### Current Features:
 
