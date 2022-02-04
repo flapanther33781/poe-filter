@@ -1,6 +1,6 @@
 # Fla_Panther's Super Simple Loot Filter
 
-## This tool is on hiatus. I have created some manually-curated filters and placed them in a folder marked 3.17-3
+## This tool is on hiatus. I have created some manually-curated filters and placed them in a folder marked 3.17-3 for league start.
 
 Unfortunately poe.ninja doesn't work the way I thought it did.
 - They do not keep a database of all items, they only gather data from items if they're listed on the trade site.  If an item is not on the trade site there is no baseline, it will simply not exist in the filter.  So I'll need to create a baseline and incorporate it into the tool.
