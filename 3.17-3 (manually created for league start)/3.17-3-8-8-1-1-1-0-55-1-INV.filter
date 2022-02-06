@@ -1,5 +1,5 @@
 #===============================================================================================================
-##### Super Simple Loot Filter for League: 3.17 Siege of the Atlas - updated: 2022-02-04
+##### Super Simple Loot Filter for League: Archnemesis - updated: 2022-02-04
 #####
 ##### Settings:
 ##### strOverallStrictness: 8
@@ -838,17 +838,7 @@ Show
     SetTextColor 255 255 0 215 # Yellow
     PlayAlertSound 9 1
     PlayEffect None
-#### Tier 8
 
-Show
-    Class Currency
-    StackSize >= 20
-    BaseType "Greater Broken Circle Artifact" "Greater Order Artifact" "Common Broken Circle Artifact" "Lesser Black Scythe Artifact" "Common Sun Artifact" "Lesser Sun Artifact" "Common Order Artifact" "Lesser Order Artifact" "Lesser Broken Circle Artifact" "Greater Black Scythe Artifact" "Common Black Scythe Artifact"
-    SetFontSize 36
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 244 92 36 230 # Orange
-    PlayAlertSound 9 1
-    PlayEffect None
 #### Tier 1
 
 Show
@@ -894,17 +884,6 @@ Show
     SetFontSize 36
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
-    PlayAlertSound 9 1
-    PlayEffect None
-#### Tier 8
-
-Show
-    Class Currency
-    StackSize >= 10
-    BaseType "Greater Broken Circle Artifact" "Greater Order Artifact" "Common Broken Circle Artifact" "Lesser Black Scythe Artifact" "Common Sun Artifact" "Lesser Sun Artifact" "Common Order Artifact" "Lesser Order Artifact" "Lesser Broken Circle Artifact" "Greater Black Scythe Artifact" "Common Black Scythe Artifact"
-    SetFontSize 36
-    SetBackgroundColor 0 0 0 255
-    SetTextColor 244 92 36 230 # Orange
     PlayAlertSound 9 1
     PlayEffect None
 
@@ -959,7 +938,7 @@ Show
 ##### Stack Size 50, Tier 6
 Show
     StackSize >= 50
-    BaseType == "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom"
+    BaseType == "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom" "Portal Scroll"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 28 236 4 215 # Green
@@ -981,7 +960,7 @@ Show
 ##### Stack Size 30, Tier 7
 Show
     StackSize >= 30
-    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
+    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Armourer's Scrap" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -1013,7 +992,7 @@ Show
 ##### Stack Size 20, Tier 8
 Show
     StackSize >= 20
-    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
+    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Armourer's Scrap" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 244 92 36 230 # Orange
@@ -1056,7 +1035,7 @@ Show
 ##### Stack Size 10, Tier 7
 Show
     StackSize >= 10
-    BaseType == "Tempering Catalyst" "Tainted Jeweller's Orb" "Orb of Regret" "Instilling Orb" "Vaal Orb" "Enkindling Orb" "Orb of Scouring" "Orb of Fusing" "Annulment Shard" "Orb of Horizons" "Orb of Alteration" "Noxious Catalyst" "Chromatic Orb" "Turbulent Catalyst" "Abrasive Catalyst" "Regal Orb" "Intrinsic Catalyst" "Blessed Orb" "Imbued Catalyst" "Glassblower's Bauble" "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom" "Ancient Shard" "Ritual Splinter" "Harbinger's Shard" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Simulacrum Splinter" "Splinter of Uul-Netol" "Timeless Karui Splinter" "Splinter of Esh" "Timeless Vaal Splinter" "Timeless Eternal Empire Splinter" "Splinter of Xoph" "Splinter of Tul"
+    BaseType == "Tempering Catalyst" "Tainted Jeweller's Orb" "Orb of Regret" "Instilling Orb" "Vaal Orb" "Enkindling Orb" "Orb of Scouring" "Orb of Fusing" "Annulment Shard" "Orb of Horizons" "Orb of Alteration" "Noxious Catalyst" "Chromatic Orb" "Turbulent Catalyst" "Abrasive Catalyst" "Regal Orb" "Intrinsic Catalyst" "Blessed Orb" "Imbued Catalyst" "Glassblower's Bauble" "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom" "Portal Scroll" "Ancient Shard" "Ritual Splinter" "Harbinger's Shard" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Simulacrum Splinter" "Splinter of Uul-Netol" "Timeless Karui Splinter" "Splinter of Esh" "Timeless Vaal Splinter" "Timeless Eternal Empire Splinter" "Splinter of Xoph" "Splinter of Tul"
     SetFontSize 42
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 0 215 # Yellow
@@ -1067,7 +1046,7 @@ Show
 Hide
     DisableDropSound True
     StackSize >= 10
-    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
+    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Armourer's Scrap" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
     SetFontSize 39
     SetBackgroundColor 0 0 0 255
     SetTextColor 200 28 28 210 # Red
@@ -1319,7 +1298,7 @@ Show
 Hide
     DisableDropSound True
     Class Currency
-    BaseType == "Glassblower's Bauble" "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom"
+    BaseType == "Glassblower's Bauble" "Jeweller's Orb" "Silver Coin" "Orb of Chance" "Cartographer's Chisel" "Scroll of Wisdom" "Portal Scroll"
     SetFontSize 39
     SetBackgroundColor 0 0 0 255
     SetTextColor 200 28 28 210 # Red
@@ -1330,7 +1309,7 @@ Hide
 Hide
     DisableDropSound True
     Class Currency
-    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
+    BaseType == "Orb of Alchemy" "Orb of Augmentation" "Orb of Binding" "Blacksmith's Whetstone" "Armourer's Scrap" "Orb of Transmutation" "Engineer's Orb" "Alteration Shard" "Chaos Shard" "Engineer's Shard" "Regal Shard" "Horizon Shard" "Alchemy Shard" "Binding Shard" "Transmutation Shard" "Greater Broken Circle Artifact"
     SetFontSize 39
     SetBackgroundColor 0 0 0 255
     SetTextColor 90 60 10 220 # Brown
@@ -1485,7 +1464,7 @@ Show
 ##### Not sure if this class includes the items above or separate items.
 ##### Adding here just to be sure.
 Show
-    Class "Atlas Region Upgrade Item" "Ceremonial Voidstone" "Decayed Voidstone" "Grasping Voidstone" "Omniscient Voidstone"
+    BaseType "Ceremonial Voidstone" "Decayed Voidstone" "Grasping Voidstone" "Omniscient Voidstone"
     SetFontSize 39
     SetBackgroundColor 0 0 0 255
     SetTextColor 25 25 255 235 # Blue
@@ -1573,7 +1552,7 @@ Hide                                    # Have to hide here or else Abyss will g
 
 ##### Tier 1
 Show
-    Class  "Fishing" "Quest"
+    Class "Fishing" "Quest" "Archnemesis Mod"
     SetFontSize 45
     SetBackgroundColor 0 0 0 255
     SetTextColor 255 255 255 255 # White
